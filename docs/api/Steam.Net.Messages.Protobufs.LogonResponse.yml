@@ -1,0 +1,1675 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Messages.Protobufs.LogonResponse
+  commentId: T:Steam.Net.Messages.Protobufs.LogonResponse
+  id: LogonResponse
+  parent: Steam.Net.Messages.Protobufs
+  children:
+  - Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+  - Steam.Net.Messages.Protobufs.LogonResponse.CellId
+  - Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+  - Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+  - Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+  - Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+  - Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+  - Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+  - Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+  - Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+  - Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+  - Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+  - Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+  - Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+  - Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject(System.Boolean)
+  - Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+  - Steam.Net.Messages.Protobufs.LogonResponse.Result
+  - Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+  - Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+  - Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+  - Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+  - Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+  - Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+  langs:
+  - csharp
+  - vb
+  name: LogonResponse
+  nameWithType: LogonResponse
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse
+  type: Class
+  source:
+    id: LogonResponse
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoContract(Name = "CMsgClientLogonResponse")]
+
+      public class LogonResponse : IExtensible
+    content.vb: >-
+      <ProtoContract(Name:="CMsgClientLogonResponse")>
+
+      Public Class LogonResponse
+
+          Implements IExtensible
+  inheritance:
+  - System.Object
+  implements:
+  - ProtoBuf.IExtensible
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: ProtoBuf.ProtoContractAttribute
+    ctor: ProtoBuf.ProtoContractAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: CMsgClientLogonResponse
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Result
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.Result
+  id: Result
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: LogonResponse.Result
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Result
+  type: Property
+  source:
+    id: Result
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(1, DataFormat = DataFormat.TwosComplement)]
+
+      public int Result { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(1, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property Result As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.Result*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+  id: OutOfGameHeartbeatSeconds
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: OutOfGameHeartbeatSeconds
+  nameWithType: LogonResponse.OutOfGameHeartbeatSeconds
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+  type: Property
+  source:
+    id: OutOfGameHeartbeatSeconds
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(2, DataFormat = DataFormat.TwosComplement)]
+
+      public int OutOfGameHeartbeatSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(2, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property OutOfGameHeartbeatSeconds As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 2
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+  id: InGameHeartbeatSeconds
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: InGameHeartbeatSeconds
+  nameWithType: LogonResponse.InGameHeartbeatSeconds
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+  type: Property
+  source:
+    id: InGameHeartbeatSeconds
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(3, DataFormat = DataFormat.TwosComplement)]
+
+      public int InGameHeartbeatSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(3, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property InGameHeartbeatSeconds As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 3
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+  id: PublicIp
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: PublicIp
+  nameWithType: LogonResponse.PublicIp
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+  type: Property
+  source:
+    id: PublicIp
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(4, DataFormat = DataFormat.TwosComplement)]
+
+      public uint PublicIp { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: >-
+      <ProtoMember(4, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property PublicIp As UInteger
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.PublicIp*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 4
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+  id: Time32ServerTime
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: Time32ServerTime
+  nameWithType: LogonResponse.Time32ServerTime
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+  type: Property
+  source:
+    id: Time32ServerTime
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(5, DataFormat = DataFormat.FixedSize)]
+
+      public uint Time32ServerTime { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: >-
+      <ProtoMember(5, DataFormat:=DataFormat.FixedSize)>
+
+      Public Property Time32ServerTime As UInteger
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 5
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 3
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+  id: AccountFlags
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: AccountFlags
+  nameWithType: LogonResponse.AccountFlags
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+  type: Property
+  source:
+    id: AccountFlags
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(6, DataFormat = DataFormat.TwosComplement)]
+
+      public uint AccountFlags { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: >-
+      <ProtoMember(6, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property AccountFlags As UInteger
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 6
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CellId
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.CellId
+  id: CellId
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: CellId
+  nameWithType: LogonResponse.CellId
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CellId
+  type: Property
+  source:
+    id: CellId
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(7, DataFormat = DataFormat.TwosComplement)]
+
+      public uint CellId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: >-
+      <ProtoMember(7, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property CellId As UInteger
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.CellId*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 7
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+  id: EmailDomain
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: EmailDomain
+  nameWithType: LogonResponse.EmailDomain
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+  type: Property
+  source:
+    id: EmailDomain
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 28
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(8)]
+
+      public string EmailDomain { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <ProtoMember(8)>
+
+      Public Property EmailDomain As String
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 8
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+  id: Steam2Ticket
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: Steam2Ticket
+  nameWithType: LogonResponse.Steam2Ticket
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+  type: Property
+  source:
+    id: Steam2Ticket
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 31
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(9)]
+
+      public byte[] Steam2Ticket { get; set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <ProtoMember(9)>
+
+      Public Property Steam2Ticket As Byte()
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 9
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+  id: ResultExtended
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: ResultExtended
+  nameWithType: LogonResponse.ResultExtended
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+  type: Property
+  source:
+    id: ResultExtended
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(10, DataFormat = DataFormat.TwosComplement)]
+
+      public int ResultExtended { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(10, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property ResultExtended As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 10
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+  id: WebApiAuthenticateUserNOnce
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: WebApiAuthenticateUserNOnce
+  nameWithType: LogonResponse.WebApiAuthenticateUserNOnce
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+  type: Property
+  source:
+    id: WebApiAuthenticateUserNOnce
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(11)]
+
+      public string WebApiAuthenticateUserNOnce { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <ProtoMember(11)>
+
+      Public Property WebApiAuthenticateUserNOnce As String
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 11
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+  id: CellIdPingThreshold
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: CellIdPingThreshold
+  nameWithType: LogonResponse.CellIdPingThreshold
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+  type: Property
+  source:
+    id: CellIdPingThreshold
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 40
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(12, DataFormat = DataFormat.TwosComplement)]
+
+      public uint CellIdPingThreshold { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: >-
+      <ProtoMember(12, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property CellIdPingThreshold As UInteger
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 12
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+  id: UsePics
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: UsePics
+  nameWithType: LogonResponse.UsePics
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+  type: Property
+  source:
+    id: UsePics
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 43
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(13)]
+
+      public bool UsePics { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <ProtoMember(13)>
+
+      Public Property UsePics As Boolean
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.UsePics*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 13
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+  id: VanityUrl
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: VanityUrl
+  nameWithType: LogonResponse.VanityUrl
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+  type: Property
+  source:
+    id: VanityUrl
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 46
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(14)]
+
+      public string VanityUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <ProtoMember(14)>
+
+      Public Property VanityUrl As String
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 14
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+  id: ClientSuppliedSteamid
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: ClientSuppliedSteamid
+  nameWithType: LogonResponse.ClientSuppliedSteamid
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+  type: Property
+  source:
+    id: ClientSuppliedSteamid
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 49
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(20, DataFormat = DataFormat.FixedSize)]
+
+      public ulong ClientSuppliedSteamid { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <ProtoMember(20, DataFormat:=DataFormat.FixedSize)>
+
+      Public Property ClientSuppliedSteamid As ULong
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 20
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 3
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+  id: IpCountryCode
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: IpCountryCode
+  nameWithType: LogonResponse.IpCountryCode
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+  type: Property
+  source:
+    id: IpCountryCode
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 52
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(21)]
+
+      public string IpCountryCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <ProtoMember(21)>
+
+      Public Property IpCountryCode As String
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 21
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+  id: ParentalSettings
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: ParentalSettings
+  nameWithType: LogonResponse.ParentalSettings
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+  type: Property
+  source:
+    id: ParentalSettings
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 55
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(22)]
+
+      public byte[] ParentalSettings { get; set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <ProtoMember(22)>
+
+      Public Property ParentalSettings As Byte()
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 22
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+  id: ParentalSettingSignature
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: ParentalSettingSignature
+  nameWithType: LogonResponse.ParentalSettingSignature
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+  type: Property
+  source:
+    id: ParentalSettingSignature
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 58
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(23)]
+
+      public byte[] ParentalSettingSignature { get; set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <ProtoMember(23)>
+
+      Public Property ParentalSettingSignature As Byte()
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 23
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+  id: CountLoginFailuresToMigrate
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: CountLoginFailuresToMigrate
+  nameWithType: LogonResponse.CountLoginFailuresToMigrate
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+  type: Property
+  source:
+    id: CountLoginFailuresToMigrate
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 61
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(24, DataFormat = DataFormat.TwosComplement)]
+
+      public int CountLoginFailuresToMigrate { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(24, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property CountLoginFailuresToMigrate As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 24
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+  id: CountDisconnectsToMigrate
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: CountDisconnectsToMigrate
+  nameWithType: LogonResponse.CountDisconnectsToMigrate
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+  type: Property
+  source:
+    id: CountDisconnectsToMigrate
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 64
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(25, DataFormat = DataFormat.TwosComplement)]
+
+      public int CountDisconnectsToMigrate { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(25, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property CountDisconnectsToMigrate As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 25
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+  id: OgsDataReportTimeWindow
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: OgsDataReportTimeWindow
+  nameWithType: LogonResponse.OgsDataReportTimeWindow
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+  type: Property
+  source:
+    id: OgsDataReportTimeWindow
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 67
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(26, DataFormat = DataFormat.TwosComplement)]
+
+      public int OgsDataReportTimeWindow { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <ProtoMember(26, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property OgsDataReportTimeWindow As Integer
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 26
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+  commentId: P:Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+  id: ClientInstanceId
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: ClientInstanceId
+  nameWithType: LogonResponse.ClientInstanceId
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+  type: Property
+  source:
+    id: ClientInstanceId
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 70
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: >-
+      [ProtoMember(27, DataFormat = DataFormat.TwosComplement)]
+
+      public ulong ClientInstanceId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <ProtoMember(27, DataFormat:=DataFormat.TwosComplement)>
+
+      Public Property ClientInstanceId As ULong
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId*
+  attributes:
+  - type: ProtoBuf.ProtoMemberAttribute
+    ctor: ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 27
+    namedArguments:
+    - name: DataFormat
+      type: ProtoBuf.DataFormat
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject(System.Boolean)
+  commentId: M:Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject(System.Boolean)
+  id: ProtoBuf#IExtensible#GetExtensionObject(System.Boolean)
+  isEii: true
+  parent: Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: IExtensible.GetExtensionObject(Boolean)
+  nameWithType: LogonResponse.IExtensible.GetExtensionObject(Boolean)
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+  type: Method
+  source:
+    id: ProtoBuf.IExtensible.GetExtensionObject
+    path: G:\Steam\src\Network\Steam.Net\Messages\Protobufs\LogonResponse.cs
+    startLine: 74
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Messages.Protobufs
+  syntax:
+    content: IExtension IExtensible.GetExtensionObject(bool createIfMissing)
+    parameters:
+    - id: createIfMissing
+      type: System.Boolean
+    return:
+      type: ProtoBuf.IExtension
+    content.vb: Function ProtoBuf.IExtensible.GetExtensionObject(createIfMissing As Boolean) As IExtension Implements IExtensible.GetExtensionObject
+  overload: Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject*
+  implements:
+  - ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+  nameWithType.vb: LogonResponse.ProtoBuf.IExtensible.GetExtensionObject(Boolean)
+  name.vb: ProtoBuf.IExtensible.GetExtensionObject(Boolean)
+references:
+- uid: Steam.Net.Messages.Protobufs
+  commentId: N:Steam.Net.Messages.Protobufs
+  isExternal: false
+  name: Steam.Net.Messages.Protobufs
+  nameWithType: Steam.Net.Messages.Protobufs
+  fullName: Steam.Net.Messages.Protobufs
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: ProtoBuf.IExtensible
+  commentId: T:ProtoBuf.IExtensible
+  parent: ProtoBuf
+  isExternal: true
+  name: IExtensible
+  nameWithType: IExtensible
+  fullName: ProtoBuf.IExtensible
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ProtoBuf
+  commentId: N:ProtoBuf
+  isExternal: false
+  name: ProtoBuf
+  nameWithType: ProtoBuf
+  fullName: ProtoBuf
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Result*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.Result
+  isExternal: false
+  name: Result
+  nameWithType: LogonResponse.Result
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Result
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+  isExternal: false
+  name: OutOfGameHeartbeatSeconds
+  nameWithType: LogonResponse.OutOfGameHeartbeatSeconds
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.OutOfGameHeartbeatSeconds
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+  isExternal: false
+  name: InGameHeartbeatSeconds
+  nameWithType: LogonResponse.InGameHeartbeatSeconds
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.InGameHeartbeatSeconds
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.PublicIp*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+  isExternal: false
+  name: PublicIp
+  nameWithType: LogonResponse.PublicIp
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.PublicIp
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+  isExternal: false
+  name: Time32ServerTime
+  nameWithType: LogonResponse.Time32ServerTime
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Time32ServerTime
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+  isExternal: false
+  name: AccountFlags
+  nameWithType: LogonResponse.AccountFlags
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.AccountFlags
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CellId*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.CellId
+  isExternal: false
+  name: CellId
+  nameWithType: LogonResponse.CellId
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CellId
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+  isExternal: false
+  name: EmailDomain
+  nameWithType: LogonResponse.EmailDomain
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.EmailDomain
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+  isExternal: false
+  name: Steam2Ticket
+  nameWithType: LogonResponse.Steam2Ticket
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.Steam2Ticket
+- uid: System.Byte[]
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+  isExternal: false
+  name: ResultExtended
+  nameWithType: LogonResponse.ResultExtended
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ResultExtended
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+  isExternal: false
+  name: WebApiAuthenticateUserNOnce
+  nameWithType: LogonResponse.WebApiAuthenticateUserNOnce
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.WebApiAuthenticateUserNOnce
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+  isExternal: false
+  name: CellIdPingThreshold
+  nameWithType: LogonResponse.CellIdPingThreshold
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CellIdPingThreshold
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.UsePics*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+  isExternal: false
+  name: UsePics
+  nameWithType: LogonResponse.UsePics
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.UsePics
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+  isExternal: false
+  name: VanityUrl
+  nameWithType: LogonResponse.VanityUrl
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.VanityUrl
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+  isExternal: false
+  name: ClientSuppliedSteamid
+  nameWithType: LogonResponse.ClientSuppliedSteamid
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ClientSuppliedSteamid
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+  isExternal: false
+  name: IpCountryCode
+  nameWithType: LogonResponse.IpCountryCode
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.IpCountryCode
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+  isExternal: false
+  name: ParentalSettings
+  nameWithType: LogonResponse.ParentalSettings
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettings
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+  isExternal: false
+  name: ParentalSettingSignature
+  nameWithType: LogonResponse.ParentalSettingSignature
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ParentalSettingSignature
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+  isExternal: false
+  name: CountLoginFailuresToMigrate
+  nameWithType: LogonResponse.CountLoginFailuresToMigrate
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CountLoginFailuresToMigrate
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+  isExternal: false
+  name: CountDisconnectsToMigrate
+  nameWithType: LogonResponse.CountDisconnectsToMigrate
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.CountDisconnectsToMigrate
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+  isExternal: false
+  name: OgsDataReportTimeWindow
+  nameWithType: LogonResponse.OgsDataReportTimeWindow
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.OgsDataReportTimeWindow
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+  isExternal: false
+  name: ClientInstanceId
+  nameWithType: LogonResponse.ClientInstanceId
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ClientInstanceId
+- uid: Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject*
+  commentId: Overload:Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf#IExtensible#GetExtensionObject
+  isExternal: false
+  name: IExtensible.GetExtensionObject
+  nameWithType: LogonResponse.IExtensible.GetExtensionObject
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse.ProtoBuf.IExtensible.GetExtensionObject
+  nameWithType.vb: LogonResponse.ProtoBuf.IExtensible.GetExtensionObject
+  name.vb: ProtoBuf.IExtensible.GetExtensionObject
+- uid: ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+  commentId: M:ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+  parent: ProtoBuf.IExtensible
+  isExternal: true
+  name: GetExtensionObject(Boolean)
+  nameWithType: IExtensible.GetExtensionObject(Boolean)
+  fullName: ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+  spec.csharp:
+  - uid: ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+    name: GetExtensionObject
+    nameWithType: IExtensible.GetExtensionObject
+    fullName: ProtoBuf.IExtensible.GetExtensionObject
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)
+    name: GetExtensionObject
+    nameWithType: IExtensible.GetExtensionObject
+    fullName: ProtoBuf.IExtensible.GetExtensionObject
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ProtoBuf.IExtension
+  commentId: T:ProtoBuf.IExtension
+  parent: ProtoBuf
+  isExternal: true
+  name: IExtension
+  nameWithType: IExtension
+  fullName: ProtoBuf.IExtension

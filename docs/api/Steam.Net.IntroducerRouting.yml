@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.IntroducerRouting
+  commentId: T:Steam.Net.IntroducerRouting
+  id: IntroducerRouting
+  parent: Steam.Net
+  children:
+  - Steam.Net.IntroducerRouting.P2PNetworking
+  - Steam.Net.IntroducerRouting.P2PVoiceChat
+  langs:
+  - csharp
+  - vb
+  name: IntroducerRouting
+  nameWithType: IntroducerRouting
+  fullName: Steam.Net.IntroducerRouting
+  type: Enum
+  source:
+    id: IntroducerRouting
+    path: G:\Steam\src\Network\Steam.Net\IntroducerRouting.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum IntroducerRouting
+    content.vb: Public Enum IntroducerRouting
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.IntroducerRouting.P2PVoiceChat
+  commentId: F:Steam.Net.IntroducerRouting.P2PVoiceChat
+  id: P2PVoiceChat
+  parent: Steam.Net.IntroducerRouting
+  langs:
+  - csharp
+  - vb
+  name: P2PVoiceChat
+  nameWithType: IntroducerRouting.P2PVoiceChat
+  fullName: Steam.Net.IntroducerRouting.P2PVoiceChat
+  type: Field
+  source:
+    id: P2PVoiceChat
+    path: G:\Steam\src\Network\Steam.Net\IntroducerRouting.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: P2PVoiceChat = 1
+    return:
+      type: Steam.Net.IntroducerRouting
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.IntroducerRouting.P2PNetworking
+  commentId: F:Steam.Net.IntroducerRouting.P2PNetworking
+  id: P2PNetworking
+  parent: Steam.Net.IntroducerRouting
+  langs:
+  - csharp
+  - vb
+  name: P2PNetworking
+  nameWithType: IntroducerRouting.P2PNetworking
+  fullName: Steam.Net.IntroducerRouting.P2PNetworking
+  type: Field
+  source:
+    id: P2PNetworking
+    path: G:\Steam\src\Network\Steam.Net\IntroducerRouting.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: P2PNetworking = 2
+    return:
+      type: Steam.Net.IntroducerRouting
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.IntroducerRouting
+  commentId: T:Steam.Net.IntroducerRouting
+  parent: Steam.Net
+  isExternal: false
+  name: IntroducerRouting
+  nameWithType: IntroducerRouting
+  fullName: Steam.Net.IntroducerRouting

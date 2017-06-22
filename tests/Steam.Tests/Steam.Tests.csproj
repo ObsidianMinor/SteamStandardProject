@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>    
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Common\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\..\src\Common\Steam.KeyValues\Steam.KeyValues.csproj" />
+    <ProjectReference Include="..\..\src\Common\Steam.Rest\Steam.Rest.csproj" />
+    <ProjectReference Include="..\..\src\Local\Steam.Local\Steam.Local.csproj" />
+    <ProjectReference Include="..\..\src\Network\Steam.Net\Steam.Net.csproj" />
+    <ProjectReference Include="..\..\src\Web\Steam.Authenticator\Steam.Authenticator.csproj" />
+    <ProjectReference Include="..\..\src\Web\Steam.Web\Steam.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\KeyValues\" />
+    <Folder Include="Local\" />
+    <Folder Include="Network\" />
+    <Folder Include="Web\" />
+  </ItemGroup>
+
+</Project>

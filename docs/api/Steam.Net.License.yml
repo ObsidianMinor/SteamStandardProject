@@ -1,0 +1,843 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.License
+  commentId: T:Steam.Net.License
+  id: License
+  parent: Steam.Net
+  children:
+  - Steam.Net.License.Flags
+  - Steam.Net.License.LastChangeNumber
+  - Steam.Net.License.PackageId
+  - Steam.Net.License.PaymentMethod
+  - Steam.Net.License.PurchaseCountry
+  - Steam.Net.License.TerritoryCode
+  - Steam.Net.License.TimeCreated
+  - Steam.Net.License.TimeLimit
+  - Steam.Net.License.TimeNextProcess
+  - Steam.Net.License.TimeUsed
+  - Steam.Net.License.Type
+  langs:
+  - csharp
+  - vb
+  name: License
+  nameWithType: License
+  fullName: Steam.Net.License
+  type: Class
+  source:
+    id: License
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nRepresents a license on Steam\n"
+  example: []
+  syntax:
+    content: public class License
+    content.vb: Public Class License
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.License.PackageId
+  commentId: P:Steam.Net.License.PackageId
+  id: PackageId
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: PackageId
+  nameWithType: License.PackageId
+  fullName: Steam.Net.License.PackageId
+  type: Property
+  source:
+    id: PackageId
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the package Id this license applies to\n"
+  example: []
+  syntax:
+    content: public uint PackageId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property PackageId As UInteger
+  overload: Steam.Net.License.PackageId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.LastChangeNumber
+  commentId: P:Steam.Net.License.LastChangeNumber
+  id: LastChangeNumber
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: LastChangeNumber
+  nameWithType: License.LastChangeNumber
+  fullName: Steam.Net.License.LastChangeNumber
+  type: Property
+  source:
+    id: LastChangeNumber
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the last change number this license was in\n"
+  example: []
+  syntax:
+    content: public int LastChangeNumber { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LastChangeNumber As Integer
+  overload: Steam.Net.License.LastChangeNumber*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.TimeCreated
+  commentId: P:Steam.Net.License.TimeCreated
+  id: TimeCreated
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: TimeCreated
+  nameWithType: License.TimeCreated
+  fullName: Steam.Net.License.TimeCreated
+  type: Property
+  source:
+    id: TimeCreated
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 21
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the time this license was created\n"
+  example: []
+  syntax:
+    content: public DateTimeOffset TimeCreated { get; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public ReadOnly Property TimeCreated As DateTimeOffset
+  overload: Steam.Net.License.TimeCreated*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.TimeNextProcess
+  commentId: P:Steam.Net.License.TimeNextProcess
+  id: TimeNextProcess
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: TimeNextProcess
+  nameWithType: License.TimeNextProcess
+  fullName: Steam.Net.License.TimeNextProcess
+  type: Property
+  source:
+    id: TimeNextProcess
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the next time the license will be processed\n"
+  example: []
+  syntax:
+    content: public DateTimeOffset TimeNextProcess { get; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public ReadOnly Property TimeNextProcess As DateTimeOffset
+  overload: Steam.Net.License.TimeNextProcess*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.TimeLimit
+  commentId: P:Steam.Net.License.TimeLimit
+  id: TimeLimit
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: TimeLimit
+  nameWithType: License.TimeLimit
+  fullName: Steam.Net.License.TimeLimit
+  type: Property
+  source:
+    id: TimeLimit
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 29
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the time limit of this license if it has one\n"
+  example: []
+  syntax:
+    content: public TimeSpan TimeLimit { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public ReadOnly Property TimeLimit As TimeSpan
+  overload: Steam.Net.License.TimeLimit*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.TimeUsed
+  commentId: P:Steam.Net.License.TimeUsed
+  id: TimeUsed
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: TimeUsed
+  nameWithType: License.TimeUsed
+  fullName: Steam.Net.License.TimeUsed
+  type: Property
+  source:
+    id: TimeUsed
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 33
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the time this license has been used\n"
+  example: []
+  syntax:
+    content: public TimeSpan TimeUsed { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public ReadOnly Property TimeUsed As TimeSpan
+  overload: Steam.Net.License.TimeUsed*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.PaymentMethod
+  commentId: P:Steam.Net.License.PaymentMethod
+  id: PaymentMethod
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: PaymentMethod
+  nameWithType: License.PaymentMethod
+  fullName: Steam.Net.License.PaymentMethod
+  type: Property
+  source:
+    id: PaymentMethod
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the payment method used to purchase this license\n"
+  example: []
+  syntax:
+    content: public PaymentMethod PaymentMethod { get; }
+    parameters: []
+    return:
+      type: Steam.Net.PaymentMethod
+    content.vb: Public ReadOnly Property PaymentMethod As PaymentMethod
+  overload: Steam.Net.License.PaymentMethod*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.PurchaseCountry
+  commentId: P:Steam.Net.License.PurchaseCountry
+  id: PurchaseCountry
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: PurchaseCountry
+  nameWithType: License.PurchaseCountry
+  fullName: Steam.Net.License.PurchaseCountry
+  type: Property
+  source:
+    id: PurchaseCountry
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 41
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the country this license was purchased in\n"
+  example: []
+  syntax:
+    content: public RegionInfo PurchaseCountry { get; }
+    parameters: []
+    return:
+      type: System.Globalization.RegionInfo
+    content.vb: Public ReadOnly Property PurchaseCountry As RegionInfo
+  overload: Steam.Net.License.PurchaseCountry*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.Flags
+  commentId: P:Steam.Net.License.Flags
+  id: Flags
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: License.Flags
+  fullName: Steam.Net.License.Flags
+  type: Property
+  source:
+    id: Flags
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 45
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the license flags of this license\n"
+  example: []
+  syntax:
+    content: public LicenseFlags Flags { get; }
+    parameters: []
+    return:
+      type: Steam.Net.LicenseFlags
+    content.vb: Public ReadOnly Property Flags As LicenseFlags
+  overload: Steam.Net.License.Flags*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.Type
+  commentId: P:Steam.Net.License.Type
+  id: Type
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: License.Type
+  fullName: Steam.Net.License.Type
+  type: Property
+  source:
+    id: Type
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 49
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the type of this license\n"
+  example: []
+  syntax:
+    content: public LicenseType Type { get; }
+    parameters: []
+    return:
+      type: Steam.Net.LicenseType
+    content.vb: Public ReadOnly Property Type As LicenseType
+  overload: Steam.Net.License.Type*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.License.TerritoryCode
+  commentId: P:Steam.Net.License.TerritoryCode
+  id: TerritoryCode
+  parent: Steam.Net.License
+  langs:
+  - csharp
+  - vb
+  name: TerritoryCode
+  nameWithType: License.TerritoryCode
+  fullName: Steam.Net.License.TerritoryCode
+  type: Property
+  source:
+    id: TerritoryCode
+    path: G:\Steam\src\Network\Steam.Net\License.cs
+    startLine: 53
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets the territory code this license applies in\n"
+  example: []
+  syntax:
+    content: public int TerritoryCode { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TerritoryCode As Integer
+  overload: Steam.Net.License.TerritoryCode*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Net.License.PackageId*
+  commentId: Overload:Steam.Net.License.PackageId
+  isExternal: false
+  name: PackageId
+  nameWithType: License.PackageId
+  fullName: Steam.Net.License.PackageId
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Net.License.LastChangeNumber*
+  commentId: Overload:Steam.Net.License.LastChangeNumber
+  isExternal: false
+  name: LastChangeNumber
+  nameWithType: License.LastChangeNumber
+  fullName: Steam.Net.License.LastChangeNumber
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Net.License.TimeCreated*
+  commentId: Overload:Steam.Net.License.TimeCreated
+  isExternal: false
+  name: TimeCreated
+  nameWithType: License.TimeCreated
+  fullName: Steam.Net.License.TimeCreated
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Steam.Net.License.TimeNextProcess*
+  commentId: Overload:Steam.Net.License.TimeNextProcess
+  isExternal: false
+  name: TimeNextProcess
+  nameWithType: License.TimeNextProcess
+  fullName: Steam.Net.License.TimeNextProcess
+- uid: Steam.Net.License.TimeLimit*
+  commentId: Overload:Steam.Net.License.TimeLimit
+  isExternal: false
+  name: TimeLimit
+  nameWithType: License.TimeLimit
+  fullName: Steam.Net.License.TimeLimit
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Steam.Net.License.TimeUsed*
+  commentId: Overload:Steam.Net.License.TimeUsed
+  isExternal: false
+  name: TimeUsed
+  nameWithType: License.TimeUsed
+  fullName: Steam.Net.License.TimeUsed
+- uid: Steam.Net.License.PaymentMethod*
+  commentId: Overload:Steam.Net.License.PaymentMethod
+  isExternal: false
+  name: PaymentMethod
+  nameWithType: License.PaymentMethod
+  fullName: Steam.Net.License.PaymentMethod
+- uid: Steam.Net.PaymentMethod
+  commentId: T:Steam.Net.PaymentMethod
+  parent: Steam.Net
+  isExternal: false
+  name: PaymentMethod
+  nameWithType: PaymentMethod
+  fullName: Steam.Net.PaymentMethod
+- uid: Steam.Net.License.PurchaseCountry*
+  commentId: Overload:Steam.Net.License.PurchaseCountry
+  isExternal: false
+  name: PurchaseCountry
+  nameWithType: License.PurchaseCountry
+  fullName: Steam.Net.License.PurchaseCountry
+- uid: System.Globalization.RegionInfo
+  commentId: T:System.Globalization.RegionInfo
+  parent: System.Globalization
+  isExternal: true
+  name: RegionInfo
+  nameWithType: RegionInfo
+  fullName: System.Globalization.RegionInfo
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: false
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+- uid: Steam.Net.License.Flags*
+  commentId: Overload:Steam.Net.License.Flags
+  isExternal: false
+  name: Flags
+  nameWithType: License.Flags
+  fullName: Steam.Net.License.Flags
+- uid: Steam.Net.LicenseFlags
+  commentId: T:Steam.Net.LicenseFlags
+  parent: Steam.Net
+  isExternal: false
+  name: LicenseFlags
+  nameWithType: LicenseFlags
+  fullName: Steam.Net.LicenseFlags
+- uid: Steam.Net.License.Type*
+  commentId: Overload:Steam.Net.License.Type
+  isExternal: false
+  name: Type
+  nameWithType: License.Type
+  fullName: Steam.Net.License.Type
+- uid: Steam.Net.LicenseType
+  commentId: T:Steam.Net.LicenseType
+  parent: Steam.Net
+  isExternal: false
+  name: LicenseType
+  nameWithType: LicenseType
+  fullName: Steam.Net.LicenseType
+- uid: Steam.Net.License.TerritoryCode*
+  commentId: Overload:Steam.Net.License.TerritoryCode
+  isExternal: false
+  name: TerritoryCode
+  nameWithType: License.TerritoryCode
+  fullName: Steam.Net.License.TerritoryCode

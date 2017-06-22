@@ -1,0 +1,2770 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.ServerType
+  commentId: T:Steam.Net.ServerType
+  id: ServerType
+  parent: Steam.Net
+  children:
+  - Steam.Net.ServerType.AccountScore
+  - Steam.Net.ServerType.ACS
+  - Steam.Net.ServerType.AM
+  - Steam.Net.ServerType.AppInformation
+  - Steam.Net.ServerType.ATS
+  - Steam.Net.ServerType.Auth
+  - Steam.Net.ServerType.Backpack
+  - Steam.Net.ServerType.BoxMonitor
+  - Steam.Net.ServerType.BroadcastChat
+  - Steam.Net.ServerType.BroadcastDirectory
+  - Steam.Net.ServerType.BroadcastRelay
+  - Steam.Net.ServerType.BRP
+  - Steam.Net.ServerType.BS
+  - Steam.Net.ServerType.CCS
+  - Steam.Net.ServerType.Client
+  - Steam.Net.ServerType.Community
+  - Steam.Net.ServerType.ConnectionManager
+  - Steam.Net.ServerType.Console
+  - Steam.Net.ServerType.CRE
+  - Steam.Net.ServerType.CS
+  - Steam.Net.ServerType.DepotWebContent
+  - Steam.Net.ServerType.DFS
+  - Steam.Net.ServerType.DP
+  - Steam.Net.ServerType.DRMS
+  - Steam.Net.ServerType.Econ
+  - Steam.Net.ServerType.EmailDelivery
+  - Steam.Net.ServerType.ES
+  - Steam.Net.ServerType.ExternalConfig
+  - Steam.Net.ServerType.ExternalMonitor
+  - Steam.Net.ServerType.FBS
+  - Steam.Net.ServerType.First
+  - Steam.Net.ServerType.FS
+  - Steam.Net.ServerType.FTS
+  - Steam.Net.ServerType.GameCoordinator
+  - Steam.Net.ServerType.GameNotifications
+  - Steam.Net.ServerType.GCH
+  - Steam.Net.ServerType.GM
+  - Steam.Net.ServerType.GMS
+  - Steam.Net.ServerType.HLTVRelay
+  - Steam.Net.ServerType.Invalid
+  - Steam.Net.ServerType.InventoryManagement
+  - Steam.Net.ServerType.IS
+  - Steam.Net.ServerType.KGS
+  - Steam.Net.ServerType.LBS
+  - Steam.Net.ServerType.Localization
+  - Steam.Net.ServerType.LogRequest
+  - Steam.Net.ServerType.Logsink
+  - Steam.Net.ServerType.LogWorker
+  - Steam.Net.ServerType.Market
+  - Steam.Net.ServerType.MarketRepl
+  - Steam.Net.ServerType.MarketSearch
+  - Steam.Net.ServerType.Max
+  - Steam.Net.ServerType.MDS
+  - Steam.Net.ServerType.MMS
+  - Steam.Net.ServerType.MoneyStats
+  - Steam.Net.ServerType.MPAS
+  - Steam.Net.ServerType.NS
+  - Steam.Net.ServerType.OGS
+  - Steam.Net.ServerType.Parental
+  - Steam.Net.ServerType.Partner
+  - Steam.Net.ServerType.PartnerUpload
+  - Steam.Net.ServerType.Phone
+  - Steam.Net.ServerType.PNP
+  - Steam.Net.ServerType.ProductInformationControlSystem
+  - Steam.Net.ServerType.PS
+  - Steam.Net.ServerType.PublicTest
+  - Steam.Net.ServerType.Quest
+  - Steam.Net.ServerType.RM
+  - Steam.Net.ServerType.Secrets
+  - Steam.Net.ServerType.Shell
+  - Steam.Net.ServerType.SLC
+  - Steam.Net.ServerType.SM
+  - Steam.Net.ServerType.SolrMgr
+  - Steam.Net.ServerType.Spare
+  - Steam.Net.ServerType.SS
+  - Steam.Net.ServerType.Steam2Emulator
+  - Steam.Net.ServerType.StoreCatalog
+  - Steam.Net.ServerType.StoreFeature
+  - Steam.Net.ServerType.Support
+  - Steam.Net.ServerType.TaxForm
+  - Steam.Net.ServerType.Trade
+  - Steam.Net.ServerType.TradeOffer
+  - Steam.Net.ServerType.UCM
+  - Steam.Net.ServerType.UDS
+  - Steam.Net.ServerType.UFS
+  - Steam.Net.ServerType.UGS
+  - Steam.Net.ServerType.UMQ
+  - Steam.Net.ServerType.Util
+  - Steam.Net.ServerType.VideoManager
+  - Steam.Net.ServerType.VS
+  - Steam.Net.ServerType.WDS
+  - Steam.Net.ServerType.WebAPI
+  - Steam.Net.ServerType.WG
+  - Steam.Net.ServerType.Workshop
+  langs:
+  - csharp
+  - vb
+  name: ServerType
+  nameWithType: ServerType
+  fullName: Steam.Net.ServerType
+  type: Enum
+  source:
+    id: ServerType
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum ServerType
+    content.vb: Public Enum ServerType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.ServerType.Invalid
+  commentId: F:Steam.Net.ServerType.Invalid
+  id: Invalid
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: ServerType.Invalid
+  fullName: Steam.Net.ServerType.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Invalid = -1
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.First
+  commentId: F:Steam.Net.ServerType.First
+  id: First
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: ServerType.First
+  fullName: Steam.Net.ServerType.First
+  type: Field
+  source:
+    id: First
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: First = 0
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Shell
+  commentId: F:Steam.Net.ServerType.Shell
+  id: Shell
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Shell
+  nameWithType: ServerType.Shell
+  fullName: Steam.Net.ServerType.Shell
+  type: Field
+  source:
+    id: Shell
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Shell = 0
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.GM
+  commentId: F:Steam.Net.ServerType.GM
+  id: GM
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: GM
+  nameWithType: ServerType.GM
+  fullName: Steam.Net.ServerType.GM
+  type: Field
+  source:
+    id: GM
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GM = 1
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.AM
+  commentId: F:Steam.Net.ServerType.AM
+  id: AM
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: AM
+  nameWithType: ServerType.AM
+  fullName: Steam.Net.ServerType.AM
+  type: Field
+  source:
+    id: AM
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AM = 3
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BS
+  commentId: F:Steam.Net.ServerType.BS
+  id: BS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BS
+  nameWithType: ServerType.BS
+  fullName: Steam.Net.ServerType.BS
+  type: Field
+  source:
+    id: BS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BS = 4
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.VS
+  commentId: F:Steam.Net.ServerType.VS
+  id: VS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: VS
+  nameWithType: ServerType.VS
+  fullName: Steam.Net.ServerType.VS
+  type: Field
+  source:
+    id: VS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: VS = 5
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ATS
+  commentId: F:Steam.Net.ServerType.ATS
+  id: ATS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ATS
+  nameWithType: ServerType.ATS
+  fullName: Steam.Net.ServerType.ATS
+  type: Field
+  source:
+    id: ATS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ATS = 6
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ConnectionManager
+  commentId: F:Steam.Net.ServerType.ConnectionManager
+  id: ConnectionManager
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ConnectionManager
+  nameWithType: ServerType.ConnectionManager
+  fullName: Steam.Net.ServerType.ConnectionManager
+  type: Field
+  source:
+    id: ConnectionManager
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ConnectionManager = 7
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.FBS
+  commentId: F:Steam.Net.ServerType.FBS
+  id: FBS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: FBS
+  nameWithType: ServerType.FBS
+  fullName: Steam.Net.ServerType.FBS
+  type: Field
+  source:
+    id: FBS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: FBS = 8
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BoxMonitor
+  commentId: F:Steam.Net.ServerType.BoxMonitor
+  id: BoxMonitor
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BoxMonitor
+  nameWithType: ServerType.BoxMonitor
+  fullName: Steam.Net.ServerType.BoxMonitor
+  type: Field
+  source:
+    id: BoxMonitor
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BoxMonitor = 9
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.SS
+  commentId: F:Steam.Net.ServerType.SS
+  id: SS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: SS
+  nameWithType: ServerType.SS
+  fullName: Steam.Net.ServerType.SS
+  type: Field
+  source:
+    id: SS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SS = 10
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.DRMS
+  commentId: F:Steam.Net.ServerType.DRMS
+  id: DRMS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: DRMS
+  nameWithType: ServerType.DRMS
+  fullName: Steam.Net.ServerType.DRMS
+  type: Field
+  source:
+    id: DRMS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DRMS = 11
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Console
+  commentId: F:Steam.Net.ServerType.Console
+  id: Console
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: ServerType.Console
+  fullName: Steam.Net.ServerType.Console
+  type: Field
+  source:
+    id: Console
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Console = 13
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ProductInformationControlSystem
+  commentId: F:Steam.Net.ServerType.ProductInformationControlSystem
+  id: ProductInformationControlSystem
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ProductInformationControlSystem
+  nameWithType: ServerType.ProductInformationControlSystem
+  fullName: Steam.Net.ServerType.ProductInformationControlSystem
+  type: Field
+  source:
+    id: ProductInformationControlSystem
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ProductInformationControlSystem = 14
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Client
+  commentId: F:Steam.Net.ServerType.Client
+  id: Client
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: ServerType.Client
+  fullName: Steam.Net.ServerType.Client
+  type: Field
+  source:
+    id: Client
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Client = 15
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.DP
+  commentId: F:Steam.Net.ServerType.DP
+  id: DP
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: DP
+  nameWithType: ServerType.DP
+  fullName: Steam.Net.ServerType.DP
+  type: Field
+  source:
+    id: DP
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 20
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DP = 17
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.WG
+  commentId: F:Steam.Net.ServerType.WG
+  id: WG
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: WG
+  nameWithType: ServerType.WG
+  fullName: Steam.Net.ServerType.WG
+  type: Field
+  source:
+    id: WG
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 21
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WG = 18
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.SM
+  commentId: F:Steam.Net.ServerType.SM
+  id: SM
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: SM
+  nameWithType: ServerType.SM
+  fullName: Steam.Net.ServerType.SM
+  type: Field
+  source:
+    id: SM
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SM = 19
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.SLC
+  commentId: F:Steam.Net.ServerType.SLC
+  id: SLC
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: SLC
+  nameWithType: ServerType.SLC
+  fullName: Steam.Net.ServerType.SLC
+  type: Field
+  source:
+    id: SLC
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 23
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SLC = 20
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.UFS
+  commentId: F:Steam.Net.ServerType.UFS
+  id: UFS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: UFS
+  nameWithType: ServerType.UFS
+  fullName: Steam.Net.ServerType.UFS
+  type: Field
+  source:
+    id: UFS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 24
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UFS = 21
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Util
+  commentId: F:Steam.Net.ServerType.Util
+  id: Util
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Util
+  nameWithType: ServerType.Util
+  fullName: Steam.Net.ServerType.Util
+  type: Field
+  source:
+    id: Util
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Util = 23
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Community
+  commentId: F:Steam.Net.ServerType.Community
+  id: Community
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Community
+  nameWithType: ServerType.Community
+  fullName: Steam.Net.ServerType.Community
+  type: Field
+  source:
+    id: Community
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 26
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Community = 24
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.AppInformation
+  commentId: F:Steam.Net.ServerType.AppInformation
+  id: AppInformation
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: AppInformation
+  nameWithType: ServerType.AppInformation
+  fullName: Steam.Net.ServerType.AppInformation
+  type: Field
+  source:
+    id: AppInformation
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AppInformation = 26
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Spare
+  commentId: F:Steam.Net.ServerType.Spare
+  id: Spare
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Spare
+  nameWithType: ServerType.Spare
+  fullName: Steam.Net.ServerType.Spare
+  type: Field
+  source:
+    id: Spare
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 28
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Spare = 27
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.FTS
+  commentId: F:Steam.Net.ServerType.FTS
+  id: FTS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: FTS
+  nameWithType: ServerType.FTS
+  fullName: Steam.Net.ServerType.FTS
+  type: Field
+  source:
+    id: FTS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 29
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: FTS = 28
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.PS
+  commentId: F:Steam.Net.ServerType.PS
+  id: PS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: PS
+  nameWithType: ServerType.PS
+  fullName: Steam.Net.ServerType.PS
+  type: Field
+  source:
+    id: PS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PS = 30
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.IS
+  commentId: F:Steam.Net.ServerType.IS
+  id: IS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: IS
+  nameWithType: ServerType.IS
+  fullName: Steam.Net.ServerType.IS
+  type: Field
+  source:
+    id: IS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 31
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: IS = 31
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.CCS
+  commentId: F:Steam.Net.ServerType.CCS
+  id: CCS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: CCS
+  nameWithType: ServerType.CCS
+  fullName: Steam.Net.ServerType.CCS
+  type: Field
+  source:
+    id: CCS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 32
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CCS = 32
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.DFS
+  commentId: F:Steam.Net.ServerType.DFS
+  id: DFS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: DFS
+  nameWithType: ServerType.DFS
+  fullName: Steam.Net.ServerType.DFS
+  type: Field
+  source:
+    id: DFS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 33
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DFS = 33
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.LBS
+  commentId: F:Steam.Net.ServerType.LBS
+  id: LBS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: LBS
+  nameWithType: ServerType.LBS
+  fullName: Steam.Net.ServerType.LBS
+  type: Field
+  source:
+    id: LBS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LBS = 34
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MDS
+  commentId: F:Steam.Net.ServerType.MDS
+  id: MDS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MDS
+  nameWithType: ServerType.MDS
+  fullName: Steam.Net.ServerType.MDS
+  type: Field
+  source:
+    id: MDS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 35
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MDS = 35
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.CS
+  commentId: F:Steam.Net.ServerType.CS
+  id: CS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: CS
+  nameWithType: ServerType.CS
+  fullName: Steam.Net.ServerType.CS
+  type: Field
+  source:
+    id: CS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 36
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CS = 36
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.GameCoordinator
+  commentId: F:Steam.Net.ServerType.GameCoordinator
+  id: GameCoordinator
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: GameCoordinator
+  nameWithType: ServerType.GameCoordinator
+  fullName: Steam.Net.ServerType.GameCoordinator
+  type: Field
+  source:
+    id: GameCoordinator
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GameCoordinator = 37
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.NS
+  commentId: F:Steam.Net.ServerType.NS
+  id: NS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: NS
+  nameWithType: ServerType.NS
+  fullName: Steam.Net.ServerType.NS
+  type: Field
+  source:
+    id: NS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 38
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NS = 38
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.OGS
+  commentId: F:Steam.Net.ServerType.OGS
+  id: OGS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: OGS
+  nameWithType: ServerType.OGS
+  fullName: Steam.Net.ServerType.OGS
+  type: Field
+  source:
+    id: OGS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 39
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OGS = 39
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.WebAPI
+  commentId: F:Steam.Net.ServerType.WebAPI
+  id: WebAPI
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: WebAPI
+  nameWithType: ServerType.WebAPI
+  fullName: Steam.Net.ServerType.WebAPI
+  type: Field
+  source:
+    id: WebAPI
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 40
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WebAPI = 40
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.UDS
+  commentId: F:Steam.Net.ServerType.UDS
+  id: UDS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: UDS
+  nameWithType: ServerType.UDS
+  fullName: Steam.Net.ServerType.UDS
+  type: Field
+  source:
+    id: UDS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 41
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UDS = 41
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MMS
+  commentId: F:Steam.Net.ServerType.MMS
+  id: MMS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MMS
+  nameWithType: ServerType.MMS
+  fullName: Steam.Net.ServerType.MMS
+  type: Field
+  source:
+    id: MMS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 42
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MMS = 42
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.GMS
+  commentId: F:Steam.Net.ServerType.GMS
+  id: GMS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: GMS
+  nameWithType: ServerType.GMS
+  fullName: Steam.Net.ServerType.GMS
+  type: Field
+  source:
+    id: GMS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 43
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GMS = 43
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.KGS
+  commentId: F:Steam.Net.ServerType.KGS
+  id: KGS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: KGS
+  nameWithType: ServerType.KGS
+  fullName: Steam.Net.ServerType.KGS
+  type: Field
+  source:
+    id: KGS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 44
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: KGS = 44
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.UCM
+  commentId: F:Steam.Net.ServerType.UCM
+  id: UCM
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: UCM
+  nameWithType: ServerType.UCM
+  fullName: Steam.Net.ServerType.UCM
+  type: Field
+  source:
+    id: UCM
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 45
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UCM = 45
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.RM
+  commentId: F:Steam.Net.ServerType.RM
+  id: RM
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: RM
+  nameWithType: ServerType.RM
+  fullName: Steam.Net.ServerType.RM
+  type: Field
+  source:
+    id: RM
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 46
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RM = 46
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.FS
+  commentId: F:Steam.Net.ServerType.FS
+  id: FS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: FS
+  nameWithType: ServerType.FS
+  fullName: Steam.Net.ServerType.FS
+  type: Field
+  source:
+    id: FS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 47
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: FS = 47
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Econ
+  commentId: F:Steam.Net.ServerType.Econ
+  id: Econ
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Econ
+  nameWithType: ServerType.Econ
+  fullName: Steam.Net.ServerType.Econ
+  type: Field
+  source:
+    id: Econ
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 48
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Econ = 48
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Backpack
+  commentId: F:Steam.Net.ServerType.Backpack
+  id: Backpack
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Backpack
+  nameWithType: ServerType.Backpack
+  fullName: Steam.Net.ServerType.Backpack
+  type: Field
+  source:
+    id: Backpack
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 49
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Backpack = 49
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.UGS
+  commentId: F:Steam.Net.ServerType.UGS
+  id: UGS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: UGS
+  nameWithType: ServerType.UGS
+  fullName: Steam.Net.ServerType.UGS
+  type: Field
+  source:
+    id: UGS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 50
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UGS = 50
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.StoreFeature
+  commentId: F:Steam.Net.ServerType.StoreFeature
+  id: StoreFeature
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: StoreFeature
+  nameWithType: ServerType.StoreFeature
+  fullName: Steam.Net.ServerType.StoreFeature
+  type: Field
+  source:
+    id: StoreFeature
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 51
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: StoreFeature = 51
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MoneyStats
+  commentId: F:Steam.Net.ServerType.MoneyStats
+  id: MoneyStats
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MoneyStats
+  nameWithType: ServerType.MoneyStats
+  fullName: Steam.Net.ServerType.MoneyStats
+  type: Field
+  source:
+    id: MoneyStats
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 52
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MoneyStats = 52
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.CRE
+  commentId: F:Steam.Net.ServerType.CRE
+  id: CRE
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: CRE
+  nameWithType: ServerType.CRE
+  fullName: Steam.Net.ServerType.CRE
+  type: Field
+  source:
+    id: CRE
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 53
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CRE = 53
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.UMQ
+  commentId: F:Steam.Net.ServerType.UMQ
+  id: UMQ
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: UMQ
+  nameWithType: ServerType.UMQ
+  fullName: Steam.Net.ServerType.UMQ
+  type: Field
+  source:
+    id: UMQ
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 54
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UMQ = 54
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Workshop
+  commentId: F:Steam.Net.ServerType.Workshop
+  id: Workshop
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Workshop
+  nameWithType: ServerType.Workshop
+  fullName: Steam.Net.ServerType.Workshop
+  type: Field
+  source:
+    id: Workshop
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 55
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Workshop = 55
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BRP
+  commentId: F:Steam.Net.ServerType.BRP
+  id: BRP
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BRP
+  nameWithType: ServerType.BRP
+  fullName: Steam.Net.ServerType.BRP
+  type: Field
+  source:
+    id: BRP
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 56
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BRP = 56
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.GCH
+  commentId: F:Steam.Net.ServerType.GCH
+  id: GCH
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: GCH
+  nameWithType: ServerType.GCH
+  fullName: Steam.Net.ServerType.GCH
+  type: Field
+  source:
+    id: GCH
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 57
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GCH = 57
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MPAS
+  commentId: F:Steam.Net.ServerType.MPAS
+  id: MPAS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MPAS
+  nameWithType: ServerType.MPAS
+  fullName: Steam.Net.ServerType.MPAS
+  type: Field
+  source:
+    id: MPAS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 58
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MPAS = 58
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Trade
+  commentId: F:Steam.Net.ServerType.Trade
+  id: Trade
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Trade
+  nameWithType: ServerType.Trade
+  fullName: Steam.Net.ServerType.Trade
+  type: Field
+  source:
+    id: Trade
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 59
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Trade = 59
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Secrets
+  commentId: F:Steam.Net.ServerType.Secrets
+  id: Secrets
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Secrets
+  nameWithType: ServerType.Secrets
+  fullName: Steam.Net.ServerType.Secrets
+  type: Field
+  source:
+    id: Secrets
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 60
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Secrets = 60
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Logsink
+  commentId: F:Steam.Net.ServerType.Logsink
+  id: Logsink
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Logsink
+  nameWithType: ServerType.Logsink
+  fullName: Steam.Net.ServerType.Logsink
+  type: Field
+  source:
+    id: Logsink
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 61
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Logsink = 61
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Market
+  commentId: F:Steam.Net.ServerType.Market
+  id: Market
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Market
+  nameWithType: ServerType.Market
+  fullName: Steam.Net.ServerType.Market
+  type: Field
+  source:
+    id: Market
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 62
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Market = 62
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Quest
+  commentId: F:Steam.Net.ServerType.Quest
+  id: Quest
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Quest
+  nameWithType: ServerType.Quest
+  fullName: Steam.Net.ServerType.Quest
+  type: Field
+  source:
+    id: Quest
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 63
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Quest = 63
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.WDS
+  commentId: F:Steam.Net.ServerType.WDS
+  id: WDS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: WDS
+  nameWithType: ServerType.WDS
+  fullName: Steam.Net.ServerType.WDS
+  type: Field
+  source:
+    id: WDS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 64
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WDS = 64
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ACS
+  commentId: F:Steam.Net.ServerType.ACS
+  id: ACS
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ACS
+  nameWithType: ServerType.ACS
+  fullName: Steam.Net.ServerType.ACS
+  type: Field
+  source:
+    id: ACS
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 65
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ACS = 65
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.PNP
+  commentId: F:Steam.Net.ServerType.PNP
+  id: PNP
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: PNP
+  nameWithType: ServerType.PNP
+  fullName: Steam.Net.ServerType.PNP
+  type: Field
+  source:
+    id: PNP
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 66
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PNP = 66
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.TaxForm
+  commentId: F:Steam.Net.ServerType.TaxForm
+  id: TaxForm
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: TaxForm
+  nameWithType: ServerType.TaxForm
+  fullName: Steam.Net.ServerType.TaxForm
+  type: Field
+  source:
+    id: TaxForm
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 67
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: TaxForm = 67
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ExternalMonitor
+  commentId: F:Steam.Net.ServerType.ExternalMonitor
+  id: ExternalMonitor
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ExternalMonitor
+  nameWithType: ServerType.ExternalMonitor
+  fullName: Steam.Net.ServerType.ExternalMonitor
+  type: Field
+  source:
+    id: ExternalMonitor
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 68
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ExternalMonitor = 68
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Parental
+  commentId: F:Steam.Net.ServerType.Parental
+  id: Parental
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Parental
+  nameWithType: ServerType.Parental
+  fullName: Steam.Net.ServerType.Parental
+  type: Field
+  source:
+    id: Parental
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 69
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Parental = 69
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.PartnerUpload
+  commentId: F:Steam.Net.ServerType.PartnerUpload
+  id: PartnerUpload
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: PartnerUpload
+  nameWithType: ServerType.PartnerUpload
+  fullName: Steam.Net.ServerType.PartnerUpload
+  type: Field
+  source:
+    id: PartnerUpload
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 70
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PartnerUpload = 70
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Partner
+  commentId: F:Steam.Net.ServerType.Partner
+  id: Partner
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Partner
+  nameWithType: ServerType.Partner
+  fullName: Steam.Net.ServerType.Partner
+  type: Field
+  source:
+    id: Partner
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 71
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Partner = 71
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ES
+  commentId: F:Steam.Net.ServerType.ES
+  id: ES
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ES
+  nameWithType: ServerType.ES
+  fullName: Steam.Net.ServerType.ES
+  type: Field
+  source:
+    id: ES
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 72
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ES = 72
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.DepotWebContent
+  commentId: F:Steam.Net.ServerType.DepotWebContent
+  id: DepotWebContent
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: DepotWebContent
+  nameWithType: ServerType.DepotWebContent
+  fullName: Steam.Net.ServerType.DepotWebContent
+  type: Field
+  source:
+    id: DepotWebContent
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 73
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DepotWebContent = 73
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.ExternalConfig
+  commentId: F:Steam.Net.ServerType.ExternalConfig
+  id: ExternalConfig
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: ExternalConfig
+  nameWithType: ServerType.ExternalConfig
+  fullName: Steam.Net.ServerType.ExternalConfig
+  type: Field
+  source:
+    id: ExternalConfig
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 74
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ExternalConfig = 74
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.GameNotifications
+  commentId: F:Steam.Net.ServerType.GameNotifications
+  id: GameNotifications
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: GameNotifications
+  nameWithType: ServerType.GameNotifications
+  fullName: Steam.Net.ServerType.GameNotifications
+  type: Field
+  source:
+    id: GameNotifications
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 75
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GameNotifications = 75
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MarketRepl
+  commentId: F:Steam.Net.ServerType.MarketRepl
+  id: MarketRepl
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MarketRepl
+  nameWithType: ServerType.MarketRepl
+  fullName: Steam.Net.ServerType.MarketRepl
+  type: Field
+  source:
+    id: MarketRepl
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 76
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MarketRepl = 76
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.MarketSearch
+  commentId: F:Steam.Net.ServerType.MarketSearch
+  id: MarketSearch
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: MarketSearch
+  nameWithType: ServerType.MarketSearch
+  fullName: Steam.Net.ServerType.MarketSearch
+  type: Field
+  source:
+    id: MarketSearch
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 77
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MarketSearch = 77
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Localization
+  commentId: F:Steam.Net.ServerType.Localization
+  id: Localization
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Localization
+  nameWithType: ServerType.Localization
+  fullName: Steam.Net.ServerType.Localization
+  type: Field
+  source:
+    id: Localization
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 78
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Localization = 78
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Steam2Emulator
+  commentId: F:Steam.Net.ServerType.Steam2Emulator
+  id: Steam2Emulator
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Steam2Emulator
+  nameWithType: ServerType.Steam2Emulator
+  fullName: Steam.Net.ServerType.Steam2Emulator
+  type: Field
+  source:
+    id: Steam2Emulator
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 79
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Steam2Emulator = 79
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.PublicTest
+  commentId: F:Steam.Net.ServerType.PublicTest
+  id: PublicTest
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: PublicTest
+  nameWithType: ServerType.PublicTest
+  fullName: Steam.Net.ServerType.PublicTest
+  type: Field
+  source:
+    id: PublicTest
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 80
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PublicTest = 80
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.SolrMgr
+  commentId: F:Steam.Net.ServerType.SolrMgr
+  id: SolrMgr
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: SolrMgr
+  nameWithType: ServerType.SolrMgr
+  fullName: Steam.Net.ServerType.SolrMgr
+  type: Field
+  source:
+    id: SolrMgr
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 81
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SolrMgr = 81
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BroadcastRelay
+  commentId: F:Steam.Net.ServerType.BroadcastRelay
+  id: BroadcastRelay
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BroadcastRelay
+  nameWithType: ServerType.BroadcastRelay
+  fullName: Steam.Net.ServerType.BroadcastRelay
+  type: Field
+  source:
+    id: BroadcastRelay
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 82
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BroadcastRelay = 82
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BroadcastDirectory
+  commentId: F:Steam.Net.ServerType.BroadcastDirectory
+  id: BroadcastDirectory
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BroadcastDirectory
+  nameWithType: ServerType.BroadcastDirectory
+  fullName: Steam.Net.ServerType.BroadcastDirectory
+  type: Field
+  source:
+    id: BroadcastDirectory
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 83
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BroadcastDirectory = 83
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.VideoManager
+  commentId: F:Steam.Net.ServerType.VideoManager
+  id: VideoManager
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: VideoManager
+  nameWithType: ServerType.VideoManager
+  fullName: Steam.Net.ServerType.VideoManager
+  type: Field
+  source:
+    id: VideoManager
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 84
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: VideoManager = 84
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.TradeOffer
+  commentId: F:Steam.Net.ServerType.TradeOffer
+  id: TradeOffer
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: TradeOffer
+  nameWithType: ServerType.TradeOffer
+  fullName: Steam.Net.ServerType.TradeOffer
+  type: Field
+  source:
+    id: TradeOffer
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 85
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: TradeOffer = 85
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.BroadcastChat
+  commentId: F:Steam.Net.ServerType.BroadcastChat
+  id: BroadcastChat
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: BroadcastChat
+  nameWithType: ServerType.BroadcastChat
+  fullName: Steam.Net.ServerType.BroadcastChat
+  type: Field
+  source:
+    id: BroadcastChat
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 86
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BroadcastChat = 86
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Phone
+  commentId: F:Steam.Net.ServerType.Phone
+  id: Phone
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Phone
+  nameWithType: ServerType.Phone
+  fullName: Steam.Net.ServerType.Phone
+  type: Field
+  source:
+    id: Phone
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 87
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Phone = 87
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.AccountScore
+  commentId: F:Steam.Net.ServerType.AccountScore
+  id: AccountScore
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: AccountScore
+  nameWithType: ServerType.AccountScore
+  fullName: Steam.Net.ServerType.AccountScore
+  type: Field
+  source:
+    id: AccountScore
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 88
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AccountScore = 88
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Support
+  commentId: F:Steam.Net.ServerType.Support
+  id: Support
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Support
+  nameWithType: ServerType.Support
+  fullName: Steam.Net.ServerType.Support
+  type: Field
+  source:
+    id: Support
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 89
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Support = 89
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.LogRequest
+  commentId: F:Steam.Net.ServerType.LogRequest
+  id: LogRequest
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: LogRequest
+  nameWithType: ServerType.LogRequest
+  fullName: Steam.Net.ServerType.LogRequest
+  type: Field
+  source:
+    id: LogRequest
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 90
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LogRequest = 90
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.LogWorker
+  commentId: F:Steam.Net.ServerType.LogWorker
+  id: LogWorker
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: LogWorker
+  nameWithType: ServerType.LogWorker
+  fullName: Steam.Net.ServerType.LogWorker
+  type: Field
+  source:
+    id: LogWorker
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 91
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LogWorker = 91
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.EmailDelivery
+  commentId: F:Steam.Net.ServerType.EmailDelivery
+  id: EmailDelivery
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: EmailDelivery
+  nameWithType: ServerType.EmailDelivery
+  fullName: Steam.Net.ServerType.EmailDelivery
+  type: Field
+  source:
+    id: EmailDelivery
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 92
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: EmailDelivery = 92
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.InventoryManagement
+  commentId: F:Steam.Net.ServerType.InventoryManagement
+  id: InventoryManagement
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: InventoryManagement
+  nameWithType: ServerType.InventoryManagement
+  fullName: Steam.Net.ServerType.InventoryManagement
+  type: Field
+  source:
+    id: InventoryManagement
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 93
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: InventoryManagement = 93
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Auth
+  commentId: F:Steam.Net.ServerType.Auth
+  id: Auth
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Auth
+  nameWithType: ServerType.Auth
+  fullName: Steam.Net.ServerType.Auth
+  type: Field
+  source:
+    id: Auth
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 94
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Auth = 94
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.StoreCatalog
+  commentId: F:Steam.Net.ServerType.StoreCatalog
+  id: StoreCatalog
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: StoreCatalog
+  nameWithType: ServerType.StoreCatalog
+  fullName: Steam.Net.ServerType.StoreCatalog
+  type: Field
+  source:
+    id: StoreCatalog
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 95
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: StoreCatalog = 95
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.HLTVRelay
+  commentId: F:Steam.Net.ServerType.HLTVRelay
+  id: HLTVRelay
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: HLTVRelay
+  nameWithType: ServerType.HLTVRelay
+  fullName: Steam.Net.ServerType.HLTVRelay
+  type: Field
+  source:
+    id: HLTVRelay
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 96
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: HLTVRelay = 96
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ServerType.Max
+  commentId: F:Steam.Net.ServerType.Max
+  id: Max
+  parent: Steam.Net.ServerType
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: ServerType.Max
+  fullName: Steam.Net.ServerType.Max
+  type: Field
+  source:
+    id: Max
+    path: G:\Steam\src\Network\Steam.Net\ServerType.cs
+    startLine: 97
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Max = 97
+    return:
+      type: Steam.Net.ServerType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.ServerType
+  commentId: T:Steam.Net.ServerType
+  parent: Steam.Net
+  isExternal: false
+  name: ServerType
+  nameWithType: ServerType
+  fullName: Steam.Net.ServerType

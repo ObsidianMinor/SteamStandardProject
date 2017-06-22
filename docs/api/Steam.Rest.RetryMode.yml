@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Rest.RetryMode
+  commentId: T:Steam.Rest.RetryMode
+  id: RetryMode
+  parent: Steam.Rest
+  children:
+  - Steam.Rest.RetryMode.AlwaysFail
+  - Steam.Rest.RetryMode.AlwaysRetry
+  - Steam.Rest.RetryMode.RetryBadGateway
+  - Steam.Rest.RetryMode.RetryTimeouts
+  langs:
+  - csharp
+  - vb
+  name: RetryMode
+  nameWithType: RetryMode
+  fullName: Steam.Rest.RetryMode
+  type: Enum
+  source:
+    id: RetryMode
+    path: G:\Steam\src\Common\Steam.Rest\RetryMode.cs
+    startLine: 4
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RetryMode
+    content.vb: >-
+      <Flags>
+
+      Public Enum RetryMode
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Rest.RetryMode.AlwaysFail
+  commentId: F:Steam.Rest.RetryMode.AlwaysFail
+  id: AlwaysFail
+  parent: Steam.Rest.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: AlwaysFail
+  nameWithType: RetryMode.AlwaysFail
+  fullName: Steam.Rest.RetryMode.AlwaysFail
+  type: Field
+  source:
+    id: AlwaysFail
+    path: G:\Steam\src\Common\Steam.Rest\RetryMode.cs
+    startLine: 7
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: AlwaysFail = 0
+    return:
+      type: Steam.Rest.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Rest.RetryMode.RetryTimeouts
+  commentId: F:Steam.Rest.RetryMode.RetryTimeouts
+  id: RetryTimeouts
+  parent: Steam.Rest.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: RetryTimeouts
+  nameWithType: RetryMode.RetryTimeouts
+  fullName: Steam.Rest.RetryMode.RetryTimeouts
+  type: Field
+  source:
+    id: RetryTimeouts
+    path: G:\Steam\src\Common\Steam.Rest\RetryMode.cs
+    startLine: 8
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: RetryTimeouts = 1
+    return:
+      type: Steam.Rest.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Rest.RetryMode.RetryBadGateway
+  commentId: F:Steam.Rest.RetryMode.RetryBadGateway
+  id: RetryBadGateway
+  parent: Steam.Rest.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: RetryBadGateway
+  nameWithType: RetryMode.RetryBadGateway
+  fullName: Steam.Rest.RetryMode.RetryBadGateway
+  type: Field
+  source:
+    id: RetryBadGateway
+    path: G:\Steam\src\Common\Steam.Rest\RetryMode.cs
+    startLine: 9
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: RetryBadGateway = 4
+    return:
+      type: Steam.Rest.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Rest.RetryMode.AlwaysRetry
+  commentId: F:Steam.Rest.RetryMode.AlwaysRetry
+  id: AlwaysRetry
+  parent: Steam.Rest.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: AlwaysRetry
+  nameWithType: RetryMode.AlwaysRetry
+  fullName: Steam.Rest.RetryMode.AlwaysRetry
+  type: Field
+  source:
+    id: AlwaysRetry
+    path: G:\Steam\src\Common\Steam.Rest\RetryMode.cs
+    startLine: 10
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: AlwaysRetry = 5
+    return:
+      type: Steam.Rest.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: Steam.Rest.RetryMode
+  commentId: T:Steam.Rest.RetryMode
+  parent: Steam.Rest
+  isExternal: false
+  name: RetryMode
+  nameWithType: RetryMode
+  fullName: Steam.Rest.RetryMode

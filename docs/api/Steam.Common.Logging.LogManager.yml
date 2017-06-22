@@ -1,0 +1,896 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Logging.LogManager
+  commentId: T:Steam.Common.Logging.LogManager
+  id: LogManager
+  parent: Steam.Common.Logging
+  children:
+  - Steam.Common.Logging.LogManager.#ctor(System.String,Steam.Common.Logging.LogSeverity)
+  - Steam.Common.Logging.LogManager.CreateLinkedManager(System.String)
+  - Steam.Common.Logging.LogManager.Log
+  - Steam.Common.Logging.LogManager.LogAsync(System.String,Steam.Common.Logging.LogSeverity)
+  - Steam.Common.Logging.LogManager.LogCriticalAsync(System.String)
+  - Steam.Common.Logging.LogManager.LogDebugAsync(System.String)
+  - Steam.Common.Logging.LogManager.LogErrorAsync(System.String)
+  - Steam.Common.Logging.LogManager.LogInfoAsync(System.String)
+  - Steam.Common.Logging.LogManager.LogVerboseAsync(System.String)
+  - Steam.Common.Logging.LogManager.LogWarningAsync(System.String)
+  - Steam.Common.Logging.LogManager.Source
+  langs:
+  - csharp
+  - vb
+  name: LogManager
+  nameWithType: LogManager
+  fullName: Steam.Common.Logging.LogManager
+  type: Class
+  source:
+    id: LogManager
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 8
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nA log manager\n"
+  example: []
+  syntax:
+    content: public class LogManager
+    content.vb: Public Class LogManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Common.Logging.LogManager.Source
+  commentId: P:Steam.Common.Logging.LogManager.Source
+  id: Source
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: LogManager.Source
+  fullName: Steam.Common.Logging.LogManager.Source
+  type: Property
+  source:
+    id: Source
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 13
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nThe source of this log manager\n"
+  example: []
+  syntax:
+    content: public string Source { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Source As String
+  overload: Steam.Common.Logging.LogManager.Source*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.Logging.LogManager.Log
+  commentId: E:Steam.Common.Logging.LogManager.Log
+  id: Log
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: LogManager.Log
+  fullName: Steam.Common.Logging.LogManager.Log
+  type: Event
+  source:
+    id: Log
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public event Func<LogMessage, Task> Log
+    return:
+      type: System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+    content.vb: Public Event Log As Func(Of LogMessage, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.#ctor(System.String,Steam.Common.Logging.LogSeverity)
+  commentId: M:Steam.Common.Logging.LogManager.#ctor(System.String,Steam.Common.Logging.LogSeverity)
+  id: '#ctor(System.String,Steam.Common.Logging.LogSeverity)'
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogManager(String, LogSeverity)
+  nameWithType: LogManager.LogManager(String, LogSeverity)
+  fullName: Steam.Common.Logging.LogManager.LogManager(System.String, Steam.Common.Logging.LogSeverity)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 24
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public LogManager(string source, LogSeverity severity)
+    parameters:
+    - id: source
+      type: System.String
+    - id: severity
+      type: Steam.Common.Logging.LogSeverity
+    content.vb: Public Sub New(source As String, severity As LogSeverity)
+  overload: Steam.Common.Logging.LogManager.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogCriticalAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogCriticalAsync(System.String)
+  id: LogCriticalAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogCriticalAsync(String)
+  nameWithType: LogManager.LogCriticalAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogCriticalAsync(System.String)
+  type: Method
+  source:
+    id: LogCriticalAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 30
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogCriticalAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogCriticalAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogCriticalAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogErrorAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogErrorAsync(System.String)
+  id: LogErrorAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogErrorAsync(String)
+  nameWithType: LogManager.LogErrorAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogErrorAsync(System.String)
+  type: Method
+  source:
+    id: LogErrorAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 35
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogErrorAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogErrorAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogErrorAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogWarningAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogWarningAsync(System.String)
+  id: LogWarningAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogWarningAsync(String)
+  nameWithType: LogManager.LogWarningAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogWarningAsync(System.String)
+  type: Method
+  source:
+    id: LogWarningAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 40
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogWarningAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogWarningAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogWarningAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogInfoAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogInfoAsync(System.String)
+  id: LogInfoAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogInfoAsync(String)
+  nameWithType: LogManager.LogInfoAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogInfoAsync(System.String)
+  type: Method
+  source:
+    id: LogInfoAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 45
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogInfoAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogInfoAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogInfoAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogVerboseAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogVerboseAsync(System.String)
+  id: LogVerboseAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogVerboseAsync(String)
+  nameWithType: LogManager.LogVerboseAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogVerboseAsync(System.String)
+  type: Method
+  source:
+    id: LogVerboseAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 50
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogVerboseAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogVerboseAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogVerboseAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogDebugAsync(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.LogDebugAsync(System.String)
+  id: LogDebugAsync(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogDebugAsync(String)
+  nameWithType: LogManager.LogDebugAsync(String)
+  fullName: Steam.Common.Logging.LogManager.LogDebugAsync(System.String)
+  type: Method
+  source:
+    id: LogDebugAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 55
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogDebugAsync(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogDebugAsync(message As String) As Task
+  overload: Steam.Common.Logging.LogManager.LogDebugAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.LogAsync(System.String,Steam.Common.Logging.LogSeverity)
+  commentId: M:Steam.Common.Logging.LogManager.LogAsync(System.String,Steam.Common.Logging.LogSeverity)
+  id: LogAsync(System.String,Steam.Common.Logging.LogSeverity)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: LogAsync(String, LogSeverity)
+  nameWithType: LogManager.LogAsync(String, LogSeverity)
+  fullName: Steam.Common.Logging.LogManager.LogAsync(System.String, Steam.Common.Logging.LogSeverity)
+  type: Method
+  source:
+    id: LogAsync
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 60
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public Task LogAsync(string message, LogSeverity severity)
+    parameters:
+    - id: message
+      type: System.String
+    - id: severity
+      type: Steam.Common.Logging.LogSeverity
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LogAsync(message As String, severity As LogSeverity) As Task
+  overload: Steam.Common.Logging.LogManager.LogAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogManager.CreateLinkedManager(System.String)
+  commentId: M:Steam.Common.Logging.LogManager.CreateLinkedManager(System.String)
+  id: CreateLinkedManager(System.String)
+  parent: Steam.Common.Logging.LogManager
+  langs:
+  - csharp
+  - vb
+  name: CreateLinkedManager(String)
+  nameWithType: LogManager.CreateLinkedManager(String)
+  fullName: Steam.Common.Logging.LogManager.CreateLinkedManager(System.String)
+  type: Method
+  source:
+    id: CreateLinkedManager
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogManager.cs
+    startLine: 66
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public LogManager CreateLinkedManager(string source)
+    parameters:
+    - id: source
+      type: System.String
+    return:
+      type: Steam.Common.Logging.LogManager
+    content.vb: Public Function CreateLinkedManager(source As String) As LogManager
+  overload: Steam.Common.Logging.LogManager.CreateLinkedManager*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Common.Logging
+  commentId: N:Steam.Common.Logging
+  isExternal: false
+  name: Steam.Common.Logging
+  nameWithType: Steam.Common.Logging
+  fullName: Steam.Common.Logging
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Common.Logging.LogManager.Source*
+  commentId: Overload:Steam.Common.Logging.LogManager.Source
+  isExternal: false
+  name: Source
+  nameWithType: LogManager.Source
+  fullName: Steam.Common.Logging.LogManager.Source
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<LogMessage, Task>
+  nameWithType: Func<LogMessage, Task>
+  fullName: System.Func<Steam.Common.Logging.LogMessage, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of LogMessage, Task)
+  fullName.vb: System.Func(Of Steam.Common.Logging.LogMessage, System.Threading.Tasks.Task)
+  name.vb: Func(Of LogMessage, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Common.Logging.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Steam.Common.Logging.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Common.Logging.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Steam.Common.Logging.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Common.Logging.LogManager.#ctor*
+  commentId: Overload:Steam.Common.Logging.LogManager.#ctor
+  isExternal: false
+  name: LogManager
+  nameWithType: LogManager.LogManager
+  fullName: Steam.Common.Logging.LogManager.LogManager
+- uid: Steam.Common.Logging.LogSeverity
+  commentId: T:Steam.Common.Logging.LogSeverity
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Steam.Common.Logging.LogSeverity
+- uid: Steam.Common.Logging.LogManager.LogCriticalAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogCriticalAsync
+  isExternal: false
+  name: LogCriticalAsync
+  nameWithType: LogManager.LogCriticalAsync
+  fullName: Steam.Common.Logging.LogManager.LogCriticalAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Steam.Common.Logging.LogManager.LogErrorAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogErrorAsync
+  isExternal: false
+  name: LogErrorAsync
+  nameWithType: LogManager.LogErrorAsync
+  fullName: Steam.Common.Logging.LogManager.LogErrorAsync
+- uid: Steam.Common.Logging.LogManager.LogWarningAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogWarningAsync
+  isExternal: false
+  name: LogWarningAsync
+  nameWithType: LogManager.LogWarningAsync
+  fullName: Steam.Common.Logging.LogManager.LogWarningAsync
+- uid: Steam.Common.Logging.LogManager.LogInfoAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogInfoAsync
+  isExternal: false
+  name: LogInfoAsync
+  nameWithType: LogManager.LogInfoAsync
+  fullName: Steam.Common.Logging.LogManager.LogInfoAsync
+- uid: Steam.Common.Logging.LogManager.LogVerboseAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogVerboseAsync
+  isExternal: false
+  name: LogVerboseAsync
+  nameWithType: LogManager.LogVerboseAsync
+  fullName: Steam.Common.Logging.LogManager.LogVerboseAsync
+- uid: Steam.Common.Logging.LogManager.LogDebugAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogDebugAsync
+  isExternal: false
+  name: LogDebugAsync
+  nameWithType: LogManager.LogDebugAsync
+  fullName: Steam.Common.Logging.LogManager.LogDebugAsync
+- uid: Steam.Common.Logging.LogManager.LogAsync*
+  commentId: Overload:Steam.Common.Logging.LogManager.LogAsync
+  isExternal: false
+  name: LogAsync
+  nameWithType: LogManager.LogAsync
+  fullName: Steam.Common.Logging.LogManager.LogAsync
+- uid: Steam.Common.Logging.LogManager.CreateLinkedManager*
+  commentId: Overload:Steam.Common.Logging.LogManager.CreateLinkedManager
+  isExternal: false
+  name: CreateLinkedManager
+  nameWithType: LogManager.CreateLinkedManager
+  fullName: Steam.Common.Logging.LogManager.CreateLinkedManager
+- uid: Steam.Common.Logging.LogManager
+  commentId: T:Steam.Common.Logging.LogManager
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogManager
+  nameWithType: LogManager
+  fullName: Steam.Common.Logging.LogManager

@@ -1,0 +1,846 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.User
+  commentId: T:Steam.Net.User
+  id: User
+  parent: Steam.Net
+  children:
+  - Steam.Net.User.#ctor(Steam.Net.SteamNetworkClient)
+  - Steam.Net.User.AppId
+  - Steam.Net.User.GameId
+  - Steam.Net.User.GameName
+  - Steam.Net.User.GetProfileAsync(Steam.Rest.RequestOptions)
+  - Steam.Net.User.PersonaState
+  - Steam.Net.User.PersonaStateFlags
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: User
+  fullName: Steam.Net.User
+  type: Class
+  source:
+    id: User
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: 'public class User : Account'
+    content.vb: >-
+      Public Class User
+
+          Inherits Account
+  inheritance:
+  - System.Object
+  - Steam.Net.NetworkEntity
+  - Steam.Net.Account
+  derivedClasses:
+  - Steam.Net.SelfUser
+  inheritedMembers:
+  - Steam.Net.Account.Id
+  - Steam.Net.Account.Name
+  - Steam.Net.Account.AvatarHash
+  - Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  - Steam.Net.NetworkEntity.Client
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.User.PersonaState
+  commentId: P:Steam.Net.User.PersonaState
+  id: PersonaState
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: PersonaState
+  nameWithType: User.PersonaState
+  fullName: Steam.Net.User.PersonaState
+  type: Property
+  source:
+    id: PersonaState
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public PersonaState PersonaState { get; }
+    parameters: []
+    return:
+      type: Steam.Common.PersonaState
+    content.vb: Public ReadOnly Property PersonaState As PersonaState
+  overload: Steam.Net.User.PersonaState*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.User.PersonaStateFlags
+  commentId: P:Steam.Net.User.PersonaStateFlags
+  id: PersonaStateFlags
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: PersonaStateFlags
+  nameWithType: User.PersonaStateFlags
+  fullName: Steam.Net.User.PersonaStateFlags
+  type: Property
+  source:
+    id: PersonaStateFlags
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public PersonaStateFlag PersonaStateFlags { get; }
+    parameters: []
+    return:
+      type: Steam.Common.PersonaStateFlag
+    content.vb: Public ReadOnly Property PersonaStateFlags As PersonaStateFlag
+  overload: Steam.Net.User.PersonaStateFlags*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.User.AppId
+  commentId: P:Steam.Net.User.AppId
+  id: AppId
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: AppId
+  nameWithType: User.AppId
+  fullName: Steam.Net.User.AppId
+  type: Property
+  source:
+    id: AppId
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public uint AppId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property AppId As UInteger
+  overload: Steam.Net.User.AppId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.User.GameId
+  commentId: P:Steam.Net.User.GameId
+  id: GameId
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: GameId
+  nameWithType: User.GameId
+  fullName: Steam.Net.User.GameId
+  type: Property
+  source:
+    id: GameId
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public GameId GameId { get; }
+    parameters: []
+    return:
+      type: Steam.Common.GameId
+    content.vb: Public ReadOnly Property GameId As GameId
+  overload: Steam.Net.User.GameId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.User.GameName
+  commentId: P:Steam.Net.User.GameName
+  id: GameName
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: GameName
+  nameWithType: User.GameName
+  fullName: Steam.Net.User.GameName
+  type: Property
+  source:
+    id: GameName
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public string GameName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property GameName As String
+  overload: Steam.Net.User.GameName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.User.#ctor(Steam.Net.SteamNetworkClient)
+  commentId: M:Steam.Net.User.#ctor(Steam.Net.SteamNetworkClient)
+  id: '#ctor(Steam.Net.SteamNetworkClient)'
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: User(SteamNetworkClient)
+  nameWithType: User.User(SteamNetworkClient)
+  fullName: Steam.Net.User.User(Steam.Net.SteamNetworkClient)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public User(SteamNetworkClient client)
+    parameters:
+    - id: client
+      type: Steam.Net.SteamNetworkClient
+    content.vb: Public Sub New(client As SteamNetworkClient)
+  overload: Steam.Net.User.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.User.GetProfileAsync(Steam.Rest.RequestOptions)
+  commentId: M:Steam.Net.User.GetProfileAsync(Steam.Rest.RequestOptions)
+  id: GetProfileAsync(Steam.Rest.RequestOptions)
+  parent: Steam.Net.User
+  langs:
+  - csharp
+  - vb
+  name: GetProfileAsync(RequestOptions)
+  nameWithType: User.GetProfileAsync(RequestOptions)
+  fullName: Steam.Net.User.GetProfileAsync(Steam.Rest.RequestOptions)
+  type: Method
+  source:
+    id: GetProfileAsync
+    path: G:\Steam\src\Network\Steam.Net\User.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nReturns this user's Steam community profile\n"
+  example: []
+  syntax:
+    content: public Task<UserProfile> GetProfileAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Steam.Rest.RequestOptions
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Steam.Web.UserProfile}
+      description: ''
+    content.vb: Public Function GetProfileAsync(options As RequestOptions = Nothing) As Task(Of UserProfile)
+  overload: Steam.Net.User.GetProfileAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Steam.Net.NetworkEntity
+  commentId: T:Steam.Net.NetworkEntity
+  parent: Steam.Net
+  isExternal: false
+  name: NetworkEntity
+  nameWithType: NetworkEntity
+  fullName: Steam.Net.NetworkEntity
+- uid: Steam.Net.Account
+  commentId: T:Steam.Net.Account
+  parent: Steam.Net
+  isExternal: false
+  name: Account
+  nameWithType: Account
+  fullName: Steam.Net.Account
+- uid: Steam.Net.Account.Id
+  commentId: P:Steam.Net.Account.Id
+  parent: Steam.Net.Account
+  isExternal: false
+  name: Id
+  nameWithType: Account.Id
+  fullName: Steam.Net.Account.Id
+- uid: Steam.Net.Account.Name
+  commentId: P:Steam.Net.Account.Name
+  parent: Steam.Net.Account
+  isExternal: false
+  name: Name
+  nameWithType: Account.Name
+  fullName: Steam.Net.Account.Name
+- uid: Steam.Net.Account.AvatarHash
+  commentId: P:Steam.Net.Account.AvatarHash
+  parent: Steam.Net.Account
+  isExternal: false
+  name: AvatarHash
+  nameWithType: Account.AvatarHash
+  fullName: Steam.Net.Account.AvatarHash
+- uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  commentId: M:Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  parent: Steam.Net.Account
+  isExternal: false
+  name: GetAvatarUri(ImageSize)
+  nameWithType: Account.GetAvatarUri(ImageSize)
+  fullName: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  spec.csharp:
+  - uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+    name: GetAvatarUri
+    nameWithType: Account.GetAvatarUri
+    fullName: Steam.Net.Account.GetAvatarUri
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+    name: GetAvatarUri
+    nameWithType: Account.GetAvatarUri
+    fullName: Steam.Net.Account.GetAvatarUri
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.NetworkEntity.Client
+  commentId: P:Steam.Net.NetworkEntity.Client
+  parent: Steam.Net.NetworkEntity
+  isExternal: false
+  name: Client
+  nameWithType: NetworkEntity.Client
+  fullName: Steam.Net.NetworkEntity.Client
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Net.User.PersonaState*
+  commentId: Overload:Steam.Net.User.PersonaState
+  isExternal: false
+  name: PersonaState
+  nameWithType: User.PersonaState
+  fullName: Steam.Net.User.PersonaState
+- uid: Steam.Common.PersonaState
+  commentId: T:Steam.Common.PersonaState
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaState
+  nameWithType: PersonaState
+  fullName: Steam.Common.PersonaState
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Net.User.PersonaStateFlags*
+  commentId: Overload:Steam.Net.User.PersonaStateFlags
+  isExternal: false
+  name: PersonaStateFlags
+  nameWithType: User.PersonaStateFlags
+  fullName: Steam.Net.User.PersonaStateFlags
+- uid: Steam.Common.PersonaStateFlag
+  commentId: T:Steam.Common.PersonaStateFlag
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaStateFlag
+  nameWithType: PersonaStateFlag
+  fullName: Steam.Common.PersonaStateFlag
+- uid: Steam.Net.User.AppId*
+  commentId: Overload:Steam.Net.User.AppId
+  isExternal: false
+  name: AppId
+  nameWithType: User.AppId
+  fullName: Steam.Net.User.AppId
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Net.User.GameId*
+  commentId: Overload:Steam.Net.User.GameId
+  isExternal: false
+  name: GameId
+  nameWithType: User.GameId
+  fullName: Steam.Net.User.GameId
+- uid: Steam.Common.GameId
+  commentId: T:Steam.Common.GameId
+  parent: Steam.Common
+  isExternal: false
+  name: GameId
+  nameWithType: GameId
+  fullName: Steam.Common.GameId
+- uid: Steam.Net.User.GameName*
+  commentId: Overload:Steam.Net.User.GameName
+  isExternal: false
+  name: GameName
+  nameWithType: User.GameName
+  fullName: Steam.Net.User.GameName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Net.User.#ctor*
+  commentId: Overload:Steam.Net.User.#ctor
+  isExternal: false
+  name: User
+  nameWithType: User.User
+  fullName: Steam.Net.User.User
+- uid: Steam.Net.SteamNetworkClient
+  commentId: T:Steam.Net.SteamNetworkClient
+  parent: Steam.Net
+  isExternal: false
+  name: SteamNetworkClient
+  nameWithType: SteamNetworkClient
+  fullName: Steam.Net.SteamNetworkClient
+- uid: Steam.Net.User.GetProfileAsync*
+  commentId: Overload:Steam.Net.User.GetProfileAsync
+  isExternal: false
+  name: GetProfileAsync
+  nameWithType: User.GetProfileAsync
+  fullName: Steam.Net.User.GetProfileAsync
+- uid: Steam.Rest.RequestOptions
+  commentId: T:Steam.Rest.RequestOptions
+  parent: Steam.Rest
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Steam.Rest.RequestOptions
+- uid: System.Threading.Tasks.Task{Steam.Web.UserProfile}
+  commentId: T:System.Threading.Tasks.Task{Steam.Web.UserProfile}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<UserProfile>
+  nameWithType: Task<UserProfile>
+  fullName: System.Threading.Tasks.Task<Steam.Web.UserProfile>
+  nameWithType.vb: Task(Of UserProfile)
+  fullName.vb: System.Threading.Tasks.Task(Of Steam.Web.UserProfile)
+  name.vb: Task(Of UserProfile)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Web.UserProfile
+    name: UserProfile
+    nameWithType: UserProfile
+    fullName: Steam.Web.UserProfile
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Web.UserProfile
+    name: UserProfile
+    nameWithType: UserProfile
+    fullName: Steam.Web.UserProfile
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

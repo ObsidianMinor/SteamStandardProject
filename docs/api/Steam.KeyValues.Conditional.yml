@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.KeyValues.Conditional
+  commentId: T:Steam.KeyValues.Conditional
+  id: Conditional
+  parent: Steam.KeyValues
+  children:
+  - Steam.KeyValues.Conditional.LINUX
+  - Steam.KeyValues.Conditional.OSX
+  - Steam.KeyValues.Conditional.PC
+  - Steam.KeyValues.Conditional.POSIX
+  - Steam.KeyValues.Conditional.WINDOWS
+  - Steam.KeyValues.Conditional.X360
+  langs:
+  - csharp
+  - vb
+  name: Conditional
+  nameWithType: Conditional
+  fullName: Steam.KeyValues.Conditional
+  type: Enum
+  source:
+    id: Conditional
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 5
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA conditional in KeyValues\n"
+  example: []
+  syntax:
+    content: public enum Conditional
+    content.vb: Public Enum Conditional
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.KeyValues.Conditional.X360
+  commentId: F:Steam.KeyValues.Conditional.X360
+  id: X360
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: X360
+  nameWithType: Conditional.X360
+  fullName: Steam.KeyValues.Conditional.X360
+  type: Field
+  source:
+    id: X360
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 10
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA console conditional\n"
+  example: []
+  syntax:
+    content: X360 = 0
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.Conditional.PC
+  commentId: F:Steam.KeyValues.Conditional.PC
+  id: PC
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: PC
+  nameWithType: Conditional.PC
+  fullName: Steam.KeyValues.Conditional.PC
+  type: Field
+  source:
+    id: PC
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 15
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA PC conditional\n"
+  remarks: Actually is WIN32
+  example: []
+  syntax:
+    content: PC = 1
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.Conditional.WINDOWS
+  commentId: F:Steam.KeyValues.Conditional.WINDOWS
+  id: WINDOWS
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: WINDOWS
+  nameWithType: Conditional.WINDOWS
+  fullName: Steam.KeyValues.Conditional.WINDOWS
+  type: Field
+  source:
+    id: WINDOWS
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 19
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA Windows conditional\n"
+  example: []
+  syntax:
+    content: WINDOWS = 2
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.Conditional.OSX
+  commentId: F:Steam.KeyValues.Conditional.OSX
+  id: OSX
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: OSX
+  nameWithType: Conditional.OSX
+  fullName: Steam.KeyValues.Conditional.OSX
+  type: Field
+  source:
+    id: OSX
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 23
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nAn OSX or macOS conditional\n"
+  example: []
+  syntax:
+    content: OSX = 3
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.Conditional.LINUX
+  commentId: F:Steam.KeyValues.Conditional.LINUX
+  id: LINUX
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: LINUX
+  nameWithType: Conditional.LINUX
+  fullName: Steam.KeyValues.Conditional.LINUX
+  type: Field
+  source:
+    id: LINUX
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 27
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA Linux conditional\n"
+  example: []
+  syntax:
+    content: LINUX = 4
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.Conditional.POSIX
+  commentId: F:Steam.KeyValues.Conditional.POSIX
+  id: POSIX
+  parent: Steam.KeyValues.Conditional
+  langs:
+  - csharp
+  - vb
+  name: POSIX
+  nameWithType: Conditional.POSIX
+  fullName: Steam.KeyValues.Conditional.POSIX
+  type: Field
+  source:
+    id: POSIX
+    path: G:\Steam\src\Common\Steam.KeyValues\Conditional.cs
+    startLine: 31
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA POSIX conditional\n"
+  example: []
+  syntax:
+    content: POSIX = 5
+    return:
+      type: Steam.KeyValues.Conditional
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.KeyValues
+  commentId: N:Steam.KeyValues
+  isExternal: false
+  name: Steam.KeyValues
+  nameWithType: Steam.KeyValues
+  fullName: Steam.KeyValues
+- uid: Steam.KeyValues.Conditional
+  commentId: T:Steam.KeyValues.Conditional
+  parent: Steam.KeyValues
+  isExternal: false
+  name: Conditional
+  nameWithType: Conditional
+  fullName: Steam.KeyValues.Conditional

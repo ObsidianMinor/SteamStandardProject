@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.AsyncEvent`1
+  commentId: T:Steam.Common.AsyncEvent`1
+  id: AsyncEvent`1
+  parent: Steam.Common
+  children:
+  - Steam.Common.AsyncEvent`1.#ctor
+  - Steam.Common.AsyncEvent`1.Add(`0)
+  - Steam.Common.AsyncEvent`1.HasSubscribers
+  - Steam.Common.AsyncEvent`1.Remove(`0)
+  - Steam.Common.AsyncEvent`1.Subscriptions
+  langs:
+  - csharp
+  - vb
+  name: AsyncEvent<T>
+  nameWithType: AsyncEvent<T>
+  fullName: Steam.Common.AsyncEvent<T>
+  type: Class
+  source:
+    id: AsyncEvent
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 11
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nEncapsulates an event that returns a Task, allowing for easy to use async events\n"
+  example: []
+  syntax:
+    content: >-
+      public class AsyncEvent<T>
+
+          where T : class
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: Public Class AsyncEvent(Of T As Class)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: AsyncEvent(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: Steam.Common.AsyncEvent(Of T)
+  name.vb: AsyncEvent(Of T)
+- uid: Steam.Common.AsyncEvent`1.HasSubscribers
+  commentId: P:Steam.Common.AsyncEvent`1.HasSubscribers
+  id: HasSubscribers
+  parent: Steam.Common.AsyncEvent`1
+  langs:
+  - csharp
+  - vb
+  name: HasSubscribers
+  nameWithType: AsyncEvent<T>.HasSubscribers
+  fullName: Steam.Common.AsyncEvent<T>.HasSubscribers
+  type: Property
+  source:
+    id: HasSubscribers
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 19
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets whether this event has subscribers\n"
+  example: []
+  syntax:
+    content: public bool HasSubscribers { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasSubscribers As Boolean
+  overload: Steam.Common.AsyncEvent`1.HasSubscribers*
+  nameWithType.vb: AsyncEvent(Of T).HasSubscribers
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Steam.Common.AsyncEvent(Of T).HasSubscribers
+- uid: Steam.Common.AsyncEvent`1.Subscriptions
+  commentId: P:Steam.Common.AsyncEvent`1.Subscriptions
+  id: Subscriptions
+  parent: Steam.Common.AsyncEvent`1
+  langs:
+  - csharp
+  - vb
+  name: Subscriptions
+  nameWithType: AsyncEvent<T>.Subscriptions
+  fullName: Steam.Common.AsyncEvent<T>.Subscriptions
+  type: Property
+  source:
+    id: Subscriptions
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 23
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the subscribers of this event\n"
+  example: []
+  syntax:
+    content: public IReadOnlyList<T> Subscriptions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{{T}}
+    content.vb: Public ReadOnly Property Subscriptions As IReadOnlyList(Of T)
+  overload: Steam.Common.AsyncEvent`1.Subscriptions*
+  nameWithType.vb: AsyncEvent(Of T).Subscriptions
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Subscriptions
+- uid: Steam.Common.AsyncEvent`1.#ctor
+  commentId: M:Steam.Common.AsyncEvent`1.#ctor
+  id: '#ctor'
+  parent: Steam.Common.AsyncEvent`1
+  langs:
+  - csharp
+  - vb
+  name: AsyncEvent()
+  nameWithType: AsyncEvent<T>.AsyncEvent()
+  fullName: Steam.Common.AsyncEvent<T>.AsyncEvent()
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 28
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nInitializes the async event\n"
+  example: []
+  syntax:
+    content: public AsyncEvent()
+    content.vb: Public Sub New
+  overload: Steam.Common.AsyncEvent`1.#ctor*
+  nameWithType.vb: AsyncEvent(Of T).AsyncEvent()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Common.AsyncEvent(Of T).AsyncEvent()
+- uid: Steam.Common.AsyncEvent`1.Add(`0)
+  commentId: M:Steam.Common.AsyncEvent`1.Add(`0)
+  id: Add(`0)
+  parent: Steam.Common.AsyncEvent`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T)
+  nameWithType: AsyncEvent<T>.Add(T)
+  fullName: Steam.Common.AsyncEvent<T>.Add(T)
+  type: Method
+  source:
+    id: Add
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 37
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAddes a subscriber to this event\n"
+  example: []
+  syntax:
+    content: public void Add(T subscriber)
+    parameters:
+    - id: subscriber
+      type: '{T}'
+      description: ''
+    content.vb: Public Sub Add(subscriber As T)
+  overload: Steam.Common.AsyncEvent`1.Add*
+  nameWithType.vb: AsyncEvent(Of T).Add(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Add(T)
+- uid: Steam.Common.AsyncEvent`1.Remove(`0)
+  commentId: M:Steam.Common.AsyncEvent`1.Remove(`0)
+  id: Remove(`0)
+  parent: Steam.Common.AsyncEvent`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: AsyncEvent<T>.Remove(T)
+  fullName: Steam.Common.AsyncEvent<T>.Remove(T)
+  type: Method
+  source:
+    id: Remove
+    path: G:\Steam\src\Common\Steam.Common\AsyncEvent.cs
+    startLine: 49
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nRemoves a subscriber from this event\n"
+  example: []
+  syntax:
+    content: public void Remove(T subscriber)
+    parameters:
+    - id: subscriber
+      type: '{T}'
+      description: ''
+    content.vb: Public Sub Remove(subscriber As T)
+  overload: Steam.Common.AsyncEvent`1.Remove*
+  nameWithType.vb: AsyncEvent(Of T).Remove(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Remove(T)
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Common.AsyncEvent`1.HasSubscribers*
+  commentId: Overload:Steam.Common.AsyncEvent`1.HasSubscribers
+  isExternal: false
+  name: HasSubscribers
+  nameWithType: AsyncEvent<T>.HasSubscribers
+  fullName: Steam.Common.AsyncEvent<T>.HasSubscribers
+  nameWithType.vb: AsyncEvent(Of T).HasSubscribers
+  fullName.vb: Steam.Common.AsyncEvent(Of T).HasSubscribers
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Common.AsyncEvent`1.Subscriptions*
+  commentId: Overload:Steam.Common.AsyncEvent`1.Subscriptions
+  isExternal: false
+  name: Subscriptions
+  nameWithType: AsyncEvent<T>.Subscriptions
+  fullName: Steam.Common.AsyncEvent<T>.Subscriptions
+  nameWithType.vb: AsyncEvent(Of T).Subscriptions
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Subscriptions
+- uid: System.Collections.Generic.IReadOnlyList{{T}}
+  commentId: T:System.Collections.Generic.IReadOnlyList{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Steam.Common.AsyncEvent`1.#ctor*
+  commentId: Overload:Steam.Common.AsyncEvent`1.#ctor
+  isExternal: false
+  name: AsyncEvent
+  nameWithType: AsyncEvent<T>.AsyncEvent
+  fullName: Steam.Common.AsyncEvent<T>.AsyncEvent
+  nameWithType.vb: AsyncEvent(Of T).AsyncEvent
+  fullName.vb: Steam.Common.AsyncEvent(Of T).AsyncEvent
+- uid: Steam.Common.AsyncEvent`1.Add*
+  commentId: Overload:Steam.Common.AsyncEvent`1.Add
+  isExternal: false
+  name: Add
+  nameWithType: AsyncEvent<T>.Add
+  fullName: Steam.Common.AsyncEvent<T>.Add
+  nameWithType.vb: AsyncEvent(Of T).Add
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Add
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  isExternal: false
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Steam.Common.AsyncEvent`1.Remove*
+  commentId: Overload:Steam.Common.AsyncEvent`1.Remove
+  isExternal: false
+  name: Remove
+  nameWithType: AsyncEvent<T>.Remove
+  fullName: Steam.Common.AsyncEvent<T>.Remove
+  nameWithType.vb: AsyncEvent(Of T).Remove
+  fullName.vb: Steam.Common.AsyncEvent(Of T).Remove

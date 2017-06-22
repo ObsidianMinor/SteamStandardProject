@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.Library
+  commentId: T:Steam.Local.Apps.Library
+  id: Library
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.Library.Apps
+  - Steam.Local.Apps.Library.CalculateUsedSpace
+  - Steam.Local.Apps.Library.CreateFromDirectory(System.String)
+  - Steam.Local.Apps.Library.DirectoryPath
+  langs:
+  - csharp
+  - vb
+  name: Library
+  nameWithType: Library
+  fullName: Steam.Local.Apps.Library
+  type: Class
+  source:
+    id: Library
+    path: G:\Steam\src\Local\Steam.Local\Apps\Library.cs
+    startLine: 9
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nRepresents a Steam library\n"
+  example: []
+  syntax:
+    content: public class Library
+    content.vb: Public Class Library
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Local.Apps.Library.DirectoryPath
+  commentId: P:Steam.Local.Apps.Library.DirectoryPath
+  id: DirectoryPath
+  parent: Steam.Local.Apps.Library
+  langs:
+  - csharp
+  - vb
+  name: DirectoryPath
+  nameWithType: Library.DirectoryPath
+  fullName: Steam.Local.Apps.Library.DirectoryPath
+  type: Property
+  source:
+    id: DirectoryPath
+    path: G:\Steam\src\Local\Steam.Local\Apps\Library.cs
+    startLine: 11
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public string DirectoryPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DirectoryPath As String
+  overload: Steam.Local.Apps.Library.DirectoryPath*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.Apps.Library.Apps
+  commentId: P:Steam.Local.Apps.Library.Apps
+  id: Apps
+  parent: Steam.Local.Apps.Library
+  langs:
+  - csharp
+  - vb
+  name: Apps
+  nameWithType: Library.Apps
+  fullName: Steam.Local.Apps.Library.Apps
+  type: Property
+  source:
+    id: Apps
+    path: G:\Steam\src\Local\Steam.Local\Apps\Library.cs
+    startLine: 14
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public IReadOnlyCollection<LocalApp> Apps { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{Steam.Local.Apps.LocalApp}
+    content.vb: Public ReadOnly Property Apps As IReadOnlyCollection(Of LocalApp)
+  overload: Steam.Local.Apps.Library.Apps*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.Apps.Library.CreateFromDirectory(System.String)
+  commentId: M:Steam.Local.Apps.Library.CreateFromDirectory(System.String)
+  id: CreateFromDirectory(System.String)
+  parent: Steam.Local.Apps.Library
+  langs:
+  - csharp
+  - vb
+  name: CreateFromDirectory(String)
+  nameWithType: Library.CreateFromDirectory(String)
+  fullName: Steam.Local.Apps.Library.CreateFromDirectory(System.String)
+  type: Method
+  source:
+    id: CreateFromDirectory
+    path: G:\Steam\src\Local\Steam.Local\Apps\Library.cs
+    startLine: 16
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public static Library CreateFromDirectory(string directory)
+    parameters:
+    - id: directory
+      type: System.String
+    return:
+      type: Steam.Local.Apps.Library
+    content.vb: Public Shared Function CreateFromDirectory(directory As String) As Library
+  overload: Steam.Local.Apps.Library.CreateFromDirectory*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Steam.Local.Apps.Library.CalculateUsedSpace
+  commentId: M:Steam.Local.Apps.Library.CalculateUsedSpace
+  id: CalculateUsedSpace
+  parent: Steam.Local.Apps.Library
+  langs:
+  - csharp
+  - vb
+  name: CalculateUsedSpace()
+  nameWithType: Library.CalculateUsedSpace()
+  fullName: Steam.Local.Apps.Library.CalculateUsedSpace()
+  type: Method
+  source:
+    id: CalculateUsedSpace
+    path: G:\Steam\src\Local\Steam.Local\Apps\Library.cs
+    startLine: 30
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public ulong CalculateUsedSpace()
+    return:
+      type: System.UInt64
+    content.vb: Public Function CalculateUsedSpace As ULong
+  overload: Steam.Local.Apps.Library.CalculateUsedSpace*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Local.Apps.Library.DirectoryPath*
+  commentId: Overload:Steam.Local.Apps.Library.DirectoryPath
+  isExternal: false
+  name: DirectoryPath
+  nameWithType: Library.DirectoryPath
+  fullName: Steam.Local.Apps.Library.DirectoryPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Local.Apps.Library.Apps*
+  commentId: Overload:Steam.Local.Apps.Library.Apps
+  isExternal: false
+  name: Apps
+  nameWithType: Library.Apps
+  fullName: Steam.Local.Apps.Library.Apps
+- uid: System.Collections.Generic.IReadOnlyCollection{Steam.Local.Apps.LocalApp}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Steam.Local.Apps.LocalApp}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  name: IReadOnlyCollection<LocalApp>
+  nameWithType: IReadOnlyCollection<LocalApp>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Steam.Local.Apps.LocalApp>
+  nameWithType.vb: IReadOnlyCollection(Of LocalApp)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Steam.Local.Apps.LocalApp)
+  name.vb: IReadOnlyCollection(Of LocalApp)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Local.Apps.LocalApp
+    name: LocalApp
+    nameWithType: LocalApp
+    fullName: Steam.Local.Apps.LocalApp
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Local.Apps.LocalApp
+    name: LocalApp
+    nameWithType: LocalApp
+    fullName: Steam.Local.Apps.LocalApp
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Steam.Local.Apps.Library.CreateFromDirectory*
+  commentId: Overload:Steam.Local.Apps.Library.CreateFromDirectory
+  isExternal: false
+  name: CreateFromDirectory
+  nameWithType: Library.CreateFromDirectory
+  fullName: Steam.Local.Apps.Library.CreateFromDirectory
+- uid: Steam.Local.Apps.Library
+  commentId: T:Steam.Local.Apps.Library
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: Library
+  nameWithType: Library
+  fullName: Steam.Local.Apps.Library
+- uid: Steam.Local.Apps.Library.CalculateUsedSpace*
+  commentId: Overload:Steam.Local.Apps.Library.CalculateUsedSpace
+  isExternal: false
+  name: CalculateUsedSpace
+  nameWithType: Library.CalculateUsedSpace
+  fullName: Steam.Local.Apps.Library.CalculateUsedSpace
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64

@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Instance
+  commentId: T:Steam.Common.Instance
+  id: Instance
+  parent: Steam.Common
+  children:
+  - Steam.Common.Instance.All
+  - Steam.Common.Instance.Console
+  - Steam.Common.Instance.Desktop
+  - Steam.Common.Instance.Web
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: Instance
+  fullName: Steam.Common.Instance
+  type: Enum
+  source:
+    id: Instance
+    path: G:\Steam\src\Common\Steam.Common\Instance.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe account instance an account exists in\n"
+  example: []
+  syntax:
+    content: public enum Instance
+    content.vb: Public Enum Instance
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.Instance.All
+  commentId: F:Steam.Common.Instance.All
+  id: All
+  parent: Steam.Common.Instance
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: Instance.All
+  fullName: Steam.Common.Instance.All
+  type: Field
+  source:
+    id: All
+    path: G:\Steam\src\Common\Steam.Common\Instance.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe account exists in all instances\n"
+  example: []
+  syntax:
+    content: All = 0
+    return:
+      type: Steam.Common.Instance
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Instance.Desktop
+  commentId: F:Steam.Common.Instance.Desktop
+  id: Desktop
+  parent: Steam.Common.Instance
+  langs:
+  - csharp
+  - vb
+  name: Desktop
+  nameWithType: Instance.Desktop
+  fullName: Steam.Common.Instance.Desktop
+  type: Field
+  source:
+    id: Desktop
+    path: G:\Steam\src\Common\Steam.Common\Instance.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe account exist on desktop\n"
+  example: []
+  syntax:
+    content: Desktop = 1
+    return:
+      type: Steam.Common.Instance
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Instance.Console
+  commentId: F:Steam.Common.Instance.Console
+  id: Console
+  parent: Steam.Common.Instance
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: Instance.Console
+  fullName: Steam.Common.Instance.Console
+  type: Field
+  source:
+    id: Console
+    path: G:\Steam\src\Common\Steam.Common\Instance.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe account exist on console\n"
+  example: []
+  syntax:
+    content: Console = 2
+    return:
+      type: Steam.Common.Instance
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Instance.Web
+  commentId: F:Steam.Common.Instance.Web
+  id: Web
+  parent: Steam.Common.Instance
+  langs:
+  - csharp
+  - vb
+  name: Web
+  nameWithType: Instance.Web
+  fullName: Steam.Common.Instance.Web
+  type: Field
+  source:
+    id: Web
+    path: G:\Steam\src\Common\Steam.Common\Instance.cs
+    startLine: 22
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe account exist on the web\n"
+  example: []
+  syntax:
+    content: Web = 4
+    return:
+      type: Steam.Common.Instance
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.Instance
+  commentId: T:Steam.Common.Instance
+  parent: Steam.Common
+  isExternal: false
+  name: Instance
+  nameWithType: Instance
+  fullName: Steam.Common.Instance

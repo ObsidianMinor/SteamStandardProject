@@ -1,0 +1,2538 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.PaymentMethod
+  commentId: T:Steam.Net.PaymentMethod
+  id: PaymentMethod
+  parent: Steam.Net
+  children:
+  - Steam.Net.PaymentMethod.ActivationCode
+  - Steam.Net.PaymentMethod.Akbank
+  - Steam.Net.PaymentMethod.AliPay
+  - Steam.Net.PaymentMethod.AmexBrazil
+  - Steam.Net.PaymentMethod.Aura
+  - Steam.Net.PaymentMethod.AuthorizedDevice
+  - Steam.Net.PaymentMethod.AutoGrant
+  - Steam.Net.PaymentMethod.BancoCreditoDePeru
+  - Steam.Net.PaymentMethod.BancoDoBrasilOnline
+  - Steam.Net.PaymentMethod.BankAsya
+  - Steam.Net.PaymentMethod.BankTransferJapan
+  - Steam.Net.PaymentMethod.BBVAContinental
+  - Steam.Net.PaymentMethod.Beeline
+  - Steam.Net.PaymentMethod.BitCoin
+  - Steam.Net.PaymentMethod.BoaCompraGold
+  - Steam.Net.PaymentMethod.BoletoBancario
+  - Steam.Net.PaymentMethod.BookVoucher
+  - Steam.Net.PaymentMethod.BradescoOnline
+  - Steam.Net.PaymentMethod.Carnet
+  - Steam.Net.PaymentMethod.CashU
+  - Steam.Net.PaymentMethod.ClickAndBuy
+  - Steam.Net.PaymentMethod.Complimentary
+  - Steam.Net.PaymentMethod.ConvenientStoreVoucher
+  - Steam.Net.PaymentMethod.CreditCard
+  - Steam.Net.PaymentMethod.CreditCardJapan
+  - Steam.Net.PaymentMethod.CultureVoucher
+  - Steam.Net.PaymentMethod.DenizBank
+  - Steam.Net.PaymentMethod.DinersCardBrazil
+  - Steam.Net.PaymentMethod.EClubPoints
+  - Steam.Net.PaymentMethod.Efecty
+  - Steam.Net.PaymentMethod.Exito
+  - Steam.Net.PaymentMethod.Finansbank
+  - Steam.Net.PaymentMethod.GameStop
+  - Steam.Net.PaymentMethod.GameVoucher
+  - Steam.Net.PaymentMethod.Garanti
+  - Steam.Net.PaymentMethod.Giropay
+  - Steam.Net.PaymentMethod.GuestPass
+  - Steam.Net.PaymentMethod.Halkbank
+  - Steam.Net.PaymentMethod.HappymoneyVoucher
+  - Steam.Net.PaymentMethod.HardwarePromo
+  - Steam.Net.PaymentMethod.Hipercard
+  - Steam.Net.PaymentMethod.Ideal
+  - Steam.Net.PaymentMethod.IsBank
+  - Steam.Net.PaymentMethod.ItauOnline
+  - Steam.Net.PaymentMethod.Kiosk
+  - Steam.Net.PaymentMethod.Konbini
+  - Steam.Net.PaymentMethod.MaestroBoaCompra
+  - Steam.Net.PaymentMethod.MangirKart
+  - Steam.Net.PaymentMethod.MastercardBrazil
+  - Steam.Net.PaymentMethod.MasterComp
+  - Steam.Net.PaymentMethod.MOLPoints
+  - Steam.Net.PaymentMethod.MoneyBookers
+  - Steam.Net.PaymentMethod.MoPay
+  - Steam.Net.PaymentMethod.Multibanco
+  - Steam.Net.PaymentMethod.None
+  - Steam.Net.PaymentMethod.OEMTicket
+  - Steam.Net.PaymentMethod.OneCard
+  - Steam.Net.PaymentMethod.OXXO
+  - Steam.Net.PaymentMethod.PagoEfectivo
+  - Steam.Net.PaymentMethod.Pagseguro
+  - Steam.Net.PaymentMethod.Paloto
+  - Steam.Net.PaymentMethod.PayEasy
+  - Steam.Net.PaymentMethod.PayPal
+  - Steam.Net.PaymentMethod.PaySafeCard
+  - Steam.Net.PaymentMethod.Payshop
+  - Steam.Net.PaymentMethod.PinValidda
+  - Steam.Net.PaymentMethod.Promotional
+  - Steam.Net.PaymentMethod.PSE
+  - Steam.Net.PaymentMethod.PTT
+  - Steam.Net.PaymentMethod.Qiwi
+  - Steam.Net.PaymentMethod.SafetyPay
+  - Steam.Net.PaymentMethod.Sofort
+  - Steam.Net.PaymentMethod.SPEI
+  - Steam.Net.PaymentMethod.Split
+  - Steam.Net.PaymentMethod.ThreePay
+  - Steam.Net.PaymentMethod.ToditoCash
+  - Steam.Net.PaymentMethod.Trustly
+  - Steam.Net.PaymentMethod.UnionPay
+  - Steam.Net.PaymentMethod.Valve
+  - Steam.Net.PaymentMethod.VisaBrazil
+  - Steam.Net.PaymentMethod.Wallet
+  - Steam.Net.PaymentMethod.WebMoney
+  - Steam.Net.PaymentMethod.WebMoneyJapan
+  - Steam.Net.PaymentMethod.Yandex
+  - Steam.Net.PaymentMethod.YapiKredi
+  - Steam.Net.PaymentMethod.Zong
+  langs:
+  - csharp
+  - vb
+  name: PaymentMethod
+  nameWithType: PaymentMethod
+  fullName: Steam.Net.PaymentMethod
+  type: Enum
+  source:
+    id: PaymentMethod
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum PaymentMethod
+    content.vb: Public Enum PaymentMethod
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.PaymentMethod.None
+  commentId: F:Steam.Net.PaymentMethod.None
+  id: None
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: PaymentMethod.None
+  fullName: Steam.Net.PaymentMethod.None
+  type: Field
+  source:
+    id: None
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: None = 0
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ActivationCode
+  commentId: F:Steam.Net.PaymentMethod.ActivationCode
+  id: ActivationCode
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ActivationCode
+  nameWithType: PaymentMethod.ActivationCode
+  fullName: Steam.Net.PaymentMethod.ActivationCode
+  type: Field
+  source:
+    id: ActivationCode
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ActivationCode = 1
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.CreditCard
+  commentId: F:Steam.Net.PaymentMethod.CreditCard
+  id: CreditCard
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: CreditCard
+  nameWithType: PaymentMethod.CreditCard
+  fullName: Steam.Net.PaymentMethod.CreditCard
+  type: Field
+  source:
+    id: CreditCard
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CreditCard = 2
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Giropay
+  commentId: F:Steam.Net.PaymentMethod.Giropay
+  id: Giropay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Giropay
+  nameWithType: PaymentMethod.Giropay
+  fullName: Steam.Net.PaymentMethod.Giropay
+  type: Field
+  source:
+    id: Giropay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Giropay = 3
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PayPal
+  commentId: F:Steam.Net.PaymentMethod.PayPal
+  id: PayPal
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PayPal
+  nameWithType: PaymentMethod.PayPal
+  fullName: Steam.Net.PaymentMethod.PayPal
+  type: Field
+  source:
+    id: PayPal
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PayPal = 4
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Ideal
+  commentId: F:Steam.Net.PaymentMethod.Ideal
+  id: Ideal
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Ideal
+  nameWithType: PaymentMethod.Ideal
+  fullName: Steam.Net.PaymentMethod.Ideal
+  type: Field
+  source:
+    id: Ideal
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Ideal = 5
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PaySafeCard
+  commentId: F:Steam.Net.PaymentMethod.PaySafeCard
+  id: PaySafeCard
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PaySafeCard
+  nameWithType: PaymentMethod.PaySafeCard
+  fullName: Steam.Net.PaymentMethod.PaySafeCard
+  type: Field
+  source:
+    id: PaySafeCard
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PaySafeCard = 6
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Sofort
+  commentId: F:Steam.Net.PaymentMethod.Sofort
+  id: Sofort
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Sofort
+  nameWithType: PaymentMethod.Sofort
+  fullName: Steam.Net.PaymentMethod.Sofort
+  type: Field
+  source:
+    id: Sofort
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Sofort = 7
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.GuestPass
+  commentId: F:Steam.Net.PaymentMethod.GuestPass
+  id: GuestPass
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: GuestPass
+  nameWithType: PaymentMethod.GuestPass
+  fullName: Steam.Net.PaymentMethod.GuestPass
+  type: Field
+  source:
+    id: GuestPass
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GuestPass = 8
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.WebMoney
+  commentId: F:Steam.Net.PaymentMethod.WebMoney
+  id: WebMoney
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: WebMoney
+  nameWithType: PaymentMethod.WebMoney
+  fullName: Steam.Net.PaymentMethod.WebMoney
+  type: Field
+  source:
+    id: WebMoney
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WebMoney = 9
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MoneyBookers
+  commentId: F:Steam.Net.PaymentMethod.MoneyBookers
+  id: MoneyBookers
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MoneyBookers
+  nameWithType: PaymentMethod.MoneyBookers
+  fullName: Steam.Net.PaymentMethod.MoneyBookers
+  type: Field
+  source:
+    id: MoneyBookers
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MoneyBookers = 10
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.AliPay
+  commentId: F:Steam.Net.PaymentMethod.AliPay
+  id: AliPay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: AliPay
+  nameWithType: PaymentMethod.AliPay
+  fullName: Steam.Net.PaymentMethod.AliPay
+  type: Field
+  source:
+    id: AliPay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AliPay = 11
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Yandex
+  commentId: F:Steam.Net.PaymentMethod.Yandex
+  id: Yandex
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Yandex
+  nameWithType: PaymentMethod.Yandex
+  fullName: Steam.Net.PaymentMethod.Yandex
+  type: Field
+  source:
+    id: Yandex
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Yandex = 12
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Kiosk
+  commentId: F:Steam.Net.PaymentMethod.Kiosk
+  id: Kiosk
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Kiosk
+  nameWithType: PaymentMethod.Kiosk
+  fullName: Steam.Net.PaymentMethod.Kiosk
+  type: Field
+  source:
+    id: Kiosk
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Kiosk = 13
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Qiwi
+  commentId: F:Steam.Net.PaymentMethod.Qiwi
+  id: Qiwi
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Qiwi
+  nameWithType: PaymentMethod.Qiwi
+  fullName: Steam.Net.PaymentMethod.Qiwi
+  type: Field
+  source:
+    id: Qiwi
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Qiwi = 14
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.GameStop
+  commentId: F:Steam.Net.PaymentMethod.GameStop
+  id: GameStop
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: GameStop
+  nameWithType: PaymentMethod.GameStop
+  fullName: Steam.Net.PaymentMethod.GameStop
+  type: Field
+  source:
+    id: GameStop
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GameStop = 15
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.HardwarePromo
+  commentId: F:Steam.Net.PaymentMethod.HardwarePromo
+  id: HardwarePromo
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: HardwarePromo
+  nameWithType: PaymentMethod.HardwarePromo
+  fullName: Steam.Net.PaymentMethod.HardwarePromo
+  type: Field
+  source:
+    id: HardwarePromo
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 20
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: HardwarePromo = 16
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MoPay
+  commentId: F:Steam.Net.PaymentMethod.MoPay
+  id: MoPay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MoPay
+  nameWithType: PaymentMethod.MoPay
+  fullName: Steam.Net.PaymentMethod.MoPay
+  type: Field
+  source:
+    id: MoPay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 21
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MoPay = 17
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BoletoBancario
+  commentId: F:Steam.Net.PaymentMethod.BoletoBancario
+  id: BoletoBancario
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BoletoBancario
+  nameWithType: PaymentMethod.BoletoBancario
+  fullName: Steam.Net.PaymentMethod.BoletoBancario
+  type: Field
+  source:
+    id: BoletoBancario
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BoletoBancario = 18
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BoaCompraGold
+  commentId: F:Steam.Net.PaymentMethod.BoaCompraGold
+  id: BoaCompraGold
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BoaCompraGold
+  nameWithType: PaymentMethod.BoaCompraGold
+  fullName: Steam.Net.PaymentMethod.BoaCompraGold
+  type: Field
+  source:
+    id: BoaCompraGold
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 23
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BoaCompraGold = 19
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BancoDoBrasilOnline
+  commentId: F:Steam.Net.PaymentMethod.BancoDoBrasilOnline
+  id: BancoDoBrasilOnline
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BancoDoBrasilOnline
+  nameWithType: PaymentMethod.BancoDoBrasilOnline
+  fullName: Steam.Net.PaymentMethod.BancoDoBrasilOnline
+  type: Field
+  source:
+    id: BancoDoBrasilOnline
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 24
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BancoDoBrasilOnline = 20
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ItauOnline
+  commentId: F:Steam.Net.PaymentMethod.ItauOnline
+  id: ItauOnline
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ItauOnline
+  nameWithType: PaymentMethod.ItauOnline
+  fullName: Steam.Net.PaymentMethod.ItauOnline
+  type: Field
+  source:
+    id: ItauOnline
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ItauOnline = 21
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BradescoOnline
+  commentId: F:Steam.Net.PaymentMethod.BradescoOnline
+  id: BradescoOnline
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BradescoOnline
+  nameWithType: PaymentMethod.BradescoOnline
+  fullName: Steam.Net.PaymentMethod.BradescoOnline
+  type: Field
+  source:
+    id: BradescoOnline
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 26
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BradescoOnline = 22
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Pagseguro
+  commentId: F:Steam.Net.PaymentMethod.Pagseguro
+  id: Pagseguro
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Pagseguro
+  nameWithType: PaymentMethod.Pagseguro
+  fullName: Steam.Net.PaymentMethod.Pagseguro
+  type: Field
+  source:
+    id: Pagseguro
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Pagseguro = 23
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.VisaBrazil
+  commentId: F:Steam.Net.PaymentMethod.VisaBrazil
+  id: VisaBrazil
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: VisaBrazil
+  nameWithType: PaymentMethod.VisaBrazil
+  fullName: Steam.Net.PaymentMethod.VisaBrazil
+  type: Field
+  source:
+    id: VisaBrazil
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 28
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: VisaBrazil = 24
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.AmexBrazil
+  commentId: F:Steam.Net.PaymentMethod.AmexBrazil
+  id: AmexBrazil
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: AmexBrazil
+  nameWithType: PaymentMethod.AmexBrazil
+  fullName: Steam.Net.PaymentMethod.AmexBrazil
+  type: Field
+  source:
+    id: AmexBrazil
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 29
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AmexBrazil = 25
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Aura
+  commentId: F:Steam.Net.PaymentMethod.Aura
+  id: Aura
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Aura
+  nameWithType: PaymentMethod.Aura
+  fullName: Steam.Net.PaymentMethod.Aura
+  type: Field
+  source:
+    id: Aura
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Aura = 26
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Hipercard
+  commentId: F:Steam.Net.PaymentMethod.Hipercard
+  id: Hipercard
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Hipercard
+  nameWithType: PaymentMethod.Hipercard
+  fullName: Steam.Net.PaymentMethod.Hipercard
+  type: Field
+  source:
+    id: Hipercard
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 31
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Hipercard = 27
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MastercardBrazil
+  commentId: F:Steam.Net.PaymentMethod.MastercardBrazil
+  id: MastercardBrazil
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MastercardBrazil
+  nameWithType: PaymentMethod.MastercardBrazil
+  fullName: Steam.Net.PaymentMethod.MastercardBrazil
+  type: Field
+  source:
+    id: MastercardBrazil
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 32
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MastercardBrazil = 28
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.DinersCardBrazil
+  commentId: F:Steam.Net.PaymentMethod.DinersCardBrazil
+  id: DinersCardBrazil
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: DinersCardBrazil
+  nameWithType: PaymentMethod.DinersCardBrazil
+  fullName: Steam.Net.PaymentMethod.DinersCardBrazil
+  type: Field
+  source:
+    id: DinersCardBrazil
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 33
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DinersCardBrazil = 29
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.AuthorizedDevice
+  commentId: F:Steam.Net.PaymentMethod.AuthorizedDevice
+  id: AuthorizedDevice
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: AuthorizedDevice
+  nameWithType: PaymentMethod.AuthorizedDevice
+  fullName: Steam.Net.PaymentMethod.AuthorizedDevice
+  type: Field
+  source:
+    id: AuthorizedDevice
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AuthorizedDevice = 30
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MOLPoints
+  commentId: F:Steam.Net.PaymentMethod.MOLPoints
+  id: MOLPoints
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MOLPoints
+  nameWithType: PaymentMethod.MOLPoints
+  fullName: Steam.Net.PaymentMethod.MOLPoints
+  type: Field
+  source:
+    id: MOLPoints
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 35
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MOLPoints = 31
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ClickAndBuy
+  commentId: F:Steam.Net.PaymentMethod.ClickAndBuy
+  id: ClickAndBuy
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ClickAndBuy
+  nameWithType: PaymentMethod.ClickAndBuy
+  fullName: Steam.Net.PaymentMethod.ClickAndBuy
+  type: Field
+  source:
+    id: ClickAndBuy
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 36
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ClickAndBuy = 32
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Beeline
+  commentId: F:Steam.Net.PaymentMethod.Beeline
+  id: Beeline
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Beeline
+  nameWithType: PaymentMethod.Beeline
+  fullName: Steam.Net.PaymentMethod.Beeline
+  type: Field
+  source:
+    id: Beeline
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Beeline = 33
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Konbini
+  commentId: F:Steam.Net.PaymentMethod.Konbini
+  id: Konbini
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Konbini
+  nameWithType: PaymentMethod.Konbini
+  fullName: Steam.Net.PaymentMethod.Konbini
+  type: Field
+  source:
+    id: Konbini
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 38
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Konbini = 34
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.EClubPoints
+  commentId: F:Steam.Net.PaymentMethod.EClubPoints
+  id: EClubPoints
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: EClubPoints
+  nameWithType: PaymentMethod.EClubPoints
+  fullName: Steam.Net.PaymentMethod.EClubPoints
+  type: Field
+  source:
+    id: EClubPoints
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 39
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: EClubPoints = 35
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.CreditCardJapan
+  commentId: F:Steam.Net.PaymentMethod.CreditCardJapan
+  id: CreditCardJapan
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: CreditCardJapan
+  nameWithType: PaymentMethod.CreditCardJapan
+  fullName: Steam.Net.PaymentMethod.CreditCardJapan
+  type: Field
+  source:
+    id: CreditCardJapan
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 40
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CreditCardJapan = 36
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BankTransferJapan
+  commentId: F:Steam.Net.PaymentMethod.BankTransferJapan
+  id: BankTransferJapan
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BankTransferJapan
+  nameWithType: PaymentMethod.BankTransferJapan
+  fullName: Steam.Net.PaymentMethod.BankTransferJapan
+  type: Field
+  source:
+    id: BankTransferJapan
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 41
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BankTransferJapan = 37
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PayEasy
+  commentId: F:Steam.Net.PaymentMethod.PayEasy
+  id: PayEasy
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PayEasy
+  nameWithType: PaymentMethod.PayEasy
+  fullName: Steam.Net.PaymentMethod.PayEasy
+  type: Field
+  source:
+    id: PayEasy
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 42
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PayEasy = 38
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Zong
+  commentId: F:Steam.Net.PaymentMethod.Zong
+  id: Zong
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Zong
+  nameWithType: PaymentMethod.Zong
+  fullName: Steam.Net.PaymentMethod.Zong
+  type: Field
+  source:
+    id: Zong
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 43
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Zong = 39
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.CultureVoucher
+  commentId: F:Steam.Net.PaymentMethod.CultureVoucher
+  id: CultureVoucher
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: CultureVoucher
+  nameWithType: PaymentMethod.CultureVoucher
+  fullName: Steam.Net.PaymentMethod.CultureVoucher
+  type: Field
+  source:
+    id: CultureVoucher
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 44
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CultureVoucher = 40
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BookVoucher
+  commentId: F:Steam.Net.PaymentMethod.BookVoucher
+  id: BookVoucher
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BookVoucher
+  nameWithType: PaymentMethod.BookVoucher
+  fullName: Steam.Net.PaymentMethod.BookVoucher
+  type: Field
+  source:
+    id: BookVoucher
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 45
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BookVoucher = 41
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.HappymoneyVoucher
+  commentId: F:Steam.Net.PaymentMethod.HappymoneyVoucher
+  id: HappymoneyVoucher
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: HappymoneyVoucher
+  nameWithType: PaymentMethod.HappymoneyVoucher
+  fullName: Steam.Net.PaymentMethod.HappymoneyVoucher
+  type: Field
+  source:
+    id: HappymoneyVoucher
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 46
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: HappymoneyVoucher = 42
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ConvenientStoreVoucher
+  commentId: F:Steam.Net.PaymentMethod.ConvenientStoreVoucher
+  id: ConvenientStoreVoucher
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ConvenientStoreVoucher
+  nameWithType: PaymentMethod.ConvenientStoreVoucher
+  fullName: Steam.Net.PaymentMethod.ConvenientStoreVoucher
+  type: Field
+  source:
+    id: ConvenientStoreVoucher
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 47
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ConvenientStoreVoucher = 43
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.GameVoucher
+  commentId: F:Steam.Net.PaymentMethod.GameVoucher
+  id: GameVoucher
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: GameVoucher
+  nameWithType: PaymentMethod.GameVoucher
+  fullName: Steam.Net.PaymentMethod.GameVoucher
+  type: Field
+  source:
+    id: GameVoucher
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 48
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GameVoucher = 44
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Multibanco
+  commentId: F:Steam.Net.PaymentMethod.Multibanco
+  id: Multibanco
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Multibanco
+  nameWithType: PaymentMethod.Multibanco
+  fullName: Steam.Net.PaymentMethod.Multibanco
+  type: Field
+  source:
+    id: Multibanco
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 49
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Multibanco = 45
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Payshop
+  commentId: F:Steam.Net.PaymentMethod.Payshop
+  id: Payshop
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Payshop
+  nameWithType: PaymentMethod.Payshop
+  fullName: Steam.Net.PaymentMethod.Payshop
+  type: Field
+  source:
+    id: Payshop
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 50
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Payshop = 46
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MaestroBoaCompra
+  commentId: F:Steam.Net.PaymentMethod.MaestroBoaCompra
+  id: MaestroBoaCompra
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MaestroBoaCompra
+  nameWithType: PaymentMethod.MaestroBoaCompra
+  fullName: Steam.Net.PaymentMethod.MaestroBoaCompra
+  type: Field
+  source:
+    id: MaestroBoaCompra
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 51
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MaestroBoaCompra = 47
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.OXXO
+  commentId: F:Steam.Net.PaymentMethod.OXXO
+  id: OXXO
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: OXXO
+  nameWithType: PaymentMethod.OXXO
+  fullName: Steam.Net.PaymentMethod.OXXO
+  type: Field
+  source:
+    id: OXXO
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 52
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OXXO = 48
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ToditoCash
+  commentId: F:Steam.Net.PaymentMethod.ToditoCash
+  id: ToditoCash
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ToditoCash
+  nameWithType: PaymentMethod.ToditoCash
+  fullName: Steam.Net.PaymentMethod.ToditoCash
+  type: Field
+  source:
+    id: ToditoCash
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 53
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ToditoCash = 49
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Carnet
+  commentId: F:Steam.Net.PaymentMethod.Carnet
+  id: Carnet
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Carnet
+  nameWithType: PaymentMethod.Carnet
+  fullName: Steam.Net.PaymentMethod.Carnet
+  type: Field
+  source:
+    id: Carnet
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 54
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Carnet = 50
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.SPEI
+  commentId: F:Steam.Net.PaymentMethod.SPEI
+  id: SPEI
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: SPEI
+  nameWithType: PaymentMethod.SPEI
+  fullName: Steam.Net.PaymentMethod.SPEI
+  type: Field
+  source:
+    id: SPEI
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 55
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SPEI = 51
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.ThreePay
+  commentId: F:Steam.Net.PaymentMethod.ThreePay
+  id: ThreePay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: ThreePay
+  nameWithType: PaymentMethod.ThreePay
+  fullName: Steam.Net.PaymentMethod.ThreePay
+  type: Field
+  source:
+    id: ThreePay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 56
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ThreePay = 52
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.IsBank
+  commentId: F:Steam.Net.PaymentMethod.IsBank
+  id: IsBank
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: IsBank
+  nameWithType: PaymentMethod.IsBank
+  fullName: Steam.Net.PaymentMethod.IsBank
+  type: Field
+  source:
+    id: IsBank
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 57
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: IsBank = 53
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Garanti
+  commentId: F:Steam.Net.PaymentMethod.Garanti
+  id: Garanti
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Garanti
+  nameWithType: PaymentMethod.Garanti
+  fullName: Steam.Net.PaymentMethod.Garanti
+  type: Field
+  source:
+    id: Garanti
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 58
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Garanti = 54
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Akbank
+  commentId: F:Steam.Net.PaymentMethod.Akbank
+  id: Akbank
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Akbank
+  nameWithType: PaymentMethod.Akbank
+  fullName: Steam.Net.PaymentMethod.Akbank
+  type: Field
+  source:
+    id: Akbank
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 59
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Akbank = 55
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.YapiKredi
+  commentId: F:Steam.Net.PaymentMethod.YapiKredi
+  id: YapiKredi
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: YapiKredi
+  nameWithType: PaymentMethod.YapiKredi
+  fullName: Steam.Net.PaymentMethod.YapiKredi
+  type: Field
+  source:
+    id: YapiKredi
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 60
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: YapiKredi = 56
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Halkbank
+  commentId: F:Steam.Net.PaymentMethod.Halkbank
+  id: Halkbank
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Halkbank
+  nameWithType: PaymentMethod.Halkbank
+  fullName: Steam.Net.PaymentMethod.Halkbank
+  type: Field
+  source:
+    id: Halkbank
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 61
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Halkbank = 57
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BankAsya
+  commentId: F:Steam.Net.PaymentMethod.BankAsya
+  id: BankAsya
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BankAsya
+  nameWithType: PaymentMethod.BankAsya
+  fullName: Steam.Net.PaymentMethod.BankAsya
+  type: Field
+  source:
+    id: BankAsya
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 62
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BankAsya = 58
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Finansbank
+  commentId: F:Steam.Net.PaymentMethod.Finansbank
+  id: Finansbank
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Finansbank
+  nameWithType: PaymentMethod.Finansbank
+  fullName: Steam.Net.PaymentMethod.Finansbank
+  type: Field
+  source:
+    id: Finansbank
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 63
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Finansbank = 59
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.DenizBank
+  commentId: F:Steam.Net.PaymentMethod.DenizBank
+  id: DenizBank
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: DenizBank
+  nameWithType: PaymentMethod.DenizBank
+  fullName: Steam.Net.PaymentMethod.DenizBank
+  type: Field
+  source:
+    id: DenizBank
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 64
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: DenizBank = 60
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PTT
+  commentId: F:Steam.Net.PaymentMethod.PTT
+  id: PTT
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PTT
+  nameWithType: PaymentMethod.PTT
+  fullName: Steam.Net.PaymentMethod.PTT
+  type: Field
+  source:
+    id: PTT
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 65
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PTT = 61
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.CashU
+  commentId: F:Steam.Net.PaymentMethod.CashU
+  id: CashU
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: CashU
+  nameWithType: PaymentMethod.CashU
+  fullName: Steam.Net.PaymentMethod.CashU
+  type: Field
+  source:
+    id: CashU
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 66
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CashU = 62
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.AutoGrant
+  commentId: F:Steam.Net.PaymentMethod.AutoGrant
+  id: AutoGrant
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: AutoGrant
+  nameWithType: PaymentMethod.AutoGrant
+  fullName: Steam.Net.PaymentMethod.AutoGrant
+  type: Field
+  source:
+    id: AutoGrant
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 67
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AutoGrant = 64
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.WebMoneyJapan
+  commentId: F:Steam.Net.PaymentMethod.WebMoneyJapan
+  id: WebMoneyJapan
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: WebMoneyJapan
+  nameWithType: PaymentMethod.WebMoneyJapan
+  fullName: Steam.Net.PaymentMethod.WebMoneyJapan
+  type: Field
+  source:
+    id: WebMoneyJapan
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 68
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WebMoneyJapan = 65
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.OneCard
+  commentId: F:Steam.Net.PaymentMethod.OneCard
+  id: OneCard
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: OneCard
+  nameWithType: PaymentMethod.OneCard
+  fullName: Steam.Net.PaymentMethod.OneCard
+  type: Field
+  source:
+    id: OneCard
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 69
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OneCard = 66
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PSE
+  commentId: F:Steam.Net.PaymentMethod.PSE
+  id: PSE
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PSE
+  nameWithType: PaymentMethod.PSE
+  fullName: Steam.Net.PaymentMethod.PSE
+  type: Field
+  source:
+    id: PSE
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 70
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PSE = 67
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Exito
+  commentId: F:Steam.Net.PaymentMethod.Exito
+  id: Exito
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Exito
+  nameWithType: PaymentMethod.Exito
+  fullName: Steam.Net.PaymentMethod.Exito
+  type: Field
+  source:
+    id: Exito
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 71
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Exito = 68
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Efecty
+  commentId: F:Steam.Net.PaymentMethod.Efecty
+  id: Efecty
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Efecty
+  nameWithType: PaymentMethod.Efecty
+  fullName: Steam.Net.PaymentMethod.Efecty
+  type: Field
+  source:
+    id: Efecty
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 72
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Efecty = 69
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Paloto
+  commentId: F:Steam.Net.PaymentMethod.Paloto
+  id: Paloto
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Paloto
+  nameWithType: PaymentMethod.Paloto
+  fullName: Steam.Net.PaymentMethod.Paloto
+  type: Field
+  source:
+    id: Paloto
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 73
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Paloto = 70
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PinValidda
+  commentId: F:Steam.Net.PaymentMethod.PinValidda
+  id: PinValidda
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PinValidda
+  nameWithType: PaymentMethod.PinValidda
+  fullName: Steam.Net.PaymentMethod.PinValidda
+  type: Field
+  source:
+    id: PinValidda
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 74
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PinValidda = 71
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MangirKart
+  commentId: F:Steam.Net.PaymentMethod.MangirKart
+  id: MangirKart
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MangirKart
+  nameWithType: PaymentMethod.MangirKart
+  fullName: Steam.Net.PaymentMethod.MangirKart
+  type: Field
+  source:
+    id: MangirKart
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 75
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MangirKart = 72
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BancoCreditoDePeru
+  commentId: F:Steam.Net.PaymentMethod.BancoCreditoDePeru
+  id: BancoCreditoDePeru
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BancoCreditoDePeru
+  nameWithType: PaymentMethod.BancoCreditoDePeru
+  fullName: Steam.Net.PaymentMethod.BancoCreditoDePeru
+  type: Field
+  source:
+    id: BancoCreditoDePeru
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 76
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BancoCreditoDePeru = 73
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BBVAContinental
+  commentId: F:Steam.Net.PaymentMethod.BBVAContinental
+  id: BBVAContinental
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BBVAContinental
+  nameWithType: PaymentMethod.BBVAContinental
+  fullName: Steam.Net.PaymentMethod.BBVAContinental
+  type: Field
+  source:
+    id: BBVAContinental
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 77
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BBVAContinental = 74
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.SafetyPay
+  commentId: F:Steam.Net.PaymentMethod.SafetyPay
+  id: SafetyPay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: SafetyPay
+  nameWithType: PaymentMethod.SafetyPay
+  fullName: Steam.Net.PaymentMethod.SafetyPay
+  type: Field
+  source:
+    id: SafetyPay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 78
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SafetyPay = 75
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.PagoEfectivo
+  commentId: F:Steam.Net.PaymentMethod.PagoEfectivo
+  id: PagoEfectivo
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: PagoEfectivo
+  nameWithType: PaymentMethod.PagoEfectivo
+  fullName: Steam.Net.PaymentMethod.PagoEfectivo
+  type: Field
+  source:
+    id: PagoEfectivo
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 79
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PagoEfectivo = 76
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Trustly
+  commentId: F:Steam.Net.PaymentMethod.Trustly
+  id: Trustly
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Trustly
+  nameWithType: PaymentMethod.Trustly
+  fullName: Steam.Net.PaymentMethod.Trustly
+  type: Field
+  source:
+    id: Trustly
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 80
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Trustly = 77
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.UnionPay
+  commentId: F:Steam.Net.PaymentMethod.UnionPay
+  id: UnionPay
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: UnionPay
+  nameWithType: PaymentMethod.UnionPay
+  fullName: Steam.Net.PaymentMethod.UnionPay
+  type: Field
+  source:
+    id: UnionPay
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 81
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UnionPay = 78
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.BitCoin
+  commentId: F:Steam.Net.PaymentMethod.BitCoin
+  id: BitCoin
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: BitCoin
+  nameWithType: PaymentMethod.BitCoin
+  fullName: Steam.Net.PaymentMethod.BitCoin
+  type: Field
+  source:
+    id: BitCoin
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 82
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BitCoin = 79
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Wallet
+  commentId: F:Steam.Net.PaymentMethod.Wallet
+  id: Wallet
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Wallet
+  nameWithType: PaymentMethod.Wallet
+  fullName: Steam.Net.PaymentMethod.Wallet
+  type: Field
+  source:
+    id: Wallet
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 83
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Wallet = 128
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Valve
+  commentId: F:Steam.Net.PaymentMethod.Valve
+  id: Valve
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Valve
+  nameWithType: PaymentMethod.Valve
+  fullName: Steam.Net.PaymentMethod.Valve
+  type: Field
+  source:
+    id: Valve
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 84
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Valve = 129
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.MasterComp
+  commentId: F:Steam.Net.PaymentMethod.MasterComp
+  id: MasterComp
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: MasterComp
+  nameWithType: PaymentMethod.MasterComp
+  fullName: Steam.Net.PaymentMethod.MasterComp
+  type: Field
+  source:
+    id: MasterComp
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 85
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MasterComp = 130
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Promotional
+  commentId: F:Steam.Net.PaymentMethod.Promotional
+  id: Promotional
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Promotional
+  nameWithType: PaymentMethod.Promotional
+  fullName: Steam.Net.PaymentMethod.Promotional
+  type: Field
+  source:
+    id: Promotional
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 86
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Promotional = 131
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.OEMTicket
+  commentId: F:Steam.Net.PaymentMethod.OEMTicket
+  id: OEMTicket
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: OEMTicket
+  nameWithType: PaymentMethod.OEMTicket
+  fullName: Steam.Net.PaymentMethod.OEMTicket
+  type: Field
+  source:
+    id: OEMTicket
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 87
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OEMTicket = 256
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Split
+  commentId: F:Steam.Net.PaymentMethod.Split
+  id: Split
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Split
+  nameWithType: PaymentMethod.Split
+  fullName: Steam.Net.PaymentMethod.Split
+  type: Field
+  source:
+    id: Split
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 88
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Split = 512
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PaymentMethod.Complimentary
+  commentId: F:Steam.Net.PaymentMethod.Complimentary
+  id: Complimentary
+  parent: Steam.Net.PaymentMethod
+  langs:
+  - csharp
+  - vb
+  name: Complimentary
+  nameWithType: PaymentMethod.Complimentary
+  fullName: Steam.Net.PaymentMethod.Complimentary
+  type: Field
+  source:
+    id: Complimentary
+    path: G:\Steam\src\Network\Steam.Net\PaymentMethod.cs
+    startLine: 89
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Complimentary = 1024
+    return:
+      type: Steam.Net.PaymentMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.PaymentMethod
+  commentId: T:Steam.Net.PaymentMethod
+  parent: Steam.Net
+  isExternal: false
+  name: PaymentMethod
+  nameWithType: PaymentMethod
+  fullName: Steam.Net.PaymentMethod

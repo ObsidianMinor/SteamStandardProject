@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\..\Common\Steam.KeyValues\Steam.KeyValues.csproj" />
+    <ProjectReference Include="..\..\Common\Steam.Rest\Steam.Rest.csproj" />
+  </ItemGroup>
+
+</Project>

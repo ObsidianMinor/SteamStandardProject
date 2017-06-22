@@ -1,0 +1,785 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Authenticator.SteamGuardAuthenticator
+  commentId: T:Steam.Authenticator.SteamGuardAuthenticator
+  id: SteamGuardAuthenticator
+  parent: Steam.Authenticator
+  children:
+  - Steam.Authenticator.SteamGuardAuthenticator.AccountName
+  - Steam.Authenticator.SteamGuardAuthenticator.DeviceId
+  - Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+  - Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+  - Steam.Authenticator.SteamGuardAuthenticator.Secret
+  - Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+  - Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+  - Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+  - Steam.Authenticator.SteamGuardAuthenticator.Status
+  - Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+  - Steam.Authenticator.SteamGuardAuthenticator.Uri
+  langs:
+  - csharp
+  - vb
+  name: SteamGuardAuthenticator
+  nameWithType: SteamGuardAuthenticator
+  fullName: Steam.Authenticator.SteamGuardAuthenticator
+  type: Class
+  source:
+    id: SteamGuardAuthenticator
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 4
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public class SteamGuardAuthenticator
+    content.vb: Public Class SteamGuardAuthenticator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+  id: SharedSecret
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: SharedSecret
+  nameWithType: SteamGuardAuthenticator.SharedSecret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+  type: Property
+  source:
+    id: SharedSecret
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 6
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string SharedSecret { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SharedSecret As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.SharedSecret*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+  id: SerialNumber
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: SerialNumber
+  nameWithType: SteamGuardAuthenticator.SerialNumber
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+  type: Property
+  source:
+    id: SerialNumber
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 7
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string SerialNumber { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SerialNumber As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.SerialNumber*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+  id: RevocationCode
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: RevocationCode
+  nameWithType: SteamGuardAuthenticator.RevocationCode
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+  type: Property
+  source:
+    id: RevocationCode
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 8
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string RevocationCode { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RevocationCode As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.RevocationCode*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Uri
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.Uri
+  id: Uri
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: SteamGuardAuthenticator.Uri
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Uri
+  type: Property
+  source:
+    id: Uri
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 9
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public Uri Uri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public ReadOnly Property Uri As Uri
+  overload: Steam.Authenticator.SteamGuardAuthenticator.Uri*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+  id: ServerTime
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: ServerTime
+  nameWithType: SteamGuardAuthenticator.ServerTime
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+  type: Property
+  source:
+    id: ServerTime
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 10
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public DateTimeOffset ServerTime { get; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public ReadOnly Property ServerTime As DateTimeOffset
+  overload: Steam.Authenticator.SteamGuardAuthenticator.ServerTime*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.AccountName
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.AccountName
+  id: AccountName
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: AccountName
+  nameWithType: SteamGuardAuthenticator.AccountName
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.AccountName
+  type: Property
+  source:
+    id: AccountName
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 11
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string AccountName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AccountName As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.AccountName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+  id: TokenGid
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: TokenGid
+  nameWithType: SteamGuardAuthenticator.TokenGid
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+  type: Property
+  source:
+    id: TokenGid
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 12
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string TokenGid { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property TokenGid As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.TokenGid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+  id: IdentitySecret
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: IdentitySecret
+  nameWithType: SteamGuardAuthenticator.IdentitySecret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+  type: Property
+  source:
+    id: IdentitySecret
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 13
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string IdentitySecret { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property IdentitySecret As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Secret
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.Secret
+  id: Secret
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: Secret
+  nameWithType: SteamGuardAuthenticator.Secret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Secret
+  type: Property
+  source:
+    id: Secret
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 14
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string Secret { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Secret As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.Secret*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Status
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.Status
+  id: Status
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: SteamGuardAuthenticator.Status
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Status
+  type: Property
+  source:
+    id: Status
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 15
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public int Status { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Status As Integer
+  overload: Steam.Authenticator.SteamGuardAuthenticator.Status*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Authenticator.SteamGuardAuthenticator.DeviceId
+  commentId: P:Steam.Authenticator.SteamGuardAuthenticator.DeviceId
+  id: DeviceId
+  parent: Steam.Authenticator.SteamGuardAuthenticator
+  langs:
+  - csharp
+  - vb
+  name: DeviceId
+  nameWithType: SteamGuardAuthenticator.DeviceId
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.DeviceId
+  type: Property
+  source:
+    id: DeviceId
+    path: G:\Steam\src\Web\Steam.Authenticator\SteamGuardAuthenticator.cs
+    startLine: 16
+  assemblies:
+  - Steam.Authenticator
+  namespace: Steam.Authenticator
+  syntax:
+    content: public string DeviceId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DeviceId As String
+  overload: Steam.Authenticator.SteamGuardAuthenticator.DeviceId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Steam.Authenticator
+  commentId: N:Steam.Authenticator
+  isExternal: false
+  name: Steam.Authenticator
+  nameWithType: Steam.Authenticator
+  fullName: Steam.Authenticator
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Authenticator.SteamGuardAuthenticator.SharedSecret*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+  isExternal: false
+  name: SharedSecret
+  nameWithType: SteamGuardAuthenticator.SharedSecret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.SharedSecret
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Authenticator.SteamGuardAuthenticator.SerialNumber*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+  isExternal: false
+  name: SerialNumber
+  nameWithType: SteamGuardAuthenticator.SerialNumber
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.SerialNumber
+- uid: Steam.Authenticator.SteamGuardAuthenticator.RevocationCode*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+  isExternal: false
+  name: RevocationCode
+  nameWithType: SteamGuardAuthenticator.RevocationCode
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.RevocationCode
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Uri*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.Uri
+  isExternal: false
+  name: Uri
+  nameWithType: SteamGuardAuthenticator.Uri
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Uri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Steam.Authenticator.SteamGuardAuthenticator.ServerTime*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+  isExternal: false
+  name: ServerTime
+  nameWithType: SteamGuardAuthenticator.ServerTime
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.ServerTime
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Steam.Authenticator.SteamGuardAuthenticator.AccountName*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.AccountName
+  isExternal: false
+  name: AccountName
+  nameWithType: SteamGuardAuthenticator.AccountName
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.AccountName
+- uid: Steam.Authenticator.SteamGuardAuthenticator.TokenGid*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+  isExternal: false
+  name: TokenGid
+  nameWithType: SteamGuardAuthenticator.TokenGid
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.TokenGid
+- uid: Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+  isExternal: false
+  name: IdentitySecret
+  nameWithType: SteamGuardAuthenticator.IdentitySecret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.IdentitySecret
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Secret*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.Secret
+  isExternal: false
+  name: Secret
+  nameWithType: SteamGuardAuthenticator.Secret
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Secret
+- uid: Steam.Authenticator.SteamGuardAuthenticator.Status*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.Status
+  isExternal: false
+  name: Status
+  nameWithType: SteamGuardAuthenticator.Status
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.Status
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Authenticator.SteamGuardAuthenticator.DeviceId*
+  commentId: Overload:Steam.Authenticator.SteamGuardAuthenticator.DeviceId
+  isExternal: false
+  name: DeviceId
+  nameWithType: SteamGuardAuthenticator.DeviceId
+  fullName: Steam.Authenticator.SteamGuardAuthenticator.DeviceId

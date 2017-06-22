@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.ClanRelationship
+  commentId: T:Steam.Net.ClanRelationship
+  id: ClanRelationship
+  parent: Steam.Net
+  children:
+  - Steam.Net.ClanRelationship.Blocked
+  - Steam.Net.ClanRelationship.Invited
+  - Steam.Net.ClanRelationship.KickAcknowledged
+  - Steam.Net.ClanRelationship.Kicked
+  - Steam.Net.ClanRelationship.Member
+  - Steam.Net.ClanRelationship.None
+  langs:
+  - csharp
+  - vb
+  name: ClanRelationship
+  nameWithType: ClanRelationship
+  fullName: Steam.Net.ClanRelationship
+  type: Enum
+  source:
+    id: ClanRelationship
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum ClanRelationship
+    content.vb: Public Enum ClanRelationship
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.ClanRelationship.None
+  commentId: F:Steam.Net.ClanRelationship.None
+  id: None
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ClanRelationship.None
+  fullName: Steam.Net.ClanRelationship.None
+  type: Field
+  source:
+    id: None
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: None = 0
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ClanRelationship.Blocked
+  commentId: F:Steam.Net.ClanRelationship.Blocked
+  id: Blocked
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: Blocked
+  nameWithType: ClanRelationship.Blocked
+  fullName: Steam.Net.ClanRelationship.Blocked
+  type: Field
+  source:
+    id: Blocked
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Blocked = 1
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ClanRelationship.Invited
+  commentId: F:Steam.Net.ClanRelationship.Invited
+  id: Invited
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: Invited
+  nameWithType: ClanRelationship.Invited
+  fullName: Steam.Net.ClanRelationship.Invited
+  type: Field
+  source:
+    id: Invited
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Invited = 2
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ClanRelationship.Member
+  commentId: F:Steam.Net.ClanRelationship.Member
+  id: Member
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: Member
+  nameWithType: ClanRelationship.Member
+  fullName: Steam.Net.ClanRelationship.Member
+  type: Field
+  source:
+    id: Member
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Member = 3
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ClanRelationship.Kicked
+  commentId: F:Steam.Net.ClanRelationship.Kicked
+  id: Kicked
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: Kicked
+  nameWithType: ClanRelationship.Kicked
+  fullName: Steam.Net.ClanRelationship.Kicked
+  type: Field
+  source:
+    id: Kicked
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Kicked = 4
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ClanRelationship.KickAcknowledged
+  commentId: F:Steam.Net.ClanRelationship.KickAcknowledged
+  id: KickAcknowledged
+  parent: Steam.Net.ClanRelationship
+  langs:
+  - csharp
+  - vb
+  name: KickAcknowledged
+  nameWithType: ClanRelationship.KickAcknowledged
+  fullName: Steam.Net.ClanRelationship.KickAcknowledged
+  type: Field
+  source:
+    id: KickAcknowledged
+    path: G:\Steam\src\Network\Steam.Net\ClanRelationship.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: KickAcknowledged = 5
+    return:
+      type: Steam.Net.ClanRelationship
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.ClanRelationship
+  commentId: T:Steam.Net.ClanRelationship
+  parent: Steam.Net
+  isExternal: false
+  name: ClanRelationship
+  nameWithType: ClanRelationship
+  fullName: Steam.Net.ClanRelationship

@@ -1,0 +1,449 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.ChatEntryType
+  commentId: T:Steam.Common.ChatEntryType
+  id: ChatEntryType
+  parent: Steam.Common
+  children:
+  - Steam.Common.ChatEntryType.ChatMessage
+  - Steam.Common.ChatEntryType.Disconnected
+  - Steam.Common.ChatEntryType.Entered
+  - Steam.Common.ChatEntryType.HistoricalChat
+  - Steam.Common.ChatEntryType.Invalid
+  - Steam.Common.ChatEntryType.InviteGame
+  - Steam.Common.ChatEntryType.LeftConversation
+  - Steam.Common.ChatEntryType.LinkBlocked
+  - Steam.Common.ChatEntryType.Reserved1
+  - Steam.Common.ChatEntryType.Reserved2
+  - Steam.Common.ChatEntryType.Typing
+  - Steam.Common.ChatEntryType.WasBanned
+  - Steam.Common.ChatEntryType.WasKicked
+  langs:
+  - csharp
+  - vb
+  name: ChatEntryType
+  nameWithType: ChatEntryType
+  fullName: Steam.Common.ChatEntryType
+  type: Enum
+  source:
+    id: ChatEntryType
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nChat event types\n"
+  example: []
+  syntax:
+    content: public enum ChatEntryType
+    content.vb: Public Enum ChatEntryType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.ChatEntryType.Invalid
+  commentId: F:Steam.Common.ChatEntryType.Invalid
+  id: Invalid
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: ChatEntryType.Invalid
+  fullName: Steam.Common.ChatEntryType.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nInvalid\n"
+  example: []
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.ChatMessage
+  commentId: F:Steam.Common.ChatEntryType.ChatMessage
+  id: ChatMessage
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: ChatMessage
+  nameWithType: ChatEntryType.ChatMessage
+  fullName: Steam.Common.ChatEntryType.ChatMessage
+  type: Field
+  source:
+    id: ChatMessage
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nChat message\n"
+  example: []
+  syntax:
+    content: ChatMessage = 1
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.Typing
+  commentId: F:Steam.Common.ChatEntryType.Typing
+  id: Typing
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Typing
+  nameWithType: ChatEntryType.Typing
+  fullName: Steam.Common.ChatEntryType.Typing
+  type: Field
+  source:
+    id: Typing
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nA user is typing\n"
+  example: []
+  syntax:
+    content: Typing = 2
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.InviteGame
+  commentId: F:Steam.Common.ChatEntryType.InviteGame
+  id: InviteGame
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: InviteGame
+  nameWithType: ChatEntryType.InviteGame
+  fullName: Steam.Common.ChatEntryType.InviteGame
+  type: Field
+  source:
+    id: InviteGame
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nGame invite\n"
+  example: []
+  syntax:
+    content: InviteGame = 3
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.LeftConversation
+  commentId: F:Steam.Common.ChatEntryType.LeftConversation
+  id: LeftConversation
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: LeftConversation
+  nameWithType: ChatEntryType.LeftConversation
+  fullName: Steam.Common.ChatEntryType.LeftConversation
+  type: Field
+  source:
+    id: LeftConversation
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 26
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nUser left conversation\n"
+  example: []
+  syntax:
+    content: LeftConversation = 6
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.Entered
+  commentId: F:Steam.Common.ChatEntryType.Entered
+  id: Entered
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Entered
+  nameWithType: ChatEntryType.Entered
+  fullName: Steam.Common.ChatEntryType.Entered
+  type: Field
+  source:
+    id: Entered
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nUser entered\n"
+  example: []
+  syntax:
+    content: Entered = 7
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.WasKicked
+  commentId: F:Steam.Common.ChatEntryType.WasKicked
+  id: WasKicked
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: WasKicked
+  nameWithType: ChatEntryType.WasKicked
+  fullName: Steam.Common.ChatEntryType.WasKicked
+  type: Field
+  source:
+    id: WasKicked
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nUser was kicked\n"
+  example: []
+  syntax:
+    content: WasKicked = 8
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.WasBanned
+  commentId: F:Steam.Common.ChatEntryType.WasBanned
+  id: WasBanned
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: WasBanned
+  nameWithType: ChatEntryType.WasBanned
+  fullName: Steam.Common.ChatEntryType.WasBanned
+  type: Field
+  source:
+    id: WasBanned
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 38
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nUser was banned\n"
+  example: []
+  syntax:
+    content: WasBanned = 9
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.Disconnected
+  commentId: F:Steam.Common.ChatEntryType.Disconnected
+  id: Disconnected
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Disconnected
+  nameWithType: ChatEntryType.Disconnected
+  fullName: Steam.Common.ChatEntryType.Disconnected
+  type: Field
+  source:
+    id: Disconnected
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 42
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nUser disconnected\n"
+  example: []
+  syntax:
+    content: Disconnected = 10
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.HistoricalChat
+  commentId: F:Steam.Common.ChatEntryType.HistoricalChat
+  id: HistoricalChat
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: HistoricalChat
+  nameWithType: ChatEntryType.HistoricalChat
+  fullName: Steam.Common.ChatEntryType.HistoricalChat
+  type: Field
+  source:
+    id: HistoricalChat
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 46
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nHistorical chat message\n"
+  example: []
+  syntax:
+    content: HistoricalChat = 11
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.Reserved1
+  commentId: F:Steam.Common.ChatEntryType.Reserved1
+  id: Reserved1
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Reserved1
+  nameWithType: ChatEntryType.Reserved1
+  fullName: Steam.Common.ChatEntryType.Reserved1
+  type: Field
+  source:
+    id: Reserved1
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 50
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nReserved value\n"
+  example: []
+  syntax:
+    content: Reserved1 = 12
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.Reserved2
+  commentId: F:Steam.Common.ChatEntryType.Reserved2
+  id: Reserved2
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: Reserved2
+  nameWithType: ChatEntryType.Reserved2
+  fullName: Steam.Common.ChatEntryType.Reserved2
+  type: Field
+  source:
+    id: Reserved2
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 54
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nReserved value\n"
+  example: []
+  syntax:
+    content: Reserved2 = 13
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ChatEntryType.LinkBlocked
+  commentId: F:Steam.Common.ChatEntryType.LinkBlocked
+  id: LinkBlocked
+  parent: Steam.Common.ChatEntryType
+  langs:
+  - csharp
+  - vb
+  name: LinkBlocked
+  nameWithType: ChatEntryType.LinkBlocked
+  fullName: Steam.Common.ChatEntryType.LinkBlocked
+  type: Field
+  source:
+    id: LinkBlocked
+    path: G:\Steam\src\Network\Steam.Net\ChatEntryType.cs
+    startLine: 58
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Common
+  summary: "\nHyperlink blocked\n"
+  example: []
+  syntax:
+    content: LinkBlocked = 14
+    return:
+      type: Steam.Common.ChatEntryType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.ChatEntryType
+  commentId: T:Steam.Common.ChatEntryType
+  parent: Steam.Common
+  isExternal: false
+  name: ChatEntryType
+  nameWithType: ChatEntryType
+  fullName: Steam.Common.ChatEntryType

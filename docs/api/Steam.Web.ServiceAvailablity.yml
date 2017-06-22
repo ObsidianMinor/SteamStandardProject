@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.ServiceAvailablity
+  commentId: T:Steam.Web.ServiceAvailablity
+  id: ServiceAvailablity
+  parent: Steam.Web
+  children:
+  - Steam.Web.ServiceAvailablity.Delayed
+  - Steam.Web.ServiceAvailablity.Normal
+  - Steam.Web.ServiceAvailablity.Offline
+  langs:
+  - csharp
+  - vb
+  name: ServiceAvailablity
+  nameWithType: ServiceAvailablity
+  fullName: Steam.Web.ServiceAvailablity
+  type: Enum
+  source:
+    id: ServiceAvailablity
+    path: G:\Steam\src\Web\Steam.Web\ServiceAvailablity.cs
+    startLine: 2
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public enum ServiceAvailablity
+    content.vb: Public Enum ServiceAvailablity
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Web.ServiceAvailablity.Offline
+  commentId: F:Steam.Web.ServiceAvailablity.Offline
+  id: Offline
+  parent: Steam.Web.ServiceAvailablity
+  langs:
+  - csharp
+  - vb
+  name: Offline
+  nameWithType: ServiceAvailablity.Offline
+  fullName: Steam.Web.ServiceAvailablity.Offline
+  type: Field
+  source:
+    id: Offline
+    path: G:\Steam\src\Web\Steam.Web\ServiceAvailablity.cs
+    startLine: 4
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Offline = 0
+    return:
+      type: Steam.Web.ServiceAvailablity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServiceAvailablity.Delayed
+  commentId: F:Steam.Web.ServiceAvailablity.Delayed
+  id: Delayed
+  parent: Steam.Web.ServiceAvailablity
+  langs:
+  - csharp
+  - vb
+  name: Delayed
+  nameWithType: ServiceAvailablity.Delayed
+  fullName: Steam.Web.ServiceAvailablity.Delayed
+  type: Field
+  source:
+    id: Delayed
+    path: G:\Steam\src\Web\Steam.Web\ServiceAvailablity.cs
+    startLine: 5
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Delayed = 1
+    return:
+      type: Steam.Web.ServiceAvailablity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServiceAvailablity.Normal
+  commentId: F:Steam.Web.ServiceAvailablity.Normal
+  id: Normal
+  parent: Steam.Web.ServiceAvailablity
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: ServiceAvailablity.Normal
+  fullName: Steam.Web.ServiceAvailablity.Normal
+  type: Field
+  source:
+    id: Normal
+    path: G:\Steam\src\Web\Steam.Web\ServiceAvailablity.cs
+    startLine: 6
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Normal = 2
+    return:
+      type: Steam.Web.ServiceAvailablity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Web.ServiceAvailablity
+  commentId: T:Steam.Web.ServiceAvailablity
+  parent: Steam.Web
+  isExternal: false
+  name: ServiceAvailablity
+  nameWithType: ServiceAvailablity
+  fullName: Steam.Web.ServiceAvailablity

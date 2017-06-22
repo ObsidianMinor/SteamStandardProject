@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Sockets
+  commentId: N:Steam.Net.Sockets
+  id: Steam.Net.Sockets
+  children:
+  - Steam.Net.Sockets.InvalidPacketException
+  - Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: Steam.Net.Sockets
+  nameWithType: Steam.Net.Sockets
+  fullName: Steam.Net.Sockets
+  type: Namespace
+  assemblies:
+  - Steam.Net
+references:
+- uid: Steam.Net.Sockets.InvalidPacketException
+  commentId: T:Steam.Net.Sockets.InvalidPacketException
+  isExternal: false
+  name: InvalidPacketException
+  nameWithType: InvalidPacketException
+  fullName: Steam.Net.Sockets.InvalidPacketException
+- uid: Steam.Net.Sockets.ISocketClient
+  commentId: T:Steam.Net.Sockets.ISocketClient
+  parent: Steam.Net.Sockets
+  isExternal: false
+  name: ISocketClient
+  nameWithType: ISocketClient
+  fullName: Steam.Net.Sockets.ISocketClient
+- uid: Steam.Net.Sockets
+  commentId: N:Steam.Net.Sockets
+  isExternal: false
+  name: Steam.Net.Sockets
+  nameWithType: Steam.Net.Sockets
+  fullName: Steam.Net.Sockets

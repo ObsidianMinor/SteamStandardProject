@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Authenticator
+  commentId: N:Steam.Authenticator
+  id: Steam.Authenticator
+  children:
+  - Steam.Authenticator.SteamGuardAuthenticator
+  - Steam.Authenticator.SteamGuardAuthenticatorConfig
+  langs:
+  - csharp
+  - vb
+  name: Steam.Authenticator
+  nameWithType: Steam.Authenticator
+  fullName: Steam.Authenticator
+  type: Namespace
+  assemblies:
+  - Steam.Authenticator
+references:
+- uid: Steam.Authenticator.SteamGuardAuthenticator
+  commentId: T:Steam.Authenticator.SteamGuardAuthenticator
+  isExternal: false
+  name: SteamGuardAuthenticator
+  nameWithType: SteamGuardAuthenticator
+  fullName: Steam.Authenticator.SteamGuardAuthenticator
+- uid: Steam.Authenticator.SteamGuardAuthenticatorConfig
+  commentId: T:Steam.Authenticator.SteamGuardAuthenticatorConfig
+  isExternal: false
+  name: SteamGuardAuthenticatorConfig
+  nameWithType: SteamGuardAuthenticatorConfig
+  fullName: Steam.Authenticator.SteamGuardAuthenticatorConfig

@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.ProfileVisibility
+  commentId: T:Steam.Common.ProfileVisibility
+  id: ProfileVisibility
+  parent: Steam.Common
+  children:
+  - Steam.Common.ProfileVisibility.FriendsOnly
+  - Steam.Common.ProfileVisibility.Private
+  - Steam.Common.ProfileVisibility.Public
+  langs:
+  - csharp
+  - vb
+  name: ProfileVisibility
+  nameWithType: ProfileVisibility
+  fullName: Steam.Common.ProfileVisibility
+  type: Enum
+  source:
+    id: ProfileVisibility
+    path: G:\Steam\src\Common\Steam.Common\ProfileVisibility.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSpecifies Steam user profile visibilities\n"
+  example: []
+  syntax:
+    content: public enum ProfileVisibility
+    content.vb: Public Enum ProfileVisibility
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.ProfileVisibility.Private
+  commentId: F:Steam.Common.ProfileVisibility.Private
+  id: Private
+  parent: Steam.Common.ProfileVisibility
+  langs:
+  - csharp
+  - vb
+  name: Private
+  nameWithType: ProfileVisibility.Private
+  fullName: Steam.Common.ProfileVisibility.Private
+  type: Field
+  source:
+    id: Private
+    path: G:\Steam\src\Common\Steam.Common\ProfileVisibility.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe profile is only visible to its owner\n"
+  example: []
+  syntax:
+    content: Private = 1
+    return:
+      type: Steam.Common.ProfileVisibility
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ProfileVisibility.FriendsOnly
+  commentId: F:Steam.Common.ProfileVisibility.FriendsOnly
+  id: FriendsOnly
+  parent: Steam.Common.ProfileVisibility
+  langs:
+  - csharp
+  - vb
+  name: FriendsOnly
+  nameWithType: ProfileVisibility.FriendsOnly
+  fullName: Steam.Common.ProfileVisibility.FriendsOnly
+  type: Field
+  source:
+    id: FriendsOnly
+    path: G:\Steam\src\Common\Steam.Common\ProfileVisibility.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe profile is visible to friends only\n"
+  example: []
+  syntax:
+    content: FriendsOnly = 2
+    return:
+      type: Steam.Common.ProfileVisibility
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.ProfileVisibility.Public
+  commentId: F:Steam.Common.ProfileVisibility.Public
+  id: Public
+  parent: Steam.Common.ProfileVisibility
+  langs:
+  - csharp
+  - vb
+  name: Public
+  nameWithType: ProfileVisibility.Public
+  fullName: Steam.Common.ProfileVisibility.Public
+  type: Field
+  source:
+    id: Public
+    path: G:\Steam\src\Common\Steam.Common\ProfileVisibility.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe profile is visible to everyone\n"
+  example: []
+  syntax:
+    content: Public = 3
+    return:
+      type: Steam.Common.ProfileVisibility
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.ProfileVisibility
+  commentId: T:Steam.Common.ProfileVisibility
+  parent: Steam.Common
+  isExternal: false
+  name: ProfileVisibility
+  nameWithType: ProfileVisibility
+  fullName: Steam.Common.ProfileVisibility

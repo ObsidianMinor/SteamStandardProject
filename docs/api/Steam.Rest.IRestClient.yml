@@ -1,0 +1,385 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Rest.IRestClient
+  commentId: T:Steam.Rest.IRestClient
+  id: IRestClient
+  parent: Steam.Rest
+  children:
+  - Steam.Rest.IRestClient.AddCookie(System.Uri,System.Net.Cookie)
+  - Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  - Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Steam.Rest.IRestClient.SetHeader(System.String,System.String[])
+  langs:
+  - csharp
+  - vb
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: Steam.Rest.IRestClient
+  type: Interface
+  source:
+    id: IRestClient
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 8
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public interface IRestClient
+    content.vb: Public Interface IRestClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: SendAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Steam.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, CancellationToken)
+  fullName: Steam.Rest.IRestClient.SendAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 10
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+    content.vb: Function SendAsync(method As String, endpoint As String, token As CancellationToken) As Task(Of RestResponse)
+  overload: Steam.Rest.IRestClient.SendAsync*
+- uid: Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: SendAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Steam.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, String, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, String, CancellationToken)
+  fullName: Steam.Rest.IRestClient.SendAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 11
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, string content, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: content
+      type: System.String
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+    content.vb: Function SendAsync(method As String, endpoint As String, content As String, token As CancellationToken) As Task(Of RestResponse)
+  overload: Steam.Rest.IRestClient.SendAsync*
+- uid: Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  commentId: M:Steam.Rest.IRestClient.SendAsync(System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  id: SendAsync(System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  parent: Steam.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, Stream, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, Stream, CancellationToken)
+  fullName: Steam.Rest.IRestClient.SendAsync(System.String, System.String, System.IO.Stream, System.Threading.CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 12
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, Stream content, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: content
+      type: System.IO.Stream
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+    content.vb: Function SendAsync(method As String, endpoint As String, content As Stream, token As CancellationToken) As Task(Of RestResponse)
+  overload: Steam.Rest.IRestClient.SendAsync*
+- uid: Steam.Rest.IRestClient.SetHeader(System.String,System.String[])
+  commentId: M:Steam.Rest.IRestClient.SetHeader(System.String,System.String[])
+  id: SetHeader(System.String,System.String[])
+  parent: Steam.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SetHeader(String, String[])
+  nameWithType: IRestClient.SetHeader(String, String[])
+  fullName: Steam.Rest.IRestClient.SetHeader(System.String, System.String[])
+  type: Method
+  source:
+    id: SetHeader
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 14
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: void SetHeader(string key, params string[] values)
+    parameters:
+    - id: key
+      type: System.String
+    - id: values
+      type: System.String[]
+    content.vb: Sub SetHeader(key As String, ParamArray values As String())
+  overload: Steam.Rest.IRestClient.SetHeader*
+  nameWithType.vb: IRestClient.SetHeader(String, String())
+  fullName.vb: Steam.Rest.IRestClient.SetHeader(System.String, System.String())
+  name.vb: SetHeader(String, String())
+- uid: Steam.Rest.IRestClient.AddCookie(System.Uri,System.Net.Cookie)
+  commentId: M:Steam.Rest.IRestClient.AddCookie(System.Uri,System.Net.Cookie)
+  id: AddCookie(System.Uri,System.Net.Cookie)
+  parent: Steam.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: AddCookie(Uri, Cookie)
+  nameWithType: IRestClient.AddCookie(Uri, Cookie)
+  fullName: Steam.Rest.IRestClient.AddCookie(System.Uri, System.Net.Cookie)
+  type: Method
+  source:
+    id: AddCookie
+    path: G:\Steam\src\Common\Steam.Rest\IRestClient.cs
+    startLine: 15
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: void AddCookie(Uri uri, Cookie cookie)
+    parameters:
+    - id: uri
+      type: System.Uri
+    - id: cookie
+      type: System.Net.Cookie
+    content.vb: Sub AddCookie(uri As Uri, cookie As Cookie)
+  overload: Steam.Rest.IRestClient.AddCookie*
+references:
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: Steam.Rest.IRestClient.SendAsync*
+  commentId: Overload:Steam.Rest.IRestClient.SendAsync
+  isExternal: false
+  name: SendAsync
+  nameWithType: IRestClient.SendAsync
+  fullName: Steam.Rest.IRestClient.SendAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+  commentId: T:System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<RestResponse>
+  nameWithType: Task<RestResponse>
+  fullName: System.Threading.Tasks.Task<Steam.Rest.RestResponse>
+  nameWithType.vb: Task(Of RestResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Steam.Rest.RestResponse)
+  name.vb: Task(Of RestResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Steam.Rest.RestResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Steam.Rest.RestResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: false
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: false
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: Steam.Rest.IRestClient.SetHeader*
+  commentId: Overload:Steam.Rest.IRestClient.SetHeader
+  isExternal: false
+  name: SetHeader
+  nameWithType: IRestClient.SetHeader
+  fullName: Steam.Rest.IRestClient.SetHeader
+- uid: System.String[]
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Steam.Rest.IRestClient.AddCookie*
+  commentId: Overload:Steam.Rest.IRestClient.AddCookie
+  isExternal: false
+  name: AddCookie
+  nameWithType: IRestClient.AddCookie
+  fullName: Steam.Rest.IRestClient.AddCookie
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: System.Net.Cookie
+  commentId: T:System.Net.Cookie
+  parent: System.Net
+  isExternal: true
+  name: Cookie
+  nameWithType: Cookie
+  fullName: System.Net.Cookie
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: false
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net

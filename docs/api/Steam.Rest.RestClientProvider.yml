@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Rest.RestClientProvider
+  commentId: T:Steam.Rest.RestClientProvider
+  id: RestClientProvider
+  parent: Steam.Rest
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: RestClientProvider
+  nameWithType: RestClientProvider
+  fullName: Steam.Rest.RestClientProvider
+  type: Delegate
+  source:
+    id: RestClientProvider
+    path: G:\Steam\src\Common\Steam.Rest\RestClientProvider.cs
+    startLine: 4
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public delegate IRestClient RestClientProvider(Uri baseUri);
+    parameters:
+    - id: baseUri
+      type: System.Uri
+    return:
+      type: Steam.Rest.IRestClient
+    content.vb: Public Delegate Function RestClientProvider(baseUri As Uri) As IRestClient
+  modifiers.csharp:
+  - public
+  - delegate
+  modifiers.vb:
+  - Public
+  - Delegate
+references:
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Steam.Rest.IRestClient
+  commentId: T:Steam.Rest.IRestClient
+  parent: Steam.Rest
+  isExternal: false
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: Steam.Rest.IRestClient
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System

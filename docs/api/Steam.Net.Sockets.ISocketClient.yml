@@ -1,0 +1,668 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Sockets.ISocketClient
+  commentId: T:Steam.Net.Sockets.ISocketClient
+  id: ISocketClient
+  parent: Steam.Net.Sockets
+  children:
+  - Steam.Net.Sockets.ISocketClient.ConnectAsync(System.Net.IPEndPoint,System.Int32)
+  - Steam.Net.Sockets.ISocketClient.Connected
+  - Steam.Net.Sockets.ISocketClient.DisconnectAsync
+  - Steam.Net.Sockets.ISocketClient.Disconnected
+  - Steam.Net.Sockets.ISocketClient.LocalIp
+  - Steam.Net.Sockets.ISocketClient.ReceivedData
+  - Steam.Net.Sockets.ISocketClient.SendAsync(System.Byte[])
+  - Steam.Net.Sockets.ISocketClient.SetCancellationTtoken(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISocketClient
+  nameWithType: ISocketClient
+  fullName: Steam.Net.Sockets.ISocketClient
+  type: Interface
+  source:
+    id: ISocketClient
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: 'public interface ISocketClient : IDisposable'
+    content.vb: >-
+      Public Interface ISocketClient
+
+          Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Steam.Net.Sockets.ISocketClient.ReceivedData
+  commentId: E:Steam.Net.Sockets.ISocketClient.ReceivedData
+  id: ReceivedData
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: ReceivedData
+  nameWithType: ISocketClient.ReceivedData
+  fullName: Steam.Net.Sockets.ISocketClient.ReceivedData
+  type: Event
+  source:
+    id: ReceivedData
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: event Func<byte[], Task> ReceivedData
+    return:
+      type: System.Func{System.Byte[],System.Threading.Tasks.Task}
+    content.vb: Event ReceivedData As Func(Of Byte(), Task)
+- uid: Steam.Net.Sockets.ISocketClient.Disconnected
+  commentId: E:Steam.Net.Sockets.ISocketClient.Disconnected
+  id: Disconnected
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: Disconnected
+  nameWithType: ISocketClient.Disconnected
+  fullName: Steam.Net.Sockets.ISocketClient.Disconnected
+  type: Event
+  source:
+    id: Disconnected
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: event Func<Task> Disconnected
+    return:
+      type: System.Func{System.Threading.Tasks.Task}
+    content.vb: Event Disconnected As Func(Of Task)
+- uid: Steam.Net.Sockets.ISocketClient.Connected
+  commentId: E:Steam.Net.Sockets.ISocketClient.Connected
+  id: Connected
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: Connected
+  nameWithType: ISocketClient.Connected
+  fullName: Steam.Net.Sockets.ISocketClient.Connected
+  type: Event
+  source:
+    id: Connected
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: event Func<IPEndPoint, Task> Connected
+    return:
+      type: System.Func{System.Net.IPEndPoint,System.Threading.Tasks.Task}
+    content.vb: Event Connected As Func(Of IPEndPoint, Task)
+- uid: Steam.Net.Sockets.ISocketClient.LocalIp
+  commentId: P:Steam.Net.Sockets.ISocketClient.LocalIp
+  id: LocalIp
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: LocalIp
+  nameWithType: ISocketClient.LocalIp
+  fullName: Steam.Net.Sockets.ISocketClient.LocalIp
+  type: Property
+  source:
+    id: LocalIp
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: IPAddress LocalIp { get; }
+    parameters: []
+    return:
+      type: System.Net.IPAddress
+    content.vb: ReadOnly Property LocalIp As IPAddress
+  overload: Steam.Net.Sockets.ISocketClient.LocalIp*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Steam.Net.Sockets.ISocketClient.SetCancellationTtoken(System.Threading.CancellationToken)
+  commentId: M:Steam.Net.Sockets.ISocketClient.SetCancellationTtoken(System.Threading.CancellationToken)
+  id: SetCancellationTtoken(System.Threading.CancellationToken)
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: SetCancellationTtoken(CancellationToken)
+  nameWithType: ISocketClient.SetCancellationTtoken(CancellationToken)
+  fullName: Steam.Net.Sockets.ISocketClient.SetCancellationTtoken(System.Threading.CancellationToken)
+  type: Method
+  source:
+    id: SetCancellationTtoken
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: void SetCancellationTtoken(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    content.vb: Sub SetCancellationTtoken(cancellationToken As CancellationToken)
+  overload: Steam.Net.Sockets.ISocketClient.SetCancellationTtoken*
+- uid: Steam.Net.Sockets.ISocketClient.ConnectAsync(System.Net.IPEndPoint,System.Int32)
+  commentId: M:Steam.Net.Sockets.ISocketClient.ConnectAsync(System.Net.IPEndPoint,System.Int32)
+  id: ConnectAsync(System.Net.IPEndPoint,System.Int32)
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectAsync(IPEndPoint, Int32)
+  nameWithType: ISocketClient.ConnectAsync(IPEndPoint, Int32)
+  fullName: Steam.Net.Sockets.ISocketClient.ConnectAsync(System.Net.IPEndPoint, System.Int32)
+  type: Method
+  source:
+    id: ConnectAsync
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: Task ConnectAsync(IPEndPoint endpoint, int timeout)
+    parameters:
+    - id: endpoint
+      type: System.Net.IPEndPoint
+    - id: timeout
+      type: System.Int32
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ConnectAsync(endpoint As IPEndPoint, timeout As Integer) As Task
+  overload: Steam.Net.Sockets.ISocketClient.ConnectAsync*
+- uid: Steam.Net.Sockets.ISocketClient.DisconnectAsync
+  commentId: M:Steam.Net.Sockets.ISocketClient.DisconnectAsync
+  id: DisconnectAsync
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: DisconnectAsync()
+  nameWithType: ISocketClient.DisconnectAsync()
+  fullName: Steam.Net.Sockets.ISocketClient.DisconnectAsync()
+  type: Method
+  source:
+    id: DisconnectAsync
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: Task DisconnectAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DisconnectAsync As Task
+  overload: Steam.Net.Sockets.ISocketClient.DisconnectAsync*
+- uid: Steam.Net.Sockets.ISocketClient.SendAsync(System.Byte[])
+  commentId: M:Steam.Net.Sockets.ISocketClient.SendAsync(System.Byte[])
+  id: SendAsync(System.Byte[])
+  parent: Steam.Net.Sockets.ISocketClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(Byte[])
+  nameWithType: ISocketClient.SendAsync(Byte[])
+  fullName: Steam.Net.Sockets.ISocketClient.SendAsync(System.Byte[])
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Network\Steam.Net\Sockets\ISocketClient.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: Task SendAsync(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendAsync(data As Byte()) As Task
+  overload: Steam.Net.Sockets.ISocketClient.SendAsync*
+  nameWithType.vb: ISocketClient.SendAsync(Byte())
+  fullName.vb: Steam.Net.Sockets.ISocketClient.SendAsync(System.Byte())
+  name.vb: SendAsync(Byte())
+references:
+- uid: Steam.Net.Sockets
+  commentId: N:Steam.Net.Sockets
+  isExternal: false
+  name: Steam.Net.Sockets
+  nameWithType: Steam.Net.Sockets
+  fullName: Steam.Net.Sockets
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Func{System.Byte[],System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Byte[],System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<Byte[], Task>
+  nameWithType: Func<Byte[], Task>
+  fullName: System.Func<System.Byte[], System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Byte(), Task)
+  fullName.vb: System.Func(Of System.Byte(), System.Threading.Tasks.Task)
+  name.vb: Func(Of Byte(), Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`1
+  name: Func<Task>
+  nameWithType: Func<Task>
+  fullName: System.Func<System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Task)
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task)
+  name.vb: Func(Of Task)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Net.IPEndPoint,System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Net.IPEndPoint,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<IPEndPoint, Task>
+  nameWithType: Func<IPEndPoint, Task>
+  fullName: System.Func<System.Net.IPEndPoint, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of IPEndPoint, Task)
+  fullName.vb: System.Func(Of System.Net.IPEndPoint, System.Threading.Tasks.Task)
+  name.vb: Func(Of IPEndPoint, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.Sockets.ISocketClient.LocalIp*
+  commentId: Overload:Steam.Net.Sockets.ISocketClient.LocalIp
+  isExternal: false
+  name: LocalIp
+  nameWithType: ISocketClient.LocalIp
+  fullName: Steam.Net.Sockets.ISocketClient.LocalIp
+- uid: System.Net.IPAddress
+  commentId: T:System.Net.IPAddress
+  parent: System.Net
+  isExternal: true
+  name: IPAddress
+  nameWithType: IPAddress
+  fullName: System.Net.IPAddress
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: false
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+- uid: Steam.Net.Sockets.ISocketClient.SetCancellationTtoken*
+  commentId: Overload:Steam.Net.Sockets.ISocketClient.SetCancellationTtoken
+  isExternal: false
+  name: SetCancellationTtoken
+  nameWithType: ISocketClient.SetCancellationTtoken
+  fullName: Steam.Net.Sockets.ISocketClient.SetCancellationTtoken
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: false
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: Steam.Net.Sockets.ISocketClient.ConnectAsync*
+  commentId: Overload:Steam.Net.Sockets.ISocketClient.ConnectAsync
+  isExternal: false
+  name: ConnectAsync
+  nameWithType: ISocketClient.ConnectAsync
+  fullName: Steam.Net.Sockets.ISocketClient.ConnectAsync
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Steam.Net.Sockets.ISocketClient.DisconnectAsync*
+  commentId: Overload:Steam.Net.Sockets.ISocketClient.DisconnectAsync
+  isExternal: false
+  name: DisconnectAsync
+  nameWithType: ISocketClient.DisconnectAsync
+  fullName: Steam.Net.Sockets.ISocketClient.DisconnectAsync
+- uid: Steam.Net.Sockets.ISocketClient.SendAsync*
+  commentId: Overload:Steam.Net.Sockets.ISocketClient.SendAsync
+  isExternal: false
+  name: SendAsync
+  nameWithType: ISocketClient.SendAsync
+  fullName: Steam.Net.Sockets.ISocketClient.SendAsync
+- uid: System.Byte[]
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.ConnectionState
+  commentId: T:Steam.Net.ConnectionState
+  id: ConnectionState
+  parent: Steam.Net
+  children:
+  - Steam.Net.ConnectionState.Connected
+  - Steam.Net.ConnectionState.Connecting
+  - Steam.Net.ConnectionState.Disconnected
+  - Steam.Net.ConnectionState.Disconnecting
+  - Steam.Net.ConnectionState.Encrypted
+  langs:
+  - csharp
+  - vb
+  name: ConnectionState
+  nameWithType: ConnectionState
+  fullName: Steam.Net.ConnectionState
+  type: Enum
+  source:
+    id: ConnectionState
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum ConnectionState
+    content.vb: Public Enum ConnectionState
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.ConnectionState.Disconnected
+  commentId: F:Steam.Net.ConnectionState.Disconnected
+  id: Disconnected
+  parent: Steam.Net.ConnectionState
+  langs:
+  - csharp
+  - vb
+  name: Disconnected
+  nameWithType: ConnectionState.Disconnected
+  fullName: Steam.Net.ConnectionState.Disconnected
+  type: Field
+  source:
+    id: Disconnected
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe client is disconnected from a connection manager\n"
+  example: []
+  syntax:
+    content: Disconnected = 0
+    return:
+      type: Steam.Net.ConnectionState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ConnectionState.Connecting
+  commentId: F:Steam.Net.ConnectionState.Connecting
+  id: Connecting
+  parent: Steam.Net.ConnectionState
+  langs:
+  - csharp
+  - vb
+  name: Connecting
+  nameWithType: ConnectionState.Connecting
+  fullName: Steam.Net.ConnectionState.Connecting
+  type: Field
+  source:
+    id: Connecting
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe client is connecting to a connection manager\n"
+  example: []
+  syntax:
+    content: Connecting = 1
+    return:
+      type: Steam.Net.ConnectionState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ConnectionState.Connected
+  commentId: F:Steam.Net.ConnectionState.Connected
+  id: Connected
+  parent: Steam.Net.ConnectionState
+  langs:
+  - csharp
+  - vb
+  name: Connected
+  nameWithType: ConnectionState.Connected
+  fullName: Steam.Net.ConnectionState.Connected
+  type: Field
+  source:
+    id: Connected
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe client is connected to a connection manager and encryption should be set up soon\n"
+  example: []
+  syntax:
+    content: Connected = 2
+    return:
+      type: Steam.Net.ConnectionState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ConnectionState.Encrypted
+  commentId: F:Steam.Net.ConnectionState.Encrypted
+  id: Encrypted
+  parent: Steam.Net.ConnectionState
+  langs:
+  - csharp
+  - vb
+  name: Encrypted
+  nameWithType: ConnectionState.Encrypted
+  fullName: Steam.Net.ConnectionState.Encrypted
+  type: Field
+  source:
+    id: Encrypted
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe connection is encrypted and messages can now be sent and received\n"
+  example: []
+  syntax:
+    content: Encrypted = 3
+    return:
+      type: Steam.Net.ConnectionState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.ConnectionState.Disconnecting
+  commentId: F:Steam.Net.ConnectionState.Disconnecting
+  id: Disconnecting
+  parent: Steam.Net.ConnectionState
+  langs:
+  - csharp
+  - vb
+  name: Disconnecting
+  nameWithType: ConnectionState.Disconnecting
+  fullName: Steam.Net.ConnectionState.Disconnecting
+  type: Field
+  source:
+    id: Disconnecting
+    path: G:\Steam\src\Network\Steam.Net\ConnectionState.cs
+    startLine: 23
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe client is disconnecting from the network\n"
+  example: []
+  syntax:
+    content: Disconnecting = 4
+    return:
+      type: Steam.Net.ConnectionState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.ConnectionState
+  commentId: T:Steam.Net.ConnectionState
+  parent: Steam.Net
+  isExternal: false
+  name: ConnectionState
+  nameWithType: ConnectionState
+  fullName: Steam.Net.ConnectionState

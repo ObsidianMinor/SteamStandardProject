@@ -1,0 +1,982 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.AccountFlags
+  commentId: T:Steam.Net.AccountFlags
+  id: AccountFlags
+  parent: Steam.Net
+  children:
+  - Steam.Net.AccountFlags.Admin
+  - Steam.Net.AccountFlags.AppEditor
+  - Steam.Net.AccountFlags.BannedFromWebAPI
+  - Steam.Net.AccountFlags.ClansOnlyFromFriends
+  - Steam.Net.AccountFlags.Debug
+  - Steam.Net.AccountFlags.Disabled
+  - Steam.Net.AccountFlags.EmailValidated
+  - Steam.Net.AccountFlags.ForceEmailVerification
+  - Steam.Net.AccountFlags.ForcePasswordChange
+  - Steam.Net.AccountFlags.GlobalModerator
+  - Steam.Net.AccountFlags.HWIDSet
+  - Steam.Net.AccountFlags.LimitedUser
+  - Steam.Net.AccountFlags.LimitedUserForce
+  - Steam.Net.AccountFlags.Lockdown
+  - Steam.Net.AccountFlags.LogonExtraSecurity
+  - Steam.Net.AccountFlags.LogonExtraSecurityDisabled
+  - Steam.Net.AccountFlags.MarketingTreatment
+  - Steam.Net.AccountFlags.MasterAppEditor
+  - Steam.Net.AccountFlags.NeedLogs
+  - Steam.Net.AccountFlags.NeedsSSANextSteamLogon
+  - Steam.Net.AccountFlags.NormalUser
+  - Steam.Net.AccountFlags.OGGInviteOptOut
+  - Steam.Net.AccountFlags.ParentalSettings
+  - Steam.Net.AccountFlags.PasswordSet
+  - Steam.Net.AccountFlags.PersonalQASet
+  - Steam.Net.AccountFlags.PersonaNameSet
+  - Steam.Net.AccountFlags.Steam2MigrationComplete
+  - Steam.Net.AccountFlags.Supervisor
+  - Steam.Net.AccountFlags.Support
+  - Steam.Net.AccountFlags.ThirdPartySupport
+  - Steam.Net.AccountFlags.Unbannable
+  - Steam.Net.AccountFlags.VacBeta
+  langs:
+  - csharp
+  - vb
+  name: AccountFlags
+  nameWithType: AccountFlags
+  fullName: Steam.Net.AccountFlags
+  type: Enum
+  source:
+    id: AccountFlags
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum AccountFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum AccountFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.AccountFlags.NormalUser
+  commentId: F:Steam.Net.AccountFlags.NormalUser
+  id: NormalUser
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: NormalUser
+  nameWithType: AccountFlags.NormalUser
+  fullName: Steam.Net.AccountFlags.NormalUser
+  type: Field
+  source:
+    id: NormalUser
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NormalUser = 0
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.PersonaNameSet
+  commentId: F:Steam.Net.AccountFlags.PersonaNameSet
+  id: PersonaNameSet
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: PersonaNameSet
+  nameWithType: AccountFlags.PersonaNameSet
+  fullName: Steam.Net.AccountFlags.PersonaNameSet
+  type: Field
+  source:
+    id: PersonaNameSet
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PersonaNameSet = 1
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Unbannable
+  commentId: F:Steam.Net.AccountFlags.Unbannable
+  id: Unbannable
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Unbannable
+  nameWithType: AccountFlags.Unbannable
+  fullName: Steam.Net.AccountFlags.Unbannable
+  type: Field
+  source:
+    id: Unbannable
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Unbannable = 2
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.PasswordSet
+  commentId: F:Steam.Net.AccountFlags.PasswordSet
+  id: PasswordSet
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: PasswordSet
+  nameWithType: AccountFlags.PasswordSet
+  fullName: Steam.Net.AccountFlags.PasswordSet
+  type: Field
+  source:
+    id: PasswordSet
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PasswordSet = 4
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Support
+  commentId: F:Steam.Net.AccountFlags.Support
+  id: Support
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Support
+  nameWithType: AccountFlags.Support
+  fullName: Steam.Net.AccountFlags.Support
+  type: Field
+  source:
+    id: Support
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Support = 8
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Admin
+  commentId: F:Steam.Net.AccountFlags.Admin
+  id: Admin
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Admin
+  nameWithType: AccountFlags.Admin
+  fullName: Steam.Net.AccountFlags.Admin
+  type: Field
+  source:
+    id: Admin
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Admin = 16
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Supervisor
+  commentId: F:Steam.Net.AccountFlags.Supervisor
+  id: Supervisor
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Supervisor
+  nameWithType: AccountFlags.Supervisor
+  fullName: Steam.Net.AccountFlags.Supervisor
+  type: Field
+  source:
+    id: Supervisor
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Supervisor = 32
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.AppEditor
+  commentId: F:Steam.Net.AccountFlags.AppEditor
+  id: AppEditor
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: AppEditor
+  nameWithType: AccountFlags.AppEditor
+  fullName: Steam.Net.AccountFlags.AppEditor
+  type: Field
+  source:
+    id: AppEditor
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AppEditor = 64
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.HWIDSet
+  commentId: F:Steam.Net.AccountFlags.HWIDSet
+  id: HWIDSet
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: HWIDSet
+  nameWithType: AccountFlags.HWIDSet
+  fullName: Steam.Net.AccountFlags.HWIDSet
+  type: Field
+  source:
+    id: HWIDSet
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: HWIDSet = 128
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.PersonalQASet
+  commentId: F:Steam.Net.AccountFlags.PersonalQASet
+  id: PersonalQASet
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: PersonalQASet
+  nameWithType: AccountFlags.PersonalQASet
+  fullName: Steam.Net.AccountFlags.PersonalQASet
+  type: Field
+  source:
+    id: PersonalQASet
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PersonalQASet = 256
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.VacBeta
+  commentId: F:Steam.Net.AccountFlags.VacBeta
+  id: VacBeta
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: VacBeta
+  nameWithType: AccountFlags.VacBeta
+  fullName: Steam.Net.AccountFlags.VacBeta
+  type: Field
+  source:
+    id: VacBeta
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: VacBeta = 512
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Debug
+  commentId: F:Steam.Net.AccountFlags.Debug
+  id: Debug
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: AccountFlags.Debug
+  fullName: Steam.Net.AccountFlags.Debug
+  type: Field
+  source:
+    id: Debug
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Debug = 1024
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Disabled
+  commentId: F:Steam.Net.AccountFlags.Disabled
+  id: Disabled
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: AccountFlags.Disabled
+  fullName: Steam.Net.AccountFlags.Disabled
+  type: Field
+  source:
+    id: Disabled
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Disabled = 2048
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.LimitedUser
+  commentId: F:Steam.Net.AccountFlags.LimitedUser
+  id: LimitedUser
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: LimitedUser
+  nameWithType: AccountFlags.LimitedUser
+  fullName: Steam.Net.AccountFlags.LimitedUser
+  type: Field
+  source:
+    id: LimitedUser
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 20
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LimitedUser = 4096
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.LimitedUserForce
+  commentId: F:Steam.Net.AccountFlags.LimitedUserForce
+  id: LimitedUserForce
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: LimitedUserForce
+  nameWithType: AccountFlags.LimitedUserForce
+  fullName: Steam.Net.AccountFlags.LimitedUserForce
+  type: Field
+  source:
+    id: LimitedUserForce
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 21
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LimitedUserForce = 8192
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.EmailValidated
+  commentId: F:Steam.Net.AccountFlags.EmailValidated
+  id: EmailValidated
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: EmailValidated
+  nameWithType: AccountFlags.EmailValidated
+  fullName: Steam.Net.AccountFlags.EmailValidated
+  type: Field
+  source:
+    id: EmailValidated
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: EmailValidated = 16384
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.MarketingTreatment
+  commentId: F:Steam.Net.AccountFlags.MarketingTreatment
+  id: MarketingTreatment
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: MarketingTreatment
+  nameWithType: AccountFlags.MarketingTreatment
+  fullName: Steam.Net.AccountFlags.MarketingTreatment
+  type: Field
+  source:
+    id: MarketingTreatment
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 23
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MarketingTreatment = 32768
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.OGGInviteOptOut
+  commentId: F:Steam.Net.AccountFlags.OGGInviteOptOut
+  id: OGGInviteOptOut
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: OGGInviteOptOut
+  nameWithType: AccountFlags.OGGInviteOptOut
+  fullName: Steam.Net.AccountFlags.OGGInviteOptOut
+  type: Field
+  source:
+    id: OGGInviteOptOut
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 24
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OGGInviteOptOut = 65536
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.ForcePasswordChange
+  commentId: F:Steam.Net.AccountFlags.ForcePasswordChange
+  id: ForcePasswordChange
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: ForcePasswordChange
+  nameWithType: AccountFlags.ForcePasswordChange
+  fullName: Steam.Net.AccountFlags.ForcePasswordChange
+  type: Field
+  source:
+    id: ForcePasswordChange
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ForcePasswordChange = 131072
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.ForceEmailVerification
+  commentId: F:Steam.Net.AccountFlags.ForceEmailVerification
+  id: ForceEmailVerification
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: ForceEmailVerification
+  nameWithType: AccountFlags.ForceEmailVerification
+  fullName: Steam.Net.AccountFlags.ForceEmailVerification
+  type: Field
+  source:
+    id: ForceEmailVerification
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 26
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ForceEmailVerification = 262144
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.LogonExtraSecurity
+  commentId: F:Steam.Net.AccountFlags.LogonExtraSecurity
+  id: LogonExtraSecurity
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: LogonExtraSecurity
+  nameWithType: AccountFlags.LogonExtraSecurity
+  fullName: Steam.Net.AccountFlags.LogonExtraSecurity
+  type: Field
+  source:
+    id: LogonExtraSecurity
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LogonExtraSecurity = 524288
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.LogonExtraSecurityDisabled
+  commentId: F:Steam.Net.AccountFlags.LogonExtraSecurityDisabled
+  id: LogonExtraSecurityDisabled
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: LogonExtraSecurityDisabled
+  nameWithType: AccountFlags.LogonExtraSecurityDisabled
+  fullName: Steam.Net.AccountFlags.LogonExtraSecurityDisabled
+  type: Field
+  source:
+    id: LogonExtraSecurityDisabled
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 28
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LogonExtraSecurityDisabled = 1048576
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Steam2MigrationComplete
+  commentId: F:Steam.Net.AccountFlags.Steam2MigrationComplete
+  id: Steam2MigrationComplete
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Steam2MigrationComplete
+  nameWithType: AccountFlags.Steam2MigrationComplete
+  fullName: Steam.Net.AccountFlags.Steam2MigrationComplete
+  type: Field
+  source:
+    id: Steam2MigrationComplete
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 29
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Steam2MigrationComplete = 2097152
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.NeedLogs
+  commentId: F:Steam.Net.AccountFlags.NeedLogs
+  id: NeedLogs
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: NeedLogs
+  nameWithType: AccountFlags.NeedLogs
+  fullName: Steam.Net.AccountFlags.NeedLogs
+  type: Field
+  source:
+    id: NeedLogs
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NeedLogs = 4194304
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.Lockdown
+  commentId: F:Steam.Net.AccountFlags.Lockdown
+  id: Lockdown
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: Lockdown
+  nameWithType: AccountFlags.Lockdown
+  fullName: Steam.Net.AccountFlags.Lockdown
+  type: Field
+  source:
+    id: Lockdown
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 31
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Lockdown = 8388608
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.MasterAppEditor
+  commentId: F:Steam.Net.AccountFlags.MasterAppEditor
+  id: MasterAppEditor
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: MasterAppEditor
+  nameWithType: AccountFlags.MasterAppEditor
+  fullName: Steam.Net.AccountFlags.MasterAppEditor
+  type: Field
+  source:
+    id: MasterAppEditor
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 32
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MasterAppEditor = 16777216
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.BannedFromWebAPI
+  commentId: F:Steam.Net.AccountFlags.BannedFromWebAPI
+  id: BannedFromWebAPI
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: BannedFromWebAPI
+  nameWithType: AccountFlags.BannedFromWebAPI
+  fullName: Steam.Net.AccountFlags.BannedFromWebAPI
+  type: Field
+  source:
+    id: BannedFromWebAPI
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 33
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BannedFromWebAPI = 33554432
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.ClansOnlyFromFriends
+  commentId: F:Steam.Net.AccountFlags.ClansOnlyFromFriends
+  id: ClansOnlyFromFriends
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: ClansOnlyFromFriends
+  nameWithType: AccountFlags.ClansOnlyFromFriends
+  fullName: Steam.Net.AccountFlags.ClansOnlyFromFriends
+  type: Field
+  source:
+    id: ClansOnlyFromFriends
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ClansOnlyFromFriends = 67108864
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.GlobalModerator
+  commentId: F:Steam.Net.AccountFlags.GlobalModerator
+  id: GlobalModerator
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: GlobalModerator
+  nameWithType: AccountFlags.GlobalModerator
+  fullName: Steam.Net.AccountFlags.GlobalModerator
+  type: Field
+  source:
+    id: GlobalModerator
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 35
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GlobalModerator = 134217728
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.ParentalSettings
+  commentId: F:Steam.Net.AccountFlags.ParentalSettings
+  id: ParentalSettings
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: ParentalSettings
+  nameWithType: AccountFlags.ParentalSettings
+  fullName: Steam.Net.AccountFlags.ParentalSettings
+  type: Field
+  source:
+    id: ParentalSettings
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 36
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ParentalSettings = 268435456
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.ThirdPartySupport
+  commentId: F:Steam.Net.AccountFlags.ThirdPartySupport
+  id: ThirdPartySupport
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: ThirdPartySupport
+  nameWithType: AccountFlags.ThirdPartySupport
+  fullName: Steam.Net.AccountFlags.ThirdPartySupport
+  type: Field
+  source:
+    id: ThirdPartySupport
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ThirdPartySupport = 536870912
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.AccountFlags.NeedsSSANextSteamLogon
+  commentId: F:Steam.Net.AccountFlags.NeedsSSANextSteamLogon
+  id: NeedsSSANextSteamLogon
+  parent: Steam.Net.AccountFlags
+  langs:
+  - csharp
+  - vb
+  name: NeedsSSANextSteamLogon
+  nameWithType: AccountFlags.NeedsSSANextSteamLogon
+  fullName: Steam.Net.AccountFlags.NeedsSSANextSteamLogon
+  type: Field
+  source:
+    id: NeedsSSANextSteamLogon
+    path: G:\Steam\src\Network\Steam.Net\AccountFlags.cs
+    startLine: 38
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NeedsSSANextSteamLogon = 1073741824
+    return:
+      type: Steam.Net.AccountFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.AccountFlags
+  commentId: T:Steam.Net.AccountFlags
+  parent: Steam.Net
+  isExternal: false
+  name: AccountFlags
+  nameWithType: AccountFlags
+  fullName: Steam.Net.AccountFlags

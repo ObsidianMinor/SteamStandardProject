@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.GameType
+  commentId: T:Steam.Common.GameType
+  id: GameType
+  parent: Steam.Common
+  children:
+  - Steam.Common.GameType.App
+  - Steam.Common.GameType.Mod
+  - Steam.Common.GameType.P2P
+  - Steam.Common.GameType.Shortcut
+  langs:
+  - csharp
+  - vb
+  name: GameType
+  nameWithType: GameType
+  fullName: Steam.Common.GameType
+  type: Enum
+  source:
+    id: GameType
+    path: G:\Steam\src\Common\Steam.Common\GameType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nVarious types of games on Steam\n"
+  example: []
+  syntax:
+    content: 'public enum GameType : byte'
+    content.vb: Public Enum GameType As Byte
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.GameType.App
+  commentId: F:Steam.Common.GameType.App
+  id: App
+  parent: Steam.Common.GameType
+  langs:
+  - csharp
+  - vb
+  name: App
+  nameWithType: GameType.App
+  fullName: Steam.Common.GameType.App
+  type: Field
+  source:
+    id: App
+    path: G:\Steam\src\Common\Steam.Common\GameType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA Steam application\n"
+  example: []
+  syntax:
+    content: App = 0
+    return:
+      type: Steam.Common.GameType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.GameType.Mod
+  commentId: F:Steam.Common.GameType.Mod
+  id: Mod
+  parent: Steam.Common.GameType
+  langs:
+  - csharp
+  - vb
+  name: Mod
+  nameWithType: GameType.Mod
+  fullName: Steam.Common.GameType.Mod
+  type: Field
+  source:
+    id: Mod
+    path: G:\Steam\src\Common\Steam.Common\GameType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA game modification\n"
+  example: []
+  syntax:
+    content: Mod = 1
+    return:
+      type: Steam.Common.GameType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.GameType.Shortcut
+  commentId: F:Steam.Common.GameType.Shortcut
+  id: Shortcut
+  parent: Steam.Common.GameType
+  langs:
+  - csharp
+  - vb
+  name: Shortcut
+  nameWithType: GameType.Shortcut
+  fullName: Steam.Common.GameType.Shortcut
+  type: Field
+  source:
+    id: Shortcut
+    path: G:\Steam\src\Common\Steam.Common\GameType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA shortcut to a program\n"
+  example: []
+  syntax:
+    content: Shortcut = 2
+    return:
+      type: Steam.Common.GameType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.GameType.P2P
+  commentId: F:Steam.Common.GameType.P2P
+  id: P2P
+  parent: Steam.Common.GameType
+  langs:
+  - csharp
+  - vb
+  name: P2P
+  nameWithType: GameType.P2P
+  fullName: Steam.Common.GameType.P2P
+  type: Field
+  source:
+    id: P2P
+    path: G:\Steam\src\Common\Steam.Common\GameType.cs
+    startLine: 22
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA peer-to-peer file\n"
+  example: []
+  syntax:
+    content: P2P = 3
+    return:
+      type: Steam.Common.GameType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.GameType
+  commentId: T:Steam.Common.GameType
+  parent: Steam.Common
+  isExternal: false
+  name: GameType
+  nameWithType: GameType
+  fullName: Steam.Common.GameType

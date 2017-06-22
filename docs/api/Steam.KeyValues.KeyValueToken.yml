@@ -1,0 +1,387 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.KeyValues.KeyValueToken
+  commentId: T:Steam.KeyValues.KeyValueToken
+  id: KeyValueToken
+  parent: Steam.KeyValues
+  children:
+  - Steam.KeyValues.KeyValueToken.Color
+  - Steam.KeyValues.KeyValueToken.End
+  - Steam.KeyValues.KeyValueToken.Float32
+  - Steam.KeyValues.KeyValueToken.Int32
+  - Steam.KeyValues.KeyValueToken.Int64
+  - Steam.KeyValues.KeyValueToken.None
+  - Steam.KeyValues.KeyValueToken.Pointer
+  - Steam.KeyValues.KeyValueToken.PropertyName
+  - Steam.KeyValues.KeyValueToken.String
+  - Steam.KeyValues.KeyValueToken.UInt64
+  - Steam.KeyValues.KeyValueToken.WideString
+  langs:
+  - csharp
+  - vb
+  name: KeyValueToken
+  nameWithType: KeyValueToken
+  fullName: Steam.KeyValues.KeyValueToken
+  type: Enum
+  source:
+    id: KeyValueToken
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 5
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nSpecifies a KeyValue token value type\n"
+  example: []
+  syntax:
+    content: public enum KeyValueToken
+    content.vb: Public Enum KeyValueToken
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.KeyValues.KeyValueToken.None
+  commentId: F:Steam.KeyValues.KeyValueToken.None
+  id: None
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: KeyValueToken.None
+  fullName: Steam.KeyValues.KeyValueToken.None
+  type: Field
+  source:
+    id: None
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 10
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nNo value\n"
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.String
+  commentId: F:Steam.KeyValues.KeyValueToken.String
+  id: String
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: KeyValueToken.String
+  fullName: Steam.KeyValues.KeyValueToken.String
+  type: Field
+  source:
+    id: String
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 14
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA string\n"
+  example: []
+  syntax:
+    content: String = 1
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.Int32
+  commentId: F:Steam.KeyValues.KeyValueToken.Int32
+  id: Int32
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: Int32
+  nameWithType: KeyValueToken.Int32
+  fullName: Steam.KeyValues.KeyValueToken.Int32
+  type: Field
+  source:
+    id: Int32
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 18
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nAn Int32\n"
+  example: []
+  syntax:
+    content: Int32 = 2
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.Float32
+  commentId: F:Steam.KeyValues.KeyValueToken.Float32
+  id: Float32
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: Float32
+  nameWithType: KeyValueToken.Float32
+  fullName: Steam.KeyValues.KeyValueToken.Float32
+  type: Field
+  source:
+    id: Float32
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 22
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA float\n"
+  example: []
+  syntax:
+    content: Float32 = 3
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.Pointer
+  commentId: F:Steam.KeyValues.KeyValueToken.Pointer
+  id: Pointer
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: Pointer
+  nameWithType: KeyValueToken.Pointer
+  fullName: Steam.KeyValues.KeyValueToken.Pointer
+  type: Field
+  source:
+    id: Pointer
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 26
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA signed pointer\n"
+  example: []
+  syntax:
+    content: Pointer = 4
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.WideString
+  commentId: F:Steam.KeyValues.KeyValueToken.WideString
+  id: WideString
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: WideString
+  nameWithType: KeyValueToken.WideString
+  fullName: Steam.KeyValues.KeyValueToken.WideString
+  type: Field
+  source:
+    id: WideString
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 30
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA wide string\n"
+  example: []
+  syntax:
+    content: WideString = 5
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.Color
+  commentId: F:Steam.KeyValues.KeyValueToken.Color
+  id: Color
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: KeyValueToken.Color
+  fullName: Steam.KeyValues.KeyValueToken.Color
+  type: Field
+  source:
+    id: Color
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 34
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA color\n"
+  example: []
+  syntax:
+    content: Color = 6
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.UInt64
+  commentId: F:Steam.KeyValues.KeyValueToken.UInt64
+  id: UInt64
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: UInt64
+  nameWithType: KeyValueToken.UInt64
+  fullName: Steam.KeyValues.KeyValueToken.UInt64
+  type: Field
+  source:
+    id: UInt64
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 38
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nAn unsigned Int64\n"
+  example: []
+  syntax:
+    content: UInt64 = 7
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.End
+  commentId: F:Steam.KeyValues.KeyValueToken.End
+  id: End
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: KeyValueToken.End
+  fullName: Steam.KeyValues.KeyValueToken.End
+  type: Field
+  source:
+    id: End
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 42
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nAn end token\n"
+  example: []
+  syntax:
+    content: End = 8
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.PropertyName
+  commentId: F:Steam.KeyValues.KeyValueToken.PropertyName
+  id: PropertyName
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: PropertyName
+  nameWithType: KeyValueToken.PropertyName
+  fullName: Steam.KeyValues.KeyValueToken.PropertyName
+  type: Field
+  source:
+    id: PropertyName
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 46
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nA property name\n"
+  example: []
+  syntax:
+    content: PropertyName = 9
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.KeyValues.KeyValueToken.Int64
+  commentId: F:Steam.KeyValues.KeyValueToken.Int64
+  id: Int64
+  parent: Steam.KeyValues.KeyValueToken
+  langs:
+  - csharp
+  - vb
+  name: Int64
+  nameWithType: KeyValueToken.Int64
+  fullName: Steam.KeyValues.KeyValueToken.Int64
+  type: Field
+  source:
+    id: Int64
+    path: G:\Steam\src\Common\Steam.KeyValues\KeyValueToken.cs
+    startLine: 50
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  summary: "\nAn Int64\n"
+  example: []
+  syntax:
+    content: Int64 = 10
+    return:
+      type: Steam.KeyValues.KeyValueToken
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.KeyValues
+  commentId: N:Steam.KeyValues
+  isExternal: false
+  name: Steam.KeyValues
+  nameWithType: Steam.KeyValues
+  fullName: Steam.KeyValues
+- uid: Steam.KeyValues.KeyValueToken
+  commentId: T:Steam.KeyValues.KeyValueToken
+  parent: Steam.KeyValues
+  isExternal: false
+  name: KeyValueToken
+  nameWithType: KeyValueToken
+  fullName: Steam.KeyValues.KeyValueToken

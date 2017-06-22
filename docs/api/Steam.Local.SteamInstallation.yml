@@ -1,0 +1,652 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.SteamInstallation
+  commentId: T:Steam.Local.SteamInstallation
+  id: SteamInstallation
+  parent: Steam.Local
+  children:
+  - Steam.Local.SteamInstallation.GetInstallation
+  - Steam.Local.SteamInstallation.GetInstallationFromPath(System.String)
+  - Steam.Local.SteamInstallation.Libraries
+  - Steam.Local.SteamInstallation.LoadFromRegistry(Steam.Local.Registry)
+  - Steam.Local.SteamInstallation.Path
+  - Steam.Local.SteamInstallation.Registry
+  - Steam.Local.SteamInstallation.Update
+  langs:
+  - csharp
+  - vb
+  name: SteamInstallation
+  nameWithType: SteamInstallation
+  fullName: Steam.Local.SteamInstallation
+  type: Class
+  source:
+    id: SteamInstallation
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 8
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nRepresents a Steam installation on a local or remote computer\n"
+  example: []
+  syntax:
+    content: public class SteamInstallation
+    content.vb: Public Class SteamInstallation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Local.SteamInstallation.Path
+  commentId: P:Steam.Local.SteamInstallation.Path
+  id: Path
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: SteamInstallation.Path
+  fullName: Steam.Local.SteamInstallation.Path
+  type: Property
+  source:
+    id: Path
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 15
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nGets path to this Steam installation\n"
+  example: []
+  syntax:
+    content: public string Path { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Path As String
+  overload: Steam.Local.SteamInstallation.Path*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.SteamInstallation.Registry
+  commentId: P:Steam.Local.SteamInstallation.Registry
+  id: Registry
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: Registry
+  nameWithType: SteamInstallation.Registry
+  fullName: Steam.Local.SteamInstallation.Registry
+  type: Property
+  source:
+    id: Registry
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 20
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nGets this Steam installation's corresponding registry\n"
+  example: []
+  syntax:
+    content: public Registry Registry { get; }
+    parameters: []
+    return:
+      type: Steam.Local.Registry
+    content.vb: Public ReadOnly Property Registry As Registry
+  overload: Steam.Local.SteamInstallation.Registry*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.SteamInstallation.Libraries
+  commentId: P:Steam.Local.SteamInstallation.Libraries
+  id: Libraries
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: Libraries
+  nameWithType: SteamInstallation.Libraries
+  fullName: Steam.Local.SteamInstallation.Libraries
+  type: Property
+  source:
+    id: Libraries
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 25
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nGets all the libraries in this Steam installation\n"
+  example: []
+  syntax:
+    content: public LibraryCollection Libraries { get; }
+    parameters: []
+    return:
+      type: Steam.Local.Apps.LibraryCollection
+    content.vb: Public ReadOnly Property Libraries As LibraryCollection
+  overload: Steam.Local.SteamInstallation.Libraries*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.SteamInstallation.Update
+  commentId: M:Steam.Local.SteamInstallation.Update
+  id: Update
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: SteamInstallation.Update()
+  fullName: Steam.Local.SteamInstallation.Update()
+  type: Method
+  source:
+    id: Update
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 36
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nUpdates all data in this <xref href=\"Steam.Local.SteamInstallation\" data-throw-if-not-resolved=\"false\"></xref> with data from the disk\n"
+  example: []
+  syntax:
+    content: public void Update()
+    content.vb: Public Sub Update
+  overload: Steam.Local.SteamInstallation.Update*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.SteamInstallation.LoadFromRegistry(Steam.Local.Registry)
+  commentId: M:Steam.Local.SteamInstallation.LoadFromRegistry(Steam.Local.Registry)
+  id: LoadFromRegistry(Steam.Local.Registry)
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: LoadFromRegistry(Registry)
+  nameWithType: SteamInstallation.LoadFromRegistry(Registry)
+  fullName: Steam.Local.SteamInstallation.LoadFromRegistry(Steam.Local.Registry)
+  type: Method
+  source:
+    id: LoadFromRegistry
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 41
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  syntax:
+    content: public static SteamInstallation LoadFromRegistry(Registry registry)
+    parameters:
+    - id: registry
+      type: Steam.Local.Registry
+    return:
+      type: Steam.Local.SteamInstallation
+    content.vb: Public Shared Function LoadFromRegistry(registry As Registry) As SteamInstallation
+  overload: Steam.Local.SteamInstallation.LoadFromRegistry*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Steam.Local.SteamInstallation.GetInstallation
+  commentId: M:Steam.Local.SteamInstallation.GetInstallation
+  id: GetInstallation
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: GetInstallation()
+  nameWithType: SteamInstallation.GetInstallation()
+  fullName: Steam.Local.SteamInstallation.GetInstallation()
+  type: Method
+  source:
+    id: GetInstallation
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 51
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  syntax:
+    content: public static SteamInstallation GetInstallation()
+    return:
+      type: Steam.Local.SteamInstallation
+    content.vb: Public Shared Function GetInstallation As SteamInstallation
+  overload: Steam.Local.SteamInstallation.GetInstallation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Steam.Local.SteamInstallation.GetInstallationFromPath(System.String)
+  commentId: M:Steam.Local.SteamInstallation.GetInstallationFromPath(System.String)
+  id: GetInstallationFromPath(System.String)
+  parent: Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: GetInstallationFromPath(String)
+  nameWithType: SteamInstallation.GetInstallationFromPath(String)
+  fullName: Steam.Local.SteamInstallation.GetInstallationFromPath(System.String)
+  type: Method
+  source:
+    id: GetInstallationFromPath
+    path: G:\Steam\src\Local\Steam.Local\SteamInstallation.cs
+    startLine: 62
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local
+  summary: "\nGets a <xref href=\"Steam.Local.SteamInstallation\" data-throw-if-not-resolved=\"false\"></xref> from the specified path. This does not load a coresponding <xref href=\"Steam.Local.Registry\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  remarks: "\nThis is used for the LoadFromRegistry method to load a Steam installation using the provided path in the registry.\nIt can also be used to manually load an installation. For example: a remote installation or a SteamCMD instance\n"
+  example: []
+  syntax:
+    content: public static SteamInstallation GetInstallationFromPath(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path to a Steam installation
+    return:
+      type: Steam.Local.SteamInstallation
+      description: A new Steam installation
+    content.vb: Public Shared Function GetInstallationFromPath(path As String) As SteamInstallation
+  overload: Steam.Local.SteamInstallation.GetInstallationFromPath*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Steam.Local
+  commentId: N:Steam.Local
+  isExternal: false
+  name: Steam.Local
+  nameWithType: Steam.Local
+  fullName: Steam.Local
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Local.SteamInstallation.Path*
+  commentId: Overload:Steam.Local.SteamInstallation.Path
+  isExternal: false
+  name: Path
+  nameWithType: SteamInstallation.Path
+  fullName: Steam.Local.SteamInstallation.Path
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Local.SteamInstallation.Registry*
+  commentId: Overload:Steam.Local.SteamInstallation.Registry
+  isExternal: false
+  name: Registry
+  nameWithType: SteamInstallation.Registry
+  fullName: Steam.Local.SteamInstallation.Registry
+- uid: Steam.Local.Registry
+  commentId: T:Steam.Local.Registry
+  parent: Steam.Local
+  isExternal: false
+  name: Registry
+  nameWithType: Registry
+  fullName: Steam.Local.Registry
+- uid: Steam.Local.SteamInstallation.Libraries*
+  commentId: Overload:Steam.Local.SteamInstallation.Libraries
+  isExternal: false
+  name: Libraries
+  nameWithType: SteamInstallation.Libraries
+  fullName: Steam.Local.SteamInstallation.Libraries
+- uid: Steam.Local.Apps.LibraryCollection
+  commentId: T:Steam.Local.Apps.LibraryCollection
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: LibraryCollection
+  nameWithType: LibraryCollection
+  fullName: Steam.Local.Apps.LibraryCollection
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: Steam.Local.SteamInstallation
+  commentId: T:Steam.Local.SteamInstallation
+  parent: Steam.Local
+  isExternal: false
+  name: SteamInstallation
+  nameWithType: SteamInstallation
+  fullName: Steam.Local.SteamInstallation
+- uid: Steam.Local.SteamInstallation.Update*
+  commentId: Overload:Steam.Local.SteamInstallation.Update
+  isExternal: false
+  name: Update
+  nameWithType: SteamInstallation.Update
+  fullName: Steam.Local.SteamInstallation.Update
+- uid: Steam.Local.SteamInstallation.LoadFromRegistry*
+  commentId: Overload:Steam.Local.SteamInstallation.LoadFromRegistry
+  isExternal: false
+  name: LoadFromRegistry
+  nameWithType: SteamInstallation.LoadFromRegistry
+  fullName: Steam.Local.SteamInstallation.LoadFromRegistry
+- uid: Steam.Local.SteamInstallation.GetInstallation*
+  commentId: Overload:Steam.Local.SteamInstallation.GetInstallation
+  isExternal: false
+  name: GetInstallation
+  nameWithType: SteamInstallation.GetInstallation
+  fullName: Steam.Local.SteamInstallation.GetInstallation
+- uid: Steam.Local.SteamInstallation.GetInstallationFromPath*
+  commentId: Overload:Steam.Local.SteamInstallation.GetInstallationFromPath
+  isExternal: false
+  name: GetInstallationFromPath
+  nameWithType: SteamInstallation.GetInstallationFromPath
+  fullName: Steam.Local.SteamInstallation.GetInstallationFromPath

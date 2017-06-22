@@ -1,0 +1,2800 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Result
+  commentId: T:Steam.Common.Result
+  id: Result
+  parent: Steam.Common
+  children:
+  - Steam.Common.Result.AccessDenied
+  - Steam.Common.Result.AccountDisabled
+  - Steam.Common.Result.AccountLockedDown
+  - Steam.Common.Result.AccountLoginDeniedNeedTwoFactor
+  - Steam.Common.Result.AccountLoginDeniedThrottle
+  - Steam.Common.Result.AccountLogonDenied
+  - Steam.Common.Result.AccountLogonDeniedNoMail
+  - Steam.Common.Result.AccountLogonDeniedVerifiedEmailRequired
+  - Steam.Common.Result.AccountNotFeatured
+  - Steam.Common.Result.AccountNotFound
+  - Steam.Common.Result.AdministratorOK
+  - Steam.Common.Result.AlreadyLoggedInElsewhere
+  - Steam.Common.Result.AlreadyOwned
+  - Steam.Common.Result.AlreadyRedeemed
+  - Steam.Common.Result.BadResponse
+  - Steam.Common.Result.Banned
+  - Steam.Common.Result.Blocked
+  - Steam.Common.Result.Busy
+  - Steam.Common.Result.Cancelled
+  - Steam.Common.Result.CannotUseOldPassword
+  - Steam.Common.Result.ConnectFailed
+  - Steam.Common.Result.ContentVersion
+  - Steam.Common.Result.DataCorruption
+  - Steam.Common.Result.Disabled
+  - Steam.Common.Result.DiskFull
+  - Steam.Common.Result.DuplicateName
+  - Steam.Common.Result.DuplicateRequest
+  - Steam.Common.Result.EncryptionFailure
+  - Steam.Common.Result.Expired
+  - Steam.Common.Result.ExpiredLoginAuthCode
+  - Steam.Common.Result.ExternalAccountAlreadyLinked
+  - Steam.Common.Result.ExternalAccountUnlinked
+  - Steam.Common.Result.FacebookQueryError
+  - Steam.Common.Result.Fail
+  - Steam.Common.Result.FileNotFound
+  - Steam.Common.Result.HandshakeFailed
+  - Steam.Common.Result.HardwareNotCapableOfIPT
+  - Steam.Common.Result.Ignored
+  - Steam.Common.Result.IllegalPassword
+  - Steam.Common.Result.InsufficientPrivilege
+  - Steam.Common.Result.InvalidCEGSubmission
+  - Steam.Common.Result.InvalidEmail
+  - Steam.Common.Result.InvalidLoginAuthCode
+  - Steam.Common.Result.InvalidName
+  - Steam.Common.Result.InvalidParameter
+  - Steam.Common.Result.InvalidPassword
+  - Steam.Common.Result.InvalidProtocolVersion
+  - Steam.Common.Result.InvalidState
+  - Steam.Common.Result.InvalidSteamID
+  - Steam.Common.Result.IOFailure
+  - Steam.Common.Result.IPLoginRestrictionFailed
+  - Steam.Common.Result.IPNotFound
+  - Steam.Common.Result.IPTInitError
+  - Steam.Common.Result.ItemDeleted
+  - Steam.Common.Result.LimitExceeded
+  - Steam.Common.Result.LockingFailed
+  - Steam.Common.Result.LoggedInElsewhere
+  - Steam.Common.Result.LogonSessionReplaced
+  - Steam.Common.Result.NoConnection
+  - Steam.Common.Result.NoConnectionRetry
+  - Steam.Common.Result.NoMatch
+  - Steam.Common.Result.NoMatchingURL
+  - Steam.Common.Result.NotLoggedOn
+  - Steam.Common.Result.OK
+  - Steam.Common.Result.ParentalControlRestricted
+  - Steam.Common.Result.PasswordRequiredToKickSession
+  - Steam.Common.Result.PasswordUnset
+  - Steam.Common.Result.Pending
+  - Steam.Common.Result.PersistFailed
+  - Steam.Common.Result.PSNTicketInvalid
+  - Steam.Common.Result.RateLimitExceeded
+  - Steam.Common.Result.RegionLocked
+  - Steam.Common.Result.RemoteCallFailed
+  - Steam.Common.Result.RemoteDisconnect
+  - Steam.Common.Result.RemoteFileConflict
+  - Steam.Common.Result.RequirePasswordReEntry
+  - Steam.Common.Result.RestrictedDevice
+  - Steam.Common.Result.Revoked
+  - Steam.Common.Result.SameAsPreviousValue
+  - Steam.Common.Result.ServiceReadOnly
+  - Steam.Common.Result.ServiceUnavailable
+  - Steam.Common.Result.ShoppingCartNotFound
+  - Steam.Common.Result.Suspended
+  - Steam.Common.Result.Timeout
+  - Steam.Common.Result.TryAnotherCM
+  - Steam.Common.Result.TwoFactorActivationCodeMismatch
+  - Steam.Common.Result.TwoFactorCodeMismatch
+  - Steam.Common.Result.UnexpectedError
+  - Steam.Common.Result.ValueOutOfRange
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: Result
+  fullName: Steam.Common.Result
+  type: Enum
+  source:
+    id: Result
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 8
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGeneral Steam result codes\n"
+  example: []
+  syntax:
+    content: public enum Result
+    content.vb: Public Enum Result
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.Result.OK
+  commentId: F:Steam.Common.Result.OK
+  id: OK
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: OK
+  nameWithType: Result.OK
+  fullName: Steam.Common.Result.OK
+  type: Field
+  source:
+    id: OK
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 13
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: OK = 1
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Fail
+  commentId: F:Steam.Common.Result.Fail
+  id: Fail
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: Result.Fail
+  fullName: Steam.Common.Result.Fail
+  type: Field
+  source:
+    id: Fail
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 17
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGeneric failure\n"
+  example: []
+  syntax:
+    content: Fail = 2
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.NoConnection
+  commentId: F:Steam.Common.Result.NoConnection
+  id: NoConnection
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: NoConnection
+  nameWithType: Result.NoConnection
+  fullName: Steam.Common.Result.NoConnection
+  type: Field
+  source:
+    id: NoConnection
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 21
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nNo or failed network connection\n"
+  example: []
+  syntax:
+    content: NoConnection = 3
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.NoConnectionRetry
+  commentId: F:Steam.Common.Result.NoConnectionRetry
+  id: NoConnectionRetry
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: NoConnectionRetry
+  nameWithType: Result.NoConnectionRetry
+  fullName: Steam.Common.Result.NoConnectionRetry
+  type: Field
+  source:
+    id: NoConnectionRetry
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 25
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThis result has been removed\n"
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This result has been removed")]
+
+      NoConnectionRetry = 4
+    return:
+      type: Steam.Common.Result
+    content.vb: >-
+      <Obsolete("This result has been removed")>
+
+      NoConnectionRetry = 4
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This result has been removed
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidPassword
+  commentId: F:Steam.Common.Result.InvalidPassword
+  id: InvalidPassword
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidPassword
+  nameWithType: Result.InvalidPassword
+  fullName: Steam.Common.Result.InvalidPassword
+  type: Field
+  source:
+    id: InvalidPassword
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 30
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe password or ticket is invalid\n"
+  example: []
+  syntax:
+    content: InvalidPassword = 5
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.LoggedInElsewhere
+  commentId: F:Steam.Common.Result.LoggedInElsewhere
+  id: LoggedInElsewhere
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: LoggedInElsewhere
+  nameWithType: Result.LoggedInElsewhere
+  fullName: Steam.Common.Result.LoggedInElsewhere
+  type: Field
+  source:
+    id: LoggedInElsewhere
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 34
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSame user is logged in elsewhere\n"
+  example: []
+  syntax:
+    content: LoggedInElsewhere = 6
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidProtocolVersion
+  commentId: F:Steam.Common.Result.InvalidProtocolVersion
+  id: InvalidProtocolVersion
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidProtocolVersion
+  nameWithType: Result.InvalidProtocolVersion
+  fullName: Steam.Common.Result.InvalidProtocolVersion
+  type: Field
+  source:
+    id: InvalidProtocolVersion
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 38
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nInvalid protocol version used\n"
+  example: []
+  syntax:
+    content: InvalidProtocolVersion = 7
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidParameter
+  commentId: F:Steam.Common.Result.InvalidParameter
+  id: InvalidParameter
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidParameter
+  nameWithType: Result.InvalidParameter
+  fullName: Steam.Common.Result.InvalidParameter
+  type: Field
+  source:
+    id: InvalidParameter
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 42
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA parameter was incorrect\n"
+  example: []
+  syntax:
+    content: InvalidParameter = 8
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.FileNotFound
+  commentId: F:Steam.Common.Result.FileNotFound
+  id: FileNotFound
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: FileNotFound
+  nameWithType: Result.FileNotFound
+  fullName: Steam.Common.Result.FileNotFound
+  type: Field
+  source:
+    id: FileNotFound
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 46
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFile was not found\n"
+  example: []
+  syntax:
+    content: FileNotFound = 9
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Busy
+  commentId: F:Steam.Common.Result.Busy
+  id: Busy
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Busy
+  nameWithType: Result.Busy
+  fullName: Steam.Common.Result.Busy
+  type: Field
+  source:
+    id: Busy
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 50
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nCalled method is busy, action was not taken\n"
+  example: []
+  syntax:
+    content: Busy = 10
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidState
+  commentId: F:Steam.Common.Result.InvalidState
+  id: InvalidState
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidState
+  nameWithType: Result.InvalidState
+  fullName: Steam.Common.Result.InvalidState
+  type: Field
+  source:
+    id: InvalidState
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 54
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nCalled object was in an invalid state\n"
+  example: []
+  syntax:
+    content: InvalidState = 11
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidName
+  commentId: F:Steam.Common.Result.InvalidName
+  id: InvalidName
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidName
+  nameWithType: Result.InvalidName
+  fullName: Steam.Common.Result.InvalidName
+  type: Field
+  source:
+    id: InvalidName
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 58
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nName is invalid\n"
+  example: []
+  syntax:
+    content: InvalidName = 12
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidEmail
+  commentId: F:Steam.Common.Result.InvalidEmail
+  id: InvalidEmail
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidEmail
+  nameWithType: Result.InvalidEmail
+  fullName: Steam.Common.Result.InvalidEmail
+  type: Field
+  source:
+    id: InvalidEmail
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 62
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nEmail is invalid\n"
+  example: []
+  syntax:
+    content: InvalidEmail = 13
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.DuplicateName
+  commentId: F:Steam.Common.Result.DuplicateName
+  id: DuplicateName
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: DuplicateName
+  nameWithType: Result.DuplicateName
+  fullName: Steam.Common.Result.DuplicateName
+  type: Field
+  source:
+    id: DuplicateName
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 66
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nName is not unique\n"
+  example: []
+  syntax:
+    content: DuplicateName = 14
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccessDenied
+  commentId: F:Steam.Common.Result.AccessDenied
+  id: AccessDenied
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccessDenied
+  nameWithType: Result.AccessDenied
+  fullName: Steam.Common.Result.AccessDenied
+  type: Field
+  source:
+    id: AccessDenied
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 70
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccess is denied\n"
+  example: []
+  syntax:
+    content: AccessDenied = 15
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Timeout
+  commentId: F:Steam.Common.Result.Timeout
+  id: Timeout
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Timeout
+  nameWithType: Result.Timeout
+  fullName: Steam.Common.Result.Timeout
+  type: Field
+  source:
+    id: Timeout
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 74
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOperation timed out\n"
+  example: []
+  syntax:
+    content: Timeout = 16
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Banned
+  commentId: F:Steam.Common.Result.Banned
+  id: Banned
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Banned
+  nameWithType: Result.Banned
+  fullName: Steam.Common.Result.Banned
+  type: Field
+  source:
+    id: Banned
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 78
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nVAC2 banned\n"
+  example: []
+  syntax:
+    content: Banned = 17
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountNotFound
+  commentId: F:Steam.Common.Result.AccountNotFound
+  id: AccountNotFound
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountNotFound
+  nameWithType: Result.AccountNotFound
+  fullName: Steam.Common.Result.AccountNotFound
+  type: Field
+  source:
+    id: AccountNotFound
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 82
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount not found\n"
+  example: []
+  syntax:
+    content: AccountNotFound = 18
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidSteamID
+  commentId: F:Steam.Common.Result.InvalidSteamID
+  id: InvalidSteamID
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidSteamID
+  nameWithType: Result.InvalidSteamID
+  fullName: Steam.Common.Result.InvalidSteamID
+  type: Field
+  source:
+    id: InvalidSteamID
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 86
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSteamID is invalid\n"
+  example: []
+  syntax:
+    content: InvalidSteamID = 19
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ServiceUnavailable
+  commentId: F:Steam.Common.Result.ServiceUnavailable
+  id: ServiceUnavailable
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ServiceUnavailable
+  nameWithType: Result.ServiceUnavailable
+  fullName: Steam.Common.Result.ServiceUnavailable
+  type: Field
+  source:
+    id: ServiceUnavailable
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 90
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe requested service is currently unavailable\n"
+  example: []
+  syntax:
+    content: ServiceUnavailable = 20
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.NotLoggedOn
+  commentId: F:Steam.Common.Result.NotLoggedOn
+  id: NotLoggedOn
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: NotLoggedOn
+  nameWithType: Result.NotLoggedOn
+  fullName: Steam.Common.Result.NotLoggedOn
+  type: Field
+  source:
+    id: NotLoggedOn
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 94
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is not logged on\n"
+  example: []
+  syntax:
+    content: NotLoggedOn = 21
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Pending
+  commentId: F:Steam.Common.Result.Pending
+  id: Pending
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: Result.Pending
+  fullName: Steam.Common.Result.Pending
+  type: Field
+  source:
+    id: Pending
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 98
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nRequest is pending (may be in process or waiting on third party)\n"
+  example: []
+  syntax:
+    content: Pending = 22
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.EncryptionFailure
+  commentId: F:Steam.Common.Result.EncryptionFailure
+  id: EncryptionFailure
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: EncryptionFailure
+  nameWithType: Result.EncryptionFailure
+  fullName: Steam.Common.Result.EncryptionFailure
+  type: Field
+  source:
+    id: EncryptionFailure
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 102
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nEncryption or decryption failure\n"
+  example: []
+  syntax:
+    content: EncryptionFailure = 23
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InsufficientPrivilege
+  commentId: F:Steam.Common.Result.InsufficientPrivilege
+  id: InsufficientPrivilege
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InsufficientPrivilege
+  nameWithType: Result.InsufficientPrivilege
+  fullName: Steam.Common.Result.InsufficientPrivilege
+  type: Field
+  source:
+    id: InsufficientPrivilege
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 106
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nInsufficient privilege\n"
+  example: []
+  syntax:
+    content: InsufficientPrivilege = 24
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.LimitExceeded
+  commentId: F:Steam.Common.Result.LimitExceeded
+  id: LimitExceeded
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: LimitExceeded
+  nameWithType: Result.LimitExceeded
+  fullName: Steam.Common.Result.LimitExceeded
+  type: Field
+  source:
+    id: LimitExceeded
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 110
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nToo much of a good thing\n"
+  example: []
+  syntax:
+    content: LimitExceeded = 25
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Revoked
+  commentId: F:Steam.Common.Result.Revoked
+  id: Revoked
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Revoked
+  nameWithType: Result.Revoked
+  fullName: Steam.Common.Result.Revoked
+  type: Field
+  source:
+    id: Revoked
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 114
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccess has been revoked (used for revoked guest passes)\n"
+  example: []
+  syntax:
+    content: Revoked = 26
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Expired
+  commentId: F:Steam.Common.Result.Expired
+  id: Expired
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Expired
+  nameWithType: Result.Expired
+  fullName: Steam.Common.Result.Expired
+  type: Field
+  source:
+    id: Expired
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 118
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLicense/Guest pass the user is trying to access is expired\n"
+  example: []
+  syntax:
+    content: Expired = 27
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AlreadyRedeemed
+  commentId: F:Steam.Common.Result.AlreadyRedeemed
+  id: AlreadyRedeemed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AlreadyRedeemed
+  nameWithType: Result.AlreadyRedeemed
+  fullName: Steam.Common.Result.AlreadyRedeemed
+  type: Field
+  source:
+    id: AlreadyRedeemed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 122
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGuest pass has already been redeemed by account, cannot be acked again\n"
+  example: []
+  syntax:
+    content: AlreadyRedeemed = 28
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.DuplicateRequest
+  commentId: F:Steam.Common.Result.DuplicateRequest
+  id: DuplicateRequest
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: DuplicateRequest
+  nameWithType: Result.DuplicateRequest
+  fullName: Steam.Common.Result.DuplicateRequest
+  type: Field
+  source:
+    id: DuplicateRequest
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 126
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe request is a duplicate and the action has already occurred in the past, ignored this time\n"
+  example: []
+  syntax:
+    content: DuplicateRequest = 29
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AlreadyOwned
+  commentId: F:Steam.Common.Result.AlreadyOwned
+  id: AlreadyOwned
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AlreadyOwned
+  nameWithType: Result.AlreadyOwned
+  fullName: Steam.Common.Result.AlreadyOwned
+  type: Field
+  source:
+    id: AlreadyOwned
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 130
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAll the games in this guest pass redemption request are already owned by the user\n"
+  example: []
+  syntax:
+    content: AlreadyOwned = 30
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.IPNotFound
+  commentId: F:Steam.Common.Result.IPNotFound
+  id: IPNotFound
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: IPNotFound
+  nameWithType: Result.IPNotFound
+  fullName: Steam.Common.Result.IPNotFound
+  type: Field
+  source:
+    id: IPNotFound
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 134
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nIP address not found\n"
+  example: []
+  syntax:
+    content: IPNotFound = 31
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.PersistFailed
+  commentId: F:Steam.Common.Result.PersistFailed
+  id: PersistFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: PersistFailed
+  nameWithType: Result.PersistFailed
+  fullName: Steam.Common.Result.PersistFailed
+  type: Field
+  source:
+    id: PersistFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 138
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFailed to write change to the data store\n"
+  example: []
+  syntax:
+    content: PersistFailed = 32
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.LockingFailed
+  commentId: F:Steam.Common.Result.LockingFailed
+  id: LockingFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: LockingFailed
+  nameWithType: Result.LockingFailed
+  fullName: Steam.Common.Result.LockingFailed
+  type: Field
+  source:
+    id: LockingFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 142
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFailed to acquire access lock for this operation\n"
+  example: []
+  syntax:
+    content: LockingFailed = 33
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.LogonSessionReplaced
+  commentId: F:Steam.Common.Result.LogonSessionReplaced
+  id: LogonSessionReplaced
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: LogonSessionReplaced
+  nameWithType: Result.LogonSessionReplaced
+  fullName: Steam.Common.Result.LogonSessionReplaced
+  type: Field
+  source:
+    id: LogonSessionReplaced
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 143
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: LogonSessionReplaced = 34
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ConnectFailed
+  commentId: F:Steam.Common.Result.ConnectFailed
+  id: ConnectFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ConnectFailed
+  nameWithType: Result.ConnectFailed
+  fullName: Steam.Common.Result.ConnectFailed
+  type: Field
+  source:
+    id: ConnectFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 144
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: ConnectFailed = 35
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.HandshakeFailed
+  commentId: F:Steam.Common.Result.HandshakeFailed
+  id: HandshakeFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: HandshakeFailed
+  nameWithType: Result.HandshakeFailed
+  fullName: Steam.Common.Result.HandshakeFailed
+  type: Field
+  source:
+    id: HandshakeFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 145
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: HandshakeFailed = 36
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.IOFailure
+  commentId: F:Steam.Common.Result.IOFailure
+  id: IOFailure
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: IOFailure
+  nameWithType: Result.IOFailure
+  fullName: Steam.Common.Result.IOFailure
+  type: Field
+  source:
+    id: IOFailure
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 146
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: IOFailure = 37
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RemoteDisconnect
+  commentId: F:Steam.Common.Result.RemoteDisconnect
+  id: RemoteDisconnect
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RemoteDisconnect
+  nameWithType: Result.RemoteDisconnect
+  fullName: Steam.Common.Result.RemoteDisconnect
+  type: Field
+  source:
+    id: RemoteDisconnect
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 147
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: RemoteDisconnect = 38
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ShoppingCartNotFound
+  commentId: F:Steam.Common.Result.ShoppingCartNotFound
+  id: ShoppingCartNotFound
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ShoppingCartNotFound
+  nameWithType: Result.ShoppingCartNotFound
+  fullName: Steam.Common.Result.ShoppingCartNotFound
+  type: Field
+  source:
+    id: ShoppingCartNotFound
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 151
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFailed to find the shopping cart requested\n"
+  example: []
+  syntax:
+    content: ShoppingCartNotFound = 39
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Blocked
+  commentId: F:Steam.Common.Result.Blocked
+  id: Blocked
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Blocked
+  nameWithType: Result.Blocked
+  fullName: Steam.Common.Result.Blocked
+  type: Field
+  source:
+    id: Blocked
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 155
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA user didn't allow it\n"
+  example: []
+  syntax:
+    content: Blocked = 40
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Ignored
+  commentId: F:Steam.Common.Result.Ignored
+  id: Ignored
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Ignored
+  nameWithType: Result.Ignored
+  fullName: Steam.Common.Result.Ignored
+  type: Field
+  source:
+    id: Ignored
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 159
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nTarget is ignoring sender\n"
+  example: []
+  syntax:
+    content: Ignored = 41
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.NoMatch
+  commentId: F:Steam.Common.Result.NoMatch
+  id: NoMatch
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: NoMatch
+  nameWithType: Result.NoMatch
+  fullName: Steam.Common.Result.NoMatch
+  type: Field
+  source:
+    id: NoMatch
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 163
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nNothing matching the request found\n"
+  example: []
+  syntax:
+    content: NoMatch = 42
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountDisabled
+  commentId: F:Steam.Common.Result.AccountDisabled
+  id: AccountDisabled
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountDisabled
+  nameWithType: Result.AccountDisabled
+  fullName: Steam.Common.Result.AccountDisabled
+  type: Field
+  source:
+    id: AccountDisabled
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 167
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount is disabled\n"
+  example: []
+  syntax:
+    content: AccountDisabled = 43
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ServiceReadOnly
+  commentId: F:Steam.Common.Result.ServiceReadOnly
+  id: ServiceReadOnly
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ServiceReadOnly
+  nameWithType: Result.ServiceReadOnly
+  fullName: Steam.Common.Result.ServiceReadOnly
+  type: Field
+  source:
+    id: ServiceReadOnly
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 171
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThis service is not accepting content changes right now\n"
+  example: []
+  syntax:
+    content: ServiceReadOnly = 44
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountNotFeatured
+  commentId: F:Steam.Common.Result.AccountNotFeatured
+  id: AccountNotFeatured
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountNotFeatured
+  nameWithType: Result.AccountNotFeatured
+  fullName: Steam.Common.Result.AccountNotFeatured
+  type: Field
+  source:
+    id: AccountNotFeatured
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 175
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount doesn't have value, so this feature isn't available\n"
+  example: []
+  syntax:
+    content: AccountNotFeatured = 45
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AdministratorOK
+  commentId: F:Steam.Common.Result.AdministratorOK
+  id: AdministratorOK
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AdministratorOK
+  nameWithType: Result.AdministratorOK
+  fullName: Steam.Common.Result.AdministratorOK
+  type: Field
+  source:
+    id: AdministratorOK
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 179
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAllowed to take this action, but only because requester is admin\n"
+  example: []
+  syntax:
+    content: AdministratorOK = 46
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ContentVersion
+  commentId: F:Steam.Common.Result.ContentVersion
+  id: ContentVersion
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ContentVersion
+  nameWithType: Result.ContentVersion
+  fullName: Steam.Common.Result.ContentVersion
+  type: Field
+  source:
+    id: ContentVersion
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 183
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA Version mismatch in content transmitted within the Steam protocol.\n"
+  example: []
+  syntax:
+    content: ContentVersion = 47
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.TryAnotherCM
+  commentId: F:Steam.Common.Result.TryAnotherCM
+  id: TryAnotherCM
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: TryAnotherCM
+  nameWithType: Result.TryAnotherCM
+  fullName: Steam.Common.Result.TryAnotherCM
+  type: Field
+  source:
+    id: TryAnotherCM
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 187
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe current CM can't service the user making a request, user should try another.\n"
+  example: []
+  syntax:
+    content: TryAnotherCM = 48
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.PasswordRequiredToKickSession
+  commentId: F:Steam.Common.Result.PasswordRequiredToKickSession
+  id: PasswordRequiredToKickSession
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: PasswordRequiredToKickSession
+  nameWithType: Result.PasswordRequiredToKickSession
+  fullName: Steam.Common.Result.PasswordRequiredToKickSession
+  type: Field
+  source:
+    id: PasswordRequiredToKickSession
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 191
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nYou are already logged in elsewhere, this cached credential login has failed.\n"
+  example: []
+  syntax:
+    content: PasswordRequiredToKickSession = 49
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AlreadyLoggedInElsewhere
+  commentId: F:Steam.Common.Result.AlreadyLoggedInElsewhere
+  id: AlreadyLoggedInElsewhere
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AlreadyLoggedInElsewhere
+  nameWithType: Result.AlreadyLoggedInElsewhere
+  fullName: Steam.Common.Result.AlreadyLoggedInElsewhere
+  type: Field
+  source:
+    id: AlreadyLoggedInElsewhere
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 195
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nYou are already logged in elsewhere, you must wait\n"
+  example: []
+  syntax:
+    content: AlreadyLoggedInElsewhere = 50
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Suspended
+  commentId: F:Steam.Common.Result.Suspended
+  id: Suspended
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Suspended
+  nameWithType: Result.Suspended
+  fullName: Steam.Common.Result.Suspended
+  type: Field
+  source:
+    id: Suspended
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 199
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLong running operation (content download) suspended/paused\n"
+  example: []
+  syntax:
+    content: Suspended = 51
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Cancelled
+  commentId: F:Steam.Common.Result.Cancelled
+  id: Cancelled
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: Result.Cancelled
+  fullName: Steam.Common.Result.Cancelled
+  type: Field
+  source:
+    id: Cancelled
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 203
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOperation canceled (typically by user: content download)\n"
+  example: []
+  syntax:
+    content: Cancelled = 52
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.DataCorruption
+  commentId: F:Steam.Common.Result.DataCorruption
+  id: DataCorruption
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: DataCorruption
+  nameWithType: Result.DataCorruption
+  fullName: Steam.Common.Result.DataCorruption
+  type: Field
+  source:
+    id: DataCorruption
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 207
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOperation canceled because data is ill formed or unrecoverable\n"
+  example: []
+  syntax:
+    content: DataCorruption = 53
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.DiskFull
+  commentId: F:Steam.Common.Result.DiskFull
+  id: DiskFull
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: DiskFull
+  nameWithType: Result.DiskFull
+  fullName: Steam.Common.Result.DiskFull
+  type: Field
+  source:
+    id: DiskFull
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 211
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOperation canceled - not enough disk space.\n"
+  example: []
+  syntax:
+    content: DiskFull = 54
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RemoteCallFailed
+  commentId: F:Steam.Common.Result.RemoteCallFailed
+  id: RemoteCallFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RemoteCallFailed
+  nameWithType: Result.RemoteCallFailed
+  fullName: Steam.Common.Result.RemoteCallFailed
+  type: Field
+  source:
+    id: RemoteCallFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 215
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn remote call or IPC call failed\n"
+  example: []
+  syntax:
+    content: RemoteCallFailed = 55
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.PasswordUnset
+  commentId: F:Steam.Common.Result.PasswordUnset
+  id: PasswordUnset
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: PasswordUnset
+  nameWithType: Result.PasswordUnset
+  fullName: Steam.Common.Result.PasswordUnset
+  type: Field
+  source:
+    id: PasswordUnset
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 219
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nPassword could not be verified as it's unset server side\n"
+  example: []
+  syntax:
+    content: PasswordUnset = 56
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ExternalAccountUnlinked
+  commentId: F:Steam.Common.Result.ExternalAccountUnlinked
+  id: ExternalAccountUnlinked
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ExternalAccountUnlinked
+  nameWithType: Result.ExternalAccountUnlinked
+  fullName: Steam.Common.Result.ExternalAccountUnlinked
+  type: Field
+  source:
+    id: ExternalAccountUnlinked
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 223
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nExternal account (PSN, Facebook...) is not linked to a Steam account\n"
+  example: []
+  syntax:
+    content: ExternalAccountUnlinked = 57
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.PSNTicketInvalid
+  commentId: F:Steam.Common.Result.PSNTicketInvalid
+  id: PSNTicketInvalid
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: PSNTicketInvalid
+  nameWithType: Result.PSNTicketInvalid
+  fullName: Steam.Common.Result.PSNTicketInvalid
+  type: Field
+  source:
+    id: PSNTicketInvalid
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 227
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nPSN ticket was invalid\n"
+  example: []
+  syntax:
+    content: PSNTicketInvalid = 58
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ExternalAccountAlreadyLinked
+  commentId: F:Steam.Common.Result.ExternalAccountAlreadyLinked
+  id: ExternalAccountAlreadyLinked
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ExternalAccountAlreadyLinked
+  nameWithType: Result.ExternalAccountAlreadyLinked
+  fullName: Steam.Common.Result.ExternalAccountAlreadyLinked
+  type: Field
+  source:
+    id: ExternalAccountAlreadyLinked
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 231
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nExternal account (PSN, Facebook...) is already linked to some other account, must explicitly request to replace/delete the link first\n"
+  example: []
+  syntax:
+    content: ExternalAccountAlreadyLinked = 59
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RemoteFileConflict
+  commentId: F:Steam.Common.Result.RemoteFileConflict
+  id: RemoteFileConflict
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RemoteFileConflict
+  nameWithType: Result.RemoteFileConflict
+  fullName: Steam.Common.Result.RemoteFileConflict
+  type: Field
+  source:
+    id: RemoteFileConflict
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 235
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe sync cannot resume due to a conflict between the local and remote files\n"
+  example: []
+  syntax:
+    content: RemoteFileConflict = 60
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.IllegalPassword
+  commentId: F:Steam.Common.Result.IllegalPassword
+  id: IllegalPassword
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: IllegalPassword
+  nameWithType: Result.IllegalPassword
+  fullName: Steam.Common.Result.IllegalPassword
+  type: Field
+  source:
+    id: IllegalPassword
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 239
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe requested new password is not legal\n"
+  example: []
+  syntax:
+    content: IllegalPassword = 61
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.SameAsPreviousValue
+  commentId: F:Steam.Common.Result.SameAsPreviousValue
+  id: SameAsPreviousValue
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: SameAsPreviousValue
+  nameWithType: Result.SameAsPreviousValue
+  fullName: Steam.Common.Result.SameAsPreviousValue
+  type: Field
+  source:
+    id: SameAsPreviousValue
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 243
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nNew value is the same as the old one (secret question and answer)\n"
+  example: []
+  syntax:
+    content: SameAsPreviousValue = 62
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLogonDenied
+  commentId: F:Steam.Common.Result.AccountLogonDenied
+  id: AccountLogonDenied
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLogonDenied
+  nameWithType: Result.AccountLogonDenied
+  fullName: Steam.Common.Result.AccountLogonDenied
+  type: Field
+  source:
+    id: AccountLogonDenied
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 247
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount login denied due to 2nd factor authentication failure\n"
+  example: []
+  syntax:
+    content: AccountLogonDenied = 63
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.CannotUseOldPassword
+  commentId: F:Steam.Common.Result.CannotUseOldPassword
+  id: CannotUseOldPassword
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: CannotUseOldPassword
+  nameWithType: Result.CannotUseOldPassword
+  fullName: Steam.Common.Result.CannotUseOldPassword
+  type: Field
+  source:
+    id: CannotUseOldPassword
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 251
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe requested new password is not legal\n"
+  example: []
+  syntax:
+    content: CannotUseOldPassword = 64
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidLoginAuthCode
+  commentId: F:Steam.Common.Result.InvalidLoginAuthCode
+  id: InvalidLoginAuthCode
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidLoginAuthCode
+  nameWithType: Result.InvalidLoginAuthCode
+  fullName: Steam.Common.Result.InvalidLoginAuthCode
+  type: Field
+  source:
+    id: InvalidLoginAuthCode
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 255
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount login denied due to auth code invalid\n"
+  example: []
+  syntax:
+    content: InvalidLoginAuthCode = 65
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLogonDeniedNoMail
+  commentId: F:Steam.Common.Result.AccountLogonDeniedNoMail
+  id: AccountLogonDeniedNoMail
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLogonDeniedNoMail
+  nameWithType: Result.AccountLogonDeniedNoMail
+  fullName: Steam.Common.Result.AccountLogonDeniedNoMail
+  type: Field
+  source:
+    id: AccountLogonDeniedNoMail
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 259
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount login denied due to 2nd factor auth failure - and no mail has been sent\n"
+  example: []
+  syntax:
+    content: AccountLogonDeniedNoMail = 66
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.HardwareNotCapableOfIPT
+  commentId: F:Steam.Common.Result.HardwareNotCapableOfIPT
+  id: HardwareNotCapableOfIPT
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: HardwareNotCapableOfIPT
+  nameWithType: Result.HardwareNotCapableOfIPT
+  fullName: Steam.Common.Result.HardwareNotCapableOfIPT
+  type: Field
+  source:
+    id: HardwareNotCapableOfIPT
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 260
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: HardwareNotCapableOfIPT = 67
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.IPTInitError
+  commentId: F:Steam.Common.Result.IPTInitError
+  id: IPTInitError
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: IPTInitError
+  nameWithType: Result.IPTInitError
+  fullName: Steam.Common.Result.IPTInitError
+  type: Field
+  source:
+    id: IPTInitError
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 261
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: IPTInitError = 68
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ParentalControlRestricted
+  commentId: F:Steam.Common.Result.ParentalControlRestricted
+  id: ParentalControlRestricted
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ParentalControlRestricted
+  nameWithType: Result.ParentalControlRestricted
+  fullName: Steam.Common.Result.ParentalControlRestricted
+  type: Field
+  source:
+    id: ParentalControlRestricted
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 265
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOperation failed due to parental control restrictions for current user\n"
+  example: []
+  syntax:
+    content: ParentalControlRestricted = 69
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.FacebookQueryError
+  commentId: F:Steam.Common.Result.FacebookQueryError
+  id: FacebookQueryError
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: FacebookQueryError
+  nameWithType: Result.FacebookQueryError
+  fullName: Steam.Common.Result.FacebookQueryError
+  type: Field
+  source:
+    id: FacebookQueryError
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 269
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFacebook query returned an error\n"
+  example: []
+  syntax:
+    content: FacebookQueryError = 70
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ExpiredLoginAuthCode
+  commentId: F:Steam.Common.Result.ExpiredLoginAuthCode
+  id: ExpiredLoginAuthCode
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ExpiredLoginAuthCode
+  nameWithType: Result.ExpiredLoginAuthCode
+  fullName: Steam.Common.Result.ExpiredLoginAuthCode
+  type: Field
+  source:
+    id: ExpiredLoginAuthCode
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 273
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount login denied due to auth code expired\n"
+  example: []
+  syntax:
+    content: ExpiredLoginAuthCode = 71
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.IPLoginRestrictionFailed
+  commentId: F:Steam.Common.Result.IPLoginRestrictionFailed
+  id: IPLoginRestrictionFailed
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: IPLoginRestrictionFailed
+  nameWithType: Result.IPLoginRestrictionFailed
+  fullName: Steam.Common.Result.IPLoginRestrictionFailed
+  type: Field
+  source:
+    id: IPLoginRestrictionFailed
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 274
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: IPLoginRestrictionFailed = 72
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLockedDown
+  commentId: F:Steam.Common.Result.AccountLockedDown
+  id: AccountLockedDown
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLockedDown
+  nameWithType: Result.AccountLockedDown
+  fullName: Steam.Common.Result.AccountLockedDown
+  type: Field
+  source:
+    id: AccountLockedDown
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 278
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAccount is locked down\n"
+  example: []
+  syntax:
+    content: AccountLockedDown = 73
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLogonDeniedVerifiedEmailRequired
+  commentId: F:Steam.Common.Result.AccountLogonDeniedVerifiedEmailRequired
+  id: AccountLogonDeniedVerifiedEmailRequired
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLogonDeniedVerifiedEmailRequired
+  nameWithType: Result.AccountLogonDeniedVerifiedEmailRequired
+  fullName: Steam.Common.Result.AccountLogonDeniedVerifiedEmailRequired
+  type: Field
+  source:
+    id: AccountLogonDeniedVerifiedEmailRequired
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 282
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLogon denied, you must verify logon through email\n"
+  example: []
+  syntax:
+    content: AccountLogonDeniedVerifiedEmailRequired = 74
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.NoMatchingURL
+  commentId: F:Steam.Common.Result.NoMatchingURL
+  id: NoMatchingURL
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: NoMatchingURL
+  nameWithType: Result.NoMatchingURL
+  fullName: Steam.Common.Result.NoMatchingURL
+  type: Field
+  source:
+    id: NoMatchingURL
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 283
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  syntax:
+    content: NoMatchingURL = 75
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.BadResponse
+  commentId: F:Steam.Common.Result.BadResponse
+  id: BadResponse
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: BadResponse
+  nameWithType: Result.BadResponse
+  fullName: Steam.Common.Result.BadResponse
+  type: Field
+  source:
+    id: BadResponse
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 287
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nParse failure, missing field, etc.\n"
+  example: []
+  syntax:
+    content: BadResponse = 76
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RequirePasswordReEntry
+  commentId: F:Steam.Common.Result.RequirePasswordReEntry
+  id: RequirePasswordReEntry
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RequirePasswordReEntry
+  nameWithType: Result.RequirePasswordReEntry
+  fullName: Steam.Common.Result.RequirePasswordReEntry
+  type: Field
+  source:
+    id: RequirePasswordReEntry
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 291
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user cannot complete the action until they re-enter their password\n"
+  example: []
+  syntax:
+    content: RequirePasswordReEntry = 77
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ValueOutOfRange
+  commentId: F:Steam.Common.Result.ValueOutOfRange
+  id: ValueOutOfRange
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ValueOutOfRange
+  nameWithType: Result.ValueOutOfRange
+  fullName: Steam.Common.Result.ValueOutOfRange
+  type: Field
+  source:
+    id: ValueOutOfRange
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 295
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe value entered is outside the acceptable range\n"
+  example: []
+  syntax:
+    content: ValueOutOfRange = 78
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.UnexpectedError
+  commentId: F:Steam.Common.Result.UnexpectedError
+  id: UnexpectedError
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: UnexpectedError
+  nameWithType: Result.UnexpectedError
+  fullName: Steam.Common.Result.UnexpectedError
+  type: Field
+  source:
+    id: UnexpectedError
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 299
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSomething happened that we didn't expect to ever happen\n"
+  example: []
+  syntax:
+    content: UnexpectedError = 79
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.Disabled
+  commentId: F:Steam.Common.Result.Disabled
+  id: Disabled
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: Result.Disabled
+  fullName: Steam.Common.Result.Disabled
+  type: Field
+  source:
+    id: Disabled
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 303
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe requested service has been configured to be unavailable\n"
+  example: []
+  syntax:
+    content: Disabled = 80
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.InvalidCEGSubmission
+  commentId: F:Steam.Common.Result.InvalidCEGSubmission
+  id: InvalidCEGSubmission
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: InvalidCEGSubmission
+  nameWithType: Result.InvalidCEGSubmission
+  fullName: Steam.Common.Result.InvalidCEGSubmission
+  type: Field
+  source:
+    id: InvalidCEGSubmission
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 307
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe set of files submitted to the CEG server are not valid!\n"
+  example: []
+  syntax:
+    content: InvalidCEGSubmission = 81
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RestrictedDevice
+  commentId: F:Steam.Common.Result.RestrictedDevice
+  id: RestrictedDevice
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RestrictedDevice
+  nameWithType: Result.RestrictedDevice
+  fullName: Steam.Common.Result.RestrictedDevice
+  type: Field
+  source:
+    id: RestrictedDevice
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 311
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe device being used is not allowed to perform this action\n"
+  example: []
+  syntax:
+    content: RestrictedDevice = 82
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RegionLocked
+  commentId: F:Steam.Common.Result.RegionLocked
+  id: RegionLocked
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RegionLocked
+  nameWithType: Result.RegionLocked
+  fullName: Steam.Common.Result.RegionLocked
+  type: Field
+  source:
+    id: RegionLocked
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 315
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe action could not be complete because it is region restricted\n"
+  example: []
+  syntax:
+    content: RegionLocked = 83
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.RateLimitExceeded
+  commentId: F:Steam.Common.Result.RateLimitExceeded
+  id: RateLimitExceeded
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: RateLimitExceeded
+  nameWithType: Result.RateLimitExceeded
+  fullName: Steam.Common.Result.RateLimitExceeded
+  type: Field
+  source:
+    id: RateLimitExceeded
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 319
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nTemporary rate limit exceeded, try again later, different from LimitExceeded which may be permanent\n"
+  example: []
+  syntax:
+    content: RateLimitExceeded = 84
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLoginDeniedNeedTwoFactor
+  commentId: F:Steam.Common.Result.AccountLoginDeniedNeedTwoFactor
+  id: AccountLoginDeniedNeedTwoFactor
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLoginDeniedNeedTwoFactor
+  nameWithType: Result.AccountLoginDeniedNeedTwoFactor
+  fullName: Steam.Common.Result.AccountLoginDeniedNeedTwoFactor
+  type: Field
+  source:
+    id: AccountLoginDeniedNeedTwoFactor
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 323
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nTwo-factor code required to login\n"
+  example: []
+  syntax:
+    content: AccountLoginDeniedNeedTwoFactor = 85
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.ItemDeleted
+  commentId: F:Steam.Common.Result.ItemDeleted
+  id: ItemDeleted
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: ItemDeleted
+  nameWithType: Result.ItemDeleted
+  fullName: Steam.Common.Result.ItemDeleted
+  type: Field
+  source:
+    id: ItemDeleted
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 327
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe thing we're trying to access has been deleted\n"
+  example: []
+  syntax:
+    content: ItemDeleted = 86
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.AccountLoginDeniedThrottle
+  commentId: F:Steam.Common.Result.AccountLoginDeniedThrottle
+  id: AccountLoginDeniedThrottle
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: AccountLoginDeniedThrottle
+  nameWithType: Result.AccountLoginDeniedThrottle
+  fullName: Steam.Common.Result.AccountLoginDeniedThrottle
+  type: Field
+  source:
+    id: AccountLoginDeniedThrottle
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 331
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLogin attempt failed, try to throttle response to possible attacker\n"
+  example: []
+  syntax:
+    content: AccountLoginDeniedThrottle = 87
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.TwoFactorCodeMismatch
+  commentId: F:Steam.Common.Result.TwoFactorCodeMismatch
+  id: TwoFactorCodeMismatch
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: TwoFactorCodeMismatch
+  nameWithType: Result.TwoFactorCodeMismatch
+  fullName: Steam.Common.Result.TwoFactorCodeMismatch
+  type: Field
+  source:
+    id: TwoFactorCodeMismatch
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 335
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nTwo-factor code mismatch\n"
+  example: []
+  syntax:
+    content: TwoFactorCodeMismatch = 88
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Result.TwoFactorActivationCodeMismatch
+  commentId: F:Steam.Common.Result.TwoFactorActivationCodeMismatch
+  id: TwoFactorActivationCodeMismatch
+  parent: Steam.Common.Result
+  langs:
+  - csharp
+  - vb
+  name: TwoFactorActivationCodeMismatch
+  nameWithType: Result.TwoFactorActivationCodeMismatch
+  fullName: Steam.Common.Result.TwoFactorActivationCodeMismatch
+  type: Field
+  source:
+    id: TwoFactorActivationCodeMismatch
+    path: G:\Steam\src\Common\Steam.Common\Result.cs
+    startLine: 339
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nTwo-factor activation code didn't match\n"
+  example: []
+  syntax:
+    content: TwoFactorActivationCodeMismatch = 89
+    return:
+      type: Steam.Common.Result
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.Result
+  commentId: T:Steam.Common.Result
+  parent: Steam.Common
+  isExternal: false
+  name: Result
+  nameWithType: Result
+  fullName: Steam.Common.Result

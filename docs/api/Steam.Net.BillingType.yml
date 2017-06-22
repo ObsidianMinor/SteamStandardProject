@@ -1,0 +1,479 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.BillingType
+  commentId: T:Steam.Net.BillingType
+  id: BillingType
+  parent: Steam.Net
+  children:
+  - Steam.Net.BillingType.AutoGrant
+  - Steam.Net.BillingType.BillMonthly
+  - Steam.Net.BillingType.BillOnceOnly
+  - Steam.Net.BillingType.BillOnceOrCDKey
+  - Steam.Net.BillingType.FreeOnDemand
+  - Steam.Net.BillingType.Gift
+  - Steam.Net.BillingType.GuestPass
+  - Steam.Net.BillingType.HardwarePromo
+  - Steam.Net.BillingType.NoCost
+  - Steam.Net.BillingType.NumBillingTypes
+  - Steam.Net.BillingType.OEMTicket
+  - Steam.Net.BillingType.ProofOfPrepurchaseOnly
+  - Steam.Net.BillingType.RecurringOption
+  - Steam.Net.BillingType.Rental
+  - Steam.Net.BillingType.Repurchaseable
+  langs:
+  - csharp
+  - vb
+  name: BillingType
+  nameWithType: BillingType
+  fullName: Steam.Net.BillingType
+  type: Enum
+  source:
+    id: BillingType
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum BillingType
+    content.vb: Public Enum BillingType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.BillingType.NoCost
+  commentId: F:Steam.Net.BillingType.NoCost
+  id: NoCost
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: NoCost
+  nameWithType: BillingType.NoCost
+  fullName: Steam.Net.BillingType.NoCost
+  type: Field
+  source:
+    id: NoCost
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NoCost = 0
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.BillOnceOnly
+  commentId: F:Steam.Net.BillingType.BillOnceOnly
+  id: BillOnceOnly
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: BillOnceOnly
+  nameWithType: BillingType.BillOnceOnly
+  fullName: Steam.Net.BillingType.BillOnceOnly
+  type: Field
+  source:
+    id: BillOnceOnly
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BillOnceOnly = 1
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.BillMonthly
+  commentId: F:Steam.Net.BillingType.BillMonthly
+  id: BillMonthly
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: BillMonthly
+  nameWithType: BillingType.BillMonthly
+  fullName: Steam.Net.BillingType.BillMonthly
+  type: Field
+  source:
+    id: BillMonthly
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BillMonthly = 2
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.ProofOfPrepurchaseOnly
+  commentId: F:Steam.Net.BillingType.ProofOfPrepurchaseOnly
+  id: ProofOfPrepurchaseOnly
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: ProofOfPrepurchaseOnly
+  nameWithType: BillingType.ProofOfPrepurchaseOnly
+  fullName: Steam.Net.BillingType.ProofOfPrepurchaseOnly
+  type: Field
+  source:
+    id: ProofOfPrepurchaseOnly
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ProofOfPrepurchaseOnly = 3
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.GuestPass
+  commentId: F:Steam.Net.BillingType.GuestPass
+  id: GuestPass
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: GuestPass
+  nameWithType: BillingType.GuestPass
+  fullName: Steam.Net.BillingType.GuestPass
+  type: Field
+  source:
+    id: GuestPass
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: GuestPass = 4
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.HardwarePromo
+  commentId: F:Steam.Net.BillingType.HardwarePromo
+  id: HardwarePromo
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: HardwarePromo
+  nameWithType: BillingType.HardwarePromo
+  fullName: Steam.Net.BillingType.HardwarePromo
+  type: Field
+  source:
+    id: HardwarePromo
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: HardwarePromo = 5
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.Gift
+  commentId: F:Steam.Net.BillingType.Gift
+  id: Gift
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: Gift
+  nameWithType: BillingType.Gift
+  fullName: Steam.Net.BillingType.Gift
+  type: Field
+  source:
+    id: Gift
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Gift = 6
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.AutoGrant
+  commentId: F:Steam.Net.BillingType.AutoGrant
+  id: AutoGrant
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: AutoGrant
+  nameWithType: BillingType.AutoGrant
+  fullName: Steam.Net.BillingType.AutoGrant
+  type: Field
+  source:
+    id: AutoGrant
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AutoGrant = 7
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.OEMTicket
+  commentId: F:Steam.Net.BillingType.OEMTicket
+  id: OEMTicket
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: OEMTicket
+  nameWithType: BillingType.OEMTicket
+  fullName: Steam.Net.BillingType.OEMTicket
+  type: Field
+  source:
+    id: OEMTicket
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: OEMTicket = 8
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.RecurringOption
+  commentId: F:Steam.Net.BillingType.RecurringOption
+  id: RecurringOption
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: RecurringOption
+  nameWithType: BillingType.RecurringOption
+  fullName: Steam.Net.BillingType.RecurringOption
+  type: Field
+  source:
+    id: RecurringOption
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RecurringOption = 9
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.BillOnceOrCDKey
+  commentId: F:Steam.Net.BillingType.BillOnceOrCDKey
+  id: BillOnceOrCDKey
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: BillOnceOrCDKey
+  nameWithType: BillingType.BillOnceOrCDKey
+  fullName: Steam.Net.BillingType.BillOnceOrCDKey
+  type: Field
+  source:
+    id: BillOnceOrCDKey
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: BillOnceOrCDKey = 10
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.Repurchaseable
+  commentId: F:Steam.Net.BillingType.Repurchaseable
+  id: Repurchaseable
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: Repurchaseable
+  nameWithType: BillingType.Repurchaseable
+  fullName: Steam.Net.BillingType.Repurchaseable
+  type: Field
+  source:
+    id: Repurchaseable
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Repurchaseable = 11
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.FreeOnDemand
+  commentId: F:Steam.Net.BillingType.FreeOnDemand
+  id: FreeOnDemand
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: FreeOnDemand
+  nameWithType: BillingType.FreeOnDemand
+  fullName: Steam.Net.BillingType.FreeOnDemand
+  type: Field
+  source:
+    id: FreeOnDemand
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: FreeOnDemand = 12
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.Rental
+  commentId: F:Steam.Net.BillingType.Rental
+  id: Rental
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: Rental
+  nameWithType: BillingType.Rental
+  fullName: Steam.Net.BillingType.Rental
+  type: Field
+  source:
+    id: Rental
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Rental = 13
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.BillingType.NumBillingTypes
+  commentId: F:Steam.Net.BillingType.NumBillingTypes
+  id: NumBillingTypes
+  parent: Steam.Net.BillingType
+  langs:
+  - csharp
+  - vb
+  name: NumBillingTypes
+  nameWithType: BillingType.NumBillingTypes
+  fullName: Steam.Net.BillingType.NumBillingTypes
+  type: Field
+  source:
+    id: NumBillingTypes
+    path: G:\Steam\src\Network\Steam.Net\BillingType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NumBillingTypes = 14
+    return:
+      type: Steam.Net.BillingType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.BillingType
+  commentId: T:Steam.Net.BillingType
+  parent: Steam.Net
+  isExternal: false
+  name: BillingType
+  nameWithType: BillingType
+  fullName: Steam.Net.BillingType

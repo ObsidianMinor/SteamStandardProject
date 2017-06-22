@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Logging.LogSeverity
+  commentId: T:Steam.Common.Logging.LogSeverity
+  id: LogSeverity
+  parent: Steam.Common.Logging
+  children:
+  - Steam.Common.Logging.LogSeverity.Critical
+  - Steam.Common.Logging.LogSeverity.Debug
+  - Steam.Common.Logging.LogSeverity.Error
+  - Steam.Common.Logging.LogSeverity.Info
+  - Steam.Common.Logging.LogSeverity.Verbose
+  - Steam.Common.Logging.LogSeverity.Warning
+  langs:
+  - csharp
+  - vb
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Steam.Common.Logging.LogSeverity
+  type: Enum
+  source:
+    id: LogSeverity
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 2
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public enum LogSeverity
+    content.vb: Public Enum LogSeverity
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.Logging.LogSeverity.Critical
+  commentId: F:Steam.Common.Logging.LogSeverity.Critical
+  id: Critical
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: LogSeverity.Critical
+  fullName: Steam.Common.Logging.LogSeverity.Critical
+  type: Field
+  source:
+    id: Critical
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 4
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Critical = 0
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Logging.LogSeverity.Error
+  commentId: F:Steam.Common.Logging.LogSeverity.Error
+  id: Error
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: LogSeverity.Error
+  fullName: Steam.Common.Logging.LogSeverity.Error
+  type: Field
+  source:
+    id: Error
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Error = 1
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Logging.LogSeverity.Warning
+  commentId: F:Steam.Common.Logging.LogSeverity.Warning
+  id: Warning
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: LogSeverity.Warning
+  fullName: Steam.Common.Logging.LogSeverity.Warning
+  type: Field
+  source:
+    id: Warning
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 6
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Warning = 2
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Logging.LogSeverity.Info
+  commentId: F:Steam.Common.Logging.LogSeverity.Info
+  id: Info
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: LogSeverity.Info
+  fullName: Steam.Common.Logging.LogSeverity.Info
+  type: Field
+  source:
+    id: Info
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 7
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Info = 3
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Logging.LogSeverity.Verbose
+  commentId: F:Steam.Common.Logging.LogSeverity.Verbose
+  id: Verbose
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Verbose
+  nameWithType: LogSeverity.Verbose
+  fullName: Steam.Common.Logging.LogSeverity.Verbose
+  type: Field
+  source:
+    id: Verbose
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 8
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Verbose = 4
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Logging.LogSeverity.Debug
+  commentId: F:Steam.Common.Logging.LogSeverity.Debug
+  id: Debug
+  parent: Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: LogSeverity.Debug
+  fullName: Steam.Common.Logging.LogSeverity.Debug
+  type: Field
+  source:
+    id: Debug
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogSeverity.cs
+    startLine: 9
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: Debug = 5
+    return:
+      type: Steam.Common.Logging.LogSeverity
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common.Logging
+  commentId: N:Steam.Common.Logging
+  isExternal: false
+  name: Steam.Common.Logging
+  nameWithType: Steam.Common.Logging
+  fullName: Steam.Common.Logging
+- uid: Steam.Common.Logging.LogSeverity
+  commentId: T:Steam.Common.Logging.LogSeverity
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Steam.Common.Logging.LogSeverity

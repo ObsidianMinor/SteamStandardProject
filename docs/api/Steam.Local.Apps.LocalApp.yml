@@ -1,0 +1,1747 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.LocalApp
+  commentId: T:Steam.Local.Apps.LocalApp
+  id: LocalApp
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+  - Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+  - Steam.Local.Apps.LocalApp.BuildID
+  - Steam.Local.Apps.LocalApp.BytesDownloaded
+  - Steam.Local.Apps.LocalApp.BytesToDownload
+  - Steam.Local.Apps.LocalApp.CheckGuid
+  - Steam.Local.Apps.LocalApp.CreateFromFile(System.String)
+  - Steam.Local.Apps.LocalApp.DlcDownloads
+  - Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+  - Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+  - Steam.Local.Apps.LocalApp.Id
+  - Steam.Local.Apps.LocalApp.InstallFolder
+  - Steam.Local.Apps.LocalApp.InstallScripts
+  - Steam.Local.Apps.LocalApp.LastOwner
+  - Steam.Local.Apps.LocalApp.LastUpdated
+  - Steam.Local.Apps.LocalApp.MountedDepots
+  - Steam.Local.Apps.LocalApp.Name
+  - Steam.Local.Apps.LocalApp.SharedDepots
+  - Steam.Local.Apps.LocalApp.SizeOnDisk
+  - Steam.Local.Apps.LocalApp.StagedDepots
+  - Steam.Local.Apps.LocalApp.StateFlags
+  - Steam.Local.Apps.LocalApp.Universe
+  - Steam.Local.Apps.LocalApp.UpdateResult
+  - Steam.Local.Apps.LocalApp.UserConfig
+  langs:
+  - csharp
+  - vb
+  name: LocalApp
+  nameWithType: LocalApp
+  fullName: Steam.Local.Apps.LocalApp
+  type: Class
+  source:
+    id: LocalApp
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 6
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public class LocalApp
+    content.vb: Public Class LocalApp
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Local.Apps.LocalApp.Id
+  commentId: P:Steam.Local.Apps.LocalApp.Id
+  id: Id
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: LocalApp.Id
+  fullName: Steam.Local.Apps.LocalApp.Id
+  type: Property
+  source:
+    id: Id
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 8
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public uint Id { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property Id As UInteger
+  overload: Steam.Local.Apps.LocalApp.Id*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.Universe
+  commentId: P:Steam.Local.Apps.LocalApp.Universe
+  id: Universe
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: Universe
+  nameWithType: LocalApp.Universe
+  fullName: Steam.Local.Apps.LocalApp.Universe
+  type: Property
+  source:
+    id: Universe
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 9
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public Universe Universe { get; set; }
+    parameters: []
+    return:
+      type: Steam.Common.Universe
+    content.vb: Public Property Universe As Universe
+  overload: Steam.Local.Apps.LocalApp.Universe*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.Name
+  commentId: P:Steam.Local.Apps.LocalApp.Name
+  id: Name
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LocalApp.Name
+  fullName: Steam.Local.Apps.LocalApp.Name
+  type: Property
+  source:
+    id: Name
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 10
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Steam.Local.Apps.LocalApp.Name*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.StateFlags
+  commentId: P:Steam.Local.Apps.LocalApp.StateFlags
+  id: StateFlags
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: StateFlags
+  nameWithType: LocalApp.StateFlags
+  fullName: Steam.Local.Apps.LocalApp.StateFlags
+  type: Property
+  source:
+    id: StateFlags
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 11
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public AppState StateFlags { get; set; }
+    parameters: []
+    return:
+      type: Steam.Local.Apps.AppState
+    content.vb: Public Property StateFlags As AppState
+  overload: Steam.Local.Apps.LocalApp.StateFlags*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.InstallFolder
+  commentId: P:Steam.Local.Apps.LocalApp.InstallFolder
+  id: InstallFolder
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: InstallFolder
+  nameWithType: LocalApp.InstallFolder
+  fullName: Steam.Local.Apps.LocalApp.InstallFolder
+  type: Property
+  source:
+    id: InstallFolder
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 12
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public string InstallFolder { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property InstallFolder As String
+  overload: Steam.Local.Apps.LocalApp.InstallFolder*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.LastUpdated
+  commentId: P:Steam.Local.Apps.LocalApp.LastUpdated
+  id: LastUpdated
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: LocalApp.LastUpdated
+  fullName: Steam.Local.Apps.LocalApp.LastUpdated
+  type: Property
+  source:
+    id: LastUpdated
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 13
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public DateTimeOffset LastUpdated { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property LastUpdated As DateTimeOffset
+  overload: Steam.Local.Apps.LocalApp.LastUpdated*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.UpdateResult
+  commentId: P:Steam.Local.Apps.LocalApp.UpdateResult
+  id: UpdateResult
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: UpdateResult
+  nameWithType: LocalApp.UpdateResult
+  fullName: Steam.Local.Apps.LocalApp.UpdateResult
+  type: Property
+  source:
+    id: UpdateResult
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 14
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public AppUpdateResult UpdateResult { get; set; }
+    parameters: []
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+    content.vb: Public Property UpdateResult As AppUpdateResult
+  overload: Steam.Local.Apps.LocalApp.UpdateResult*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.SizeOnDisk
+  commentId: P:Steam.Local.Apps.LocalApp.SizeOnDisk
+  id: SizeOnDisk
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: SizeOnDisk
+  nameWithType: LocalApp.SizeOnDisk
+  fullName: Steam.Local.Apps.LocalApp.SizeOnDisk
+  type: Property
+  source:
+    id: SizeOnDisk
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 15
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public ulong SizeOnDisk { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property SizeOnDisk As ULong
+  overload: Steam.Local.Apps.LocalApp.SizeOnDisk*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.BuildID
+  commentId: P:Steam.Local.Apps.LocalApp.BuildID
+  id: BuildID
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: BuildID
+  nameWithType: LocalApp.BuildID
+  fullName: Steam.Local.Apps.LocalApp.BuildID
+  type: Property
+  source:
+    id: BuildID
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 16
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public int BuildID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BuildID As Integer
+  overload: Steam.Local.Apps.LocalApp.BuildID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.LastOwner
+  commentId: P:Steam.Local.Apps.LocalApp.LastOwner
+  id: LastOwner
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: LastOwner
+  nameWithType: LocalApp.LastOwner
+  fullName: Steam.Local.Apps.LocalApp.LastOwner
+  type: Property
+  source:
+    id: LastOwner
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 17
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public SteamId LastOwner { get; set; }
+    parameters: []
+    return:
+      type: Steam.Common.SteamId
+    content.vb: Public Property LastOwner As SteamId
+  overload: Steam.Local.Apps.LocalApp.LastOwner*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.BytesToDownload
+  commentId: P:Steam.Local.Apps.LocalApp.BytesToDownload
+  id: BytesToDownload
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: BytesToDownload
+  nameWithType: LocalApp.BytesToDownload
+  fullName: Steam.Local.Apps.LocalApp.BytesToDownload
+  type: Property
+  source:
+    id: BytesToDownload
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 18
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public ulong BytesToDownload { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property BytesToDownload As ULong
+  overload: Steam.Local.Apps.LocalApp.BytesToDownload*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.BytesDownloaded
+  commentId: P:Steam.Local.Apps.LocalApp.BytesDownloaded
+  id: BytesDownloaded
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: BytesDownloaded
+  nameWithType: LocalApp.BytesDownloaded
+  fullName: Steam.Local.Apps.LocalApp.BytesDownloaded
+  type: Property
+  source:
+    id: BytesDownloaded
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 19
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public ulong BytesDownloaded { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property BytesDownloaded As ULong
+  overload: Steam.Local.Apps.LocalApp.BytesDownloaded*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+  commentId: P:Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+  id: AutoUpdateBehavior
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: AutoUpdateBehavior
+  nameWithType: LocalApp.AutoUpdateBehavior
+  fullName: Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+  type: Property
+  source:
+    id: AutoUpdateBehavior
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 20
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public byte AutoUpdateBehavior { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property AutoUpdateBehavior As Byte
+  overload: Steam.Local.Apps.LocalApp.AutoUpdateBehavior*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+  commentId: P:Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+  id: AllowOtherDownloadsWhileRunning
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: AllowOtherDownloadsWhileRunning
+  nameWithType: LocalApp.AllowOtherDownloadsWhileRunning
+  fullName: Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+  type: Property
+  source:
+    id: AllowOtherDownloadsWhileRunning
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 21
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public byte AllowOtherDownloadsWhileRunning { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property AllowOtherDownloadsWhileRunning As Byte
+  overload: Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+  commentId: P:Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+  id: FullValidateBeforeNextUpdate
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: FullValidateBeforeNextUpdate
+  nameWithType: LocalApp.FullValidateBeforeNextUpdate
+  fullName: Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+  type: Property
+  source:
+    id: FullValidateBeforeNextUpdate
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 22
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public bool FullValidateBeforeNextUpdate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FullValidateBeforeNextUpdate As Boolean
+  overload: Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+  commentId: P:Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+  id: FullValidateAfterNextUpdate
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: FullValidateAfterNextUpdate
+  nameWithType: LocalApp.FullValidateAfterNextUpdate
+  fullName: Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+  type: Property
+  source:
+    id: FullValidateAfterNextUpdate
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 23
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public bool FullValidateAfterNextUpdate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FullValidateAfterNextUpdate As Boolean
+  overload: Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.UserConfig
+  commentId: P:Steam.Local.Apps.LocalApp.UserConfig
+  id: UserConfig
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: UserConfig
+  nameWithType: LocalApp.UserConfig
+  fullName: Steam.Local.Apps.LocalApp.UserConfig
+  type: Property
+  source:
+    id: UserConfig
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 24
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public Dictionary<string, string> UserConfig { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Property UserConfig As Dictionary(Of String, String)
+  overload: Steam.Local.Apps.LocalApp.UserConfig*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.MountedDepots
+  commentId: P:Steam.Local.Apps.LocalApp.MountedDepots
+  id: MountedDepots
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: MountedDepots
+  nameWithType: LocalApp.MountedDepots
+  fullName: Steam.Local.Apps.LocalApp.MountedDepots
+  type: Property
+  source:
+    id: MountedDepots
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 25
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public Dictionary<uint, ulong> MountedDepots { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.UInt32,System.UInt64}
+    content.vb: Public Property MountedDepots As Dictionary(Of UInteger, ULong)
+  overload: Steam.Local.Apps.LocalApp.MountedDepots*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.CheckGuid
+  commentId: P:Steam.Local.Apps.LocalApp.CheckGuid
+  id: CheckGuid
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: CheckGuid
+  nameWithType: LocalApp.CheckGuid
+  fullName: Steam.Local.Apps.LocalApp.CheckGuid
+  type: Property
+  source:
+    id: CheckGuid
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 26
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public List<string> CheckGuid { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property CheckGuid As List(Of String)
+  overload: Steam.Local.Apps.LocalApp.CheckGuid*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.SharedDepots
+  commentId: P:Steam.Local.Apps.LocalApp.SharedDepots
+  id: SharedDepots
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: SharedDepots
+  nameWithType: LocalApp.SharedDepots
+  fullName: Steam.Local.Apps.LocalApp.SharedDepots
+  type: Property
+  source:
+    id: SharedDepots
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 27
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public Dictionary<uint, uint> SharedDepots { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.UInt32,System.UInt32}
+    content.vb: Public Property SharedDepots As Dictionary(Of UInteger, UInteger)
+  overload: Steam.Local.Apps.LocalApp.SharedDepots*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.InstallScripts
+  commentId: P:Steam.Local.Apps.LocalApp.InstallScripts
+  id: InstallScripts
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: InstallScripts
+  nameWithType: LocalApp.InstallScripts
+  fullName: Steam.Local.Apps.LocalApp.InstallScripts
+  type: Property
+  source:
+    id: InstallScripts
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 28
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public List<string> InstallScripts { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property InstallScripts As List(Of String)
+  overload: Steam.Local.Apps.LocalApp.InstallScripts*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.DlcDownloads
+  commentId: P:Steam.Local.Apps.LocalApp.DlcDownloads
+  id: DlcDownloads
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: DlcDownloads
+  nameWithType: LocalApp.DlcDownloads
+  fullName: Steam.Local.Apps.LocalApp.DlcDownloads
+  type: Property
+  source:
+    id: DlcDownloads
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 29
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public List<Dlc> DlcDownloads { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Steam.Local.Apps.Dlc}
+    content.vb: Public Property DlcDownloads As List(Of Dlc)
+  overload: Steam.Local.Apps.LocalApp.DlcDownloads*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.StagedDepots
+  commentId: P:Steam.Local.Apps.LocalApp.StagedDepots
+  id: StagedDepots
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: StagedDepots
+  nameWithType: LocalApp.StagedDepots
+  fullName: Steam.Local.Apps.LocalApp.StagedDepots
+  type: Property
+  source:
+    id: StagedDepots
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 30
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public List<StagedDepot> StagedDepots { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Steam.Local.Apps.StagedDepot}
+    content.vb: Public Property StagedDepots As List(Of StagedDepot)
+  overload: Steam.Local.Apps.LocalApp.StagedDepots*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LocalApp.CreateFromFile(System.String)
+  commentId: M:Steam.Local.Apps.LocalApp.CreateFromFile(System.String)
+  id: CreateFromFile(System.String)
+  parent: Steam.Local.Apps.LocalApp
+  langs:
+  - csharp
+  - vb
+  name: CreateFromFile(String)
+  nameWithType: LocalApp.CreateFromFile(String)
+  fullName: Steam.Local.Apps.LocalApp.CreateFromFile(System.String)
+  type: Method
+  source:
+    id: CreateFromFile
+    path: G:\Steam\src\Local\Steam.Local\Apps\LocalApp.cs
+    startLine: 32
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public static LocalApp CreateFromFile(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: Steam.Local.Apps.LocalApp
+    content.vb: Public Shared Function CreateFromFile(path As String) As LocalApp
+  overload: Steam.Local.Apps.LocalApp.CreateFromFile*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Local.Apps.LocalApp.Id*
+  commentId: Overload:Steam.Local.Apps.LocalApp.Id
+  isExternal: false
+  name: Id
+  nameWithType: LocalApp.Id
+  fullName: Steam.Local.Apps.LocalApp.Id
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Local.Apps.LocalApp.Universe*
+  commentId: Overload:Steam.Local.Apps.LocalApp.Universe
+  isExternal: false
+  name: Universe
+  nameWithType: LocalApp.Universe
+  fullName: Steam.Local.Apps.LocalApp.Universe
+- uid: Steam.Common.Universe
+  commentId: T:Steam.Common.Universe
+  parent: Steam.Common
+  isExternal: false
+  name: Universe
+  nameWithType: Universe
+  fullName: Steam.Common.Universe
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Local.Apps.LocalApp.Name*
+  commentId: Overload:Steam.Local.Apps.LocalApp.Name
+  isExternal: false
+  name: Name
+  nameWithType: LocalApp.Name
+  fullName: Steam.Local.Apps.LocalApp.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Local.Apps.LocalApp.StateFlags*
+  commentId: Overload:Steam.Local.Apps.LocalApp.StateFlags
+  isExternal: false
+  name: StateFlags
+  nameWithType: LocalApp.StateFlags
+  fullName: Steam.Local.Apps.LocalApp.StateFlags
+- uid: Steam.Local.Apps.AppState
+  commentId: T:Steam.Local.Apps.AppState
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppState
+  nameWithType: AppState
+  fullName: Steam.Local.Apps.AppState
+- uid: Steam.Local.Apps.LocalApp.InstallFolder*
+  commentId: Overload:Steam.Local.Apps.LocalApp.InstallFolder
+  isExternal: false
+  name: InstallFolder
+  nameWithType: LocalApp.InstallFolder
+  fullName: Steam.Local.Apps.LocalApp.InstallFolder
+- uid: Steam.Local.Apps.LocalApp.LastUpdated*
+  commentId: Overload:Steam.Local.Apps.LocalApp.LastUpdated
+  isExternal: false
+  name: LastUpdated
+  nameWithType: LocalApp.LastUpdated
+  fullName: Steam.Local.Apps.LocalApp.LastUpdated
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Steam.Local.Apps.LocalApp.UpdateResult*
+  commentId: Overload:Steam.Local.Apps.LocalApp.UpdateResult
+  isExternal: false
+  name: UpdateResult
+  nameWithType: LocalApp.UpdateResult
+  fullName: Steam.Local.Apps.LocalApp.UpdateResult
+- uid: Steam.Local.Apps.AppUpdateResult
+  commentId: T:Steam.Local.Apps.AppUpdateResult
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppUpdateResult
+  nameWithType: AppUpdateResult
+  fullName: Steam.Local.Apps.AppUpdateResult
+- uid: Steam.Local.Apps.LocalApp.SizeOnDisk*
+  commentId: Overload:Steam.Local.Apps.LocalApp.SizeOnDisk
+  isExternal: false
+  name: SizeOnDisk
+  nameWithType: LocalApp.SizeOnDisk
+  fullName: Steam.Local.Apps.LocalApp.SizeOnDisk
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Steam.Local.Apps.LocalApp.BuildID*
+  commentId: Overload:Steam.Local.Apps.LocalApp.BuildID
+  isExternal: false
+  name: BuildID
+  nameWithType: LocalApp.BuildID
+  fullName: Steam.Local.Apps.LocalApp.BuildID
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Local.Apps.LocalApp.LastOwner*
+  commentId: Overload:Steam.Local.Apps.LocalApp.LastOwner
+  isExternal: false
+  name: LastOwner
+  nameWithType: LocalApp.LastOwner
+  fullName: Steam.Local.Apps.LocalApp.LastOwner
+- uid: Steam.Common.SteamId
+  commentId: T:Steam.Common.SteamId
+  parent: Steam.Common
+  isExternal: false
+  name: SteamId
+  nameWithType: SteamId
+  fullName: Steam.Common.SteamId
+- uid: Steam.Local.Apps.LocalApp.BytesToDownload*
+  commentId: Overload:Steam.Local.Apps.LocalApp.BytesToDownload
+  isExternal: false
+  name: BytesToDownload
+  nameWithType: LocalApp.BytesToDownload
+  fullName: Steam.Local.Apps.LocalApp.BytesToDownload
+- uid: Steam.Local.Apps.LocalApp.BytesDownloaded*
+  commentId: Overload:Steam.Local.Apps.LocalApp.BytesDownloaded
+  isExternal: false
+  name: BytesDownloaded
+  nameWithType: LocalApp.BytesDownloaded
+  fullName: Steam.Local.Apps.LocalApp.BytesDownloaded
+- uid: Steam.Local.Apps.LocalApp.AutoUpdateBehavior*
+  commentId: Overload:Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+  isExternal: false
+  name: AutoUpdateBehavior
+  nameWithType: LocalApp.AutoUpdateBehavior
+  fullName: Steam.Local.Apps.LocalApp.AutoUpdateBehavior
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning*
+  commentId: Overload:Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+  isExternal: false
+  name: AllowOtherDownloadsWhileRunning
+  nameWithType: LocalApp.AllowOtherDownloadsWhileRunning
+  fullName: Steam.Local.Apps.LocalApp.AllowOtherDownloadsWhileRunning
+- uid: Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate*
+  commentId: Overload:Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+  isExternal: false
+  name: FullValidateBeforeNextUpdate
+  nameWithType: LocalApp.FullValidateBeforeNextUpdate
+  fullName: Steam.Local.Apps.LocalApp.FullValidateBeforeNextUpdate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate*
+  commentId: Overload:Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+  isExternal: false
+  name: FullValidateAfterNextUpdate
+  nameWithType: LocalApp.FullValidateAfterNextUpdate
+  fullName: Steam.Local.Apps.LocalApp.FullValidateAfterNextUpdate
+- uid: Steam.Local.Apps.LocalApp.UserConfig*
+  commentId: Overload:Steam.Local.Apps.LocalApp.UserConfig
+  isExternal: false
+  name: UserConfig
+  nameWithType: LocalApp.UserConfig
+  fullName: Steam.Local.Apps.LocalApp.UserConfig
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, String>
+  nameWithType: Dictionary<String, String>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.String>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Steam.Local.Apps.LocalApp.MountedDepots*
+  commentId: Overload:Steam.Local.Apps.LocalApp.MountedDepots
+  isExternal: false
+  name: MountedDepots
+  nameWithType: LocalApp.MountedDepots
+  fullName: Steam.Local.Apps.LocalApp.MountedDepots
+- uid: System.Collections.Generic.Dictionary{System.UInt32,System.UInt64}
+  commentId: T:System.Collections.Generic.Dictionary{System.UInt32,System.UInt64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<UInt32, UInt64>
+  nameWithType: Dictionary<UInt32, UInt64>
+  fullName: System.Collections.Generic.Dictionary<System.UInt32, System.UInt64>
+  nameWithType.vb: Dictionary(Of UInt32, UInt64)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.UInt32, System.UInt64)
+  name.vb: Dictionary(Of UInt32, UInt64)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Local.Apps.LocalApp.CheckGuid*
+  commentId: Overload:Steam.Local.Apps.LocalApp.CheckGuid
+  isExternal: false
+  name: CheckGuid
+  nameWithType: LocalApp.CheckGuid
+  fullName: Steam.Local.Apps.LocalApp.CheckGuid
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Local.Apps.LocalApp.SharedDepots*
+  commentId: Overload:Steam.Local.Apps.LocalApp.SharedDepots
+  isExternal: false
+  name: SharedDepots
+  nameWithType: LocalApp.SharedDepots
+  fullName: Steam.Local.Apps.LocalApp.SharedDepots
+- uid: System.Collections.Generic.Dictionary{System.UInt32,System.UInt32}
+  commentId: T:System.Collections.Generic.Dictionary{System.UInt32,System.UInt32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<UInt32, UInt32>
+  nameWithType: Dictionary<UInt32, UInt32>
+  fullName: System.Collections.Generic.Dictionary<System.UInt32, System.UInt32>
+  nameWithType.vb: Dictionary(Of UInt32, UInt32)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.UInt32, System.UInt32)
+  name.vb: Dictionary(Of UInt32, UInt32)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Local.Apps.LocalApp.InstallScripts*
+  commentId: Overload:Steam.Local.Apps.LocalApp.InstallScripts
+  isExternal: false
+  name: InstallScripts
+  nameWithType: LocalApp.InstallScripts
+  fullName: Steam.Local.Apps.LocalApp.InstallScripts
+- uid: Steam.Local.Apps.LocalApp.DlcDownloads*
+  commentId: Overload:Steam.Local.Apps.LocalApp.DlcDownloads
+  isExternal: false
+  name: DlcDownloads
+  nameWithType: LocalApp.DlcDownloads
+  fullName: Steam.Local.Apps.LocalApp.DlcDownloads
+- uid: System.Collections.Generic.List{Steam.Local.Apps.Dlc}
+  commentId: T:System.Collections.Generic.List{Steam.Local.Apps.Dlc}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Dlc>
+  nameWithType: List<Dlc>
+  fullName: System.Collections.Generic.List<Steam.Local.Apps.Dlc>
+  nameWithType.vb: List(Of Dlc)
+  fullName.vb: System.Collections.Generic.List(Of Steam.Local.Apps.Dlc)
+  name.vb: List(Of Dlc)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Local.Apps.Dlc
+    name: Dlc
+    nameWithType: Dlc
+    fullName: Steam.Local.Apps.Dlc
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Local.Apps.Dlc
+    name: Dlc
+    nameWithType: Dlc
+    fullName: Steam.Local.Apps.Dlc
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Local.Apps.LocalApp.StagedDepots*
+  commentId: Overload:Steam.Local.Apps.LocalApp.StagedDepots
+  isExternal: false
+  name: StagedDepots
+  nameWithType: LocalApp.StagedDepots
+  fullName: Steam.Local.Apps.LocalApp.StagedDepots
+- uid: System.Collections.Generic.List{Steam.Local.Apps.StagedDepot}
+  commentId: T:System.Collections.Generic.List{Steam.Local.Apps.StagedDepot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<StagedDepot>
+  nameWithType: List<StagedDepot>
+  fullName: System.Collections.Generic.List<Steam.Local.Apps.StagedDepot>
+  nameWithType.vb: List(Of StagedDepot)
+  fullName.vb: System.Collections.Generic.List(Of Steam.Local.Apps.StagedDepot)
+  name.vb: List(Of StagedDepot)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Local.Apps.StagedDepot
+    name: StagedDepot
+    nameWithType: StagedDepot
+    fullName: Steam.Local.Apps.StagedDepot
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Local.Apps.StagedDepot
+    name: StagedDepot
+    nameWithType: StagedDepot
+    fullName: Steam.Local.Apps.StagedDepot
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Local.Apps.LocalApp.CreateFromFile*
+  commentId: Overload:Steam.Local.Apps.LocalApp.CreateFromFile
+  isExternal: false
+  name: CreateFromFile
+  nameWithType: LocalApp.CreateFromFile
+  fullName: Steam.Local.Apps.LocalApp.CreateFromFile
+- uid: Steam.Local.Apps.LocalApp
+  commentId: T:Steam.Local.Apps.LocalApp
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: LocalApp
+  nameWithType: LocalApp
+  fullName: Steam.Local.Apps.LocalApp

@@ -1,0 +1,702 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.GameServer
+  commentId: T:Steam.Web.GameServer
+  id: GameServer
+  parent: Steam.Web
+  children:
+  - Steam.Web.GameServer.Address
+  - Steam.Web.GameServer.AppId
+  - Steam.Web.GameServer.GameMasterServerIndex
+  - Steam.Web.GameServer.GamePort
+  - Steam.Web.GameServer.Lan
+  - Steam.Web.GameServer.Region
+  - Steam.Web.GameServer.Secure
+  - Steam.Web.GameServer.SpectatorPort
+  langs:
+  - csharp
+  - vb
+  name: GameServer
+  nameWithType: GameServer
+  fullName: Steam.Web.GameServer
+  type: Class
+  source:
+    id: GameServer
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 7
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nRepresents a game server at a specified endpoint\n"
+  example: []
+  syntax:
+    content: public class GameServer
+    content.vb: Public Class GameServer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Web.GameServer.Address
+  commentId: P:Steam.Web.GameServer.Address
+  id: Address
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: Address
+  nameWithType: GameServer.Address
+  fullName: Steam.Web.GameServer.Address
+  type: Property
+  source:
+    id: Address
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 12
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the IP address of this game server\n"
+  example: []
+  syntax:
+    content: public IPEndPoint Address { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: Public ReadOnly Property Address As IPEndPoint
+  overload: Steam.Web.GameServer.Address*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.GameMasterServerIndex
+  commentId: P:Steam.Web.GameServer.GameMasterServerIndex
+  id: GameMasterServerIndex
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: GameMasterServerIndex
+  nameWithType: GameServer.GameMasterServerIndex
+  fullName: Steam.Web.GameServer.GameMasterServerIndex
+  type: Property
+  source:
+    id: GameMasterServerIndex
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 16
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets this game server's index in the game master server list\n"
+  example: []
+  syntax:
+    content: public int GameMasterServerIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property GameMasterServerIndex As Integer
+  overload: Steam.Web.GameServer.GameMasterServerIndex*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.AppId
+  commentId: P:Steam.Web.GameServer.AppId
+  id: AppId
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: AppId
+  nameWithType: GameServer.AppId
+  fullName: Steam.Web.GameServer.AppId
+  type: Property
+  source:
+    id: AppId
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 20
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the app Id of the game this server is running\n"
+  example: []
+  syntax:
+    content: public uint AppId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property AppId As UInteger
+  overload: Steam.Web.GameServer.AppId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.Region
+  commentId: P:Steam.Web.GameServer.Region
+  id: Region
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: Region
+  nameWithType: GameServer.Region
+  fullName: Steam.Web.GameServer.Region
+  type: Property
+  source:
+    id: Region
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 24
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the region this server says it's from\n"
+  example: []
+  syntax:
+    content: public GameRegionCode Region { get; }
+    parameters: []
+    return:
+      type: Steam.Web.GameRegionCode
+    content.vb: Public ReadOnly Property Region As GameRegionCode
+  overload: Steam.Web.GameServer.Region*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.Secure
+  commentId: P:Steam.Web.GameServer.Secure
+  id: Secure
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: Secure
+  nameWithType: GameServer.Secure
+  fullName: Steam.Web.GameServer.Secure
+  type: Property
+  source:
+    id: Secure
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 28
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets whether this server is VAC secured\n"
+  example: []
+  syntax:
+    content: public bool Secure { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Secure As Boolean
+  overload: Steam.Web.GameServer.Secure*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.Lan
+  commentId: P:Steam.Web.GameServer.Lan
+  id: Lan
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: Lan
+  nameWithType: GameServer.Lan
+  fullName: Steam.Web.GameServer.Lan
+  type: Property
+  source:
+    id: Lan
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 32
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets whether this server is a local area network server\n"
+  example: []
+  syntax:
+    content: public bool Lan { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Lan As Boolean
+  overload: Steam.Web.GameServer.Lan*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.GamePort
+  commentId: P:Steam.Web.GameServer.GamePort
+  id: GamePort
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: GamePort
+  nameWithType: GameServer.GamePort
+  fullName: Steam.Web.GameServer.GamePort
+  type: Property
+  source:
+    id: GamePort
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 36
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the game port for this server\n"
+  example: []
+  syntax:
+    content: public uint GamePort { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property GamePort As UInteger
+  overload: Steam.Web.GameServer.GamePort*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.GameServer.SpectatorPort
+  commentId: P:Steam.Web.GameServer.SpectatorPort
+  id: SpectatorPort
+  parent: Steam.Web.GameServer
+  langs:
+  - csharp
+  - vb
+  name: SpectatorPort
+  nameWithType: GameServer.SpectatorPort
+  fullName: Steam.Web.GameServer.SpectatorPort
+  type: Property
+  source:
+    id: SpectatorPort
+    path: G:\Steam\src\Web\Steam.Web\GameServer.cs
+    startLine: 40
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the port for a SourceTV server if available\n"
+  example: []
+  syntax:
+    content: public uint SpectatorPort { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property SpectatorPort As UInteger
+  overload: Steam.Web.GameServer.SpectatorPort*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Web.GameServer.Address*
+  commentId: Overload:Steam.Web.GameServer.Address
+  isExternal: false
+  name: Address
+  nameWithType: GameServer.Address
+  fullName: Steam.Web.GameServer.Address
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: false
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+- uid: Steam.Web.GameServer.GameMasterServerIndex*
+  commentId: Overload:Steam.Web.GameServer.GameMasterServerIndex
+  isExternal: false
+  name: GameMasterServerIndex
+  nameWithType: GameServer.GameMasterServerIndex
+  fullName: Steam.Web.GameServer.GameMasterServerIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Web.GameServer.AppId*
+  commentId: Overload:Steam.Web.GameServer.AppId
+  isExternal: false
+  name: AppId
+  nameWithType: GameServer.AppId
+  fullName: Steam.Web.GameServer.AppId
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Web.GameServer.Region*
+  commentId: Overload:Steam.Web.GameServer.Region
+  isExternal: false
+  name: Region
+  nameWithType: GameServer.Region
+  fullName: Steam.Web.GameServer.Region
+- uid: Steam.Web.GameRegionCode
+  commentId: T:Steam.Web.GameRegionCode
+  parent: Steam.Web
+  isExternal: false
+  name: GameRegionCode
+  nameWithType: GameRegionCode
+  fullName: Steam.Web.GameRegionCode
+- uid: Steam.Web.GameServer.Secure*
+  commentId: Overload:Steam.Web.GameServer.Secure
+  isExternal: false
+  name: Secure
+  nameWithType: GameServer.Secure
+  fullName: Steam.Web.GameServer.Secure
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Web.GameServer.Lan*
+  commentId: Overload:Steam.Web.GameServer.Lan
+  isExternal: false
+  name: Lan
+  nameWithType: GameServer.Lan
+  fullName: Steam.Web.GameServer.Lan
+- uid: Steam.Web.GameServer.GamePort*
+  commentId: Overload:Steam.Web.GameServer.GamePort
+  isExternal: false
+  name: GamePort
+  nameWithType: GameServer.GamePort
+  fullName: Steam.Web.GameServer.GamePort
+- uid: Steam.Web.GameServer.SpectatorPort*
+  commentId: Overload:Steam.Web.GameServer.SpectatorPort
+  isExternal: false
+  name: SpectatorPort
+  nameWithType: GameServer.SpectatorPort
+  fullName: Steam.Web.GameServer.SpectatorPort

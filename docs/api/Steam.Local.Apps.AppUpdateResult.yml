@@ -1,0 +1,1320 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.AppUpdateResult
+  commentId: T:Steam.Local.Apps.AppUpdateResult
+  id: AppUpdateResult
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.AppUpdateResult.ApplicationRunning
+  - Steam.Local.Apps.AppUpdateResult.Canceled
+  - Steam.Local.Apps.AppUpdateResult.ConnectionTimeout
+  - Steam.Local.Apps.AppUpdateResult.ContentUnavailable
+  - Steam.Local.Apps.AppUpdateResult.CorruptDepotCache
+  - Steam.Local.Apps.AppUpdateResult.CorruptDisk
+  - Steam.Local.Apps.AppUpdateResult.CorruptDownload
+  - Steam.Local.Apps.AppUpdateResult.CorruptGameFiles
+  - Steam.Local.Apps.AppUpdateResult.DependencyFailure
+  - Steam.Local.Apps.AppUpdateResult.DiskReadFailure
+  - Steam.Local.Apps.AppUpdateResult.DiskWriteFailure
+  - Steam.Local.Apps.AppUpdateResult.DownloadCorrupt
+  - Steam.Local.Apps.AppUpdateResult.DownloadDisabled
+  - Steam.Local.Apps.AppUpdateResult.FileLocked
+  - Steam.Local.Apps.AppUpdateResult.FolderNotWritable
+  - Steam.Local.Apps.AppUpdateResult.InvalidApplicationConfiguration
+  - Steam.Local.Apps.AppUpdateResult.InvalidContentConfiguration
+  - Steam.Local.Apps.AppUpdateResult.InvalidFileSystem
+  - Steam.Local.Apps.AppUpdateResult.InvalidInstallPath
+  - Steam.Local.Apps.AppUpdateResult.InvalidPlatform
+  - Steam.Local.Apps.AppUpdateResult.ManifestUnavailable
+  - Steam.Local.Apps.AppUpdateResult.MissingConfiguration
+  - Steam.Local.Apps.AppUpdateResult.MissingDecryptionKey
+  - Steam.Local.Apps.AppUpdateResult.MissingExecutable
+  - Steam.Local.Apps.AppUpdateResult.MissingFilePermissions
+  - Steam.Local.Apps.AppUpdateResult.NoConnection
+  - Steam.Local.Apps.AppUpdateResult.NoConnectionToContentServers
+  - Steam.Local.Apps.AppUpdateResult.NoError
+  - Steam.Local.Apps.AppUpdateResult.NoSubscription
+  - Steam.Local.Apps.AppUpdateResult.NotEnoughDiskQuota
+  - Steam.Local.Apps.AppUpdateResult.NotEnoughDiskSpace
+  - Steam.Local.Apps.AppUpdateResult.NotInstalled
+  - Steam.Local.Apps.AppUpdateResult.NotReleased
+  - Steam.Local.Apps.AppUpdateResult.OtherSessionPlaying
+  - Steam.Local.Apps.AppUpdateResult.Paused
+  - Steam.Local.Apps.AppUpdateResult.PurchasePending
+  - Steam.Local.Apps.AppUpdateResult.RegionRestricted
+  - Steam.Local.Apps.AppUpdateResult.Requires64bitOperatingSystem
+  - Steam.Local.Apps.AppUpdateResult.SharedLibraryLocked
+  - Steam.Local.Apps.AppUpdateResult.StillBusy
+  - Steam.Local.Apps.AppUpdateResult.Suspended
+  - Steam.Local.Apps.AppUpdateResult.UnspecifiedError
+  - Steam.Local.Apps.AppUpdateResult.UpdateRequired
+  - Steam.Local.Apps.AppUpdateResult.WaitingForDisk
+  langs:
+  - csharp
+  - vb
+  name: AppUpdateResult
+  nameWithType: AppUpdateResult
+  fullName: Steam.Local.Apps.AppUpdateResult
+  type: Enum
+  source:
+    id: AppUpdateResult
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 2
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public enum AppUpdateResult
+    content.vb: Public Enum AppUpdateResult
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Local.Apps.AppUpdateResult.NoError
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NoError
+  id: NoError
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NoError
+  nameWithType: AppUpdateResult.NoError
+  fullName: Steam.Local.Apps.AppUpdateResult.NoError
+  type: Field
+  source:
+    id: NoError
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 4
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NoError = 0
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.UnspecifiedError
+  commentId: F:Steam.Local.Apps.AppUpdateResult.UnspecifiedError
+  id: UnspecifiedError
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: UnspecifiedError
+  nameWithType: AppUpdateResult.UnspecifiedError
+  fullName: Steam.Local.Apps.AppUpdateResult.UnspecifiedError
+  type: Field
+  source:
+    id: UnspecifiedError
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 5
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UnspecifiedError = 1
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.Paused
+  commentId: F:Steam.Local.Apps.AppUpdateResult.Paused
+  id: Paused
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: AppUpdateResult.Paused
+  fullName: Steam.Local.Apps.AppUpdateResult.Paused
+  type: Field
+  source:
+    id: Paused
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 6
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Paused = 2
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.Canceled
+  commentId: F:Steam.Local.Apps.AppUpdateResult.Canceled
+  id: Canceled
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: Canceled
+  nameWithType: AppUpdateResult.Canceled
+  fullName: Steam.Local.Apps.AppUpdateResult.Canceled
+  type: Field
+  source:
+    id: Canceled
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 7
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Canceled = 3
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.Suspended
+  commentId: F:Steam.Local.Apps.AppUpdateResult.Suspended
+  id: Suspended
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: Suspended
+  nameWithType: AppUpdateResult.Suspended
+  fullName: Steam.Local.Apps.AppUpdateResult.Suspended
+  type: Field
+  source:
+    id: Suspended
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 8
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Suspended = 4
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NoSubscription
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NoSubscription
+  id: NoSubscription
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NoSubscription
+  nameWithType: AppUpdateResult.NoSubscription
+  fullName: Steam.Local.Apps.AppUpdateResult.NoSubscription
+  type: Field
+  source:
+    id: NoSubscription
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 9
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NoSubscription = 5
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NoConnection
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NoConnection
+  id: NoConnection
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NoConnection
+  nameWithType: AppUpdateResult.NoConnection
+  fullName: Steam.Local.Apps.AppUpdateResult.NoConnection
+  type: Field
+  source:
+    id: NoConnection
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 10
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NoConnection = 6
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.ConnectionTimeout
+  commentId: F:Steam.Local.Apps.AppUpdateResult.ConnectionTimeout
+  id: ConnectionTimeout
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: ConnectionTimeout
+  nameWithType: AppUpdateResult.ConnectionTimeout
+  fullName: Steam.Local.Apps.AppUpdateResult.ConnectionTimeout
+  type: Field
+  source:
+    id: ConnectionTimeout
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 11
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: ConnectionTimeout = 7
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.MissingDecryptionKey
+  commentId: F:Steam.Local.Apps.AppUpdateResult.MissingDecryptionKey
+  id: MissingDecryptionKey
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: MissingDecryptionKey
+  nameWithType: AppUpdateResult.MissingDecryptionKey
+  fullName: Steam.Local.Apps.AppUpdateResult.MissingDecryptionKey
+  type: Field
+  source:
+    id: MissingDecryptionKey
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 12
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: MissingDecryptionKey = 8
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.MissingConfiguration
+  commentId: F:Steam.Local.Apps.AppUpdateResult.MissingConfiguration
+  id: MissingConfiguration
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: MissingConfiguration
+  nameWithType: AppUpdateResult.MissingConfiguration
+  fullName: Steam.Local.Apps.AppUpdateResult.MissingConfiguration
+  type: Field
+  source:
+    id: MissingConfiguration
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 13
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: MissingConfiguration = 9
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.DiskReadFailure
+  commentId: F:Steam.Local.Apps.AppUpdateResult.DiskReadFailure
+  id: DiskReadFailure
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: DiskReadFailure
+  nameWithType: AppUpdateResult.DiskReadFailure
+  fullName: Steam.Local.Apps.AppUpdateResult.DiskReadFailure
+  type: Field
+  source:
+    id: DiskReadFailure
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 14
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: DiskReadFailure = 10
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.DiskWriteFailure
+  commentId: F:Steam.Local.Apps.AppUpdateResult.DiskWriteFailure
+  id: DiskWriteFailure
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: DiskWriteFailure
+  nameWithType: AppUpdateResult.DiskWriteFailure
+  fullName: Steam.Local.Apps.AppUpdateResult.DiskWriteFailure
+  type: Field
+  source:
+    id: DiskWriteFailure
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 15
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: DiskWriteFailure = 11
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NotEnoughDiskSpace
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NotEnoughDiskSpace
+  id: NotEnoughDiskSpace
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NotEnoughDiskSpace
+  nameWithType: AppUpdateResult.NotEnoughDiskSpace
+  fullName: Steam.Local.Apps.AppUpdateResult.NotEnoughDiskSpace
+  type: Field
+  source:
+    id: NotEnoughDiskSpace
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 16
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NotEnoughDiskSpace = 12
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.CorruptGameFiles
+  commentId: F:Steam.Local.Apps.AppUpdateResult.CorruptGameFiles
+  id: CorruptGameFiles
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: CorruptGameFiles
+  nameWithType: AppUpdateResult.CorruptGameFiles
+  fullName: Steam.Local.Apps.AppUpdateResult.CorruptGameFiles
+  type: Field
+  source:
+    id: CorruptGameFiles
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 17
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: CorruptGameFiles = 13
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.WaitingForDisk
+  commentId: F:Steam.Local.Apps.AppUpdateResult.WaitingForDisk
+  id: WaitingForDisk
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: WaitingForDisk
+  nameWithType: AppUpdateResult.WaitingForDisk
+  fullName: Steam.Local.Apps.AppUpdateResult.WaitingForDisk
+  type: Field
+  source:
+    id: WaitingForDisk
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 18
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: WaitingForDisk = 14
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.InvalidInstallPath
+  commentId: F:Steam.Local.Apps.AppUpdateResult.InvalidInstallPath
+  id: InvalidInstallPath
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: InvalidInstallPath
+  nameWithType: AppUpdateResult.InvalidInstallPath
+  fullName: Steam.Local.Apps.AppUpdateResult.InvalidInstallPath
+  type: Field
+  source:
+    id: InvalidInstallPath
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 19
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: InvalidInstallPath = 15
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.ApplicationRunning
+  commentId: F:Steam.Local.Apps.AppUpdateResult.ApplicationRunning
+  id: ApplicationRunning
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: ApplicationRunning
+  nameWithType: AppUpdateResult.ApplicationRunning
+  fullName: Steam.Local.Apps.AppUpdateResult.ApplicationRunning
+  type: Field
+  source:
+    id: ApplicationRunning
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 20
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: ApplicationRunning = 16
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.DependencyFailure
+  commentId: F:Steam.Local.Apps.AppUpdateResult.DependencyFailure
+  id: DependencyFailure
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: DependencyFailure
+  nameWithType: AppUpdateResult.DependencyFailure
+  fullName: Steam.Local.Apps.AppUpdateResult.DependencyFailure
+  type: Field
+  source:
+    id: DependencyFailure
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 21
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: DependencyFailure = 17
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NotInstalled
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NotInstalled
+  id: NotInstalled
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NotInstalled
+  nameWithType: AppUpdateResult.NotInstalled
+  fullName: Steam.Local.Apps.AppUpdateResult.NotInstalled
+  type: Field
+  source:
+    id: NotInstalled
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 22
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NotInstalled = 18
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.UpdateRequired
+  commentId: F:Steam.Local.Apps.AppUpdateResult.UpdateRequired
+  id: UpdateRequired
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: UpdateRequired
+  nameWithType: AppUpdateResult.UpdateRequired
+  fullName: Steam.Local.Apps.AppUpdateResult.UpdateRequired
+  type: Field
+  source:
+    id: UpdateRequired
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 23
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdateRequired = 19
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.StillBusy
+  commentId: F:Steam.Local.Apps.AppUpdateResult.StillBusy
+  id: StillBusy
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: StillBusy
+  nameWithType: AppUpdateResult.StillBusy
+  fullName: Steam.Local.Apps.AppUpdateResult.StillBusy
+  type: Field
+  source:
+    id: StillBusy
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 24
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: StillBusy = 20
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NoConnectionToContentServers
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NoConnectionToContentServers
+  id: NoConnectionToContentServers
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NoConnectionToContentServers
+  nameWithType: AppUpdateResult.NoConnectionToContentServers
+  fullName: Steam.Local.Apps.AppUpdateResult.NoConnectionToContentServers
+  type: Field
+  source:
+    id: NoConnectionToContentServers
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 25
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NoConnectionToContentServers = 21
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.InvalidApplicationConfiguration
+  commentId: F:Steam.Local.Apps.AppUpdateResult.InvalidApplicationConfiguration
+  id: InvalidApplicationConfiguration
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: InvalidApplicationConfiguration
+  nameWithType: AppUpdateResult.InvalidApplicationConfiguration
+  fullName: Steam.Local.Apps.AppUpdateResult.InvalidApplicationConfiguration
+  type: Field
+  source:
+    id: InvalidApplicationConfiguration
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 26
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: InvalidApplicationConfiguration = 22
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.InvalidContentConfiguration
+  commentId: F:Steam.Local.Apps.AppUpdateResult.InvalidContentConfiguration
+  id: InvalidContentConfiguration
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: InvalidContentConfiguration
+  nameWithType: AppUpdateResult.InvalidContentConfiguration
+  fullName: Steam.Local.Apps.AppUpdateResult.InvalidContentConfiguration
+  type: Field
+  source:
+    id: InvalidContentConfiguration
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 27
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: InvalidContentConfiguration = 23
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.ManifestUnavailable
+  commentId: F:Steam.Local.Apps.AppUpdateResult.ManifestUnavailable
+  id: ManifestUnavailable
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: ManifestUnavailable
+  nameWithType: AppUpdateResult.ManifestUnavailable
+  fullName: Steam.Local.Apps.AppUpdateResult.ManifestUnavailable
+  type: Field
+  source:
+    id: ManifestUnavailable
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 28
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: ManifestUnavailable = 24
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NotReleased
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NotReleased
+  id: NotReleased
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NotReleased
+  nameWithType: AppUpdateResult.NotReleased
+  fullName: Steam.Local.Apps.AppUpdateResult.NotReleased
+  type: Field
+  source:
+    id: NotReleased
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 29
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NotReleased = 25
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.RegionRestricted
+  commentId: F:Steam.Local.Apps.AppUpdateResult.RegionRestricted
+  id: RegionRestricted
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: RegionRestricted
+  nameWithType: AppUpdateResult.RegionRestricted
+  fullName: Steam.Local.Apps.AppUpdateResult.RegionRestricted
+  type: Field
+  source:
+    id: RegionRestricted
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 30
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: RegionRestricted = 26
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.CorruptDepotCache
+  commentId: F:Steam.Local.Apps.AppUpdateResult.CorruptDepotCache
+  id: CorruptDepotCache
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: CorruptDepotCache
+  nameWithType: AppUpdateResult.CorruptDepotCache
+  fullName: Steam.Local.Apps.AppUpdateResult.CorruptDepotCache
+  type: Field
+  source:
+    id: CorruptDepotCache
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 31
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: CorruptDepotCache = 27
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.MissingExecutable
+  commentId: F:Steam.Local.Apps.AppUpdateResult.MissingExecutable
+  id: MissingExecutable
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: MissingExecutable
+  nameWithType: AppUpdateResult.MissingExecutable
+  fullName: Steam.Local.Apps.AppUpdateResult.MissingExecutable
+  type: Field
+  source:
+    id: MissingExecutable
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 32
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: MissingExecutable = 28
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.InvalidPlatform
+  commentId: F:Steam.Local.Apps.AppUpdateResult.InvalidPlatform
+  id: InvalidPlatform
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: InvalidPlatform
+  nameWithType: AppUpdateResult.InvalidPlatform
+  fullName: Steam.Local.Apps.AppUpdateResult.InvalidPlatform
+  type: Field
+  source:
+    id: InvalidPlatform
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 33
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: InvalidPlatform = 29
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.InvalidFileSystem
+  commentId: F:Steam.Local.Apps.AppUpdateResult.InvalidFileSystem
+  id: InvalidFileSystem
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: InvalidFileSystem
+  nameWithType: AppUpdateResult.InvalidFileSystem
+  fullName: Steam.Local.Apps.AppUpdateResult.InvalidFileSystem
+  type: Field
+  source:
+    id: InvalidFileSystem
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 34
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: InvalidFileSystem = 30
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.DownloadCorrupt
+  commentId: F:Steam.Local.Apps.AppUpdateResult.DownloadCorrupt
+  id: DownloadCorrupt
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: DownloadCorrupt
+  nameWithType: AppUpdateResult.DownloadCorrupt
+  fullName: Steam.Local.Apps.AppUpdateResult.DownloadCorrupt
+  type: Field
+  source:
+    id: DownloadCorrupt
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 35
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: DownloadCorrupt = 31
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.DownloadDisabled
+  commentId: F:Steam.Local.Apps.AppUpdateResult.DownloadDisabled
+  id: DownloadDisabled
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: DownloadDisabled
+  nameWithType: AppUpdateResult.DownloadDisabled
+  fullName: Steam.Local.Apps.AppUpdateResult.DownloadDisabled
+  type: Field
+  source:
+    id: DownloadDisabled
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 36
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: DownloadDisabled = 32
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.SharedLibraryLocked
+  commentId: F:Steam.Local.Apps.AppUpdateResult.SharedLibraryLocked
+  id: SharedLibraryLocked
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: SharedLibraryLocked
+  nameWithType: AppUpdateResult.SharedLibraryLocked
+  fullName: Steam.Local.Apps.AppUpdateResult.SharedLibraryLocked
+  type: Field
+  source:
+    id: SharedLibraryLocked
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 37
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: SharedLibraryLocked = 33
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.PurchasePending
+  commentId: F:Steam.Local.Apps.AppUpdateResult.PurchasePending
+  id: PurchasePending
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: PurchasePending
+  nameWithType: AppUpdateResult.PurchasePending
+  fullName: Steam.Local.Apps.AppUpdateResult.PurchasePending
+  type: Field
+  source:
+    id: PurchasePending
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 38
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: PurchasePending = 34
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.OtherSessionPlaying
+  commentId: F:Steam.Local.Apps.AppUpdateResult.OtherSessionPlaying
+  id: OtherSessionPlaying
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: OtherSessionPlaying
+  nameWithType: AppUpdateResult.OtherSessionPlaying
+  fullName: Steam.Local.Apps.AppUpdateResult.OtherSessionPlaying
+  type: Field
+  source:
+    id: OtherSessionPlaying
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 39
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: OtherSessionPlaying = 35
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.CorruptDownload
+  commentId: F:Steam.Local.Apps.AppUpdateResult.CorruptDownload
+  id: CorruptDownload
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: CorruptDownload
+  nameWithType: AppUpdateResult.CorruptDownload
+  fullName: Steam.Local.Apps.AppUpdateResult.CorruptDownload
+  type: Field
+  source:
+    id: CorruptDownload
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 40
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: CorruptDownload = 36
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.CorruptDisk
+  commentId: F:Steam.Local.Apps.AppUpdateResult.CorruptDisk
+  id: CorruptDisk
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: CorruptDisk
+  nameWithType: AppUpdateResult.CorruptDisk
+  fullName: Steam.Local.Apps.AppUpdateResult.CorruptDisk
+  type: Field
+  source:
+    id: CorruptDisk
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 41
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: CorruptDisk = 37
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.MissingFilePermissions
+  commentId: F:Steam.Local.Apps.AppUpdateResult.MissingFilePermissions
+  id: MissingFilePermissions
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: MissingFilePermissions
+  nameWithType: AppUpdateResult.MissingFilePermissions
+  fullName: Steam.Local.Apps.AppUpdateResult.MissingFilePermissions
+  type: Field
+  source:
+    id: MissingFilePermissions
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 42
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: MissingFilePermissions = 38
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.FileLocked
+  commentId: F:Steam.Local.Apps.AppUpdateResult.FileLocked
+  id: FileLocked
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: FileLocked
+  nameWithType: AppUpdateResult.FileLocked
+  fullName: Steam.Local.Apps.AppUpdateResult.FileLocked
+  type: Field
+  source:
+    id: FileLocked
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 43
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: FileLocked = 39
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.ContentUnavailable
+  commentId: F:Steam.Local.Apps.AppUpdateResult.ContentUnavailable
+  id: ContentUnavailable
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: ContentUnavailable
+  nameWithType: AppUpdateResult.ContentUnavailable
+  fullName: Steam.Local.Apps.AppUpdateResult.ContentUnavailable
+  type: Field
+  source:
+    id: ContentUnavailable
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 44
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: ContentUnavailable = 40
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.Requires64bitOperatingSystem
+  commentId: F:Steam.Local.Apps.AppUpdateResult.Requires64bitOperatingSystem
+  id: Requires64bitOperatingSystem
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: Requires64bitOperatingSystem
+  nameWithType: AppUpdateResult.Requires64bitOperatingSystem
+  fullName: Steam.Local.Apps.AppUpdateResult.Requires64bitOperatingSystem
+  type: Field
+  source:
+    id: Requires64bitOperatingSystem
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 45
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Requires64bitOperatingSystem = 41
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.FolderNotWritable
+  commentId: F:Steam.Local.Apps.AppUpdateResult.FolderNotWritable
+  id: FolderNotWritable
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: FolderNotWritable
+  nameWithType: AppUpdateResult.FolderNotWritable
+  fullName: Steam.Local.Apps.AppUpdateResult.FolderNotWritable
+  type: Field
+  source:
+    id: FolderNotWritable
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 46
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: FolderNotWritable = 42
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppUpdateResult.NotEnoughDiskQuota
+  commentId: F:Steam.Local.Apps.AppUpdateResult.NotEnoughDiskQuota
+  id: NotEnoughDiskQuota
+  parent: Steam.Local.Apps.AppUpdateResult
+  langs:
+  - csharp
+  - vb
+  name: NotEnoughDiskQuota
+  nameWithType: AppUpdateResult.NotEnoughDiskQuota
+  fullName: Steam.Local.Apps.AppUpdateResult.NotEnoughDiskQuota
+  type: Field
+  source:
+    id: NotEnoughDiskQuota
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppUpdateResult.cs
+    startLine: 47
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: NotEnoughDiskQuota = 43
+    return:
+      type: Steam.Local.Apps.AppUpdateResult
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: Steam.Local.Apps.AppUpdateResult
+  commentId: T:Steam.Local.Apps.AppUpdateResult
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppUpdateResult
+  nameWithType: AppUpdateResult
+  fullName: Steam.Local.Apps.AppUpdateResult

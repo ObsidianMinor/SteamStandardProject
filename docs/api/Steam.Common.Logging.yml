@@ -1,0 +1,45 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Logging
+  commentId: N:Steam.Common.Logging
+  id: Steam.Common.Logging
+  children:
+  - Steam.Common.Logging.LogManager
+  - Steam.Common.Logging.LogMessage
+  - Steam.Common.Logging.LogSeverity
+  langs:
+  - csharp
+  - vb
+  name: Steam.Common.Logging
+  nameWithType: Steam.Common.Logging
+  fullName: Steam.Common.Logging
+  type: Namespace
+  assemblies:
+  - Steam.Common
+references:
+- uid: Steam.Common.Logging.LogManager
+  commentId: T:Steam.Common.Logging.LogManager
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogManager
+  nameWithType: LogManager
+  fullName: Steam.Common.Logging.LogManager
+- uid: Steam.Common.Logging.LogMessage
+  commentId: T:Steam.Common.Logging.LogMessage
+  isExternal: false
+  name: LogMessage
+  nameWithType: LogMessage
+  fullName: Steam.Common.Logging.LogMessage
+- uid: Steam.Common.Logging.LogSeverity
+  commentId: T:Steam.Common.Logging.LogSeverity
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Steam.Common.Logging.LogSeverity
+- uid: Steam.Common.Logging
+  commentId: N:Steam.Common.Logging
+  isExternal: false
+  name: Steam.Common.Logging
+  nameWithType: Steam.Common.Logging
+  fullName: Steam.Common.Logging

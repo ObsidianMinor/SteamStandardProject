@@ -1,0 +1,431 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.LicenseFlags
+  commentId: T:Steam.Net.LicenseFlags
+  id: LicenseFlags
+  parent: Steam.Net
+  children:
+  - Steam.Net.LicenseFlags.CancelledByAdmin
+  - Steam.Net.LicenseFlags.CancelledByFriendlyFraudLock
+  - Steam.Net.LicenseFlags.CancelledByUser
+  - Steam.Net.LicenseFlags.Expired
+  - Steam.Net.LicenseFlags.ForceRunRestriction
+  - Steam.Net.LicenseFlags.ImportedFromSteam2
+  - Steam.Net.LicenseFlags.LowViolenceContent
+  - Steam.Net.LicenseFlags.None
+  - Steam.Net.LicenseFlags.NotActivated
+  - Steam.Net.LicenseFlags.Pending
+  - Steam.Net.LicenseFlags.RegionRestrictionExpired
+  - Steam.Net.LicenseFlags.Renew
+  - Steam.Net.LicenseFlags.RenewalFailed
+  langs:
+  - csharp
+  - vb
+  name: LicenseFlags
+  nameWithType: LicenseFlags
+  fullName: Steam.Net.LicenseFlags
+  type: Enum
+  source:
+    id: LicenseFlags
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum LicenseFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum LicenseFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.LicenseFlags.None
+  commentId: F:Steam.Net.LicenseFlags.None
+  id: None
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LicenseFlags.None
+  fullName: Steam.Net.LicenseFlags.None
+  type: Field
+  source:
+    id: None
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: None = 0
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.Renew
+  commentId: F:Steam.Net.LicenseFlags.Renew
+  id: Renew
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: Renew
+  nameWithType: LicenseFlags.Renew
+  fullName: Steam.Net.LicenseFlags.Renew
+  type: Field
+  source:
+    id: Renew
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Renew = 1
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.RenewalFailed
+  commentId: F:Steam.Net.LicenseFlags.RenewalFailed
+  id: RenewalFailed
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: RenewalFailed
+  nameWithType: LicenseFlags.RenewalFailed
+  fullName: Steam.Net.LicenseFlags.RenewalFailed
+  type: Field
+  source:
+    id: RenewalFailed
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RenewalFailed = 2
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.Pending
+  commentId: F:Steam.Net.LicenseFlags.Pending
+  id: Pending
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: LicenseFlags.Pending
+  fullName: Steam.Net.LicenseFlags.Pending
+  type: Field
+  source:
+    id: Pending
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Pending = 4
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.Expired
+  commentId: F:Steam.Net.LicenseFlags.Expired
+  id: Expired
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: Expired
+  nameWithType: LicenseFlags.Expired
+  fullName: Steam.Net.LicenseFlags.Expired
+  type: Field
+  source:
+    id: Expired
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Expired = 8
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.CancelledByUser
+  commentId: F:Steam.Net.LicenseFlags.CancelledByUser
+  id: CancelledByUser
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: CancelledByUser
+  nameWithType: LicenseFlags.CancelledByUser
+  fullName: Steam.Net.LicenseFlags.CancelledByUser
+  type: Field
+  source:
+    id: CancelledByUser
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CancelledByUser = 16
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.CancelledByAdmin
+  commentId: F:Steam.Net.LicenseFlags.CancelledByAdmin
+  id: CancelledByAdmin
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: CancelledByAdmin
+  nameWithType: LicenseFlags.CancelledByAdmin
+  fullName: Steam.Net.LicenseFlags.CancelledByAdmin
+  type: Field
+  source:
+    id: CancelledByAdmin
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CancelledByAdmin = 32
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.LowViolenceContent
+  commentId: F:Steam.Net.LicenseFlags.LowViolenceContent
+  id: LowViolenceContent
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: LowViolenceContent
+  nameWithType: LicenseFlags.LowViolenceContent
+  fullName: Steam.Net.LicenseFlags.LowViolenceContent
+  type: Field
+  source:
+    id: LowViolenceContent
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LowViolenceContent = 64
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.ImportedFromSteam2
+  commentId: F:Steam.Net.LicenseFlags.ImportedFromSteam2
+  id: ImportedFromSteam2
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: ImportedFromSteam2
+  nameWithType: LicenseFlags.ImportedFromSteam2
+  fullName: Steam.Net.LicenseFlags.ImportedFromSteam2
+  type: Field
+  source:
+    id: ImportedFromSteam2
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ImportedFromSteam2 = 128
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.ForceRunRestriction
+  commentId: F:Steam.Net.LicenseFlags.ForceRunRestriction
+  id: ForceRunRestriction
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: ForceRunRestriction
+  nameWithType: LicenseFlags.ForceRunRestriction
+  fullName: Steam.Net.LicenseFlags.ForceRunRestriction
+  type: Field
+  source:
+    id: ForceRunRestriction
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: ForceRunRestriction = 256
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.RegionRestrictionExpired
+  commentId: F:Steam.Net.LicenseFlags.RegionRestrictionExpired
+  id: RegionRestrictionExpired
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: RegionRestrictionExpired
+  nameWithType: LicenseFlags.RegionRestrictionExpired
+  fullName: Steam.Net.LicenseFlags.RegionRestrictionExpired
+  type: Field
+  source:
+    id: RegionRestrictionExpired
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RegionRestrictionExpired = 512
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.CancelledByFriendlyFraudLock
+  commentId: F:Steam.Net.LicenseFlags.CancelledByFriendlyFraudLock
+  id: CancelledByFriendlyFraudLock
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: CancelledByFriendlyFraudLock
+  nameWithType: LicenseFlags.CancelledByFriendlyFraudLock
+  fullName: Steam.Net.LicenseFlags.CancelledByFriendlyFraudLock
+  type: Field
+  source:
+    id: CancelledByFriendlyFraudLock
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: CancelledByFriendlyFraudLock = 1024
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseFlags.NotActivated
+  commentId: F:Steam.Net.LicenseFlags.NotActivated
+  id: NotActivated
+  parent: Steam.Net.LicenseFlags
+  langs:
+  - csharp
+  - vb
+  name: NotActivated
+  nameWithType: LicenseFlags.NotActivated
+  fullName: Steam.Net.LicenseFlags.NotActivated
+  type: Field
+  source:
+    id: NotActivated
+    path: G:\Steam\src\Network\Steam.Net\LicenseFlags.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NotActivated = 2048
+    return:
+      type: Steam.Net.LicenseFlags
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.LicenseFlags
+  commentId: T:Steam.Net.LicenseFlags
+  parent: Steam.Net
+  isExternal: false
+  name: LicenseFlags
+  nameWithType: LicenseFlags
+  fullName: Steam.Net.LicenseFlags

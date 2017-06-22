@@ -1,0 +1,276 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.LicenseType
+  commentId: T:Steam.Net.LicenseType
+  id: LicenseType
+  parent: Steam.Net
+  children:
+  - Steam.Net.LicenseType.LimitedUseDelayedActivation
+  - Steam.Net.LicenseType.NoLicense
+  - Steam.Net.LicenseType.RecurringCharge
+  - Steam.Net.LicenseType.RecurringChargeLimitedUse
+  - Steam.Net.LicenseType.RecurringChargeLimitedUseWithOverages
+  - Steam.Net.LicenseType.RecurringOption
+  - Steam.Net.LicenseType.SinglePurchase
+  - Steam.Net.LicenseType.SinglePurchaseLimitedUse
+  langs:
+  - csharp
+  - vb
+  name: LicenseType
+  nameWithType: LicenseType
+  fullName: Steam.Net.LicenseType
+  type: Enum
+  source:
+    id: LicenseType
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum LicenseType
+    content.vb: Public Enum LicenseType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.LicenseType.NoLicense
+  commentId: F:Steam.Net.LicenseType.NoLicense
+  id: NoLicense
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: NoLicense
+  nameWithType: LicenseType.NoLicense
+  fullName: Steam.Net.LicenseType.NoLicense
+  type: Field
+  source:
+    id: NoLicense
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: NoLicense = 0
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.SinglePurchase
+  commentId: F:Steam.Net.LicenseType.SinglePurchase
+  id: SinglePurchase
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: SinglePurchase
+  nameWithType: LicenseType.SinglePurchase
+  fullName: Steam.Net.LicenseType.SinglePurchase
+  type: Field
+  source:
+    id: SinglePurchase
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SinglePurchase = 1
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.SinglePurchaseLimitedUse
+  commentId: F:Steam.Net.LicenseType.SinglePurchaseLimitedUse
+  id: SinglePurchaseLimitedUse
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: SinglePurchaseLimitedUse
+  nameWithType: LicenseType.SinglePurchaseLimitedUse
+  fullName: Steam.Net.LicenseType.SinglePurchaseLimitedUse
+  type: Field
+  source:
+    id: SinglePurchaseLimitedUse
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: SinglePurchaseLimitedUse = 2
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.RecurringCharge
+  commentId: F:Steam.Net.LicenseType.RecurringCharge
+  id: RecurringCharge
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: RecurringCharge
+  nameWithType: LicenseType.RecurringCharge
+  fullName: Steam.Net.LicenseType.RecurringCharge
+  type: Field
+  source:
+    id: RecurringCharge
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RecurringCharge = 3
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.RecurringChargeLimitedUse
+  commentId: F:Steam.Net.LicenseType.RecurringChargeLimitedUse
+  id: RecurringChargeLimitedUse
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: RecurringChargeLimitedUse
+  nameWithType: LicenseType.RecurringChargeLimitedUse
+  fullName: Steam.Net.LicenseType.RecurringChargeLimitedUse
+  type: Field
+  source:
+    id: RecurringChargeLimitedUse
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RecurringChargeLimitedUse = 4
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.RecurringChargeLimitedUseWithOverages
+  commentId: F:Steam.Net.LicenseType.RecurringChargeLimitedUseWithOverages
+  id: RecurringChargeLimitedUseWithOverages
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: RecurringChargeLimitedUseWithOverages
+  nameWithType: LicenseType.RecurringChargeLimitedUseWithOverages
+  fullName: Steam.Net.LicenseType.RecurringChargeLimitedUseWithOverages
+  type: Field
+  source:
+    id: RecurringChargeLimitedUseWithOverages
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RecurringChargeLimitedUseWithOverages = 5
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.RecurringOption
+  commentId: F:Steam.Net.LicenseType.RecurringOption
+  id: RecurringOption
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: RecurringOption
+  nameWithType: LicenseType.RecurringOption
+  fullName: Steam.Net.LicenseType.RecurringOption
+  type: Field
+  source:
+    id: RecurringOption
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: RecurringOption = 6
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.LicenseType.LimitedUseDelayedActivation
+  commentId: F:Steam.Net.LicenseType.LimitedUseDelayedActivation
+  id: LimitedUseDelayedActivation
+  parent: Steam.Net.LicenseType
+  langs:
+  - csharp
+  - vb
+  name: LimitedUseDelayedActivation
+  nameWithType: LicenseType.LimitedUseDelayedActivation
+  fullName: Steam.Net.LicenseType.LimitedUseDelayedActivation
+  type: Field
+  source:
+    id: LimitedUseDelayedActivation
+    path: G:\Steam\src\Network\Steam.Net\LicenseType.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LimitedUseDelayedActivation = 7
+    return:
+      type: Steam.Net.LicenseType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.LicenseType
+  commentId: T:Steam.Net.LicenseType
+  parent: Steam.Net
+  isExternal: false
+  name: LicenseType
+  nameWithType: LicenseType
+  fullName: Steam.Net.LicenseType

@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Universe
+  commentId: T:Steam.Common.Universe
+  id: Universe
+  parent: Steam.Common
+  children:
+  - Steam.Common.Universe.Beta
+  - Steam.Common.Universe.Dev
+  - Steam.Common.Universe.Internal
+  - Steam.Common.Universe.Invalid
+  - Steam.Common.Universe.Public
+  langs:
+  - csharp
+  - vb
+  name: Universe
+  nameWithType: Universe
+  fullName: Steam.Common.Universe
+  type: Enum
+  source:
+    id: Universe
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe Steam universes a Steam ID can exist in\n"
+  example: []
+  syntax:
+    content: public enum Universe
+    content.vb: Public Enum Universe
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.Universe.Invalid
+  commentId: F:Steam.Common.Universe.Invalid
+  id: Invalid
+  parent: Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: Universe.Invalid
+  fullName: Steam.Common.Universe.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn invalid account universe\n"
+  example: []
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Steam.Common.Universe
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Universe.Public
+  commentId: F:Steam.Common.Universe.Public
+  id: Public
+  parent: Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Public
+  nameWithType: Universe.Public
+  fullName: Steam.Common.Universe.Public
+  type: Field
+  source:
+    id: Public
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe public account universe\n"
+  example: []
+  syntax:
+    content: Public = 1
+    return:
+      type: Steam.Common.Universe
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Universe.Beta
+  commentId: F:Steam.Common.Universe.Beta
+  id: Beta
+  parent: Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Beta
+  nameWithType: Universe.Beta
+  fullName: Steam.Common.Universe.Beta
+  type: Field
+  source:
+    id: Beta
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe beta account universe\n"
+  example: []
+  syntax:
+    content: Beta = 2
+    return:
+      type: Steam.Common.Universe
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Universe.Internal
+  commentId: F:Steam.Common.Universe.Internal
+  id: Internal
+  parent: Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Internal
+  nameWithType: Universe.Internal
+  fullName: Steam.Common.Universe.Internal
+  type: Field
+  source:
+    id: Internal
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 22
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe internal account universe\n"
+  example: []
+  syntax:
+    content: Internal = 3
+    return:
+      type: Steam.Common.Universe
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.Universe.Dev
+  commentId: F:Steam.Common.Universe.Dev
+  id: Dev
+  parent: Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Dev
+  nameWithType: Universe.Dev
+  fullName: Steam.Common.Universe.Dev
+  type: Field
+  source:
+    id: Dev
+    path: G:\Steam\src\Common\Steam.Common\Universe.cs
+    startLine: 26
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe dev account universe\n"
+  example: []
+  syntax:
+    content: Dev = 4
+    return:
+      type: Steam.Common.Universe
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.Universe
+  commentId: T:Steam.Common.Universe
+  parent: Steam.Common
+  isExternal: false
+  name: Universe
+  nameWithType: Universe
+  fullName: Steam.Common.Universe

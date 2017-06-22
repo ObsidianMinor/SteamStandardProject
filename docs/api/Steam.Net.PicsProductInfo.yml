@@ -1,0 +1,575 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.PicsProductInfo
+  commentId: T:Steam.Net.PicsProductInfo
+  id: PicsProductInfo
+  parent: Steam.Net
+  children:
+  - Steam.Net.PicsProductInfo.AppInfo
+  - Steam.Net.PicsProductInfo.ChangeNumber
+  - Steam.Net.PicsProductInfo.Id
+  - Steam.Net.PicsProductInfo.MissingToken
+  - Steam.Net.PicsProductInfo.ShaHash
+  langs:
+  - csharp
+  - vb
+  name: PicsProductInfo
+  nameWithType: PicsProductInfo
+  fullName: Steam.Net.PicsProductInfo
+  type: Class
+  source:
+    id: PicsProductInfo
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public class PicsProductInfo
+    content.vb: Public Class PicsProductInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.PicsProductInfo.Id
+  commentId: P:Steam.Net.PicsProductInfo.Id
+  id: Id
+  parent: Steam.Net.PicsProductInfo
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: PicsProductInfo.Id
+  fullName: Steam.Net.PicsProductInfo.Id
+  type: Property
+  source:
+    id: Id
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public uint Id { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property Id As UInteger
+  overload: Steam.Net.PicsProductInfo.Id*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.PicsProductInfo.ChangeNumber
+  commentId: P:Steam.Net.PicsProductInfo.ChangeNumber
+  id: ChangeNumber
+  parent: Steam.Net.PicsProductInfo
+  langs:
+  - csharp
+  - vb
+  name: ChangeNumber
+  nameWithType: PicsProductInfo.ChangeNumber
+  fullName: Steam.Net.PicsProductInfo.ChangeNumber
+  type: Property
+  source:
+    id: ChangeNumber
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public uint ChangeNumber { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property ChangeNumber As UInteger
+  overload: Steam.Net.PicsProductInfo.ChangeNumber*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.PicsProductInfo.MissingToken
+  commentId: P:Steam.Net.PicsProductInfo.MissingToken
+  id: MissingToken
+  parent: Steam.Net.PicsProductInfo
+  langs:
+  - csharp
+  - vb
+  name: MissingToken
+  nameWithType: PicsProductInfo.MissingToken
+  fullName: Steam.Net.PicsProductInfo.MissingToken
+  type: Property
+  source:
+    id: MissingToken
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public bool MissingToken { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property MissingToken As Boolean
+  overload: Steam.Net.PicsProductInfo.MissingToken*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.PicsProductInfo.ShaHash
+  commentId: P:Steam.Net.PicsProductInfo.ShaHash
+  id: ShaHash
+  parent: Steam.Net.PicsProductInfo
+  langs:
+  - csharp
+  - vb
+  name: ShaHash
+  nameWithType: PicsProductInfo.ShaHash
+  fullName: Steam.Net.PicsProductInfo.ShaHash
+  type: Property
+  source:
+    id: ShaHash
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public byte[] ShaHash { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property ShaHash As Byte()
+  overload: Steam.Net.PicsProductInfo.ShaHash*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.PicsProductInfo.AppInfo
+  commentId: P:Steam.Net.PicsProductInfo.AppInfo
+  id: AppInfo
+  parent: Steam.Net.PicsProductInfo
+  langs:
+  - csharp
+  - vb
+  name: AppInfo
+  nameWithType: PicsProductInfo.AppInfo
+  fullName: Steam.Net.PicsProductInfo.AppInfo
+  type: Property
+  source:
+    id: AppInfo
+    path: G:\Steam\src\Network\Steam.Net\PicsProductInfo.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public AppInfo AppInfo { get; }
+    parameters: []
+    return:
+      type: Steam.Net.AppInfo
+    content.vb: Public ReadOnly Property AppInfo As AppInfo
+  overload: Steam.Net.PicsProductInfo.AppInfo*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Net.PicsProductInfo.Id*
+  commentId: Overload:Steam.Net.PicsProductInfo.Id
+  isExternal: false
+  name: Id
+  nameWithType: PicsProductInfo.Id
+  fullName: Steam.Net.PicsProductInfo.Id
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Net.PicsProductInfo.ChangeNumber*
+  commentId: Overload:Steam.Net.PicsProductInfo.ChangeNumber
+  isExternal: false
+  name: ChangeNumber
+  nameWithType: PicsProductInfo.ChangeNumber
+  fullName: Steam.Net.PicsProductInfo.ChangeNumber
+- uid: Steam.Net.PicsProductInfo.MissingToken*
+  commentId: Overload:Steam.Net.PicsProductInfo.MissingToken
+  isExternal: false
+  name: MissingToken
+  nameWithType: PicsProductInfo.MissingToken
+  fullName: Steam.Net.PicsProductInfo.MissingToken
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Net.PicsProductInfo.ShaHash*
+  commentId: Overload:Steam.Net.PicsProductInfo.ShaHash
+  isExternal: false
+  name: ShaHash
+  nameWithType: PicsProductInfo.ShaHash
+  fullName: Steam.Net.PicsProductInfo.ShaHash
+- uid: System.Byte[]
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Steam.Net.PicsProductInfo.AppInfo*
+  commentId: Overload:Steam.Net.PicsProductInfo.AppInfo
+  isExternal: false
+  name: AppInfo
+  nameWithType: PicsProductInfo.AppInfo
+  fullName: Steam.Net.PicsProductInfo.AppInfo
+- uid: Steam.Net.AppInfo
+  commentId: T:Steam.Net.AppInfo
+  parent: Steam.Net
+  isExternal: false
+  name: AppInfo
+  nameWithType: AppInfo
+  fullName: Steam.Net.AppInfo

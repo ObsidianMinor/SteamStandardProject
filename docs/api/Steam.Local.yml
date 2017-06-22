@@ -1,0 +1,38 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local
+  commentId: N:Steam.Local
+  id: Steam.Local
+  children:
+  - Steam.Local.Registry
+  - Steam.Local.SteamInstallation
+  langs:
+  - csharp
+  - vb
+  name: Steam.Local
+  nameWithType: Steam.Local
+  fullName: Steam.Local
+  type: Namespace
+  assemblies:
+  - Steam.Local
+references:
+- uid: Steam.Local.Registry
+  commentId: T:Steam.Local.Registry
+  parent: Steam.Local
+  isExternal: false
+  name: Registry
+  nameWithType: Registry
+  fullName: Steam.Local.Registry
+- uid: Steam.Local.SteamInstallation
+  commentId: T:Steam.Local.SteamInstallation
+  parent: Steam.Local
+  isExternal: false
+  name: SteamInstallation
+  nameWithType: SteamInstallation
+  fullName: Steam.Local.SteamInstallation
+- uid: Steam.Local
+  commentId: N:Steam.Local
+  isExternal: false
+  name: Steam.Local
+  nameWithType: Steam.Local
+  fullName: Steam.Local

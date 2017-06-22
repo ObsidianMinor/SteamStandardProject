@@ -1,0 +1,1436 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.OsType
+  commentId: T:Steam.Net.OsType
+  id: OsType
+  parent: Steam.Net
+  children:
+  - Steam.Net.OsType.AndroidUnknown
+  - Steam.Net.OsType.IosUnknown
+  - Steam.Net.OsType.Linux22
+  - Steam.Net.OsType.Linux24
+  - Steam.Net.OsType.Linux26
+  - Steam.Net.OsType.Linux310
+  - Steam.Net.OsType.Linux32
+  - Steam.Net.OsType.Linux35
+  - Steam.Net.OsType.Linux36
+  - Steam.Net.OsType.LinuxMax
+  - Steam.Net.OsType.LinuxUnknown
+  - Steam.Net.OsType.MacOs104
+  - Steam.Net.OsType.MacOs105
+  - Steam.Net.OsType.MacOs1058
+  - Steam.Net.OsType.MacOs106
+  - Steam.Net.OsType.MacOs1063
+  - Steam.Net.OsType.MacOs1064_slgu
+  - Steam.Net.OsType.MacOs1067
+  - Steam.Net.OsType.MacOsElCapitan
+  - Steam.Net.OsType.MacOsLion
+  - Steam.Net.OsType.MacOsMavericks
+  - Steam.Net.OsType.MacOSMax
+  - Steam.Net.OsType.MacOsMountainLion
+  - Steam.Net.OsType.MacOsSierra
+  - Steam.Net.OsType.MacOsUnknown
+  - Steam.Net.OsType.MacOsYosemite
+  - Steam.Net.OsType.Max
+  - Steam.Net.OsType.PS3
+  - Steam.Net.OsType.UMQ
+  - Steam.Net.OsType.Unknown
+  - Steam.Net.OsType.Win2000
+  - Steam.Net.OsType.Win2003
+  - Steam.Net.OsType.Win2008
+  - Steam.Net.OsType.Win2012
+  - Steam.Net.OsType.Win2012R2
+  - Steam.Net.OsType.Win311
+  - Steam.Net.OsType.Win95
+  - Steam.Net.OsType.Win98
+  - Steam.Net.OsType.Windows10
+  - Steam.Net.OsType.Windows7
+  - Steam.Net.OsType.Windows8
+  - Steam.Net.OsType.Windows81
+  - Steam.Net.OsType.WinMax
+  - Steam.Net.OsType.WinMe
+  - Steam.Net.OsType.WinNt
+  - Steam.Net.OsType.WinUnknown
+  - Steam.Net.OsType.WinVista
+  - Steam.Net.OsType.WinXp
+  langs:
+  - csharp
+  - vb
+  name: OsType
+  nameWithType: OsType
+  fullName: Steam.Net.OsType
+  type: Enum
+  source:
+    id: OsType
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 2
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public enum OsType
+    content.vb: Public Enum OsType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.OsType.Unknown
+  commentId: F:Steam.Net.OsType.Unknown
+  id: Unknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: OsType.Unknown
+  fullName: Steam.Net.OsType.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Unknown = -1
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.IosUnknown
+  commentId: F:Steam.Net.OsType.IosUnknown
+  id: IosUnknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: IosUnknown
+  nameWithType: OsType.IosUnknown
+  fullName: Steam.Net.OsType.IosUnknown
+  type: Field
+  source:
+    id: IosUnknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: IosUnknown = -600
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.AndroidUnknown
+  commentId: F:Steam.Net.OsType.AndroidUnknown
+  id: AndroidUnknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: AndroidUnknown
+  nameWithType: OsType.AndroidUnknown
+  fullName: Steam.Net.OsType.AndroidUnknown
+  type: Field
+  source:
+    id: AndroidUnknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: AndroidUnknown = -500
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.UMQ
+  commentId: F:Steam.Net.OsType.UMQ
+  id: UMQ
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: UMQ
+  nameWithType: OsType.UMQ
+  fullName: Steam.Net.OsType.UMQ
+  type: Field
+  source:
+    id: UMQ
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: UMQ = -400
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.PS3
+  commentId: F:Steam.Net.OsType.PS3
+  id: PS3
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: PS3
+  nameWithType: OsType.PS3
+  fullName: Steam.Net.OsType.PS3
+  type: Field
+  source:
+    id: PS3
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: PS3 = -300
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsUnknown
+  commentId: F:Steam.Net.OsType.MacOsUnknown
+  id: MacOsUnknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsUnknown
+  nameWithType: OsType.MacOsUnknown
+  fullName: Steam.Net.OsType.MacOsUnknown
+  type: Field
+  source:
+    id: MacOsUnknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsUnknown = -102
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs104
+  commentId: F:Steam.Net.OsType.MacOs104
+  id: MacOs104
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs104
+  nameWithType: OsType.MacOs104
+  fullName: Steam.Net.OsType.MacOs104
+  type: Field
+  source:
+    id: MacOs104
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs104 = -101
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs105
+  commentId: F:Steam.Net.OsType.MacOs105
+  id: MacOs105
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs105
+  nameWithType: OsType.MacOs105
+  fullName: Steam.Net.OsType.MacOs105
+  type: Field
+  source:
+    id: MacOs105
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 11
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs105 = -100
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs1058
+  commentId: F:Steam.Net.OsType.MacOs1058
+  id: MacOs1058
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs1058
+  nameWithType: OsType.MacOs1058
+  fullName: Steam.Net.OsType.MacOs1058
+  type: Field
+  source:
+    id: MacOs1058
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs1058 = -99
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs106
+  commentId: F:Steam.Net.OsType.MacOs106
+  id: MacOs106
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs106
+  nameWithType: OsType.MacOs106
+  fullName: Steam.Net.OsType.MacOs106
+  type: Field
+  source:
+    id: MacOs106
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs106 = -95
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs1063
+  commentId: F:Steam.Net.OsType.MacOs1063
+  id: MacOs1063
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs1063
+  nameWithType: OsType.MacOs1063
+  fullName: Steam.Net.OsType.MacOs1063
+  type: Field
+  source:
+    id: MacOs1063
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs1063 = -94
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs1064_slgu
+  commentId: F:Steam.Net.OsType.MacOs1064_slgu
+  id: MacOs1064_slgu
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs1064_slgu
+  nameWithType: OsType.MacOs1064_slgu
+  fullName: Steam.Net.OsType.MacOs1064_slgu
+  type: Field
+  source:
+    id: MacOs1064_slgu
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 15
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs1064_slgu = -93
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOs1067
+  commentId: F:Steam.Net.OsType.MacOs1067
+  id: MacOs1067
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOs1067
+  nameWithType: OsType.MacOs1067
+  fullName: Steam.Net.OsType.MacOs1067
+  type: Field
+  source:
+    id: MacOs1067
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 16
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOs1067 = -92
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsLion
+  commentId: F:Steam.Net.OsType.MacOsLion
+  id: MacOsLion
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsLion
+  nameWithType: OsType.MacOsLion
+  fullName: Steam.Net.OsType.MacOsLion
+  type: Field
+  source:
+    id: MacOsLion
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsLion = -90
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsMountainLion
+  commentId: F:Steam.Net.OsType.MacOsMountainLion
+  id: MacOsMountainLion
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsMountainLion
+  nameWithType: OsType.MacOsMountainLion
+  fullName: Steam.Net.OsType.MacOsMountainLion
+  type: Field
+  source:
+    id: MacOsMountainLion
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsMountainLion = -89
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsMavericks
+  commentId: F:Steam.Net.OsType.MacOsMavericks
+  id: MacOsMavericks
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsMavericks
+  nameWithType: OsType.MacOsMavericks
+  fullName: Steam.Net.OsType.MacOsMavericks
+  type: Field
+  source:
+    id: MacOsMavericks
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 19
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsMavericks = -88
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsYosemite
+  commentId: F:Steam.Net.OsType.MacOsYosemite
+  id: MacOsYosemite
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsYosemite
+  nameWithType: OsType.MacOsYosemite
+  fullName: Steam.Net.OsType.MacOsYosemite
+  type: Field
+  source:
+    id: MacOsYosemite
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 20
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsYosemite = -87
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsElCapitan
+  commentId: F:Steam.Net.OsType.MacOsElCapitan
+  id: MacOsElCapitan
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsElCapitan
+  nameWithType: OsType.MacOsElCapitan
+  fullName: Steam.Net.OsType.MacOsElCapitan
+  type: Field
+  source:
+    id: MacOsElCapitan
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 21
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsElCapitan = -86
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOsSierra
+  commentId: F:Steam.Net.OsType.MacOsSierra
+  id: MacOsSierra
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOsSierra
+  nameWithType: OsType.MacOsSierra
+  fullName: Steam.Net.OsType.MacOsSierra
+  type: Field
+  source:
+    id: MacOsSierra
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOsSierra = -85
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.MacOSMax
+  commentId: F:Steam.Net.OsType.MacOSMax
+  id: MacOSMax
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: MacOSMax
+  nameWithType: OsType.MacOSMax
+  fullName: Steam.Net.OsType.MacOSMax
+  type: Field
+  source:
+    id: MacOSMax
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 23
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: MacOSMax = -1
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.LinuxUnknown
+  commentId: F:Steam.Net.OsType.LinuxUnknown
+  id: LinuxUnknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: LinuxUnknown
+  nameWithType: OsType.LinuxUnknown
+  fullName: Steam.Net.OsType.LinuxUnknown
+  type: Field
+  source:
+    id: LinuxUnknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 24
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LinuxUnknown = -203
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux22
+  commentId: F:Steam.Net.OsType.Linux22
+  id: Linux22
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux22
+  nameWithType: OsType.Linux22
+  fullName: Steam.Net.OsType.Linux22
+  type: Field
+  source:
+    id: Linux22
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 25
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux22 = -202
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux24
+  commentId: F:Steam.Net.OsType.Linux24
+  id: Linux24
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux24
+  nameWithType: OsType.Linux24
+  fullName: Steam.Net.OsType.Linux24
+  type: Field
+  source:
+    id: Linux24
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 26
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux24 = -201
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux26
+  commentId: F:Steam.Net.OsType.Linux26
+  id: Linux26
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux26
+  nameWithType: OsType.Linux26
+  fullName: Steam.Net.OsType.Linux26
+  type: Field
+  source:
+    id: Linux26
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux26 = -200
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux32
+  commentId: F:Steam.Net.OsType.Linux32
+  id: Linux32
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux32
+  nameWithType: OsType.Linux32
+  fullName: Steam.Net.OsType.Linux32
+  type: Field
+  source:
+    id: Linux32
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 28
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux32 = -199
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux35
+  commentId: F:Steam.Net.OsType.Linux35
+  id: Linux35
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux35
+  nameWithType: OsType.Linux35
+  fullName: Steam.Net.OsType.Linux35
+  type: Field
+  source:
+    id: Linux35
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 29
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux35 = -198
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux36
+  commentId: F:Steam.Net.OsType.Linux36
+  id: Linux36
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux36
+  nameWithType: OsType.Linux36
+  fullName: Steam.Net.OsType.Linux36
+  type: Field
+  source:
+    id: Linux36
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux36 = -197
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Linux310
+  commentId: F:Steam.Net.OsType.Linux310
+  id: Linux310
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Linux310
+  nameWithType: OsType.Linux310
+  fullName: Steam.Net.OsType.Linux310
+  type: Field
+  source:
+    id: Linux310
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 31
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Linux310 = -196
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.LinuxMax
+  commentId: F:Steam.Net.OsType.LinuxMax
+  id: LinuxMax
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: LinuxMax
+  nameWithType: OsType.LinuxMax
+  fullName: Steam.Net.OsType.LinuxMax
+  type: Field
+  source:
+    id: LinuxMax
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 32
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: LinuxMax = -103
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinUnknown
+  commentId: F:Steam.Net.OsType.WinUnknown
+  id: WinUnknown
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinUnknown
+  nameWithType: OsType.WinUnknown
+  fullName: Steam.Net.OsType.WinUnknown
+  type: Field
+  source:
+    id: WinUnknown
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 33
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinUnknown = 0
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win311
+  commentId: F:Steam.Net.OsType.Win311
+  id: Win311
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win311
+  nameWithType: OsType.Win311
+  fullName: Steam.Net.OsType.Win311
+  type: Field
+  source:
+    id: Win311
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 34
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win311 = 1
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win95
+  commentId: F:Steam.Net.OsType.Win95
+  id: Win95
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win95
+  nameWithType: OsType.Win95
+  fullName: Steam.Net.OsType.Win95
+  type: Field
+  source:
+    id: Win95
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 35
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win95 = 2
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win98
+  commentId: F:Steam.Net.OsType.Win98
+  id: Win98
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win98
+  nameWithType: OsType.Win98
+  fullName: Steam.Net.OsType.Win98
+  type: Field
+  source:
+    id: Win98
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 36
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win98 = 3
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinMe
+  commentId: F:Steam.Net.OsType.WinMe
+  id: WinMe
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinMe
+  nameWithType: OsType.WinMe
+  fullName: Steam.Net.OsType.WinMe
+  type: Field
+  source:
+    id: WinMe
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 37
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinMe = 4
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinNt
+  commentId: F:Steam.Net.OsType.WinNt
+  id: WinNt
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinNt
+  nameWithType: OsType.WinNt
+  fullName: Steam.Net.OsType.WinNt
+  type: Field
+  source:
+    id: WinNt
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 38
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinNt = 5
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win2000
+  commentId: F:Steam.Net.OsType.Win2000
+  id: Win2000
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win2000
+  nameWithType: OsType.Win2000
+  fullName: Steam.Net.OsType.Win2000
+  type: Field
+  source:
+    id: Win2000
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 39
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win2000 = 6
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinXp
+  commentId: F:Steam.Net.OsType.WinXp
+  id: WinXp
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinXp
+  nameWithType: OsType.WinXp
+  fullName: Steam.Net.OsType.WinXp
+  type: Field
+  source:
+    id: WinXp
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 40
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinXp = 7
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win2003
+  commentId: F:Steam.Net.OsType.Win2003
+  id: Win2003
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win2003
+  nameWithType: OsType.Win2003
+  fullName: Steam.Net.OsType.Win2003
+  type: Field
+  source:
+    id: Win2003
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 41
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win2003 = 8
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinVista
+  commentId: F:Steam.Net.OsType.WinVista
+  id: WinVista
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinVista
+  nameWithType: OsType.WinVista
+  fullName: Steam.Net.OsType.WinVista
+  type: Field
+  source:
+    id: WinVista
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 42
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinVista = 9
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Windows7
+  commentId: F:Steam.Net.OsType.Windows7
+  id: Windows7
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Windows7
+  nameWithType: OsType.Windows7
+  fullName: Steam.Net.OsType.Windows7
+  type: Field
+  source:
+    id: Windows7
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 43
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Windows7 = 10
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win2008
+  commentId: F:Steam.Net.OsType.Win2008
+  id: Win2008
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win2008
+  nameWithType: OsType.Win2008
+  fullName: Steam.Net.OsType.Win2008
+  type: Field
+  source:
+    id: Win2008
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 44
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win2008 = 11
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win2012
+  commentId: F:Steam.Net.OsType.Win2012
+  id: Win2012
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win2012
+  nameWithType: OsType.Win2012
+  fullName: Steam.Net.OsType.Win2012
+  type: Field
+  source:
+    id: Win2012
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 45
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win2012 = 12
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Windows8
+  commentId: F:Steam.Net.OsType.Windows8
+  id: Windows8
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Windows8
+  nameWithType: OsType.Windows8
+  fullName: Steam.Net.OsType.Windows8
+  type: Field
+  source:
+    id: Windows8
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 46
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Windows8 = 13
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Windows81
+  commentId: F:Steam.Net.OsType.Windows81
+  id: Windows81
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Windows81
+  nameWithType: OsType.Windows81
+  fullName: Steam.Net.OsType.Windows81
+  type: Field
+  source:
+    id: Windows81
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 47
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Windows81 = 14
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Win2012R2
+  commentId: F:Steam.Net.OsType.Win2012R2
+  id: Win2012R2
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Win2012R2
+  nameWithType: OsType.Win2012R2
+  fullName: Steam.Net.OsType.Win2012R2
+  type: Field
+  source:
+    id: Win2012R2
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 48
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Win2012R2 = 15
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Windows10
+  commentId: F:Steam.Net.OsType.Windows10
+  id: Windows10
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Windows10
+  nameWithType: OsType.Windows10
+  fullName: Steam.Net.OsType.Windows10
+  type: Field
+  source:
+    id: Windows10
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 49
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Windows10 = 16
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.WinMax
+  commentId: F:Steam.Net.OsType.WinMax
+  id: WinMax
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: WinMax
+  nameWithType: OsType.WinMax
+  fullName: Steam.Net.OsType.WinMax
+  type: Field
+  source:
+    id: WinMax
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 50
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: WinMax = 15
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.OsType.Max
+  commentId: F:Steam.Net.OsType.Max
+  id: Max
+  parent: Steam.Net.OsType
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: OsType.Max
+  fullName: Steam.Net.OsType.Max
+  type: Field
+  source:
+    id: Max
+    path: G:\Steam\src\Network\Steam.Net\OsType.cs
+    startLine: 51
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Max = 26
+    return:
+      type: Steam.Net.OsType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.OsType
+  commentId: T:Steam.Net.OsType
+  parent: Steam.Net
+  isExternal: false
+  name: OsType
+  nameWithType: OsType
+  fullName: Steam.Net.OsType

@@ -1,0 +1,577 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.Logging.LogMessage
+  commentId: T:Steam.Common.Logging.LogMessage
+  id: LogMessage
+  parent: Steam.Common.Logging
+  children:
+  - Steam.Common.Logging.LogMessage.#ctor(System.String,Steam.Common.Logging.LogSeverity,System.String)
+  - Steam.Common.Logging.LogMessage.Level
+  - Steam.Common.Logging.LogMessage.Message
+  - Steam.Common.Logging.LogMessage.Source
+  - Steam.Common.Logging.LogMessage.Time
+  - Steam.Common.Logging.LogMessage.ToString
+  langs:
+  - csharp
+  - vb
+  name: LogMessage
+  nameWithType: LogMessage
+  fullName: Steam.Common.Logging.LogMessage
+  type: Struct
+  source:
+    id: LogMessage
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 7
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nA simple log message\n"
+  example: []
+  syntax:
+    content: public struct LogMessage
+    content.vb: Public Structure LogMessage
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: Steam.Common.Logging.LogMessage.Source
+  commentId: P:Steam.Common.Logging.LogMessage.Source
+  id: Source
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: LogMessage.Source
+  fullName: Steam.Common.Logging.LogMessage.Source
+  type: Property
+  source:
+    id: Source
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 12
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nThe source of this log message\n"
+  example: []
+  syntax:
+    content: public string Source { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Source As String
+  overload: Steam.Common.Logging.LogMessage.Source*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.Logging.LogMessage.Time
+  commentId: P:Steam.Common.Logging.LogMessage.Time
+  id: Time
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: LogMessage.Time
+  fullName: Steam.Common.Logging.LogMessage.Time
+  type: Property
+  source:
+    id: Time
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 16
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nThe time this message was created\n"
+  example: []
+  syntax:
+    content: public DateTime Time { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public ReadOnly Property Time As Date
+  overload: Steam.Common.Logging.LogMessage.Time*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.Logging.LogMessage.Message
+  commentId: P:Steam.Common.Logging.LogMessage.Message
+  id: Message
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: LogMessage.Message
+  fullName: Steam.Common.Logging.LogMessage.Message
+  type: Property
+  source:
+    id: Message
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 20
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nThe message\n"
+  example: []
+  syntax:
+    content: public string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Message As String
+  overload: Steam.Common.Logging.LogMessage.Message*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.Logging.LogMessage.Level
+  commentId: P:Steam.Common.Logging.LogMessage.Level
+  id: Level
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: LogMessage.Level
+  fullName: Steam.Common.Logging.LogMessage.Level
+  type: Property
+  source:
+    id: Level
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 24
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nThe log severity\n"
+  example: []
+  syntax:
+    content: public LogSeverity Level { get; }
+    parameters: []
+    return:
+      type: Steam.Common.Logging.LogSeverity
+    content.vb: Public ReadOnly Property Level As LogSeverity
+  overload: Steam.Common.Logging.LogMessage.Level*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.Logging.LogMessage.#ctor(System.String,Steam.Common.Logging.LogSeverity,System.String)
+  commentId: M:Steam.Common.Logging.LogMessage.#ctor(System.String,Steam.Common.Logging.LogSeverity,System.String)
+  id: '#ctor(System.String,Steam.Common.Logging.LogSeverity,System.String)'
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: LogMessage(String, LogSeverity, String)
+  nameWithType: LogMessage.LogMessage(String, LogSeverity, String)
+  fullName: Steam.Common.Logging.LogMessage.LogMessage(System.String, Steam.Common.Logging.LogSeverity, System.String)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 32
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  summary: "\nCreates a new log message\n"
+  example: []
+  syntax:
+    content: public LogMessage(string source, LogSeverity level, string message)
+    parameters:
+    - id: source
+      type: System.String
+      description: ''
+    - id: level
+      type: Steam.Common.Logging.LogSeverity
+      description: ''
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(source As String, level As LogSeverity, message As String)
+  overload: Steam.Common.Logging.LogMessage.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.Logging.LogMessage.ToString
+  commentId: M:Steam.Common.Logging.LogMessage.ToString
+  id: ToString
+  parent: Steam.Common.Logging.LogMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LogMessage.ToString()
+  fullName: Steam.Common.Logging.LogMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: G:\Steam\src\Common\Steam.Common\Logging\LogMessage.cs
+    startLine: 40
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common.Logging
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: Steam.Common.Logging.LogMessage.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Steam.Common.Logging
+  commentId: N:Steam.Common.Logging
+  isExternal: false
+  name: Steam.Common.Logging
+  nameWithType: Steam.Common.Logging
+  fullName: Steam.Common.Logging
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Common.Logging.LogMessage.Source*
+  commentId: Overload:Steam.Common.Logging.LogMessage.Source
+  isExternal: false
+  name: Source
+  nameWithType: LogMessage.Source
+  fullName: Steam.Common.Logging.LogMessage.Source
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Common.Logging.LogMessage.Time*
+  commentId: Overload:Steam.Common.Logging.LogMessage.Time
+  isExternal: false
+  name: Time
+  nameWithType: LogMessage.Time
+  fullName: Steam.Common.Logging.LogMessage.Time
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: Steam.Common.Logging.LogMessage.Message*
+  commentId: Overload:Steam.Common.Logging.LogMessage.Message
+  isExternal: false
+  name: Message
+  nameWithType: LogMessage.Message
+  fullName: Steam.Common.Logging.LogMessage.Message
+- uid: Steam.Common.Logging.LogMessage.Level*
+  commentId: Overload:Steam.Common.Logging.LogMessage.Level
+  isExternal: false
+  name: Level
+  nameWithType: LogMessage.Level
+  fullName: Steam.Common.Logging.LogMessage.Level
+- uid: Steam.Common.Logging.LogSeverity
+  commentId: T:Steam.Common.Logging.LogSeverity
+  parent: Steam.Common.Logging
+  isExternal: false
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Steam.Common.Logging.LogSeverity
+- uid: Steam.Common.Logging.LogMessage.#ctor*
+  commentId: Overload:Steam.Common.Logging.LogMessage.#ctor
+  isExternal: false
+  name: LogMessage
+  nameWithType: LogMessage.LogMessage
+  fullName: Steam.Common.Logging.LogMessage.LogMessage
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Common.Logging.LogMessage.ToString*
+  commentId: Overload:Steam.Common.Logging.LogMessage.ToString
+  isExternal: false
+  name: ToString
+  nameWithType: LogMessage.ToString
+  fullName: Steam.Common.Logging.LogMessage.ToString

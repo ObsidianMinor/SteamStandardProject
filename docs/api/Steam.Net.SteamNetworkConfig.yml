@@ -1,0 +1,723 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.SteamNetworkConfig
+  commentId: T:Steam.Net.SteamNetworkConfig
+  id: SteamNetworkConfig
+  parent: Steam.Net
+  children:
+  - Steam.Net.SteamNetworkConfig.CellId
+  - Steam.Net.SteamNetworkConfig.ConnectionManagers
+  - Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+  - Steam.Net.SteamNetworkConfig.SocketClient
+  langs:
+  - csharp
+  - vb
+  name: SteamNetworkConfig
+  nameWithType: SteamNetworkConfig
+  fullName: Steam.Net.SteamNetworkConfig
+  type: Class
+  source:
+    id: SteamNetworkConfig
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkConfig.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: 'public class SteamNetworkConfig : SteamWebConfig'
+    content.vb: >-
+      Public Class SteamNetworkConfig
+
+          Inherits SteamWebConfig
+  inheritance:
+  - System.Object
+  - Steam.Common.SteamConfig
+  - Steam.Rest.SteamRestConfig
+  - Steam.Web.SteamWebConfig
+  inheritedMembers:
+  - Steam.Web.SteamWebConfig.BaseUrl
+  - Steam.Web.SteamWebConfig.WebApiKey
+  - Steam.Web.SteamWebConfig.BaseUri
+  - Steam.Rest.SteamRestConfig.DefaultRequestTimeout
+  - Steam.Rest.SteamRestConfig.DefaultRetryMode
+  - Steam.Rest.SteamRestConfig.RestClient
+  - Steam.Common.SteamConfig.LogLevel
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.SteamNetworkConfig.SocketClient
+  commentId: P:Steam.Net.SteamNetworkConfig.SocketClient
+  id: SocketClient
+  parent: Steam.Net.SteamNetworkConfig
+  langs:
+  - csharp
+  - vb
+  name: SocketClient
+  nameWithType: SteamNetworkConfig.SocketClient
+  fullName: Steam.Net.SteamNetworkConfig.SocketClient
+  type: Property
+  source:
+    id: SocketClient
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkConfig.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nSets the socket client for this client. The default is a TCP client\n"
+  example: []
+  syntax:
+    content: public ISocketClient SocketClient { get; set; }
+    parameters: []
+    return:
+      type: Steam.Net.Sockets.ISocketClient
+    content.vb: Public Property SocketClient As ISocketClient
+  overload: Steam.Net.SteamNetworkConfig.SocketClient*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+  commentId: P:Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+  id: NetworkConnectionTimeout
+  parent: Steam.Net.SteamNetworkConfig
+  langs:
+  - csharp
+  - vb
+  name: NetworkConnectionTimeout
+  nameWithType: SteamNetworkConfig.NetworkConnectionTimeout
+  fullName: Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+  type: Property
+  source:
+    id: NetworkConnectionTimeout
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkConfig.cs
+    startLine: 17
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe time in milliseconds to wait for a connection to complete before aborting\n"
+  example: []
+  syntax:
+    content: public int NetworkConnectionTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NetworkConnectionTimeout As Integer
+  overload: Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkConfig.CellId
+  commentId: P:Steam.Net.SteamNetworkConfig.CellId
+  id: CellId
+  parent: Steam.Net.SteamNetworkConfig
+  langs:
+  - csharp
+  - vb
+  name: CellId
+  nameWithType: SteamNetworkConfig.CellId
+  fullName: Steam.Net.SteamNetworkConfig.CellId
+  type: Property
+  source:
+    id: CellId
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkConfig.cs
+    startLine: 22
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets or sets the default cell Id to get when connecting to Steam\n"
+  example: []
+  syntax:
+    content: public uint CellId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property CellId As UInteger
+  overload: Steam.Net.SteamNetworkConfig.CellId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkConfig.ConnectionManagers
+  commentId: P:Steam.Net.SteamNetworkConfig.ConnectionManagers
+  id: ConnectionManagers
+  parent: Steam.Net.SteamNetworkConfig
+  langs:
+  - csharp
+  - vb
+  name: ConnectionManagers
+  nameWithType: SteamNetworkConfig.ConnectionManagers
+  fullName: Steam.Net.SteamNetworkConfig.ConnectionManagers
+  type: Property
+  source:
+    id: ConnectionManagers
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkConfig.cs
+    startLine: 27
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nGets or sets a list of connection manager endpoints which can be used before resorting to a <xref href=\"Steam.Web.SteamWebClient\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public IEnumerable<IPEndPoint> ConnectionManagers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Net.IPEndPoint}
+    content.vb: Public Property ConnectionManagers As IEnumerable(Of IPEndPoint)
+  overload: Steam.Net.SteamNetworkConfig.ConnectionManagers*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Steam.Common.SteamConfig
+  commentId: T:Steam.Common.SteamConfig
+  parent: Steam.Common
+  isExternal: false
+  name: SteamConfig
+  nameWithType: SteamConfig
+  fullName: Steam.Common.SteamConfig
+- uid: Steam.Rest.SteamRestConfig
+  commentId: T:Steam.Rest.SteamRestConfig
+  parent: Steam.Rest
+  isExternal: false
+  name: SteamRestConfig
+  nameWithType: SteamRestConfig
+  fullName: Steam.Rest.SteamRestConfig
+- uid: Steam.Web.SteamWebConfig
+  commentId: T:Steam.Web.SteamWebConfig
+  parent: Steam.Web
+  isExternal: false
+  name: SteamWebConfig
+  nameWithType: SteamWebConfig
+  fullName: Steam.Web.SteamWebConfig
+- uid: Steam.Web.SteamWebConfig.BaseUrl
+  commentId: F:Steam.Web.SteamWebConfig.BaseUrl
+  parent: Steam.Web.SteamWebConfig
+  isExternal: false
+  name: BaseUrl
+  nameWithType: SteamWebConfig.BaseUrl
+  fullName: Steam.Web.SteamWebConfig.BaseUrl
+- uid: Steam.Web.SteamWebConfig.WebApiKey
+  commentId: P:Steam.Web.SteamWebConfig.WebApiKey
+  parent: Steam.Web.SteamWebConfig
+  isExternal: false
+  name: WebApiKey
+  nameWithType: SteamWebConfig.WebApiKey
+  fullName: Steam.Web.SteamWebConfig.WebApiKey
+- uid: Steam.Web.SteamWebConfig.BaseUri
+  commentId: P:Steam.Web.SteamWebConfig.BaseUri
+  parent: Steam.Web.SteamWebConfig
+  isExternal: false
+  name: BaseUri
+  nameWithType: SteamWebConfig.BaseUri
+  fullName: Steam.Web.SteamWebConfig.BaseUri
+- uid: Steam.Rest.SteamRestConfig.DefaultRequestTimeout
+  commentId: P:Steam.Rest.SteamRestConfig.DefaultRequestTimeout
+  parent: Steam.Rest.SteamRestConfig
+  isExternal: false
+  name: DefaultRequestTimeout
+  nameWithType: SteamRestConfig.DefaultRequestTimeout
+  fullName: Steam.Rest.SteamRestConfig.DefaultRequestTimeout
+- uid: Steam.Rest.SteamRestConfig.DefaultRetryMode
+  commentId: P:Steam.Rest.SteamRestConfig.DefaultRetryMode
+  parent: Steam.Rest.SteamRestConfig
+  isExternal: false
+  name: DefaultRetryMode
+  nameWithType: SteamRestConfig.DefaultRetryMode
+  fullName: Steam.Rest.SteamRestConfig.DefaultRetryMode
+- uid: Steam.Rest.SteamRestConfig.RestClient
+  commentId: P:Steam.Rest.SteamRestConfig.RestClient
+  parent: Steam.Rest.SteamRestConfig
+  isExternal: false
+  name: RestClient
+  nameWithType: SteamRestConfig.RestClient
+  fullName: Steam.Rest.SteamRestConfig.RestClient
+- uid: Steam.Common.SteamConfig.LogLevel
+  commentId: P:Steam.Common.SteamConfig.LogLevel
+  parent: Steam.Common.SteamConfig
+  isExternal: false
+  name: LogLevel
+  nameWithType: SteamConfig.LogLevel
+  fullName: Steam.Common.SteamConfig.LogLevel
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Net.SteamNetworkConfig.SocketClient*
+  commentId: Overload:Steam.Net.SteamNetworkConfig.SocketClient
+  isExternal: false
+  name: SocketClient
+  nameWithType: SteamNetworkConfig.SocketClient
+  fullName: Steam.Net.SteamNetworkConfig.SocketClient
+- uid: Steam.Net.Sockets.ISocketClient
+  commentId: T:Steam.Net.Sockets.ISocketClient
+  parent: Steam.Net.Sockets
+  isExternal: false
+  name: ISocketClient
+  nameWithType: ISocketClient
+  fullName: Steam.Net.Sockets.ISocketClient
+- uid: Steam.Net.Sockets
+  commentId: N:Steam.Net.Sockets
+  isExternal: false
+  name: Steam.Net.Sockets
+  nameWithType: Steam.Net.Sockets
+  fullName: Steam.Net.Sockets
+- uid: Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout*
+  commentId: Overload:Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+  isExternal: false
+  name: NetworkConnectionTimeout
+  nameWithType: SteamNetworkConfig.NetworkConnectionTimeout
+  fullName: Steam.Net.SteamNetworkConfig.NetworkConnectionTimeout
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Net.SteamNetworkConfig.CellId*
+  commentId: Overload:Steam.Net.SteamNetworkConfig.CellId
+  isExternal: false
+  name: CellId
+  nameWithType: SteamNetworkConfig.CellId
+  fullName: Steam.Net.SteamNetworkConfig.CellId
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Web.SteamWebClient
+  commentId: T:Steam.Web.SteamWebClient
+  parent: Steam.Web
+  isExternal: false
+  name: SteamWebClient
+  nameWithType: SteamWebClient
+  fullName: Steam.Web.SteamWebClient
+- uid: Steam.Net.SteamNetworkConfig.ConnectionManagers*
+  commentId: Overload:Steam.Net.SteamNetworkConfig.ConnectionManagers
+  isExternal: false
+  name: ConnectionManagers
+  nameWithType: SteamNetworkConfig.ConnectionManagers
+  fullName: Steam.Net.SteamNetworkConfig.ConnectionManagers
+- uid: System.Collections.Generic.IEnumerable{System.Net.IPEndPoint}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Net.IPEndPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IPEndPoint>
+  nameWithType: IEnumerable<IPEndPoint>
+  fullName: System.Collections.Generic.IEnumerable<System.Net.IPEndPoint>
+  nameWithType.vb: IEnumerable(Of IPEndPoint)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Net.IPEndPoint)
+  name.vb: IEnumerable(Of IPEndPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

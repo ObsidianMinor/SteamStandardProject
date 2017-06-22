@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.ImageSize
+  commentId: T:Steam.Web.ImageSize
+  id: ImageSize
+  parent: Steam.Web
+  children:
+  - Steam.Web.ImageSize.Full
+  - Steam.Web.ImageSize.Medium
+  - Steam.Web.ImageSize.Small
+  langs:
+  - csharp
+  - vb
+  name: ImageSize
+  nameWithType: ImageSize
+  fullName: Steam.Web.ImageSize
+  type: Enum
+  source:
+    id: ImageSize
+    path: G:\Steam\src\Web\Steam.Web\ImageSize.cs
+    startLine: 2
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public enum ImageSize
+    content.vb: Public Enum ImageSize
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Web.ImageSize.Small
+  commentId: F:Steam.Web.ImageSize.Small
+  id: Small
+  parent: Steam.Web.ImageSize
+  langs:
+  - csharp
+  - vb
+  name: Small
+  nameWithType: ImageSize.Small
+  fullName: Steam.Web.ImageSize.Small
+  type: Field
+  source:
+    id: Small
+    path: G:\Steam\src\Web\Steam.Web\ImageSize.cs
+    startLine: 4
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Small = 0
+    return:
+      type: Steam.Web.ImageSize
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ImageSize.Medium
+  commentId: F:Steam.Web.ImageSize.Medium
+  id: Medium
+  parent: Steam.Web.ImageSize
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: ImageSize.Medium
+  fullName: Steam.Web.ImageSize.Medium
+  type: Field
+  source:
+    id: Medium
+    path: G:\Steam\src\Web\Steam.Web\ImageSize.cs
+    startLine: 5
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Medium = 1
+    return:
+      type: Steam.Web.ImageSize
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ImageSize.Full
+  commentId: F:Steam.Web.ImageSize.Full
+  id: Full
+  parent: Steam.Web.ImageSize
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: ImageSize.Full
+  fullName: Steam.Web.ImageSize.Full
+  type: Field
+  source:
+    id: Full
+    path: G:\Steam\src\Web\Steam.Web\ImageSize.cs
+    startLine: 6
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Full = 2
+    return:
+      type: Steam.Web.ImageSize
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Web.ImageSize
+  commentId: T:Steam.Web.ImageSize
+  parent: Steam.Web
+  isExternal: false
+  name: ImageSize
+  nameWithType: ImageSize
+  fullName: Steam.Web.ImageSize

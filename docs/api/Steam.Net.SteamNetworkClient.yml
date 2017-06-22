@@ -1,0 +1,2431 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.SteamNetworkClient
+  commentId: T:Steam.Net.SteamNetworkClient
+  id: SteamNetworkClient
+  parent: Steam.Net
+  children:
+  - Steam.Net.SteamNetworkClient.#ctor
+  - Steam.Net.SteamNetworkClient.#ctor(Steam.Net.SteamNetworkConfig)
+  - Steam.Net.SteamNetworkClient.CanLogin
+  - Steam.Net.SteamNetworkClient.Connected
+  - Steam.Net.SteamNetworkClient.ConnectionState
+  - Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+  - Steam.Net.SteamNetworkClient.CurrentUser
+  - Steam.Net.SteamNetworkClient.Disconnected
+  - Steam.Net.SteamNetworkClient.GameConnectTokensReceived
+  - Steam.Net.SteamNetworkClient.Log
+  - Steam.Net.SteamNetworkClient.LoggedOff
+  - Steam.Net.SteamNetworkClient.LoggedOn
+  - Steam.Net.SteamNetworkClient.LoginActionRequested
+  - Steam.Net.SteamNetworkClient.LoginAnonymousAsync(System.Nullable{System.UInt32},Steam.Net.OsType,System.String)
+  - Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.Nullable{System.UInt32},System.Boolean,Steam.Net.OsType,System.String)
+  - Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.String,System.String,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Byte[],Steam.Net.OsType,System.String)
+  - Steam.Net.SteamNetworkClient.LoginConsoleAsync(System.UInt32,System.String)
+  - Steam.Net.SteamNetworkClient.LoginKeyReceived
+  - Steam.Net.SteamNetworkClient.LoginRejected
+  - Steam.Net.SteamNetworkClient.StartAsync
+  - Steam.Net.SteamNetworkClient.StopAsync
+  - Steam.Net.SteamNetworkClient.Universe
+  - Steam.Net.SteamNetworkClient.VacStatusModified
+  langs:
+  - csharp
+  - vb
+  name: SteamNetworkClient
+  nameWithType: SteamNetworkClient
+  fullName: Steam.Net.SteamNetworkClient
+  type: Class
+  source:
+    id: SteamNetworkClient
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: 'public class SteamNetworkClient : SteamWebClient'
+    content.vb: >-
+      Public Class SteamNetworkClient
+
+          Inherits SteamWebClient
+  inheritance:
+  - System.Object
+  - Steam.Web.SteamWebClient
+  inheritedMembers:
+  - Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32,System.Nullable{System.UInt32},Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable{Steam.Common.SteamId},Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String,Steam.Rest.RequestOptions)
+  - Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String,Steam.Web.ImageSize)
+  - Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32,System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.SteamNetworkClient.ConnectionState
+  commentId: P:Steam.Net.SteamNetworkClient.ConnectionState
+  id: ConnectionState
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectionState
+  nameWithType: SteamNetworkClient.ConnectionState
+  fullName: Steam.Net.SteamNetworkClient.ConnectionState
+  type: Property
+  source:
+    id: ConnectionState
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 53
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public ConnectionState ConnectionState { get; }
+    parameters: []
+    return:
+      type: Steam.Net.ConnectionState
+    content.vb: Public ReadOnly Property ConnectionState As ConnectionState
+  overload: Steam.Net.SteamNetworkClient.ConnectionState*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.SteamNetworkClient.Universe
+  commentId: P:Steam.Net.SteamNetworkClient.Universe
+  id: Universe
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: Universe
+  nameWithType: SteamNetworkClient.Universe
+  fullName: Steam.Net.SteamNetworkClient.Universe
+  type: Property
+  source:
+    id: Universe
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 58
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe universe this Steam client is connected to\n"
+  example: []
+  syntax:
+    content: public Universe Universe { get; }
+    parameters: []
+    return:
+      type: Steam.Common.Universe
+    content.vb: Public ReadOnly Property Universe As Universe
+  overload: Steam.Net.SteamNetworkClient.Universe*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.SteamNetworkClient.CurrentUser
+  commentId: P:Steam.Net.SteamNetworkClient.CurrentUser
+  id: CurrentUser
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: CurrentUser
+  nameWithType: SteamNetworkClient.CurrentUser
+  fullName: Steam.Net.SteamNetworkClient.CurrentUser
+  type: Property
+  source:
+    id: CurrentUser
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 60
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public SelfUser CurrentUser { get; }
+    parameters: []
+    return:
+      type: Steam.Net.SelfUser
+    content.vb: Public ReadOnly Property CurrentUser As SelfUser
+  overload: Steam.Net.SteamNetworkClient.CurrentUser*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.SteamNetworkClient.Log
+  commentId: E:Steam.Net.SteamNetworkClient.Log
+  id: Log
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: SteamNetworkClient.Log
+  fullName: Steam.Net.SteamNetworkClient.Log
+  type: Event
+  source:
+    id: Log
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 63
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<LogMessage, Task> Log
+    return:
+      type: System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+    content.vb: Public Event Log As Func(Of LogMessage, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.#ctor
+  commentId: M:Steam.Net.SteamNetworkClient.#ctor
+  id: '#ctor'
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: SteamNetworkClient()
+  nameWithType: SteamNetworkClient.SteamNetworkClient()
+  fullName: Steam.Net.SteamNetworkClient.SteamNetworkClient()
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 69
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public SteamNetworkClient()
+    content.vb: Public Sub New
+  overload: Steam.Net.SteamNetworkClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.#ctor(Steam.Net.SteamNetworkConfig)
+  commentId: M:Steam.Net.SteamNetworkClient.#ctor(Steam.Net.SteamNetworkConfig)
+  id: '#ctor(Steam.Net.SteamNetworkConfig)'
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: SteamNetworkClient(SteamNetworkConfig)
+  nameWithType: SteamNetworkClient.SteamNetworkClient(SteamNetworkConfig)
+  fullName: Steam.Net.SteamNetworkClient.SteamNetworkClient(Steam.Net.SteamNetworkConfig)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 71
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public SteamNetworkClient(SteamNetworkConfig config)
+    parameters:
+    - id: config
+      type: Steam.Net.SteamNetworkConfig
+    content.vb: Public Sub New(config As SteamNetworkConfig)
+  overload: Steam.Net.SteamNetworkClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.StartAsync
+  commentId: M:Steam.Net.SteamNetworkClient.StartAsync
+  id: StartAsync
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: StartAsync()
+  nameWithType: SteamNetworkClient.StartAsync()
+  fullName: Steam.Net.SteamNetworkClient.StartAsync()
+  type: Method
+  source:
+    id: StartAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 93
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nStarts this client's connection with the Steam servers\n"
+  example: []
+  syntax:
+    content: public Task StartAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function StartAsync As Task
+  overload: Steam.Net.SteamNetworkClient.StartAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.StopAsync
+  commentId: M:Steam.Net.SteamNetworkClient.StopAsync
+  id: StopAsync
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: StopAsync()
+  nameWithType: SteamNetworkClient.StopAsync()
+  fullName: Steam.Net.SteamNetworkClient.StopAsync()
+  type: Method
+  source:
+    id: StopAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 102
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nStops this client's connection with the Steam servers\n"
+  example: []
+  syntax:
+    content: public Task StopAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function StopAsync As Task
+  overload: Steam.Net.SteamNetworkClient.StopAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.String,System.String,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Byte[],Steam.Net.OsType,System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.String,System.String,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Byte[],Steam.Net.OsType,System.String)
+  id: LoginAsync(System.String,System.String,System.String,System.String,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Byte[],Steam.Net.OsType,System.String)
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginAsync(String, String, String, String, Nullable<UInt32>, Boolean, Boolean, Byte[], OsType, String)
+  nameWithType: SteamNetworkClient.LoginAsync(String, String, String, String, Nullable<UInt32>, Boolean, Boolean, Byte[], OsType, String)
+  fullName: Steam.Net.SteamNetworkClient.LoginAsync(System.String, System.String, System.String, System.String, System.Nullable<System.UInt32>, System.Boolean, System.Boolean, System.Byte[], Steam.Net.OsType, System.String)
+  type: Method
+  source:
+    id: LoginAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 177
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public Task LoginAsync(string username, string password, string authCode = null, string twoFactorCode = null, uint ? loginId = null, bool rememberPassword = false, bool requestSteam2Ticket = false, byte[] sentryFileHash = null, OsType osType = OsType.Unknown, string language = "english")
+    parameters:
+    - id: username
+      type: System.String
+    - id: password
+      type: System.String
+    - id: authCode
+      type: System.String
+    - id: twoFactorCode
+      type: System.String
+    - id: loginId
+      type: System.Nullable{System.UInt32}
+    - id: rememberPassword
+      type: System.Boolean
+    - id: requestSteam2Ticket
+      type: System.Boolean
+    - id: sentryFileHash
+      type: System.Byte[]
+    - id: osType
+      type: Steam.Net.OsType
+    - id: language
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LoginAsync(username As String, password As String, authCode As String = Nothing, twoFactorCode As String = Nothing, loginId As UInteger? = Nothing, rememberPassword As Boolean = False, requestSteam2Ticket As Boolean = False, sentryFileHash As Byte() = Nothing, osType As OsType = OsType.Unknown, language As String = "english") As Task
+  overload: Steam.Net.SteamNetworkClient.LoginAsync*
+  nameWithType.vb: SteamNetworkClient.LoginAsync(String, String, String, String, Nullable(Of UInt32), Boolean, Boolean, Byte(), OsType, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Net.SteamNetworkClient.LoginAsync(System.String, System.String, System.String, System.String, System.Nullable(Of System.UInt32), System.Boolean, System.Boolean, System.Byte(), Steam.Net.OsType, System.String)
+  name.vb: LoginAsync(String, String, String, String, Nullable(Of UInt32), Boolean, Boolean, Byte(), OsType, String)
+- uid: Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.Nullable{System.UInt32},System.Boolean,Steam.Net.OsType,System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.LoginAsync(System.String,System.String,System.Nullable{System.UInt32},System.Boolean,Steam.Net.OsType,System.String)
+  id: LoginAsync(System.String,System.String,System.Nullable{System.UInt32},System.Boolean,Steam.Net.OsType,System.String)
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginAsync(String, String, Nullable<UInt32>, Boolean, OsType, String)
+  nameWithType: SteamNetworkClient.LoginAsync(String, String, Nullable<UInt32>, Boolean, OsType, String)
+  fullName: Steam.Net.SteamNetworkClient.LoginAsync(System.String, System.String, System.Nullable<System.UInt32>, System.Boolean, Steam.Net.OsType, System.String)
+  type: Method
+  source:
+    id: LoginAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 182
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public Task LoginAsync(string username, string loginKey, uint ? loginId = null, bool requestSteam2Ticket = false, OsType osType = OsType.Unknown, string language = "english")
+    parameters:
+    - id: username
+      type: System.String
+    - id: loginKey
+      type: System.String
+    - id: loginId
+      type: System.Nullable{System.UInt32}
+    - id: requestSteam2Ticket
+      type: System.Boolean
+    - id: osType
+      type: Steam.Net.OsType
+    - id: language
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LoginAsync(username As String, loginKey As String, loginId As UInteger? = Nothing, requestSteam2Ticket As Boolean = False, osType As OsType = OsType.Unknown, language As String = "english") As Task
+  overload: Steam.Net.SteamNetworkClient.LoginAsync*
+  nameWithType.vb: SteamNetworkClient.LoginAsync(String, String, Nullable(Of UInt32), Boolean, OsType, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Net.SteamNetworkClient.LoginAsync(System.String, System.String, System.Nullable(Of System.UInt32), System.Boolean, Steam.Net.OsType, System.String)
+  name.vb: LoginAsync(String, String, Nullable(Of UInt32), Boolean, OsType, String)
+- uid: Steam.Net.SteamNetworkClient.LoginAnonymousAsync(System.Nullable{System.UInt32},Steam.Net.OsType,System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.LoginAnonymousAsync(System.Nullable{System.UInt32},Steam.Net.OsType,System.String)
+  id: LoginAnonymousAsync(System.Nullable{System.UInt32},Steam.Net.OsType,System.String)
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginAnonymousAsync(Nullable<UInt32>, OsType, String)
+  nameWithType: SteamNetworkClient.LoginAnonymousAsync(Nullable<UInt32>, OsType, String)
+  fullName: Steam.Net.SteamNetworkClient.LoginAnonymousAsync(System.Nullable<System.UInt32>, Steam.Net.OsType, System.String)
+  type: Method
+  source:
+    id: LoginAnonymousAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 187
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public Task LoginAnonymousAsync(uint ? loginId = null, OsType osType = OsType.Unknown, string language = "english")
+    parameters:
+    - id: loginId
+      type: System.Nullable{System.UInt32}
+    - id: osType
+      type: Steam.Net.OsType
+    - id: language
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LoginAnonymousAsync(loginId As UInteger? = Nothing, osType As OsType = OsType.Unknown, language As String = "english") As Task
+  overload: Steam.Net.SteamNetworkClient.LoginAnonymousAsync*
+  nameWithType.vb: SteamNetworkClient.LoginAnonymousAsync(Nullable(Of UInt32), OsType, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Net.SteamNetworkClient.LoginAnonymousAsync(System.Nullable(Of System.UInt32), Steam.Net.OsType, System.String)
+  name.vb: LoginAnonymousAsync(Nullable(Of UInt32), OsType, String)
+- uid: Steam.Net.SteamNetworkClient.LoginConsoleAsync(System.UInt32,System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.LoginConsoleAsync(System.UInt32,System.String)
+  id: LoginConsoleAsync(System.UInt32,System.String)
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginConsoleAsync(UInt32, String)
+  nameWithType: SteamNetworkClient.LoginConsoleAsync(UInt32, String)
+  fullName: Steam.Net.SteamNetworkClient.LoginConsoleAsync(System.UInt32, System.String)
+  type: Method
+  source:
+    id: LoginConsoleAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 192
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public Task LoginConsoleAsync(uint accountId, string language = "english")
+    parameters:
+    - id: accountId
+      type: System.UInt32
+    - id: language
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LoginConsoleAsync(accountId As UInteger, language As String = "english") As Task
+  overload: Steam.Net.SteamNetworkClient.LoginConsoleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+  id: ContinueLoginAsync(System.String)
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: ContinueLoginAsync(String)
+  nameWithType: SteamNetworkClient.ContinueLoginAsync(String)
+  fullName: Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+  type: Method
+  source:
+    id: ContinueLoginAsync
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.cs
+    startLine: 236
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nContinues a denied login request using the provided code as a auth or two factor code\n"
+  example: []
+  syntax:
+    content: public Task ContinueLoginAsync(string code)
+    parameters:
+    - id: code
+      type: System.String
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function ContinueLoginAsync(code As String) As Task
+  overload: Steam.Net.SteamNetworkClient.ContinueLoginAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.Connected
+  commentId: E:Steam.Net.SteamNetworkClient.Connected
+  id: Connected
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: Connected
+  nameWithType: SteamNetworkClient.Connected
+  fullName: Steam.Net.SteamNetworkClient.Connected
+  type: Event
+  source:
+    id: Connected
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 24
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe connection is encrypted and messages can now be sent to the servers\n"
+  example: []
+  syntax:
+    content: public event Func<Task> Connected
+    return:
+      type: System.Func{System.Threading.Tasks.Task}
+    content.vb: Public Event Connected As Func(Of Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.CanLogin
+  commentId: E:Steam.Net.SteamNetworkClient.CanLogin
+  id: CanLogin
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: CanLogin
+  nameWithType: SteamNetworkClient.CanLogin
+  fullName: Steam.Net.SteamNetworkClient.CanLogin
+  type: Event
+  source:
+    id: CanLogin
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 30
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<Task> CanLogin
+    return:
+      type: System.Func{System.Threading.Tasks.Task}
+    content.vb: Public Event CanLogin As Func(Of Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.Disconnected
+  commentId: E:Steam.Net.SteamNetworkClient.Disconnected
+  id: Disconnected
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: Disconnected
+  nameWithType: SteamNetworkClient.Disconnected
+  fullName: Steam.Net.SteamNetworkClient.Disconnected
+  type: Event
+  source:
+    id: Disconnected
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 39
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nThe client has been disconnected from the connection manager\n"
+  example: []
+  syntax:
+    content: public event Func<Exception, Task> Disconnected
+    return:
+      type: System.Func{System.Exception,System.Threading.Tasks.Task}
+    content.vb: Public Event Disconnected As Func(Of Exception, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.VacStatusModified
+  commentId: E:Steam.Net.SteamNetworkClient.VacStatusModified
+  id: VacStatusModified
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: VacStatusModified
+  nameWithType: SteamNetworkClient.VacStatusModified
+  fullName: Steam.Net.SteamNetworkClient.VacStatusModified
+  type: Event
+  source:
+    id: VacStatusModified
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 47
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<IReadOnlyCollection<uint>, Task> VacStatusModified
+    return:
+      type: System.Func{System.Collections.Generic.IReadOnlyCollection{System.UInt32},System.Threading.Tasks.Task}
+    content.vb: Public Event VacStatusModified As Func(Of IReadOnlyCollection(Of UInteger), Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.GameConnectTokensReceived
+  commentId: E:Steam.Net.SteamNetworkClient.GameConnectTokensReceived
+  id: GameConnectTokensReceived
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: GameConnectTokensReceived
+  nameWithType: SteamNetworkClient.GameConnectTokensReceived
+  fullName: Steam.Net.SteamNetworkClient.GameConnectTokensReceived
+  type: Event
+  source:
+    id: GameConnectTokensReceived
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 53
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<GameConnectTokens, Task> GameConnectTokensReceived
+    return:
+      type: System.Func{Steam.Net.Messages.Protobufs.GameConnectTokens,System.Threading.Tasks.Task}
+    content.vb: Public Event GameConnectTokensReceived As Func(Of GameConnectTokens, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoginKeyReceived
+  commentId: E:Steam.Net.SteamNetworkClient.LoginKeyReceived
+  id: LoginKeyReceived
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginKeyReceived
+  nameWithType: SteamNetworkClient.LoginKeyReceived
+  fullName: Steam.Net.SteamNetworkClient.LoginKeyReceived
+  type: Event
+  source:
+    id: LoginKeyReceived
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 111
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<string, Task> LoginKeyReceived
+    return:
+      type: System.Func{System.String,System.Threading.Tasks.Task}
+    content.vb: Public Event LoginKeyReceived As Func(Of String, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoggedOff
+  commentId: E:Steam.Net.SteamNetworkClient.LoggedOff
+  id: LoggedOff
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoggedOff
+  nameWithType: SteamNetworkClient.LoggedOff
+  fullName: Steam.Net.SteamNetworkClient.LoggedOff
+  type: Event
+  source:
+    id: LoggedOff
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 117
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<Result, Task> LoggedOff
+    return:
+      type: System.Func{Steam.Common.Result,System.Threading.Tasks.Task}
+    content.vb: Public Event LoggedOff As Func(Of Result, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoginActionRequested
+  commentId: E:Steam.Net.SteamNetworkClient.LoginActionRequested
+  id: LoginActionRequested
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginActionRequested
+  nameWithType: SteamNetworkClient.LoginActionRequested
+  fullName: Steam.Net.SteamNetworkClient.LoginActionRequested
+  type: Event
+  source:
+    id: LoginActionRequested
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 126
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nInvoked when login was denied and can be continued with a auth or two factor code in <xref href=\"Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public event Func<LogonResponse, Task> LoginActionRequested
+    return:
+      type: System.Func{Steam.Net.Messages.Protobufs.LogonResponse,System.Threading.Tasks.Task}
+    content.vb: Public Event LoginActionRequested As Func(Of LogonResponse, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoginRejected
+  commentId: E:Steam.Net.SteamNetworkClient.LoginRejected
+  id: LoginRejected
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoginRejected
+  nameWithType: SteamNetworkClient.LoginRejected
+  fullName: Steam.Net.SteamNetworkClient.LoginRejected
+  type: Event
+  source:
+    id: LoginRejected
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 135
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nInvokeed when login was denied and can't be continued with <xref href=\"Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public event Func<LogonResponse, Task> LoginRejected
+    return:
+      type: System.Func{Steam.Net.Messages.Protobufs.LogonResponse,System.Threading.Tasks.Task}
+    content.vb: Public Event LoginRejected As Func(Of LogonResponse, Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.SteamNetworkClient.LoggedOn
+  commentId: E:Steam.Net.SteamNetworkClient.LoggedOn
+  id: LoggedOn
+  parent: Steam.Net.SteamNetworkClient
+  langs:
+  - csharp
+  - vb
+  name: LoggedOn
+  nameWithType: SteamNetworkClient.LoggedOn
+  fullName: Steam.Net.SteamNetworkClient.LoggedOn
+  type: Event
+  source:
+    id: LoggedOn
+    path: G:\Steam\src\Network\Steam.Net\SteamNetworkClient.Events.cs
+    startLine: 141
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public event Func<Task> LoggedOn
+    return:
+      type: System.Func{System.Threading.Tasks.Task}
+    content.vb: Public Event LoggedOn As Func(Of Task)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Steam.Web.SteamWebClient
+  commentId: T:Steam.Web.SteamWebClient
+  parent: Steam.Web
+  isExternal: false
+  name: SteamWebClient
+  nameWithType: SteamWebClient
+  fullName: Steam.Web.SteamWebClient
+- uid: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32,System.Nullable{System.UInt32},Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32,System.Nullable{System.UInt32},Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetConnectionManagerEndpointsAsync(UInt32, Nullable<UInt32>, RequestOptions)
+  nameWithType: SteamWebClient.GetConnectionManagerEndpointsAsync(UInt32, Nullable<UInt32>, RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32, System.Nullable<System.UInt32>, Steam.Rest.RequestOptions)
+  nameWithType.vb: SteamWebClient.GetConnectionManagerEndpointsAsync(UInt32, Nullable(Of UInt32), RequestOptions)
+  fullName.vb: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32, System.Nullable(Of System.UInt32), Steam.Rest.RequestOptions)
+  name.vb: GetConnectionManagerEndpointsAsync(UInt32, Nullable(Of UInt32), RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32,System.Nullable{System.UInt32},Steam.Rest.RequestOptions)
+    name: GetConnectionManagerEndpointsAsync
+    nameWithType: SteamWebClient.GetConnectionManagerEndpointsAsync
+    fullName: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync(System.UInt32,System.Nullable{System.UInt32},Steam.Rest.RequestOptions)
+    name: GetConnectionManagerEndpointsAsync
+    nameWithType: SteamWebClient.GetConnectionManagerEndpointsAsync
+    fullName: Steam.Web.SteamWebClient.GetConnectionManagerEndpointsAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: false
+  name: GetServerTimeAsync(RequestOptions)
+  nameWithType: SteamWebClient.GetServerTimeAsync(RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+    name: GetServerTimeAsync
+    nameWithType: SteamWebClient.GetServerTimeAsync
+    fullName: Steam.Web.SteamWebClient.GetServerTimeAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetServerTimeAsync(Steam.Rest.RequestOptions)
+    name: GetServerTimeAsync
+    nameWithType: SteamWebClient.GetServerTimeAsync
+    fullName: Steam.Web.SteamWebClient.GetServerTimeAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable{Steam.Common.SteamId},Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable{Steam.Common.SteamId},Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetPlayerSummariesAsync(IEnumerable<SteamId>, RequestOptions)
+  nameWithType: SteamWebClient.GetPlayerSummariesAsync(IEnumerable<SteamId>, RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable<Steam.Common.SteamId>, Steam.Rest.RequestOptions)
+  nameWithType.vb: SteamWebClient.GetPlayerSummariesAsync(IEnumerable(Of SteamId), RequestOptions)
+  fullName.vb: Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable(Of Steam.Common.SteamId), Steam.Rest.RequestOptions)
+  name.vb: GetPlayerSummariesAsync(IEnumerable(Of SteamId), RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable{Steam.Common.SteamId},Steam.Rest.RequestOptions)
+    name: GetPlayerSummariesAsync
+    nameWithType: SteamWebClient.GetPlayerSummariesAsync
+    fullName: Steam.Web.SteamWebClient.GetPlayerSummariesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Common.SteamId
+    name: SteamId
+    nameWithType: SteamId
+    fullName: Steam.Common.SteamId
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetPlayerSummariesAsync(System.Collections.Generic.IEnumerable{Steam.Common.SteamId},Steam.Rest.RequestOptions)
+    name: GetPlayerSummariesAsync
+    nameWithType: SteamWebClient.GetPlayerSummariesAsync
+    fullName: Steam.Web.SteamWebClient.GetPlayerSummariesAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Common.SteamId
+    name: SteamId
+    nameWithType: SteamId
+    fullName: Steam.Common.SteamId
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetServerAtAddressAsync(IPEndPoint, RequestOptions)
+  nameWithType: SteamWebClient.GetServerAtAddressAsync(IPEndPoint, RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint, Steam.Rest.RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+    name: GetServerAtAddressAsync
+    nameWithType: SteamWebClient.GetServerAtAddressAsync
+    fullName: Steam.Web.SteamWebClient.GetServerAtAddressAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetServerAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+    name: GetServerAtAddressAsync
+    nameWithType: SteamWebClient.GetServerAtAddressAsync
+    fullName: Steam.Web.SteamWebClient.GetServerAtAddressAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetServersAtAddressAsync(IPEndPoint, RequestOptions)
+  nameWithType: SteamWebClient.GetServersAtAddressAsync(IPEndPoint, RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint, Steam.Rest.RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+    name: GetServersAtAddressAsync
+    nameWithType: SteamWebClient.GetServersAtAddressAsync
+    fullName: Steam.Web.SteamWebClient.GetServersAtAddressAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetServersAtAddressAsync(System.Net.IPEndPoint,Steam.Rest.RequestOptions)
+    name: GetServersAtAddressAsync
+    nameWithType: SteamWebClient.GetServersAtAddressAsync
+    fullName: Steam.Web.SteamWebClient.GetServersAtAddressAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    nameWithType: IPEndPoint
+    fullName: System.Net.IPEndPoint
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: false
+  name: GetAppListAsync(RequestOptions)
+  nameWithType: SteamWebClient.GetAppListAsync(RequestOptions)
+  fullName: Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+    name: GetAppListAsync
+    nameWithType: SteamWebClient.GetAppListAsync
+    fullName: Steam.Web.SteamWebClient.GetAppListAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetAppListAsync(Steam.Rest.RequestOptions)
+    name: GetAppListAsync
+    nameWithType: SteamWebClient.GetAppListAsync
+    fullName: Steam.Web.SteamWebClient.GetAppListAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String,Steam.Rest.RequestOptions)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: ResolveVanityUrlAsync(String, RequestOptions)
+  nameWithType: SteamWebClient.ResolveVanityUrlAsync(String, RequestOptions)
+  fullName: Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String, Steam.Rest.RequestOptions)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String,Steam.Rest.RequestOptions)
+    name: ResolveVanityUrlAsync
+    nameWithType: SteamWebClient.ResolveVanityUrlAsync
+    fullName: Steam.Web.SteamWebClient.ResolveVanityUrlAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.ResolveVanityUrlAsync(System.String,Steam.Rest.RequestOptions)
+    name: ResolveVanityUrlAsync
+    nameWithType: SteamWebClient.ResolveVanityUrlAsync
+    fullName: Steam.Web.SteamWebClient.ResolveVanityUrlAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Rest.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Steam.Rest.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String,Steam.Web.ImageSize)
+  commentId: M:Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String,Steam.Web.ImageSize)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetAvatarImageUrl(String, ImageSize)
+  nameWithType: SteamWebClient.GetAvatarImageUrl(String, ImageSize)
+  fullName: Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String, Steam.Web.ImageSize)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String,Steam.Web.ImageSize)
+    name: GetAvatarImageUrl
+    nameWithType: SteamWebClient.GetAvatarImageUrl
+    fullName: Steam.Web.SteamWebClient.GetAvatarImageUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetAvatarImageUrl(System.String,Steam.Web.ImageSize)
+    name: GetAvatarImageUrl
+    nameWithType: SteamWebClient.GetAvatarImageUrl
+    fullName: Steam.Web.SteamWebClient.GetAvatarImageUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32,System.String)
+  commentId: M:Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32,System.String)
+  parent: Steam.Web.SteamWebClient
+  isExternal: true
+  name: GetItemImageUrl(UInt32, String)
+  nameWithType: SteamWebClient.GetItemImageUrl(UInt32, String)
+  fullName: Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32, System.String)
+  spec.csharp:
+  - uid: Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32,System.String)
+    name: GetItemImageUrl
+    nameWithType: SteamWebClient.GetItemImageUrl
+    fullName: Steam.Web.SteamWebClient.GetItemImageUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Web.SteamWebClient.GetItemImageUrl(System.UInt32,System.String)
+    name: GetItemImageUrl
+    nameWithType: SteamWebClient.GetItemImageUrl
+    fullName: Steam.Web.SteamWebClient.GetItemImageUrl
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Net.SteamNetworkClient.ConnectionState*
+  commentId: Overload:Steam.Net.SteamNetworkClient.ConnectionState
+  isExternal: false
+  name: ConnectionState
+  nameWithType: SteamNetworkClient.ConnectionState
+  fullName: Steam.Net.SteamNetworkClient.ConnectionState
+- uid: Steam.Net.ConnectionState
+  commentId: T:Steam.Net.ConnectionState
+  parent: Steam.Net
+  isExternal: false
+  name: ConnectionState
+  nameWithType: ConnectionState
+  fullName: Steam.Net.ConnectionState
+- uid: Steam.Net.SteamNetworkClient.Universe*
+  commentId: Overload:Steam.Net.SteamNetworkClient.Universe
+  isExternal: false
+  name: Universe
+  nameWithType: SteamNetworkClient.Universe
+  fullName: Steam.Net.SteamNetworkClient.Universe
+- uid: Steam.Common.Universe
+  commentId: T:Steam.Common.Universe
+  parent: Steam.Common
+  isExternal: false
+  name: Universe
+  nameWithType: Universe
+  fullName: Steam.Common.Universe
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Net.SteamNetworkClient.CurrentUser*
+  commentId: Overload:Steam.Net.SteamNetworkClient.CurrentUser
+  isExternal: false
+  name: CurrentUser
+  nameWithType: SteamNetworkClient.CurrentUser
+  fullName: Steam.Net.SteamNetworkClient.CurrentUser
+- uid: Steam.Net.SelfUser
+  commentId: T:Steam.Net.SelfUser
+  parent: Steam.Net
+  isExternal: false
+  name: SelfUser
+  nameWithType: SelfUser
+  fullName: Steam.Net.SelfUser
+- uid: System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Steam.Common.Logging.LogMessage,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<LogMessage, Task>
+  nameWithType: Func<LogMessage, Task>
+  fullName: System.Func<Steam.Common.Logging.LogMessage, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of LogMessage, Task)
+  fullName.vb: System.Func(Of Steam.Common.Logging.LogMessage, System.Threading.Tasks.Task)
+  name.vb: Func(Of LogMessage, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Common.Logging.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Steam.Common.Logging.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Common.Logging.LogMessage
+    name: LogMessage
+    nameWithType: LogMessage
+    fullName: Steam.Common.Logging.LogMessage
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.SteamNetworkClient.#ctor*
+  commentId: Overload:Steam.Net.SteamNetworkClient.#ctor
+  isExternal: false
+  name: SteamNetworkClient
+  nameWithType: SteamNetworkClient.SteamNetworkClient
+  fullName: Steam.Net.SteamNetworkClient.SteamNetworkClient
+- uid: Steam.Net.SteamNetworkConfig
+  commentId: T:Steam.Net.SteamNetworkConfig
+  parent: Steam.Net
+  isExternal: false
+  name: SteamNetworkConfig
+  nameWithType: SteamNetworkConfig
+  fullName: Steam.Net.SteamNetworkConfig
+- uid: Steam.Net.SteamNetworkClient.StartAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.StartAsync
+  isExternal: false
+  name: StartAsync
+  nameWithType: SteamNetworkClient.StartAsync
+  fullName: Steam.Net.SteamNetworkClient.StartAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Steam.Net.SteamNetworkClient.StopAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.StopAsync
+  isExternal: false
+  name: StopAsync
+  nameWithType: SteamNetworkClient.StopAsync
+  fullName: Steam.Net.SteamNetworkClient.StopAsync
+- uid: Steam.Net.SteamNetworkClient.LoginAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.LoginAsync
+  isExternal: false
+  name: LoginAsync
+  nameWithType: SteamNetworkClient.LoginAsync
+  fullName: Steam.Net.SteamNetworkClient.LoginAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.UInt32}
+  commentId: T:System.Nullable{System.UInt32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<UInt32>
+  nameWithType: Nullable<UInt32>
+  fullName: System.Nullable<System.UInt32>
+  nameWithType.vb: Nullable(Of UInt32)
+  fullName.vb: System.Nullable(Of System.UInt32)
+  name.vb: Nullable(Of UInt32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Byte[]
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Steam.Net.OsType
+  commentId: T:Steam.Net.OsType
+  parent: Steam.Net
+  isExternal: false
+  name: OsType
+  nameWithType: OsType
+  fullName: Steam.Net.OsType
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.SteamNetworkClient.LoginAnonymousAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.LoginAnonymousAsync
+  isExternal: false
+  name: LoginAnonymousAsync
+  nameWithType: SteamNetworkClient.LoginAnonymousAsync
+  fullName: Steam.Net.SteamNetworkClient.LoginAnonymousAsync
+- uid: Steam.Net.SteamNetworkClient.LoginConsoleAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.LoginConsoleAsync
+  isExternal: false
+  name: LoginConsoleAsync
+  nameWithType: SteamNetworkClient.LoginConsoleAsync
+  fullName: Steam.Net.SteamNetworkClient.LoginConsoleAsync
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Net.SteamNetworkClient.ContinueLoginAsync*
+  commentId: Overload:Steam.Net.SteamNetworkClient.ContinueLoginAsync
+  isExternal: false
+  name: ContinueLoginAsync
+  nameWithType: SteamNetworkClient.ContinueLoginAsync
+  fullName: Steam.Net.SteamNetworkClient.ContinueLoginAsync
+- uid: System.Func{System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`1
+  name: Func<Task>
+  nameWithType: Func<Task>
+  fullName: System.Func<System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Task)
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task)
+  name.vb: Func(Of Task)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Exception,System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Exception,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<Exception, Task>
+  nameWithType: Func<Exception, Task>
+  fullName: System.Func<System.Exception, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Exception, Task)
+  fullName.vb: System.Func(Of System.Exception, System.Threading.Tasks.Task)
+  name.vb: Func(Of Exception, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: System.Exception
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: System.Exception
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Collections.Generic.IReadOnlyCollection{System.UInt32},System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Collections.Generic.IReadOnlyCollection{System.UInt32},System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<IReadOnlyCollection<UInt32>, Task>
+  nameWithType: Func<IReadOnlyCollection<UInt32>, Task>
+  fullName: System.Func<System.Collections.Generic.IReadOnlyCollection<System.UInt32>, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of IReadOnlyCollection(Of UInt32), Task)
+  fullName.vb: System.Func(Of System.Collections.Generic.IReadOnlyCollection(Of System.UInt32), System.Threading.Tasks.Task)
+  name.vb: Func(Of IReadOnlyCollection(Of UInt32), Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: System.Collections.Generic.IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{Steam.Net.Messages.Protobufs.GameConnectTokens,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Steam.Net.Messages.Protobufs.GameConnectTokens,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<GameConnectTokens, Task>
+  nameWithType: Func<GameConnectTokens, Task>
+  fullName: System.Func<Steam.Net.Messages.Protobufs.GameConnectTokens, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of GameConnectTokens, Task)
+  fullName.vb: System.Func(Of Steam.Net.Messages.Protobufs.GameConnectTokens, System.Threading.Tasks.Task)
+  name.vb: Func(Of GameConnectTokens, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Net.Messages.Protobufs.GameConnectTokens
+    name: GameConnectTokens
+    nameWithType: GameConnectTokens
+    fullName: Steam.Net.Messages.Protobufs.GameConnectTokens
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Net.Messages.Protobufs.GameConnectTokens
+    name: GameConnectTokens
+    nameWithType: GameConnectTokens
+    fullName: Steam.Net.Messages.Protobufs.GameConnectTokens
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.String,System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.String,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<String, Task>
+  nameWithType: Func<String, Task>
+  fullName: System.Func<System.String, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of String, Task)
+  fullName.vb: System.Func(Of System.String, System.Threading.Tasks.Task)
+  name.vb: Func(Of String, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{Steam.Common.Result,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Steam.Common.Result,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<Result, Task>
+  nameWithType: Func<Result, Task>
+  fullName: System.Func<Steam.Common.Result, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Result, Task)
+  fullName.vb: System.Func(Of Steam.Common.Result, System.Threading.Tasks.Task)
+  name.vb: Func(Of Result, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Common.Result
+    name: Result
+    nameWithType: Result
+    fullName: Steam.Common.Result
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Common.Result
+    name: Result
+    nameWithType: Result
+    fullName: Steam.Common.Result
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+  commentId: M:Steam.Net.SteamNetworkClient.ContinueLoginAsync(System.String)
+- uid: System.Func{Steam.Net.Messages.Protobufs.LogonResponse,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Steam.Net.Messages.Protobufs.LogonResponse,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  name: Func<LogonResponse, Task>
+  nameWithType: Func<LogonResponse, Task>
+  fullName: System.Func<Steam.Net.Messages.Protobufs.LogonResponse, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of LogonResponse, Task)
+  fullName.vb: System.Func(Of Steam.Net.Messages.Protobufs.LogonResponse, System.Threading.Tasks.Task)
+  name.vb: Func(Of LogonResponse, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Net.Messages.Protobufs.LogonResponse
+    name: LogonResponse
+    nameWithType: LogonResponse
+    fullName: Steam.Net.Messages.Protobufs.LogonResponse
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Net.Messages.Protobufs.LogonResponse
+    name: LogonResponse
+    nameWithType: LogonResponse
+    fullName: Steam.Net.Messages.Protobufs.LogonResponse
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

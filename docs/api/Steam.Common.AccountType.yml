@@ -1,0 +1,387 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.AccountType
+  commentId: T:Steam.Common.AccountType
+  id: AccountType
+  parent: Steam.Common
+  children:
+  - Steam.Common.AccountType.AnonGameServer
+  - Steam.Common.AccountType.AnonUser
+  - Steam.Common.AccountType.Chat
+  - Steam.Common.AccountType.Clan
+  - Steam.Common.AccountType.ContentServer
+  - Steam.Common.AccountType.GameServer
+  - Steam.Common.AccountType.Individual
+  - Steam.Common.AccountType.Invalid
+  - Steam.Common.AccountType.Multiseat
+  - Steam.Common.AccountType.Pending
+  - Steam.Common.AccountType.Seeder
+  langs:
+  - csharp
+  - vb
+  name: AccountType
+  nameWithType: AccountType
+  fullName: Steam.Common.AccountType
+  type: Enum
+  source:
+    id: AccountType
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA Steam account's account type\n"
+  example: []
+  syntax:
+    content: public enum AccountType
+    content.vb: Public Enum AccountType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.AccountType.Invalid
+  commentId: F:Steam.Common.AccountType.Invalid
+  id: Invalid
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: AccountType.Invalid
+  fullName: Steam.Common.AccountType.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn invalid account\n"
+  example: []
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Individual
+  commentId: F:Steam.Common.AccountType.Individual
+  id: Individual
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Individual
+  nameWithType: AccountType.Individual
+  fullName: Steam.Common.AccountType.Individual
+  type: Field
+  source:
+    id: Individual
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn individual account for one user\n"
+  example: []
+  syntax:
+    content: Individual = 1
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Multiseat
+  commentId: F:Steam.Common.AccountType.Multiseat
+  id: Multiseat
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Multiseat
+  nameWithType: AccountType.Multiseat
+  fullName: Steam.Common.AccountType.Multiseat
+  type: Field
+  source:
+    id: Multiseat
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA multiseat computer setup\n"
+  example: []
+  syntax:
+    content: Multiseat = 2
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.GameServer
+  commentId: F:Steam.Common.AccountType.GameServer
+  id: GameServer
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: GameServer
+  nameWithType: AccountType.GameServer
+  fullName: Steam.Common.AccountType.GameServer
+  type: Field
+  source:
+    id: GameServer
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 22
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA registered game server\n"
+  example: []
+  syntax:
+    content: GameServer = 3
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.AnonGameServer
+  commentId: F:Steam.Common.AccountType.AnonGameServer
+  id: AnonGameServer
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: AnonGameServer
+  nameWithType: AccountType.AnonGameServer
+  fullName: Steam.Common.AccountType.AnonGameServer
+  type: Field
+  source:
+    id: AnonGameServer
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 26
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn anonymous game server\n"
+  example: []
+  syntax:
+    content: AnonGameServer = 4
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Pending
+  commentId: F:Steam.Common.AccountType.Pending
+  id: Pending
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: AccountType.Pending
+  fullName: Steam.Common.AccountType.Pending
+  type: Field
+  source:
+    id: Pending
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 30
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA pending account\n"
+  example: []
+  syntax:
+    content: Pending = 5
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.ContentServer
+  commentId: F:Steam.Common.AccountType.ContentServer
+  id: ContentServer
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: ContentServer
+  nameWithType: AccountType.ContentServer
+  fullName: Steam.Common.AccountType.ContentServer
+  type: Field
+  source:
+    id: ContentServer
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 34
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA content server\n"
+  example: []
+  syntax:
+    content: ContentServer = 6
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Clan
+  commentId: F:Steam.Common.AccountType.Clan
+  id: Clan
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Clan
+  nameWithType: AccountType.Clan
+  fullName: Steam.Common.AccountType.Clan
+  type: Field
+  source:
+    id: Clan
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 38
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA Steam group\n"
+  example: []
+  syntax:
+    content: Clan = 7
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Chat
+  commentId: F:Steam.Common.AccountType.Chat
+  id: Chat
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Chat
+  nameWithType: AccountType.Chat
+  fullName: Steam.Common.AccountType.Chat
+  type: Field
+  source:
+    id: Chat
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 42
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA chat room between multiple users\n"
+  example: []
+  syntax:
+    content: Chat = 8
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.Seeder
+  commentId: F:Steam.Common.AccountType.Seeder
+  id: Seeder
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: Seeder
+  nameWithType: AccountType.Seeder
+  fullName: Steam.Common.AccountType.Seeder
+  type: Field
+  source:
+    id: Seeder
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 46
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nA P2P SuperSeeder\n"
+  example: []
+  syntax:
+    content: Seeder = 9
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.AccountType.AnonUser
+  commentId: F:Steam.Common.AccountType.AnonUser
+  id: AnonUser
+  parent: Steam.Common.AccountType
+  langs:
+  - csharp
+  - vb
+  name: AnonUser
+  nameWithType: AccountType.AnonUser
+  fullName: Steam.Common.AccountType.AnonUser
+  type: Field
+  source:
+    id: AnonUser
+    path: G:\Steam\src\Common\Steam.Common\AccountType.cs
+    startLine: 50
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAn anonymous user\n"
+  example: []
+  syntax:
+    content: AnonUser = 10
+    return:
+      type: Steam.Common.AccountType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.AccountType
+  commentId: T:Steam.Common.AccountType
+  parent: Steam.Common
+  isExternal: false
+  name: AccountType
+  nameWithType: AccountType
+  fullName: Steam.Common.AccountType

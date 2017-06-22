@@ -1,0 +1,273 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.PersonaStateFlag
+  commentId: T:Steam.Common.PersonaStateFlag
+  id: PersonaStateFlag
+  parent: Steam.Common
+  children:
+  - Steam.Common.PersonaStateFlag.ClientTypeMobile
+  - Steam.Common.PersonaStateFlag.ClientTypeTenfoot
+  - Steam.Common.PersonaStateFlag.ClientTypeVR
+  - Steam.Common.PersonaStateFlag.ClientTypeWeb
+  - Steam.Common.PersonaStateFlag.HasRichPresence
+  - Steam.Common.PersonaStateFlag.InJoinableGame
+  - Steam.Common.PersonaStateFlag.LaunchTypeGamepad
+  langs:
+  - csharp
+  - vb
+  name: PersonaStateFlag
+  nameWithType: PersonaStateFlag
+  fullName: Steam.Common.PersonaStateFlag
+  type: Enum
+  source:
+    id: PersonaStateFlag
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 7
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nFlags a profile with specific features\n"
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum PersonaStateFlag
+    content.vb: >-
+      <Flags>
+
+      Public Enum PersonaStateFlag
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.PersonaStateFlag.HasRichPresence
+  commentId: F:Steam.Common.PersonaStateFlag.HasRichPresence
+  id: HasRichPresence
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: HasRichPresence
+  nameWithType: PersonaStateFlag.HasRichPresence
+  fullName: Steam.Common.PersonaStateFlag.HasRichPresence
+  type: Field
+  source:
+    id: HasRichPresence
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 13
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: HasRichPresence = 1
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.InJoinableGame
+  commentId: F:Steam.Common.PersonaStateFlag.InJoinableGame
+  id: InJoinableGame
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: InJoinableGame
+  nameWithType: PersonaStateFlag.InJoinableGame
+  fullName: Steam.Common.PersonaStateFlag.InJoinableGame
+  type: Field
+  source:
+    id: InJoinableGame
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 17
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is in a joinable game\n"
+  example: []
+  syntax:
+    content: InJoinableGame = 2
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.ClientTypeWeb
+  commentId: F:Steam.Common.PersonaStateFlag.ClientTypeWeb
+  id: ClientTypeWeb
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: ClientTypeWeb
+  nameWithType: PersonaStateFlag.ClientTypeWeb
+  fullName: Steam.Common.PersonaStateFlag.ClientTypeWeb
+  type: Field
+  source:
+    id: ClientTypeWeb
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 21
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is in a web client\n"
+  example: []
+  syntax:
+    content: ClientTypeWeb = 256
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.ClientTypeMobile
+  commentId: F:Steam.Common.PersonaStateFlag.ClientTypeMobile
+  id: ClientTypeMobile
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: ClientTypeMobile
+  nameWithType: PersonaStateFlag.ClientTypeMobile
+  fullName: Steam.Common.PersonaStateFlag.ClientTypeMobile
+  type: Field
+  source:
+    id: ClientTypeMobile
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 25
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is in a mobile client\n"
+  example: []
+  syntax:
+    content: ClientTypeMobile = 512
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.ClientTypeTenfoot
+  commentId: F:Steam.Common.PersonaStateFlag.ClientTypeTenfoot
+  id: ClientTypeTenfoot
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: ClientTypeTenfoot
+  nameWithType: PersonaStateFlag.ClientTypeTenfoot
+  fullName: Steam.Common.PersonaStateFlag.ClientTypeTenfoot
+  type: Field
+  source:
+    id: ClientTypeTenfoot
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 29
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is in the Big Picture client\n"
+  example: []
+  syntax:
+    content: ClientTypeTenfoot = 1024
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.ClientTypeVR
+  commentId: F:Steam.Common.PersonaStateFlag.ClientTypeVR
+  id: ClientTypeVR
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: ClientTypeVR
+  nameWithType: PersonaStateFlag.ClientTypeVR
+  fullName: Steam.Common.PersonaStateFlag.ClientTypeVR
+  type: Field
+  source:
+    id: ClientTypeVR
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 33
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nThe user is in a VR client\n"
+  example: []
+  syntax:
+    content: ClientTypeVR = 2048
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaStateFlag.LaunchTypeGamepad
+  commentId: F:Steam.Common.PersonaStateFlag.LaunchTypeGamepad
+  id: LaunchTypeGamepad
+  parent: Steam.Common.PersonaStateFlag
+  langs:
+  - csharp
+  - vb
+  name: LaunchTypeGamepad
+  nameWithType: PersonaStateFlag.LaunchTypeGamepad
+  fullName: Steam.Common.PersonaStateFlag.LaunchTypeGamepad
+  type: Field
+  source:
+    id: LaunchTypeGamepad
+    path: G:\Steam\src\Common\Steam.Common\PersonaStateFlags.cs
+    startLine: 37
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: LaunchTypeGamepad = 4096
+    return:
+      type: Steam.Common.PersonaStateFlag
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.PersonaStateFlag
+  commentId: T:Steam.Common.PersonaStateFlag
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaStateFlag
+  nameWithType: PersonaStateFlag
+  fullName: Steam.Common.PersonaStateFlag

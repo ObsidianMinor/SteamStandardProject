@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.KeyValues.Binary
+  commentId: N:Steam.KeyValues.Binary
+  id: Steam.KeyValues.Binary
+  children:
+  - Steam.KeyValues.Binary.KeyValueBinaryReader
+  langs:
+  - csharp
+  - vb
+  name: Steam.KeyValues.Binary
+  nameWithType: Steam.KeyValues.Binary
+  fullName: Steam.KeyValues.Binary
+  type: Namespace
+  assemblies:
+  - Steam.KeyValues
+references:
+- uid: Steam.KeyValues.Binary.KeyValueBinaryReader
+  commentId: T:Steam.KeyValues.Binary.KeyValueBinaryReader
+  isExternal: false
+  name: KeyValueBinaryReader
+  nameWithType: KeyValueBinaryReader
+  fullName: Steam.KeyValues.Binary.KeyValueBinaryReader

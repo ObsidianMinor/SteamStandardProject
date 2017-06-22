@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\..\Common\Steam.Rest\Steam.Rest.csproj" />
+  </ItemGroup>
+
+</Project>

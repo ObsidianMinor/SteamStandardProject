@@ -1,0 +1,728 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.LibraryCollection
+  commentId: T:Steam.Local.Apps.LibraryCollection
+  id: LibraryCollection
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.LibraryCollection.Contains(System.String)
+  - Steam.Local.Apps.LibraryCollection.ContentStatsID
+  - Steam.Local.Apps.LibraryCollection.CreateLibrary(System.String)
+  - Steam.Local.Apps.LibraryCollection.ExternalLibraries
+  - Steam.Local.Apps.LibraryCollection.RootLibrary
+  - Steam.Local.Apps.LibraryCollection.Save
+  - Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+  langs:
+  - csharp
+  - vb
+  name: LibraryCollection
+  nameWithType: LibraryCollection
+  fullName: Steam.Local.Apps.LibraryCollection
+  type: Class
+  source:
+    id: LibraryCollection
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 9
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public class LibraryCollection
+    content.vb: Public Class LibraryCollection
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+  commentId: P:Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+  id: TimeNextStatsReport
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: TimeNextStatsReport
+  nameWithType: LibraryCollection.TimeNextStatsReport
+  fullName: Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+  type: Property
+  source:
+    id: TimeNextStatsReport
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 13
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public DateTimeOffset TimeNextStatsReport { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property TimeNextStatsReport As DateTimeOffset
+  overload: Steam.Local.Apps.LibraryCollection.TimeNextStatsReport*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LibraryCollection.ContentStatsID
+  commentId: P:Steam.Local.Apps.LibraryCollection.ContentStatsID
+  id: ContentStatsID
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: ContentStatsID
+  nameWithType: LibraryCollection.ContentStatsID
+  fullName: Steam.Local.Apps.LibraryCollection.ContentStatsID
+  type: Property
+  source:
+    id: ContentStatsID
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 14
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public long ContentStatsID { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property ContentStatsID As Long
+  overload: Steam.Local.Apps.LibraryCollection.ContentStatsID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LibraryCollection.ExternalLibraries
+  commentId: P:Steam.Local.Apps.LibraryCollection.ExternalLibraries
+  id: ExternalLibraries
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: ExternalLibraries
+  nameWithType: LibraryCollection.ExternalLibraries
+  fullName: Steam.Local.Apps.LibraryCollection.ExternalLibraries
+  type: Property
+  source:
+    id: ExternalLibraries
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 16
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public List<Library> ExternalLibraries { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Steam.Local.Apps.Library}
+    content.vb: Public Property ExternalLibraries As List(Of Library)
+  overload: Steam.Local.Apps.LibraryCollection.ExternalLibraries*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LibraryCollection.RootLibrary
+  commentId: P:Steam.Local.Apps.LibraryCollection.RootLibrary
+  id: RootLibrary
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: RootLibrary
+  nameWithType: LibraryCollection.RootLibrary
+  fullName: Steam.Local.Apps.LibraryCollection.RootLibrary
+  type: Property
+  source:
+    id: RootLibrary
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 18
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public Library RootLibrary { get; }
+    parameters: []
+    return:
+      type: Steam.Local.Apps.Library
+    content.vb: Public ReadOnly Property RootLibrary As Library
+  overload: Steam.Local.Apps.LibraryCollection.RootLibrary*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Local.Apps.LibraryCollection.CreateLibrary(System.String)
+  commentId: M:Steam.Local.Apps.LibraryCollection.CreateLibrary(System.String)
+  id: CreateLibrary(System.String)
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: CreateLibrary(String)
+  nameWithType: LibraryCollection.CreateLibrary(String)
+  fullName: Steam.Local.Apps.LibraryCollection.CreateLibrary(System.String)
+  type: Method
+  source:
+    id: CreateLibrary
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 25
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nCreates a Steam library at the specified directory. If a library already exists, it returns that library\n"
+  example: []
+  syntax:
+    content: public Library CreateLibrary(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    return:
+      type: Steam.Local.Apps.Library
+      description: ''
+    content.vb: Public Function CreateLibrary(path As String) As Library
+  overload: Steam.Local.Apps.LibraryCollection.CreateLibrary*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LibraryCollection.Contains(System.String)
+  commentId: M:Steam.Local.Apps.LibraryCollection.Contains(System.String)
+  id: Contains(System.String)
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: Contains(String)
+  nameWithType: LibraryCollection.Contains(String)
+  fullName: Steam.Local.Apps.LibraryCollection.Contains(System.String)
+  type: Method
+  source:
+    id: Contains
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 51
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: public bool Contains(string libraryPath)
+    parameters:
+    - id: libraryPath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(libraryPath As String) As Boolean
+  overload: Steam.Local.Apps.LibraryCollection.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.LibraryCollection.Save
+  commentId: M:Steam.Local.Apps.LibraryCollection.Save
+  id: Save
+  parent: Steam.Local.Apps.LibraryCollection
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: LibraryCollection.Save()
+  fullName: Steam.Local.Apps.LibraryCollection.Save()
+  type: Method
+  source:
+    id: Save
+    path: G:\Steam\src\Local\Steam.Local\Apps\LibraryCollection.cs
+    startLine: 59
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nSaves this library collection to its original file\n"
+  example: []
+  syntax:
+    content: public void Save()
+    content.vb: Public Sub Save
+  overload: Steam.Local.Apps.LibraryCollection.Save*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Local.Apps.LibraryCollection.TimeNextStatsReport*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+  isExternal: false
+  name: TimeNextStatsReport
+  nameWithType: LibraryCollection.TimeNextStatsReport
+  fullName: Steam.Local.Apps.LibraryCollection.TimeNextStatsReport
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Steam.Local.Apps.LibraryCollection.ContentStatsID*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.ContentStatsID
+  isExternal: false
+  name: ContentStatsID
+  nameWithType: LibraryCollection.ContentStatsID
+  fullName: Steam.Local.Apps.LibraryCollection.ContentStatsID
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64
+- uid: Steam.Local.Apps.LibraryCollection.ExternalLibraries*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.ExternalLibraries
+  isExternal: false
+  name: ExternalLibraries
+  nameWithType: LibraryCollection.ExternalLibraries
+  fullName: Steam.Local.Apps.LibraryCollection.ExternalLibraries
+- uid: System.Collections.Generic.List{Steam.Local.Apps.Library}
+  commentId: T:System.Collections.Generic.List{Steam.Local.Apps.Library}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Library>
+  nameWithType: List<Library>
+  fullName: System.Collections.Generic.List<Steam.Local.Apps.Library>
+  nameWithType.vb: List(Of Library)
+  fullName.vb: System.Collections.Generic.List(Of Steam.Local.Apps.Library)
+  name.vb: List(Of Library)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Local.Apps.Library
+    name: Library
+    nameWithType: Library
+    fullName: Steam.Local.Apps.Library
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Local.Apps.Library
+    name: Library
+    nameWithType: Library
+    fullName: Steam.Local.Apps.Library
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Steam.Local.Apps.LibraryCollection.RootLibrary*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.RootLibrary
+  isExternal: false
+  name: RootLibrary
+  nameWithType: LibraryCollection.RootLibrary
+  fullName: Steam.Local.Apps.LibraryCollection.RootLibrary
+- uid: Steam.Local.Apps.Library
+  commentId: T:Steam.Local.Apps.Library
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: Library
+  nameWithType: Library
+  fullName: Steam.Local.Apps.Library
+- uid: Steam.Local.Apps.LibraryCollection.CreateLibrary*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.CreateLibrary
+  isExternal: false
+  name: CreateLibrary
+  nameWithType: LibraryCollection.CreateLibrary
+  fullName: Steam.Local.Apps.LibraryCollection.CreateLibrary
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Local.Apps.LibraryCollection.Contains*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.Contains
+  isExternal: false
+  name: Contains
+  nameWithType: LibraryCollection.Contains
+  fullName: Steam.Local.Apps.LibraryCollection.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Local.Apps.LibraryCollection.Save*
+  commentId: Overload:Steam.Local.Apps.LibraryCollection.Save
+  isExternal: false
+  name: Save
+  nameWithType: LibraryCollection.Save
+  fullName: Steam.Local.Apps.LibraryCollection.Save

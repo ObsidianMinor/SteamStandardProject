@@ -1,0 +1,305 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.GameRegionCode
+  commentId: T:Steam.Web.GameRegionCode
+  id: GameRegionCode
+  parent: Steam.Web
+  children:
+  - Steam.Web.GameRegionCode.Africa
+  - Steam.Web.GameRegionCode.Asia
+  - Steam.Web.GameRegionCode.Australia
+  - Steam.Web.GameRegionCode.Europe
+  - Steam.Web.GameRegionCode.MiddleEast
+  - Steam.Web.GameRegionCode.SouthAmerica
+  - Steam.Web.GameRegionCode.USEast
+  - Steam.Web.GameRegionCode.USWest
+  - Steam.Web.GameRegionCode.World
+  langs:
+  - csharp
+  - vb
+  name: GameRegionCode
+  nameWithType: GameRegionCode
+  fullName: Steam.Web.GameRegionCode
+  type: Enum
+  source:
+    id: GameRegionCode
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 2
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: 'public enum GameRegionCode : byte'
+    content.vb: Public Enum GameRegionCode As Byte
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Web.GameRegionCode.USEast
+  commentId: F:Steam.Web.GameRegionCode.USEast
+  id: USEast
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: USEast
+  nameWithType: GameRegionCode.USEast
+  fullName: Steam.Web.GameRegionCode.USEast
+  type: Field
+  source:
+    id: USEast
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 4
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: USEast = 0
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.USWest
+  commentId: F:Steam.Web.GameRegionCode.USWest
+  id: USWest
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: USWest
+  nameWithType: GameRegionCode.USWest
+  fullName: Steam.Web.GameRegionCode.USWest
+  type: Field
+  source:
+    id: USWest
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 5
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: USWest = 1
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.SouthAmerica
+  commentId: F:Steam.Web.GameRegionCode.SouthAmerica
+  id: SouthAmerica
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: SouthAmerica
+  nameWithType: GameRegionCode.SouthAmerica
+  fullName: Steam.Web.GameRegionCode.SouthAmerica
+  type: Field
+  source:
+    id: SouthAmerica
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 6
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: SouthAmerica = 2
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.Europe
+  commentId: F:Steam.Web.GameRegionCode.Europe
+  id: Europe
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: Europe
+  nameWithType: GameRegionCode.Europe
+  fullName: Steam.Web.GameRegionCode.Europe
+  type: Field
+  source:
+    id: Europe
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 7
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Europe = 3
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.Asia
+  commentId: F:Steam.Web.GameRegionCode.Asia
+  id: Asia
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: Asia
+  nameWithType: GameRegionCode.Asia
+  fullName: Steam.Web.GameRegionCode.Asia
+  type: Field
+  source:
+    id: Asia
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 8
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Asia = 4
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.Australia
+  commentId: F:Steam.Web.GameRegionCode.Australia
+  id: Australia
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: Australia
+  nameWithType: GameRegionCode.Australia
+  fullName: Steam.Web.GameRegionCode.Australia
+  type: Field
+  source:
+    id: Australia
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 9
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Australia = 5
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.MiddleEast
+  commentId: F:Steam.Web.GameRegionCode.MiddleEast
+  id: MiddleEast
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: MiddleEast
+  nameWithType: GameRegionCode.MiddleEast
+  fullName: Steam.Web.GameRegionCode.MiddleEast
+  type: Field
+  source:
+    id: MiddleEast
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 10
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: MiddleEast = 6
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.Africa
+  commentId: F:Steam.Web.GameRegionCode.Africa
+  id: Africa
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: Africa
+  nameWithType: GameRegionCode.Africa
+  fullName: Steam.Web.GameRegionCode.Africa
+  type: Field
+  source:
+    id: Africa
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 11
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Africa = 7
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.GameRegionCode.World
+  commentId: F:Steam.Web.GameRegionCode.World
+  id: World
+  parent: Steam.Web.GameRegionCode
+  langs:
+  - csharp
+  - vb
+  name: World
+  nameWithType: GameRegionCode.World
+  fullName: Steam.Web.GameRegionCode.World
+  type: Field
+  source:
+    id: World
+    path: G:\Steam\src\Web\Steam.Web\GameRegionCode.cs
+    startLine: 12
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: World = 255
+    return:
+      type: Steam.Web.GameRegionCode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Web.GameRegionCode
+  commentId: T:Steam.Web.GameRegionCode
+  parent: Steam.Web
+  isExternal: false
+  name: GameRegionCode
+  nameWithType: GameRegionCode
+  fullName: Steam.Web.GameRegionCode

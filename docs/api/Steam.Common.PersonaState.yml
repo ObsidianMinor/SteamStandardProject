@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.PersonaState
+  commentId: T:Steam.Common.PersonaState
+  id: PersonaState
+  parent: Steam.Common
+  children:
+  - Steam.Common.PersonaState.Away
+  - Steam.Common.PersonaState.Busy
+  - Steam.Common.PersonaState.LookingToPlay
+  - Steam.Common.PersonaState.LookingToTrade
+  - Steam.Common.PersonaState.Offline
+  - Steam.Common.PersonaState.Online
+  - Steam.Common.PersonaState.Snooze
+  langs:
+  - csharp
+  - vb
+  name: PersonaState
+  nameWithType: PersonaState
+  fullName: Steam.Common.PersonaState
+  type: Enum
+  source:
+    id: PersonaState
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 5
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSpecifies persona states for a Steam user\n"
+  example: []
+  syntax:
+    content: public enum PersonaState
+    content.vb: Public Enum PersonaState
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Common.PersonaState.Offline
+  commentId: F:Steam.Common.PersonaState.Offline
+  id: Offline
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: Offline
+  nameWithType: PersonaState.Offline
+  fullName: Steam.Common.PersonaState.Offline
+  type: Field
+  source:
+    id: Offline
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 10
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOffline state\n"
+  example: []
+  syntax:
+    content: Offline = 0
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.Online
+  commentId: F:Steam.Common.PersonaState.Online
+  id: Online
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: Online
+  nameWithType: PersonaState.Online
+  fullName: Steam.Common.PersonaState.Online
+  type: Field
+  source:
+    id: Online
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 14
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nOnline state\n"
+  example: []
+  syntax:
+    content: Online = 1
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.Busy
+  commentId: F:Steam.Common.PersonaState.Busy
+  id: Busy
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: Busy
+  nameWithType: PersonaState.Busy
+  fullName: Steam.Common.PersonaState.Busy
+  type: Field
+  source:
+    id: Busy
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 18
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nBusy state\n"
+  example: []
+  syntax:
+    content: Busy = 2
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.Away
+  commentId: F:Steam.Common.PersonaState.Away
+  id: Away
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: Away
+  nameWithType: PersonaState.Away
+  fullName: Steam.Common.PersonaState.Away
+  type: Field
+  source:
+    id: Away
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 22
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nAway state\n"
+  example: []
+  syntax:
+    content: Away = 3
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.Snooze
+  commentId: F:Steam.Common.PersonaState.Snooze
+  id: Snooze
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: Snooze
+  nameWithType: PersonaState.Snooze
+  fullName: Steam.Common.PersonaState.Snooze
+  type: Field
+  source:
+    id: Snooze
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 26
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nSnooze state\n"
+  example: []
+  syntax:
+    content: Snooze = 4
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.LookingToTrade
+  commentId: F:Steam.Common.PersonaState.LookingToTrade
+  id: LookingToTrade
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: LookingToTrade
+  nameWithType: PersonaState.LookingToTrade
+  fullName: Steam.Common.PersonaState.LookingToTrade
+  type: Field
+  source:
+    id: LookingToTrade
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 30
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLooking for trade\n"
+  example: []
+  syntax:
+    content: LookingToTrade = 5
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Common.PersonaState.LookingToPlay
+  commentId: F:Steam.Common.PersonaState.LookingToPlay
+  id: LookingToPlay
+  parent: Steam.Common.PersonaState
+  langs:
+  - csharp
+  - vb
+  name: LookingToPlay
+  nameWithType: PersonaState.LookingToPlay
+  fullName: Steam.Common.PersonaState.LookingToPlay
+  type: Field
+  source:
+    id: LookingToPlay
+    path: G:\Steam\src\Common\Steam.Common\PersonaState.cs
+    startLine: 34
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nLooking to play\n"
+  example: []
+  syntax:
+    content: LookingToPlay = 6
+    return:
+      type: Steam.Common.PersonaState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Common.PersonaState
+  commentId: T:Steam.Common.PersonaState
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaState
+  nameWithType: PersonaState
+  fullName: Steam.Common.PersonaState

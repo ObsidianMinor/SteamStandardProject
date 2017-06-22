@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  id: Steam.Common
+  children:
+  - Steam.Common.AccountType
+  - Steam.Common.AsyncEvent`1
+  - Steam.Common.ChatEntryType
+  - Steam.Common.EventExtensions
+  - Steam.Common.GameId
+  - Steam.Common.GameType
+  - Steam.Common.Instance
+  - Steam.Common.PersonaState
+  - Steam.Common.PersonaStateFlag
+  - Steam.Common.ProfileVisibility
+  - Steam.Common.Result
+  - Steam.Common.SteamConfig
+  - Steam.Common.SteamGuid
+  - Steam.Common.SteamId
+  - Steam.Common.Universe
+  langs:
+  - csharp
+  - vb
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+  type: Namespace
+  assemblies:
+  - Steam.Common
+references:
+- uid: Steam.Common.AccountType
+  commentId: T:Steam.Common.AccountType
+  parent: Steam.Common
+  isExternal: false
+  name: AccountType
+  nameWithType: AccountType
+  fullName: Steam.Common.AccountType
+- uid: Steam.Common.AsyncEvent`1
+  commentId: T:Steam.Common.AsyncEvent`1
+  isExternal: false
+  name: AsyncEvent<T>
+  nameWithType: AsyncEvent<T>
+  fullName: Steam.Common.AsyncEvent<T>
+  nameWithType.vb: AsyncEvent(Of T)
+  fullName.vb: Steam.Common.AsyncEvent(Of T)
+  name.vb: AsyncEvent(Of T)
+  spec.csharp:
+  - uid: Steam.Common.AsyncEvent`1
+    name: AsyncEvent
+    nameWithType: AsyncEvent
+    fullName: Steam.Common.AsyncEvent
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Steam.Common.AsyncEvent`1
+    name: AsyncEvent
+    nameWithType: AsyncEvent
+    fullName: Steam.Common.AsyncEvent
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Common.EventExtensions
+  commentId: T:Steam.Common.EventExtensions
+  isExternal: false
+  name: EventExtensions
+  nameWithType: EventExtensions
+  fullName: Steam.Common.EventExtensions
+- uid: Steam.Common.GameId
+  commentId: T:Steam.Common.GameId
+  parent: Steam.Common
+  isExternal: false
+  name: GameId
+  nameWithType: GameId
+  fullName: Steam.Common.GameId
+- uid: Steam.Common.GameType
+  commentId: T:Steam.Common.GameType
+  parent: Steam.Common
+  isExternal: false
+  name: GameType
+  nameWithType: GameType
+  fullName: Steam.Common.GameType
+- uid: Steam.Common.Instance
+  commentId: T:Steam.Common.Instance
+  parent: Steam.Common
+  isExternal: false
+  name: Instance
+  nameWithType: Instance
+  fullName: Steam.Common.Instance
+- uid: Steam.Common.PersonaState
+  commentId: T:Steam.Common.PersonaState
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaState
+  nameWithType: PersonaState
+  fullName: Steam.Common.PersonaState
+- uid: Steam.Common.PersonaStateFlag
+  commentId: T:Steam.Common.PersonaStateFlag
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaStateFlag
+  nameWithType: PersonaStateFlag
+  fullName: Steam.Common.PersonaStateFlag
+- uid: Steam.Common.ProfileVisibility
+  commentId: T:Steam.Common.ProfileVisibility
+  parent: Steam.Common
+  isExternal: false
+  name: ProfileVisibility
+  nameWithType: ProfileVisibility
+  fullName: Steam.Common.ProfileVisibility
+- uid: Steam.Common.Result
+  commentId: T:Steam.Common.Result
+  parent: Steam.Common
+  isExternal: false
+  name: Result
+  nameWithType: Result
+  fullName: Steam.Common.Result
+- uid: Steam.Common.SteamConfig
+  commentId: T:Steam.Common.SteamConfig
+  parent: Steam.Common
+  isExternal: false
+  name: SteamConfig
+  nameWithType: SteamConfig
+  fullName: Steam.Common.SteamConfig
+- uid: Steam.Common.SteamGuid
+  commentId: T:Steam.Common.SteamGuid
+  parent: Steam.Common
+  isExternal: false
+  name: SteamGuid
+  nameWithType: SteamGuid
+  fullName: Steam.Common.SteamGuid
+- uid: Steam.Common.SteamId
+  commentId: T:Steam.Common.SteamId
+  parent: Steam.Common
+  isExternal: false
+  name: SteamId
+  nameWithType: SteamId
+  fullName: Steam.Common.SteamId
+- uid: Steam.Common.Universe
+  commentId: T:Steam.Common.Universe
+  parent: Steam.Common
+  isExternal: false
+  name: Universe
+  nameWithType: Universe
+  fullName: Steam.Common.Universe
+- uid: Steam.Common.ChatEntryType
+  commentId: T:Steam.Common.ChatEntryType
+  parent: Steam.Common
+  isExternal: false
+  name: ChatEntryType
+  nameWithType: ChatEntryType
+  fullName: Steam.Common.ChatEntryType
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common

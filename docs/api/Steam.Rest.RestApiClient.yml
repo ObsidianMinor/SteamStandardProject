@@ -1,0 +1,782 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Rest.RestApiClient
+  commentId: T:Steam.Rest.RestApiClient
+  id: RestApiClient
+  parent: Steam.Rest
+  children:
+  - Steam.Rest.RestApiClient.#ctor(Steam.Rest.SteamRestConfig)
+  - Steam.Rest.RestApiClient.Config
+  - Steam.Rest.RestApiClient.ReadAsType``1(Steam.Rest.RestResponse)
+  - Steam.Rest.RestApiClient.RestClient
+  - Steam.Rest.RestApiClient.SendAsync(System.String,System.String,Steam.Rest.RequestOptions)
+  - Steam.Rest.RestApiClient.SendAsync(System.String,System.String,System.String,Steam.Rest.RequestOptions)
+  - Steam.Rest.RestApiClient.SendAsync``1(System.String,System.String,Steam.Rest.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: RestApiClient
+  nameWithType: RestApiClient
+  fullName: Steam.Rest.RestApiClient
+  type: Class
+  source:
+    id: RestApiClient
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 7
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public abstract class RestApiClient
+    content.vb: Public MustInherit Class RestApiClient
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Steam.Rest.RestApiClient.Config
+  commentId: P:Steam.Rest.RestApiClient.Config
+  id: Config
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: Config
+  nameWithType: RestApiClient.Config
+  fullName: Steam.Rest.RestApiClient.Config
+  type: Property
+  source:
+    id: Config
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 9
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: protected SteamRestConfig Config { get; }
+    parameters: []
+    return:
+      type: Steam.Rest.SteamRestConfig
+    content.vb: Protected ReadOnly Property Config As SteamRestConfig
+  overload: Steam.Rest.RestApiClient.Config*
+  modifiers.csharp:
+  - protected
+  - get
+  modifiers.vb:
+  - Protected
+  - ReadOnly
+- uid: Steam.Rest.RestApiClient.RestClient
+  commentId: F:Steam.Rest.RestApiClient.RestClient
+  id: RestClient
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: RestClient
+  nameWithType: RestApiClient.RestClient
+  fullName: Steam.Rest.RestApiClient.RestClient
+  type: Field
+  source:
+    id: RestClient
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 10
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: protected IRestClient RestClient
+    return:
+      type: Steam.Rest.IRestClient
+    content.vb: Protected RestClient As IRestClient
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: Steam.Rest.RestApiClient.#ctor(Steam.Rest.SteamRestConfig)
+  commentId: M:Steam.Rest.RestApiClient.#ctor(Steam.Rest.SteamRestConfig)
+  id: '#ctor(Steam.Rest.SteamRestConfig)'
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: RestApiClient(SteamRestConfig)
+  nameWithType: RestApiClient.RestApiClient(SteamRestConfig)
+  fullName: Steam.Rest.RestApiClient.RestApiClient(Steam.Rest.SteamRestConfig)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 12
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public RestApiClient(SteamRestConfig restConfig)
+    parameters:
+    - id: restConfig
+      type: Steam.Rest.SteamRestConfig
+    content.vb: Public Sub New(restConfig As SteamRestConfig)
+  overload: Steam.Rest.RestApiClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Rest.RestApiClient.ReadAsType``1(Steam.Rest.RestResponse)
+  commentId: M:Steam.Rest.RestApiClient.ReadAsType``1(Steam.Rest.RestResponse)
+  id: ReadAsType``1(Steam.Rest.RestResponse)
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: ReadAsType<T>(RestResponse)
+  nameWithType: RestApiClient.ReadAsType<T>(RestResponse)
+  fullName: Steam.Rest.RestApiClient.ReadAsType<T>(Steam.Rest.RestResponse)
+  type: Method
+  source:
+    id: ReadAsType
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 18
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: protected abstract T ReadAsType<T>(RestResponse response)
+    parameters:
+    - id: response
+      type: Steam.Rest.RestResponse
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Protected MustOverride Function ReadAsType(Of T)(response As RestResponse) As T
+  overload: Steam.Rest.RestApiClient.ReadAsType*
+  nameWithType.vb: RestApiClient.ReadAsType(Of T)(RestResponse)
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Steam.Rest.RestApiClient.ReadAsType(Of T)(Steam.Rest.RestResponse)
+  name.vb: ReadAsType(Of T)(RestResponse)
+- uid: Steam.Rest.RestApiClient.SendAsync``1(System.String,System.String,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Rest.RestApiClient.SendAsync``1(System.String,System.String,Steam.Rest.RequestOptions)
+  id: SendAsync``1(System.String,System.String,Steam.Rest.RequestOptions)
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync<T>(String, String, RequestOptions)
+  nameWithType: RestApiClient.SendAsync<T>(String, String, RequestOptions)
+  fullName: Steam.Rest.RestApiClient.SendAsync<T>(System.String, System.String, Steam.Rest.RequestOptions)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 20
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public Task<T> SendAsync<T>(string method, string endpoint, RequestOptions options)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: options
+      type: Steam.Rest.RequestOptions
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Function SendAsync(Of T)(method As String, endpoint As String, options As RequestOptions) As Task(Of T)
+  overload: Steam.Rest.RestApiClient.SendAsync*
+  nameWithType.vb: RestApiClient.SendAsync(Of T)(String, String, RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Steam.Rest.RestApiClient.SendAsync(Of T)(System.String, System.String, Steam.Rest.RequestOptions)
+  name.vb: SendAsync(Of T)(String, String, RequestOptions)
+- uid: Steam.Rest.RestApiClient.SendAsync(System.String,System.String,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Rest.RestApiClient.SendAsync(System.String,System.String,Steam.Rest.RequestOptions)
+  id: SendAsync(System.String,System.String,Steam.Rest.RequestOptions)
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, RequestOptions)
+  nameWithType: RestApiClient.SendAsync(String, String, RequestOptions)
+  fullName: Steam.Rest.RestApiClient.SendAsync(System.String, System.String, Steam.Rest.RequestOptions)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 27
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public Task<RestResponse> SendAsync(string method, string endpoint, RequestOptions options)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: options
+      type: Steam.Rest.RequestOptions
+    return:
+      type: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+    content.vb: Public Function SendAsync(method As String, endpoint As String, options As RequestOptions) As Task(Of RestResponse)
+  overload: Steam.Rest.RestApiClient.SendAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Rest.RestApiClient.SendAsync(System.String,System.String,System.String,Steam.Rest.RequestOptions)
+  commentId: M:Steam.Rest.RestApiClient.SendAsync(System.String,System.String,System.String,Steam.Rest.RequestOptions)
+  id: SendAsync(System.String,System.String,System.String,Steam.Rest.RequestOptions)
+  parent: Steam.Rest.RestApiClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, String, RequestOptions)
+  nameWithType: RestApiClient.SendAsync(String, String, String, RequestOptions)
+  fullName: Steam.Rest.RestApiClient.SendAsync(System.String, System.String, System.String, Steam.Rest.RequestOptions)
+  type: Method
+  source:
+    id: SendAsync
+    path: G:\Steam\src\Common\Steam.Rest\RestApiClient.cs
+    startLine: 33
+  assemblies:
+  - Steam.Rest
+  namespace: Steam.Rest
+  syntax:
+    content: public Task<RestResponse> SendAsync(string method, string endpoint, string content, RequestOptions options)
+    parameters:
+    - id: method
+      type: System.String
+    - id: endpoint
+      type: System.String
+    - id: content
+      type: System.String
+    - id: options
+      type: Steam.Rest.RequestOptions
+    return:
+      type: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+    content.vb: Public Function SendAsync(method As String, endpoint As String, content As String, options As RequestOptions) As Task(Of RestResponse)
+  overload: Steam.Rest.RestApiClient.SendAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Rest.RestApiClient.Config*
+  commentId: Overload:Steam.Rest.RestApiClient.Config
+  isExternal: false
+  name: Config
+  nameWithType: RestApiClient.Config
+  fullName: Steam.Rest.RestApiClient.Config
+- uid: Steam.Rest.SteamRestConfig
+  commentId: T:Steam.Rest.SteamRestConfig
+  parent: Steam.Rest
+  isExternal: false
+  name: SteamRestConfig
+  nameWithType: SteamRestConfig
+  fullName: Steam.Rest.SteamRestConfig
+- uid: Steam.Rest.IRestClient
+  commentId: T:Steam.Rest.IRestClient
+  parent: Steam.Rest
+  isExternal: false
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: Steam.Rest.IRestClient
+- uid: Steam.Rest.RestApiClient.#ctor*
+  commentId: Overload:Steam.Rest.RestApiClient.#ctor
+  isExternal: false
+  name: RestApiClient
+  nameWithType: RestApiClient.RestApiClient
+  fullName: Steam.Rest.RestApiClient.RestApiClient
+- uid: Steam.Rest.RestApiClient.ReadAsType*
+  commentId: Overload:Steam.Rest.RestApiClient.ReadAsType
+  isExternal: false
+  name: ReadAsType
+  nameWithType: RestApiClient.ReadAsType
+  fullName: Steam.Rest.RestApiClient.ReadAsType
+- uid: Steam.Rest.RestResponse
+  commentId: T:Steam.Rest.RestResponse
+  parent: Steam.Rest
+  isExternal: false
+  name: RestResponse
+  nameWithType: RestResponse
+  fullName: Steam.Rest.RestResponse
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  isExternal: false
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Steam.Rest.RestApiClient.SendAsync*
+  commentId: Overload:Steam.Rest.RestApiClient.SendAsync
+  isExternal: false
+  name: SendAsync
+  nameWithType: RestApiClient.SendAsync
+  fullName: Steam.Rest.RestApiClient.SendAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Rest.RequestOptions
+  commentId: T:Steam.Rest.RequestOptions
+  parent: Steam.Rest
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Steam.Rest.RequestOptions
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+  commentId: T:System.Threading.Tasks.Task{Steam.Rest.RestResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<RestResponse>
+  nameWithType: Task<RestResponse>
+  fullName: System.Threading.Tasks.Task<Steam.Rest.RestResponse>
+  nameWithType.vb: Task(Of RestResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Steam.Rest.RestResponse)
+  name.vb: Task(Of RestResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Steam.Rest.RestResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Steam.Rest.RestResponse
+  - name: )
+    nameWithType: )
+    fullName: )

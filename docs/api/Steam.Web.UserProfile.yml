@@ -1,0 +1,1463 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.UserProfile
+  commentId: T:Steam.Web.UserProfile
+  id: UserProfile
+  parent: Steam.Web
+  children:
+  - Steam.Web.UserProfile.AvatarUrl
+  - Steam.Web.UserProfile.CanCommenting
+  - Steam.Web.UserProfile.CanViewFullProfile
+  - Steam.Web.UserProfile.CityId
+  - Steam.Web.UserProfile.CountryCode
+  - Steam.Web.UserProfile.ExtraGameServerInfo
+  - Steam.Web.UserProfile.FullAvatarUrl
+  - Steam.Web.UserProfile.GameAppId
+  - Steam.Web.UserProfile.GameServerIp
+  - Steam.Web.UserProfile.GameServerSteamId
+  - Steam.Web.UserProfile.GetGameServerAsync(Steam.Rest.RequestOptions)
+  - Steam.Web.UserProfile.Id
+  - Steam.Web.UserProfile.LastLogoff
+  - Steam.Web.UserProfile.MediumAvatarUrl
+  - Steam.Web.UserProfile.PersonaName
+  - Steam.Web.UserProfile.PersonaState
+  - Steam.Web.UserProfile.PersonaStateFlags
+  - Steam.Web.UserProfile.PrimaryGroupId
+  - Steam.Web.UserProfile.ProfileCompleted
+  - Steam.Web.UserProfile.ProfileUrl
+  - Steam.Web.UserProfile.RealName
+  - Steam.Web.UserProfile.StateCode
+  - Steam.Web.UserProfile.TimeCreated
+  - Steam.Web.UserProfile.UsePersona
+  langs:
+  - csharp
+  - vb
+  name: UserProfile
+  nameWithType: UserProfile
+  fullName: Steam.Web.UserProfile
+  type: Class
+  source:
+    id: UserProfile
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 11
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nRepresents a user's profile on the Steam community\n"
+  example: []
+  syntax:
+    content: 'public class UserProfile : Entity'
+    content.vb: >-
+      Public Class UserProfile
+
+          Inherits Entity
+  inheritance:
+  - System.Object
+  - Steam.Web.Entity
+  inheritedMembers:
+  - Steam.Web.Entity.WebClient
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Web.UserProfile.Id
+  commentId: P:Steam.Web.UserProfile.Id
+  id: Id
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: UserProfile.Id
+  fullName: Steam.Web.UserProfile.Id
+  type: Property
+  source:
+    id: Id
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 20
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets this user's ID\n"
+  example: []
+  syntax:
+    content: public SteamId Id { get; }
+    parameters: []
+    return:
+      type: Steam.Common.SteamId
+    content.vb: Public ReadOnly Property Id As SteamId
+  overload: Steam.Web.UserProfile.Id*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.CanViewFullProfile
+  commentId: P:Steam.Web.UserProfile.CanViewFullProfile
+  id: CanViewFullProfile
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: CanViewFullProfile
+  nameWithType: UserProfile.CanViewFullProfile
+  fullName: Steam.Web.UserProfile.CanViewFullProfile
+  type: Property
+  source:
+    id: CanViewFullProfile
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 24
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets whether the current user can view this user's profile\n"
+  example: []
+  syntax:
+    content: public bool CanViewFullProfile { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanViewFullProfile As Boolean
+  overload: Steam.Web.UserProfile.CanViewFullProfile*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.ProfileCompleted
+  commentId: P:Steam.Web.UserProfile.ProfileCompleted
+  id: ProfileCompleted
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: ProfileCompleted
+  nameWithType: UserProfile.ProfileCompleted
+  fullName: Steam.Web.UserProfile.ProfileCompleted
+  type: Property
+  source:
+    id: ProfileCompleted
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 28
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets whether this profile is completed\n"
+  example: []
+  syntax:
+    content: public bool ProfileCompleted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ProfileCompleted As Boolean
+  overload: Steam.Web.UserProfile.ProfileCompleted*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.PersonaName
+  commentId: P:Steam.Web.UserProfile.PersonaName
+  id: PersonaName
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: PersonaName
+  nameWithType: UserProfile.PersonaName
+  fullName: Steam.Web.UserProfile.PersonaName
+  type: Property
+  source:
+    id: PersonaName
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 32
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the persona name of this user\n"
+  example: []
+  syntax:
+    content: public string PersonaName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PersonaName As String
+  overload: Steam.Web.UserProfile.PersonaName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.LastLogoff
+  commentId: P:Steam.Web.UserProfile.LastLogoff
+  id: LastLogoff
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: LastLogoff
+  nameWithType: UserProfile.LastLogoff
+  fullName: Steam.Web.UserProfile.LastLogoff
+  type: Property
+  source:
+    id: LastLogoff
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 36
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the time of the most recent logoff of this user\n"
+  example: []
+  syntax:
+    content: public DateTimeOffset LastLogoff { get; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public ReadOnly Property LastLogoff As DateTimeOffset
+  overload: Steam.Web.UserProfile.LastLogoff*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.CanCommenting
+  commentId: P:Steam.Web.UserProfile.CanCommenting
+  id: CanCommenting
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: CanCommenting
+  nameWithType: UserProfile.CanCommenting
+  fullName: Steam.Web.UserProfile.CanCommenting
+  type: Property
+  source:
+    id: CanCommenting
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 40
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets whether the current user can comment on this user's profile\n"
+  example: []
+  syntax:
+    content: public bool CanCommenting { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanCommenting As Boolean
+  overload: Steam.Web.UserProfile.CanCommenting*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.ProfileUrl
+  commentId: P:Steam.Web.UserProfile.ProfileUrl
+  id: ProfileUrl
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: ProfileUrl
+  nameWithType: UserProfile.ProfileUrl
+  fullName: Steam.Web.UserProfile.ProfileUrl
+  type: Property
+  source:
+    id: ProfileUrl
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 41
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string ProfileUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ProfileUrl As String
+  overload: Steam.Web.UserProfile.ProfileUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.AvatarUrl
+  commentId: P:Steam.Web.UserProfile.AvatarUrl
+  id: AvatarUrl
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: AvatarUrl
+  nameWithType: UserProfile.AvatarUrl
+  fullName: Steam.Web.UserProfile.AvatarUrl
+  type: Property
+  source:
+    id: AvatarUrl
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 42
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string AvatarUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AvatarUrl As String
+  overload: Steam.Web.UserProfile.AvatarUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.MediumAvatarUrl
+  commentId: P:Steam.Web.UserProfile.MediumAvatarUrl
+  id: MediumAvatarUrl
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: MediumAvatarUrl
+  nameWithType: UserProfile.MediumAvatarUrl
+  fullName: Steam.Web.UserProfile.MediumAvatarUrl
+  type: Property
+  source:
+    id: MediumAvatarUrl
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 43
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string MediumAvatarUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MediumAvatarUrl As String
+  overload: Steam.Web.UserProfile.MediumAvatarUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.FullAvatarUrl
+  commentId: P:Steam.Web.UserProfile.FullAvatarUrl
+  id: FullAvatarUrl
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: FullAvatarUrl
+  nameWithType: UserProfile.FullAvatarUrl
+  fullName: Steam.Web.UserProfile.FullAvatarUrl
+  type: Property
+  source:
+    id: FullAvatarUrl
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 44
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string FullAvatarUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FullAvatarUrl As String
+  overload: Steam.Web.UserProfile.FullAvatarUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.UsePersona
+  commentId: P:Steam.Web.UserProfile.UsePersona
+  id: UsePersona
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: UsePersona
+  nameWithType: UserProfile.UsePersona
+  fullName: Steam.Web.UserProfile.UsePersona
+  type: Property
+  source:
+    id: UsePersona
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 45
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public bool UsePersona { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property UsePersona As Boolean
+  overload: Steam.Web.UserProfile.UsePersona*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.PersonaState
+  commentId: P:Steam.Web.UserProfile.PersonaState
+  id: PersonaState
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: PersonaState
+  nameWithType: UserProfile.PersonaState
+  fullName: Steam.Web.UserProfile.PersonaState
+  type: Property
+  source:
+    id: PersonaState
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 46
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public PersonaState PersonaState { get; }
+    parameters: []
+    return:
+      type: Steam.Common.PersonaState
+    content.vb: Public ReadOnly Property PersonaState As PersonaState
+  overload: Steam.Web.UserProfile.PersonaState*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.RealName
+  commentId: P:Steam.Web.UserProfile.RealName
+  id: RealName
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: RealName
+  nameWithType: UserProfile.RealName
+  fullName: Steam.Web.UserProfile.RealName
+  type: Property
+  source:
+    id: RealName
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 47
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string RealName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RealName As String
+  overload: Steam.Web.UserProfile.RealName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.PrimaryGroupId
+  commentId: P:Steam.Web.UserProfile.PrimaryGroupId
+  id: PrimaryGroupId
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: PrimaryGroupId
+  nameWithType: UserProfile.PrimaryGroupId
+  fullName: Steam.Web.UserProfile.PrimaryGroupId
+  type: Property
+  source:
+    id: PrimaryGroupId
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 48
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public SteamId PrimaryGroupId { get; }
+    parameters: []
+    return:
+      type: Steam.Common.SteamId
+    content.vb: Public ReadOnly Property PrimaryGroupId As SteamId
+  overload: Steam.Web.UserProfile.PrimaryGroupId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.TimeCreated
+  commentId: P:Steam.Web.UserProfile.TimeCreated
+  id: TimeCreated
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: TimeCreated
+  nameWithType: UserProfile.TimeCreated
+  fullName: Steam.Web.UserProfile.TimeCreated
+  type: Property
+  source:
+    id: TimeCreated
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 49
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public DateTimeOffset TimeCreated { get; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public ReadOnly Property TimeCreated As DateTimeOffset
+  overload: Steam.Web.UserProfile.TimeCreated*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.PersonaStateFlags
+  commentId: P:Steam.Web.UserProfile.PersonaStateFlags
+  id: PersonaStateFlags
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: PersonaStateFlags
+  nameWithType: UserProfile.PersonaStateFlags
+  fullName: Steam.Web.UserProfile.PersonaStateFlags
+  type: Property
+  source:
+    id: PersonaStateFlags
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 50
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public PersonaStateFlag PersonaStateFlags { get; }
+    parameters: []
+    return:
+      type: Steam.Common.PersonaStateFlag
+    content.vb: Public ReadOnly Property PersonaStateFlags As PersonaStateFlag
+  overload: Steam.Web.UserProfile.PersonaStateFlags*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.CountryCode
+  commentId: P:Steam.Web.UserProfile.CountryCode
+  id: CountryCode
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: CountryCode
+  nameWithType: UserProfile.CountryCode
+  fullName: Steam.Web.UserProfile.CountryCode
+  type: Property
+  source:
+    id: CountryCode
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 51
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string CountryCode { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CountryCode As String
+  overload: Steam.Web.UserProfile.CountryCode*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.StateCode
+  commentId: P:Steam.Web.UserProfile.StateCode
+  id: StateCode
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: StateCode
+  nameWithType: UserProfile.StateCode
+  fullName: Steam.Web.UserProfile.StateCode
+  type: Property
+  source:
+    id: StateCode
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 52
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string StateCode { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property StateCode As String
+  overload: Steam.Web.UserProfile.StateCode*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.CityId
+  commentId: P:Steam.Web.UserProfile.CityId
+  id: CityId
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: CityId
+  nameWithType: UserProfile.CityId
+  fullName: Steam.Web.UserProfile.CityId
+  type: Property
+  source:
+    id: CityId
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 53
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public int CityId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CityId As Integer
+  overload: Steam.Web.UserProfile.CityId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.GameServerIp
+  commentId: P:Steam.Web.UserProfile.GameServerIp
+  id: GameServerIp
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: GameServerIp
+  nameWithType: UserProfile.GameServerIp
+  fullName: Steam.Web.UserProfile.GameServerIp
+  type: Property
+  source:
+    id: GameServerIp
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 54
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public IPEndPoint GameServerIp { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: Public ReadOnly Property GameServerIp As IPEndPoint
+  overload: Steam.Web.UserProfile.GameServerIp*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.GameServerSteamId
+  commentId: P:Steam.Web.UserProfile.GameServerSteamId
+  id: GameServerSteamId
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: GameServerSteamId
+  nameWithType: UserProfile.GameServerSteamId
+  fullName: Steam.Web.UserProfile.GameServerSteamId
+  type: Property
+  source:
+    id: GameServerSteamId
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 55
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public SteamId GameServerSteamId { get; }
+    parameters: []
+    return:
+      type: Steam.Common.SteamId
+    content.vb: Public ReadOnly Property GameServerSteamId As SteamId
+  overload: Steam.Web.UserProfile.GameServerSteamId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.ExtraGameServerInfo
+  commentId: P:Steam.Web.UserProfile.ExtraGameServerInfo
+  id: ExtraGameServerInfo
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: ExtraGameServerInfo
+  nameWithType: UserProfile.ExtraGameServerInfo
+  fullName: Steam.Web.UserProfile.ExtraGameServerInfo
+  type: Property
+  source:
+    id: ExtraGameServerInfo
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 56
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public string ExtraGameServerInfo { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ExtraGameServerInfo As String
+  overload: Steam.Web.UserProfile.ExtraGameServerInfo*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.GameAppId
+  commentId: P:Steam.Web.UserProfile.GameAppId
+  id: GameAppId
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: GameAppId
+  nameWithType: UserProfile.GameAppId
+  fullName: Steam.Web.UserProfile.GameAppId
+  type: Property
+  source:
+    id: GameAppId
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 57
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public uint GameAppId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property GameAppId As UInteger
+  overload: Steam.Web.UserProfile.GameAppId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Web.UserProfile.GetGameServerAsync(Steam.Rest.RequestOptions)
+  commentId: M:Steam.Web.UserProfile.GetGameServerAsync(Steam.Rest.RequestOptions)
+  id: GetGameServerAsync(Steam.Rest.RequestOptions)
+  parent: Steam.Web.UserProfile
+  langs:
+  - csharp
+  - vb
+  name: GetGameServerAsync(RequestOptions)
+  nameWithType: UserProfile.GetGameServerAsync(RequestOptions)
+  fullName: Steam.Web.UserProfile.GetGameServerAsync(Steam.Rest.RequestOptions)
+  type: Method
+  source:
+    id: GetGameServerAsync
+    path: G:\Steam\src\Web\Steam.Web\UserProfile.cs
+    startLine: 64
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  summary: "\nGets the game server this user is on if they're connected to one\n"
+  example: []
+  syntax:
+    content: public Task<GameServer> GetGameServerAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Steam.Rest.RequestOptions
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{Steam.Web.GameServer}
+      description: ''
+    content.vb: Public Function GetGameServerAsync(options As RequestOptions = Nothing) As Task(Of GameServer)
+  overload: Steam.Web.UserProfile.GetGameServerAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Steam.Web.Entity
+  commentId: T:Steam.Web.Entity
+  parent: Steam.Web
+  isExternal: false
+  name: Entity
+  nameWithType: Entity
+  fullName: Steam.Web.Entity
+- uid: Steam.Web.Entity.WebClient
+  commentId: P:Steam.Web.Entity.WebClient
+  parent: Steam.Web.Entity
+  isExternal: false
+  name: WebClient
+  nameWithType: Entity.WebClient
+  fullName: Steam.Web.Entity.WebClient
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Web.UserProfile.Id*
+  commentId: Overload:Steam.Web.UserProfile.Id
+  isExternal: false
+  name: Id
+  nameWithType: UserProfile.Id
+  fullName: Steam.Web.UserProfile.Id
+- uid: Steam.Common.SteamId
+  commentId: T:Steam.Common.SteamId
+  parent: Steam.Common
+  isExternal: false
+  name: SteamId
+  nameWithType: SteamId
+  fullName: Steam.Common.SteamId
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: Steam.Web.UserProfile.CanViewFullProfile*
+  commentId: Overload:Steam.Web.UserProfile.CanViewFullProfile
+  isExternal: false
+  name: CanViewFullProfile
+  nameWithType: UserProfile.CanViewFullProfile
+  fullName: Steam.Web.UserProfile.CanViewFullProfile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Steam.Web.UserProfile.ProfileCompleted*
+  commentId: Overload:Steam.Web.UserProfile.ProfileCompleted
+  isExternal: false
+  name: ProfileCompleted
+  nameWithType: UserProfile.ProfileCompleted
+  fullName: Steam.Web.UserProfile.ProfileCompleted
+- uid: Steam.Web.UserProfile.PersonaName*
+  commentId: Overload:Steam.Web.UserProfile.PersonaName
+  isExternal: false
+  name: PersonaName
+  nameWithType: UserProfile.PersonaName
+  fullName: Steam.Web.UserProfile.PersonaName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Web.UserProfile.LastLogoff*
+  commentId: Overload:Steam.Web.UserProfile.LastLogoff
+  isExternal: false
+  name: LastLogoff
+  nameWithType: UserProfile.LastLogoff
+  fullName: Steam.Web.UserProfile.LastLogoff
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Steam.Web.UserProfile.CanCommenting*
+  commentId: Overload:Steam.Web.UserProfile.CanCommenting
+  isExternal: false
+  name: CanCommenting
+  nameWithType: UserProfile.CanCommenting
+  fullName: Steam.Web.UserProfile.CanCommenting
+- uid: Steam.Web.UserProfile.ProfileUrl*
+  commentId: Overload:Steam.Web.UserProfile.ProfileUrl
+  isExternal: false
+  name: ProfileUrl
+  nameWithType: UserProfile.ProfileUrl
+  fullName: Steam.Web.UserProfile.ProfileUrl
+- uid: Steam.Web.UserProfile.AvatarUrl*
+  commentId: Overload:Steam.Web.UserProfile.AvatarUrl
+  isExternal: false
+  name: AvatarUrl
+  nameWithType: UserProfile.AvatarUrl
+  fullName: Steam.Web.UserProfile.AvatarUrl
+- uid: Steam.Web.UserProfile.MediumAvatarUrl*
+  commentId: Overload:Steam.Web.UserProfile.MediumAvatarUrl
+  isExternal: false
+  name: MediumAvatarUrl
+  nameWithType: UserProfile.MediumAvatarUrl
+  fullName: Steam.Web.UserProfile.MediumAvatarUrl
+- uid: Steam.Web.UserProfile.FullAvatarUrl*
+  commentId: Overload:Steam.Web.UserProfile.FullAvatarUrl
+  isExternal: false
+  name: FullAvatarUrl
+  nameWithType: UserProfile.FullAvatarUrl
+  fullName: Steam.Web.UserProfile.FullAvatarUrl
+- uid: Steam.Web.UserProfile.UsePersona*
+  commentId: Overload:Steam.Web.UserProfile.UsePersona
+  isExternal: false
+  name: UsePersona
+  nameWithType: UserProfile.UsePersona
+  fullName: Steam.Web.UserProfile.UsePersona
+- uid: Steam.Web.UserProfile.PersonaState*
+  commentId: Overload:Steam.Web.UserProfile.PersonaState
+  isExternal: false
+  name: PersonaState
+  nameWithType: UserProfile.PersonaState
+  fullName: Steam.Web.UserProfile.PersonaState
+- uid: Steam.Common.PersonaState
+  commentId: T:Steam.Common.PersonaState
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaState
+  nameWithType: PersonaState
+  fullName: Steam.Common.PersonaState
+- uid: Steam.Web.UserProfile.RealName*
+  commentId: Overload:Steam.Web.UserProfile.RealName
+  isExternal: false
+  name: RealName
+  nameWithType: UserProfile.RealName
+  fullName: Steam.Web.UserProfile.RealName
+- uid: Steam.Web.UserProfile.PrimaryGroupId*
+  commentId: Overload:Steam.Web.UserProfile.PrimaryGroupId
+  isExternal: false
+  name: PrimaryGroupId
+  nameWithType: UserProfile.PrimaryGroupId
+  fullName: Steam.Web.UserProfile.PrimaryGroupId
+- uid: Steam.Web.UserProfile.TimeCreated*
+  commentId: Overload:Steam.Web.UserProfile.TimeCreated
+  isExternal: false
+  name: TimeCreated
+  nameWithType: UserProfile.TimeCreated
+  fullName: Steam.Web.UserProfile.TimeCreated
+- uid: Steam.Web.UserProfile.PersonaStateFlags*
+  commentId: Overload:Steam.Web.UserProfile.PersonaStateFlags
+  isExternal: false
+  name: PersonaStateFlags
+  nameWithType: UserProfile.PersonaStateFlags
+  fullName: Steam.Web.UserProfile.PersonaStateFlags
+- uid: Steam.Common.PersonaStateFlag
+  commentId: T:Steam.Common.PersonaStateFlag
+  parent: Steam.Common
+  isExternal: false
+  name: PersonaStateFlag
+  nameWithType: PersonaStateFlag
+  fullName: Steam.Common.PersonaStateFlag
+- uid: Steam.Web.UserProfile.CountryCode*
+  commentId: Overload:Steam.Web.UserProfile.CountryCode
+  isExternal: false
+  name: CountryCode
+  nameWithType: UserProfile.CountryCode
+  fullName: Steam.Web.UserProfile.CountryCode
+- uid: Steam.Web.UserProfile.StateCode*
+  commentId: Overload:Steam.Web.UserProfile.StateCode
+  isExternal: false
+  name: StateCode
+  nameWithType: UserProfile.StateCode
+  fullName: Steam.Web.UserProfile.StateCode
+- uid: Steam.Web.UserProfile.CityId*
+  commentId: Overload:Steam.Web.UserProfile.CityId
+  isExternal: false
+  name: CityId
+  nameWithType: UserProfile.CityId
+  fullName: Steam.Web.UserProfile.CityId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Steam.Web.UserProfile.GameServerIp*
+  commentId: Overload:Steam.Web.UserProfile.GameServerIp
+  isExternal: false
+  name: GameServerIp
+  nameWithType: UserProfile.GameServerIp
+  fullName: Steam.Web.UserProfile.GameServerIp
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: false
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+- uid: Steam.Web.UserProfile.GameServerSteamId*
+  commentId: Overload:Steam.Web.UserProfile.GameServerSteamId
+  isExternal: false
+  name: GameServerSteamId
+  nameWithType: UserProfile.GameServerSteamId
+  fullName: Steam.Web.UserProfile.GameServerSteamId
+- uid: Steam.Web.UserProfile.ExtraGameServerInfo*
+  commentId: Overload:Steam.Web.UserProfile.ExtraGameServerInfo
+  isExternal: false
+  name: ExtraGameServerInfo
+  nameWithType: UserProfile.ExtraGameServerInfo
+  fullName: Steam.Web.UserProfile.ExtraGameServerInfo
+- uid: Steam.Web.UserProfile.GameAppId*
+  commentId: Overload:Steam.Web.UserProfile.GameAppId
+  isExternal: false
+  name: GameAppId
+  nameWithType: UserProfile.GameAppId
+  fullName: Steam.Web.UserProfile.GameAppId
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Web.UserProfile.GetGameServerAsync*
+  commentId: Overload:Steam.Web.UserProfile.GetGameServerAsync
+  isExternal: false
+  name: GetGameServerAsync
+  nameWithType: UserProfile.GetGameServerAsync
+  fullName: Steam.Web.UserProfile.GetGameServerAsync
+- uid: Steam.Rest.RequestOptions
+  commentId: T:Steam.Rest.RequestOptions
+  parent: Steam.Rest
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Steam.Rest.RequestOptions
+- uid: System.Threading.Tasks.Task{Steam.Web.GameServer}
+  commentId: T:System.Threading.Tasks.Task{Steam.Web.GameServer}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<GameServer>
+  nameWithType: Task<GameServer>
+  fullName: System.Threading.Tasks.Task<Steam.Web.GameServer>
+  nameWithType.vb: Task(Of GameServer)
+  fullName.vb: System.Threading.Tasks.Task(Of Steam.Web.GameServer)
+  name.vb: Task(Of GameServer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Web.GameServer
+    name: GameServer
+    nameWithType: GameServer
+    fullName: Steam.Web.GameServer
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Web.GameServer
+    name: GameServer
+    nameWithType: GameServer
+    fullName: Steam.Web.GameServer
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Rest
+  commentId: N:Steam.Rest
+  isExternal: false
+  name: Steam.Rest
+  nameWithType: Steam.Rest
+  fullName: Steam.Rest
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: false
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

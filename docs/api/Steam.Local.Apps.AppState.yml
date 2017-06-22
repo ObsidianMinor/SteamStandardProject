@@ -1,0 +1,562 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.AppState
+  commentId: T:Steam.Local.Apps.AppState
+  id: AppState
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.AppState.AppRunning
+  - Steam.Local.Apps.AppState.BackupRunning
+  - Steam.Local.Apps.AppState.ComponentInUse
+  - Steam.Local.Apps.AppState.Encrypted
+  - Steam.Local.Apps.AppState.FilesCorrupt
+  - Steam.Local.Apps.AppState.FilesMissing
+  - Steam.Local.Apps.AppState.FullyInstalled
+  - Steam.Local.Apps.AppState.Invalid
+  - Steam.Local.Apps.AppState.MovingFolder
+  - Steam.Local.Apps.AppState.SharedOnly
+  - Steam.Local.Apps.AppState.Uninstalled
+  - Steam.Local.Apps.AppState.Uninstalling
+  - Steam.Local.Apps.AppState.UpdateOptional
+  - Steam.Local.Apps.AppState.UpdatePaused
+  - Steam.Local.Apps.AppState.UpdateRequired
+  - Steam.Local.Apps.AppState.UpdateRunning
+  - Steam.Local.Apps.AppState.UpdateStarted
+  langs:
+  - csharp
+  - vb
+  name: AppState
+  nameWithType: AppState
+  fullName: Steam.Local.Apps.AppState
+  type: Enum
+  source:
+    id: AppState
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 7
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nList of possible Steam installed app states\n"
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum AppState
+    content.vb: >-
+      <Flags>
+
+      Public Enum AppState
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Local.Apps.AppState.Invalid
+  commentId: F:Steam.Local.Apps.AppState.Invalid
+  id: Invalid
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: AppState.Invalid
+  fullName: Steam.Local.Apps.AppState.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 10
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.Uninstalled
+  commentId: F:Steam.Local.Apps.AppState.Uninstalled
+  id: Uninstalled
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: Uninstalled
+  nameWithType: AppState.Uninstalled
+  fullName: Steam.Local.Apps.AppState.Uninstalled
+  type: Field
+  source:
+    id: Uninstalled
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 11
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Uninstalled = 1
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.UpdateRequired
+  commentId: F:Steam.Local.Apps.AppState.UpdateRequired
+  id: UpdateRequired
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: UpdateRequired
+  nameWithType: AppState.UpdateRequired
+  fullName: Steam.Local.Apps.AppState.UpdateRequired
+  type: Field
+  source:
+    id: UpdateRequired
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 12
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdateRequired = 2
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.FullyInstalled
+  commentId: F:Steam.Local.Apps.AppState.FullyInstalled
+  id: FullyInstalled
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: FullyInstalled
+  nameWithType: AppState.FullyInstalled
+  fullName: Steam.Local.Apps.AppState.FullyInstalled
+  type: Field
+  source:
+    id: FullyInstalled
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 13
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: FullyInstalled = 4
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.Encrypted
+  commentId: F:Steam.Local.Apps.AppState.Encrypted
+  id: Encrypted
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: Encrypted
+  nameWithType: AppState.Encrypted
+  fullName: Steam.Local.Apps.AppState.Encrypted
+  type: Field
+  source:
+    id: Encrypted
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 14
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: >-
+      [Obsolete("The Encrypted bit field is depricated")]
+
+      Encrypted = 8
+    return:
+      type: Steam.Local.Apps.AppState
+    content.vb: >-
+      <Obsolete("The Encrypted bit field is depricated")>
+
+      Encrypted = 8
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: The Encrypted bit field is depricated
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.UpdateOptional
+  commentId: F:Steam.Local.Apps.AppState.UpdateOptional
+  id: UpdateOptional
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: UpdateOptional
+  nameWithType: AppState.UpdateOptional
+  fullName: Steam.Local.Apps.AppState.UpdateOptional
+  type: Field
+  source:
+    id: UpdateOptional
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 15
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdateOptional = 16
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.FilesMissing
+  commentId: F:Steam.Local.Apps.AppState.FilesMissing
+  id: FilesMissing
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: FilesMissing
+  nameWithType: AppState.FilesMissing
+  fullName: Steam.Local.Apps.AppState.FilesMissing
+  type: Field
+  source:
+    id: FilesMissing
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 16
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: FilesMissing = 32
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.SharedOnly
+  commentId: F:Steam.Local.Apps.AppState.SharedOnly
+  id: SharedOnly
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: SharedOnly
+  nameWithType: AppState.SharedOnly
+  fullName: Steam.Local.Apps.AppState.SharedOnly
+  type: Field
+  source:
+    id: SharedOnly
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 17
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: SharedOnly = 64
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.FilesCorrupt
+  commentId: F:Steam.Local.Apps.AppState.FilesCorrupt
+  id: FilesCorrupt
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: FilesCorrupt
+  nameWithType: AppState.FilesCorrupt
+  fullName: Steam.Local.Apps.AppState.FilesCorrupt
+  type: Field
+  source:
+    id: FilesCorrupt
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 18
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: FilesCorrupt = 128
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.UpdateRunning
+  commentId: F:Steam.Local.Apps.AppState.UpdateRunning
+  id: UpdateRunning
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: UpdateRunning
+  nameWithType: AppState.UpdateRunning
+  fullName: Steam.Local.Apps.AppState.UpdateRunning
+  type: Field
+  source:
+    id: UpdateRunning
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 19
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdateRunning = 256
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.UpdatePaused
+  commentId: F:Steam.Local.Apps.AppState.UpdatePaused
+  id: UpdatePaused
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: UpdatePaused
+  nameWithType: AppState.UpdatePaused
+  fullName: Steam.Local.Apps.AppState.UpdatePaused
+  type: Field
+  source:
+    id: UpdatePaused
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 20
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdatePaused = 512
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.UpdateStarted
+  commentId: F:Steam.Local.Apps.AppState.UpdateStarted
+  id: UpdateStarted
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: UpdateStarted
+  nameWithType: AppState.UpdateStarted
+  fullName: Steam.Local.Apps.AppState.UpdateStarted
+  type: Field
+  source:
+    id: UpdateStarted
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 21
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: UpdateStarted = 1024
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.Uninstalling
+  commentId: F:Steam.Local.Apps.AppState.Uninstalling
+  id: Uninstalling
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: Uninstalling
+  nameWithType: AppState.Uninstalling
+  fullName: Steam.Local.Apps.AppState.Uninstalling
+  type: Field
+  source:
+    id: Uninstalling
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 22
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: Uninstalling = 2048
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.BackupRunning
+  commentId: F:Steam.Local.Apps.AppState.BackupRunning
+  id: BackupRunning
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: BackupRunning
+  nameWithType: AppState.BackupRunning
+  fullName: Steam.Local.Apps.AppState.BackupRunning
+  type: Field
+  source:
+    id: BackupRunning
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 23
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: BackupRunning = 4096
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.AppRunning
+  commentId: F:Steam.Local.Apps.AppState.AppRunning
+  id: AppRunning
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: AppRunning
+  nameWithType: AppState.AppRunning
+  fullName: Steam.Local.Apps.AppState.AppRunning
+  type: Field
+  source:
+    id: AppRunning
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 24
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: AppRunning = 8192
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.ComponentInUse
+  commentId: F:Steam.Local.Apps.AppState.ComponentInUse
+  id: ComponentInUse
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: ComponentInUse
+  nameWithType: AppState.ComponentInUse
+  fullName: Steam.Local.Apps.AppState.ComponentInUse
+  type: Field
+  source:
+    id: ComponentInUse
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 25
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: ComponentInUse = 16384
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Local.Apps.AppState.MovingFolder
+  commentId: F:Steam.Local.Apps.AppState.MovingFolder
+  id: MovingFolder
+  parent: Steam.Local.Apps.AppState
+  langs:
+  - csharp
+  - vb
+  name: MovingFolder
+  nameWithType: AppState.MovingFolder
+  fullName: Steam.Local.Apps.AppState.MovingFolder
+  type: Field
+  source:
+    id: MovingFolder
+    path: G:\Steam\src\Local\Steam.Local\Apps\AppState.cs
+    startLine: 26
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  syntax:
+    content: MovingFolder = 32768
+    return:
+      type: Steam.Local.Apps.AppState
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: Steam.Local.Apps.AppState
+  commentId: T:Steam.Local.Apps.AppState
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppState
+  nameWithType: AppState
+  fullName: Steam.Local.Apps.AppState

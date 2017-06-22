@@ -1,0 +1,498 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.KeyValues.Color
+  commentId: T:Steam.KeyValues.Color
+  id: Color
+  parent: Steam.KeyValues
+  children:
+  - Steam.KeyValues.Color.Alpha
+  - Steam.KeyValues.Color.Blue
+  - Steam.KeyValues.Color.Green
+  - Steam.KeyValues.Color.Red
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: Color
+  fullName: Steam.KeyValues.Color
+  type: Class
+  source:
+    id: Color
+    path: G:\Steam\src\Common\Steam.KeyValues\Color.cs
+    startLine: 6
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  syntax:
+    content: public class Color
+    content.vb: Public Class Color
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.KeyValues.Color.Red
+  commentId: P:Steam.KeyValues.Color.Red
+  id: Red
+  parent: Steam.KeyValues.Color
+  langs:
+  - csharp
+  - vb
+  name: Red
+  nameWithType: Color.Red
+  fullName: Steam.KeyValues.Color.Red
+  type: Property
+  source:
+    id: Red
+    path: G:\Steam\src\Common\Steam.KeyValues\Color.cs
+    startLine: 8
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  syntax:
+    content: public byte Red { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property Red As Byte
+  overload: Steam.KeyValues.Color.Red*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.KeyValues.Color.Green
+  commentId: P:Steam.KeyValues.Color.Green
+  id: Green
+  parent: Steam.KeyValues.Color
+  langs:
+  - csharp
+  - vb
+  name: Green
+  nameWithType: Color.Green
+  fullName: Steam.KeyValues.Color.Green
+  type: Property
+  source:
+    id: Green
+    path: G:\Steam\src\Common\Steam.KeyValues\Color.cs
+    startLine: 10
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  syntax:
+    content: public byte Green { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property Green As Byte
+  overload: Steam.KeyValues.Color.Green*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.KeyValues.Color.Blue
+  commentId: P:Steam.KeyValues.Color.Blue
+  id: Blue
+  parent: Steam.KeyValues.Color
+  langs:
+  - csharp
+  - vb
+  name: Blue
+  nameWithType: Color.Blue
+  fullName: Steam.KeyValues.Color.Blue
+  type: Property
+  source:
+    id: Blue
+    path: G:\Steam\src\Common\Steam.KeyValues\Color.cs
+    startLine: 12
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  syntax:
+    content: public byte Blue { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property Blue As Byte
+  overload: Steam.KeyValues.Color.Blue*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.KeyValues.Color.Alpha
+  commentId: P:Steam.KeyValues.Color.Alpha
+  id: Alpha
+  parent: Steam.KeyValues.Color
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: Color.Alpha
+  fullName: Steam.KeyValues.Color.Alpha
+  type: Property
+  source:
+    id: Alpha
+    path: G:\Steam\src\Common\Steam.KeyValues\Color.cs
+    startLine: 14
+  assemblies:
+  - Steam.KeyValues
+  namespace: Steam.KeyValues
+  syntax:
+    content: public byte Alpha { get; set; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property Alpha As Byte
+  overload: Steam.KeyValues.Color.Alpha*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.KeyValues
+  commentId: N:Steam.KeyValues
+  isExternal: false
+  name: Steam.KeyValues
+  nameWithType: Steam.KeyValues
+  fullName: Steam.KeyValues
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.KeyValues.Color.Red*
+  commentId: Overload:Steam.KeyValues.Color.Red
+  isExternal: false
+  name: Red
+  nameWithType: Color.Red
+  fullName: Steam.KeyValues.Color.Red
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: Steam.KeyValues.Color.Green*
+  commentId: Overload:Steam.KeyValues.Color.Green
+  isExternal: false
+  name: Green
+  nameWithType: Color.Green
+  fullName: Steam.KeyValues.Color.Green
+- uid: Steam.KeyValues.Color.Blue*
+  commentId: Overload:Steam.KeyValues.Color.Blue
+  isExternal: false
+  name: Blue
+  nameWithType: Color.Blue
+  fullName: Steam.KeyValues.Color.Blue
+- uid: Steam.KeyValues.Color.Alpha*
+  commentId: Overload:Steam.KeyValues.Color.Alpha
+  isExternal: false
+  name: Alpha
+  nameWithType: Color.Alpha
+  fullName: Steam.KeyValues.Color.Alpha

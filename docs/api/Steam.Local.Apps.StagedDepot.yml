@@ -1,0 +1,452 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps.StagedDepot
+  commentId: T:Steam.Local.Apps.StagedDepot
+  id: StagedDepot
+  parent: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.StagedDepot.Manifest
+  - Steam.Local.Apps.StagedDepot.Size
+  langs:
+  - csharp
+  - vb
+  name: StagedDepot
+  nameWithType: StagedDepot
+  fullName: Steam.Local.Apps.StagedDepot
+  type: Class
+  source:
+    id: StagedDepot
+    path: G:\Steam\src\Local\Steam.Local\Apps\StagedDepot.cs
+    startLine: 7
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nRepresents a staged depot\n"
+  example: []
+  syntax:
+    content: public class StagedDepot
+    content.vb: Public Class StagedDepot
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Local.Apps.StagedDepot.Manifest
+  commentId: P:Steam.Local.Apps.StagedDepot.Manifest
+  id: Manifest
+  parent: Steam.Local.Apps.StagedDepot
+  langs:
+  - csharp
+  - vb
+  name: Manifest
+  nameWithType: StagedDepot.Manifest
+  fullName: Steam.Local.Apps.StagedDepot.Manifest
+  type: Property
+  source:
+    id: Manifest
+    path: G:\Steam\src\Local\Steam.Local\Apps\StagedDepot.cs
+    startLine: 12
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nThe manifest ID of this depot\n"
+  example: []
+  syntax:
+    content: >-
+      [KeyValueProperty("manifest")]
+
+      public ulong Manifest { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <KeyValueProperty("manifest")>
+
+      Public Property Manifest As ULong
+  overload: Steam.Local.Apps.StagedDepot.Manifest*
+  attributes:
+  - type: Steam.KeyValues.KeyValuePropertyAttribute
+    ctor: Steam.KeyValues.KeyValuePropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: manifest
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Local.Apps.StagedDepot.Size
+  commentId: P:Steam.Local.Apps.StagedDepot.Size
+  id: Size
+  parent: Steam.Local.Apps.StagedDepot
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: StagedDepot.Size
+  fullName: Steam.Local.Apps.StagedDepot.Size
+  type: Property
+  source:
+    id: Size
+    path: G:\Steam\src\Local\Steam.Local\Apps\StagedDepot.cs
+    startLine: 18
+  assemblies:
+  - Steam.Local
+  namespace: Steam.Local.Apps
+  summary: "\nThe size in bytes of this depot\n"
+  example: []
+  syntax:
+    content: >-
+      [KeyValueProperty("size")]
+
+      public ulong Size { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <KeyValueProperty("size")>
+
+      Public Property Size As ULong
+  overload: Steam.Local.Apps.StagedDepot.Size*
+  attributes:
+  - type: Steam.KeyValues.KeyValuePropertyAttribute
+    ctor: Steam.KeyValues.KeyValuePropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: size
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Local.Apps.StagedDepot.Manifest*
+  commentId: Overload:Steam.Local.Apps.StagedDepot.Manifest
+  isExternal: false
+  name: Manifest
+  nameWithType: StagedDepot.Manifest
+  fullName: Steam.Local.Apps.StagedDepot.Manifest
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Steam.Local.Apps.StagedDepot.Size*
+  commentId: Overload:Steam.Local.Apps.StagedDepot.Size
+  isExternal: false
+  name: Size
+  nameWithType: StagedDepot.Size
+  fullName: Steam.Local.Apps.StagedDepot.Size

@@ -1,0 +1,1211 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Common.SteamGuid
+  commentId: T:Steam.Common.SteamGuid
+  id: SteamGuid
+  parent: Steam.Common
+  children:
+  - Steam.Common.SteamGuid.#ctor(System.UInt32,System.DateTime,System.Byte,System.UInt16)
+  - Steam.Common.SteamGuid.BoxId
+  - Steam.Common.SteamGuid.Equals(Steam.Common.SteamGuid)
+  - Steam.Common.SteamGuid.Equals(System.Object)
+  - Steam.Common.SteamGuid.FromUInt64(System.UInt64)
+  - Steam.Common.SteamGuid.GetHashCode
+  - Steam.Common.SteamGuid.op_Equality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  - Steam.Common.SteamGuid.op_Implicit(Steam.Common.SteamGuid)~System.UInt64
+  - Steam.Common.SteamGuid.op_Implicit(System.UInt64)~Steam.Common.SteamGuid
+  - Steam.Common.SteamGuid.op_Inequality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  - Steam.Common.SteamGuid.ProcessId
+  - Steam.Common.SteamGuid.SequentialCount
+  - Steam.Common.SteamGuid.StartTime
+  - Steam.Common.SteamGuid.ToString
+  - Steam.Common.SteamGuid.ToUInt64
+  - Steam.Common.SteamGuid.ValveEpoch
+  langs:
+  - csharp
+  - vb
+  name: SteamGuid
+  nameWithType: SteamGuid
+  fullName: Steam.Common.SteamGuid
+  type: Struct
+  source:
+    id: SteamGuid
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 7
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nRepresents a Steam global unique identifier\n"
+  example: []
+  syntax:
+    content: 'public struct SteamGuid : IEquatable<SteamGuid>'
+    content.vb: >-
+      Public Structure SteamGuid
+
+          Implements IEquatable(Of SteamGuid)
+  implements:
+  - System.IEquatable{Steam.Common.SteamGuid}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: Steam.Common.SteamGuid.ValveEpoch
+  commentId: F:Steam.Common.SteamGuid.ValveEpoch
+  id: ValveEpoch
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: ValveEpoch
+  nameWithType: SteamGuid.ValveEpoch
+  fullName: Steam.Common.SteamGuid.ValveEpoch
+  type: Field
+  source:
+    id: ValveEpoch
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 12
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nRepresents the minimum start time for a process (January 1st, 2005)\n"
+  example: []
+  syntax:
+    content: public static readonly DateTime ValveEpoch
+    return:
+      type: System.DateTime
+    content.vb: Public Shared ReadOnly ValveEpoch As Date
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: Steam.Common.SteamGuid.SequentialCount
+  commentId: P:Steam.Common.SteamGuid.SequentialCount
+  id: SequentialCount
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: SequentialCount
+  nameWithType: SteamGuid.SequentialCount
+  fullName: Steam.Common.SteamGuid.SequentialCount
+  type: Property
+  source:
+    id: SequentialCount
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 17
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the sequential count for this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public uint SequentialCount { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property SequentialCount As UInteger
+  overload: Steam.Common.SteamGuid.SequentialCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.SteamGuid.StartTime
+  commentId: P:Steam.Common.SteamGuid.StartTime
+  id: StartTime
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: StartTime
+  nameWithType: SteamGuid.StartTime
+  fullName: Steam.Common.SteamGuid.StartTime
+  type: Property
+  source:
+    id: StartTime
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 21
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the start time of the server that generated this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public DateTime StartTime { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public ReadOnly Property StartTime As Date
+  overload: Steam.Common.SteamGuid.StartTime*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.SteamGuid.ProcessId
+  commentId: P:Steam.Common.SteamGuid.ProcessId
+  id: ProcessId
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: ProcessId
+  nameWithType: SteamGuid.ProcessId
+  fullName: Steam.Common.SteamGuid.ProcessId
+  type: Property
+  source:
+    id: ProcessId
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 25
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the process Id of the server that generated this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public uint ProcessId { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property ProcessId As UInteger
+  overload: Steam.Common.SteamGuid.ProcessId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.SteamGuid.BoxId
+  commentId: P:Steam.Common.SteamGuid.BoxId
+  id: BoxId
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: BoxId
+  nameWithType: SteamGuid.BoxId
+  fullName: Steam.Common.SteamGuid.BoxId
+  type: Property
+  source:
+    id: BoxId
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 29
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the box ID of the server that generated this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public ushort BoxId { get; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly Property BoxId As UShort
+  overload: Steam.Common.SteamGuid.BoxId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Common.SteamGuid.#ctor(System.UInt32,System.DateTime,System.Byte,System.UInt16)
+  commentId: M:Steam.Common.SteamGuid.#ctor(System.UInt32,System.DateTime,System.Byte,System.UInt16)
+  id: '#ctor(System.UInt32,System.DateTime,System.Byte,System.UInt16)'
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: SteamGuid(UInt32, DateTime, Byte, UInt16)
+  nameWithType: SteamGuid.SteamGuid(UInt32, DateTime, Byte, UInt16)
+  fullName: Steam.Common.SteamGuid.SteamGuid(System.UInt32, System.DateTime, System.Byte, System.UInt16)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 38
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nCreates a new SteamGuid with the specified sequential count, start time, process Id, and box Id\n"
+  example: []
+  syntax:
+    content: public SteamGuid(uint sequentialCount, DateTime startTime, byte processId, ushort boxId)
+    parameters:
+    - id: sequentialCount
+      type: System.UInt32
+      description: ''
+    - id: startTime
+      type: System.DateTime
+      description: ''
+    - id: processId
+      type: System.Byte
+      description: ''
+    - id: boxId
+      type: System.UInt16
+      description: ''
+    content.vb: Public Sub New(sequentialCount As UInteger, startTime As Date, processId As Byte, boxId As UShort)
+  overload: Steam.Common.SteamGuid.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.SteamGuid.ToUInt64
+  commentId: M:Steam.Common.SteamGuid.ToUInt64
+  id: ToUInt64
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: ToUInt64()
+  nameWithType: SteamGuid.ToUInt64()
+  fullName: Steam.Common.SteamGuid.ToUInt64()
+  type: Method
+  source:
+    id: ToUInt64
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 54
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nConverts this Steam guid to its 64 bit form\n"
+  example: []
+  syntax:
+    content: public ulong ToUInt64()
+    return:
+      type: System.UInt64
+      description: ''
+    content.vb: Public Function ToUInt64 As ULong
+  overload: Steam.Common.SteamGuid.ToUInt64*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.SteamGuid.FromUInt64(System.UInt64)
+  commentId: M:Steam.Common.SteamGuid.FromUInt64(System.UInt64)
+  id: FromUInt64(System.UInt64)
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: FromUInt64(UInt64)
+  nameWithType: SteamGuid.FromUInt64(UInt64)
+  fullName: Steam.Common.SteamGuid.FromUInt64(System.UInt64)
+  type: Method
+  source:
+    id: FromUInt64
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 64
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nConverts the provided 64 bit value into a SteamGuid\n"
+  example: []
+  syntax:
+    content: public static SteamGuid FromUInt64(ulong value)
+    parameters:
+    - id: value
+      type: System.UInt64
+      description: ''
+    return:
+      type: Steam.Common.SteamGuid
+      description: ''
+    content.vb: Public Shared Function FromUInt64(value As ULong) As SteamGuid
+  overload: Steam.Common.SteamGuid.FromUInt64*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Steam.Common.SteamGuid.op_Implicit(Steam.Common.SteamGuid)~System.UInt64
+  commentId: M:Steam.Common.SteamGuid.op_Implicit(Steam.Common.SteamGuid)~System.UInt64
+  id: op_Implicit(Steam.Common.SteamGuid)~System.UInt64
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Implicit(SteamGuid to UInt64)
+  nameWithType: SteamGuid.Implicit(SteamGuid to UInt64)
+  fullName: Steam.Common.SteamGuid.Implicit(Steam.Common.SteamGuid to System.UInt64)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 82
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nConverts this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref> to a <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static implicit operator ulong (SteamGuid guid)
+    parameters:
+    - id: guid
+      type: Steam.Common.SteamGuid
+      description: ''
+    return:
+      type: System.UInt64
+    content.vb: Public Shared Widening Operator CType(guid As SteamGuid) As ULong
+  overload: Steam.Common.SteamGuid.op_Implicit*
+  nameWithType.vb: SteamGuid.Widening(SteamGuid to UInt64)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Steam.Common.SteamGuid.Widening(Steam.Common.SteamGuid to System.UInt64)
+  name.vb: Widening(SteamGuid to UInt64)
+- uid: Steam.Common.SteamGuid.op_Implicit(System.UInt64)~Steam.Common.SteamGuid
+  commentId: M:Steam.Common.SteamGuid.op_Implicit(System.UInt64)~Steam.Common.SteamGuid
+  id: op_Implicit(System.UInt64)~Steam.Common.SteamGuid
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Implicit(UInt64 to SteamGuid)
+  nameWithType: SteamGuid.Implicit(UInt64 to SteamGuid)
+  fullName: Steam.Common.SteamGuid.Implicit(System.UInt64 to Steam.Common.SteamGuid)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 88
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nConverts the provided <xref href=\"System.UInt64\" data-throw-if-not-resolved=\"false\"></xref> to a <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static implicit operator SteamGuid(ulong value)
+    parameters:
+    - id: value
+      type: System.UInt64
+      description: ''
+    return:
+      type: Steam.Common.SteamGuid
+    content.vb: Public Shared Widening Operator CType(value As ULong) As SteamGuid
+  overload: Steam.Common.SteamGuid.op_Implicit*
+  nameWithType.vb: SteamGuid.Widening(UInt64 to SteamGuid)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Steam.Common.SteamGuid.Widening(System.UInt64 to Steam.Common.SteamGuid)
+  name.vb: Widening(UInt64 to SteamGuid)
+- uid: Steam.Common.SteamGuid.Equals(Steam.Common.SteamGuid)
+  commentId: M:Steam.Common.SteamGuid.Equals(Steam.Common.SteamGuid)
+  id: Equals(Steam.Common.SteamGuid)
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Equals(SteamGuid)
+  nameWithType: SteamGuid.Equals(SteamGuid)
+  fullName: Steam.Common.SteamGuid.Equals(Steam.Common.SteamGuid)
+  type: Method
+  source:
+    id: Equals
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 95
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nReturns whether the provided <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref> is equal to this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public bool Equals(SteamGuid other)
+    parameters:
+    - id: other
+      type: Steam.Common.SteamGuid
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function Equals(other As SteamGuid) As Boolean
+  overload: Steam.Common.SteamGuid.Equals*
+  implements:
+  - System.IEquatable{Steam.Common.SteamGuid}.Equals(Steam.Common.SteamGuid)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Common.SteamGuid.Equals(System.Object)
+  commentId: M:Steam.Common.SteamGuid.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: SteamGuid.Equals(Object)
+  fullName: Steam.Common.SteamGuid.Equals(System.Object)
+  type: Method
+  source:
+    id: Equals
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 102
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nReturns whether the provided object is equal to this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Steam.Common.SteamGuid.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Steam.Common.SteamGuid.GetHashCode
+  commentId: M:Steam.Common.SteamGuid.GetHashCode
+  id: GetHashCode
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SteamGuid.GetHashCode()
+  fullName: Steam.Common.SteamGuid.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 114
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nGets the hash code of this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Steam.Common.SteamGuid.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Steam.Common.SteamGuid.ToString
+  commentId: M:Steam.Common.SteamGuid.ToString
+  id: ToString
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SteamGuid.ToString()
+  fullName: Steam.Common.SteamGuid.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 123
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nReturns the string representation of this <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: Steam.Common.SteamGuid.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Steam.Common.SteamGuid.op_Equality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  commentId: M:Steam.Common.SteamGuid.op_Equality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  id: op_Equality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Equality(SteamGuid, SteamGuid)
+  nameWithType: SteamGuid.Equality(SteamGuid, SteamGuid)
+  fullName: Steam.Common.SteamGuid.Equality(Steam.Common.SteamGuid, Steam.Common.SteamGuid)
+  type: Operator
+  source:
+    id: op_Equality
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 134
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nReturns whether the two <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>s are equal\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(SteamGuid guid1, SteamGuid guid2)
+    parameters:
+    - id: guid1
+      type: Steam.Common.SteamGuid
+      description: ''
+    - id: guid2
+      type: Steam.Common.SteamGuid
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator =(guid1 As SteamGuid, guid2 As SteamGuid) As Boolean
+  overload: Steam.Common.SteamGuid.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Steam.Common.SteamGuid.op_Inequality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  commentId: M:Steam.Common.SteamGuid.op_Inequality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  id: op_Inequality(Steam.Common.SteamGuid,Steam.Common.SteamGuid)
+  parent: Steam.Common.SteamGuid
+  langs:
+  - csharp
+  - vb
+  name: Inequality(SteamGuid, SteamGuid)
+  nameWithType: SteamGuid.Inequality(SteamGuid, SteamGuid)
+  fullName: Steam.Common.SteamGuid.Inequality(Steam.Common.SteamGuid, Steam.Common.SteamGuid)
+  type: Operator
+  source:
+    id: op_Inequality
+    path: G:\Steam\src\Common\Steam.Common\SteamGuid.cs
+    startLine: 144
+  assemblies:
+  - Steam.Common
+  namespace: Steam.Common
+  summary: "\nReturns whether the two <xref href=\"Steam.Common.SteamGuid\" data-throw-if-not-resolved=\"false\"></xref>s are not equal\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(SteamGuid guid1, SteamGuid guid2)
+    parameters:
+    - id: guid1
+      type: Steam.Common.SteamGuid
+      description: ''
+    - id: guid2
+      type: Steam.Common.SteamGuid
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator <>(guid1 As SteamGuid, guid2 As SteamGuid) As Boolean
+  overload: Steam.Common.SteamGuid.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Steam.Common
+  commentId: N:Steam.Common
+  isExternal: false
+  name: Steam.Common
+  nameWithType: Steam.Common
+  fullName: Steam.Common
+- uid: System.IEquatable{Steam.Common.SteamGuid}
+  commentId: T:System.IEquatable{Steam.Common.SteamGuid}
+  parent: System
+  definition: System.IEquatable`1
+  name: IEquatable<SteamGuid>
+  nameWithType: IEquatable<SteamGuid>
+  fullName: System.IEquatable<Steam.Common.SteamGuid>
+  nameWithType.vb: IEquatable(Of SteamGuid)
+  fullName.vb: System.IEquatable(Of Steam.Common.SteamGuid)
+  name.vb: IEquatable(Of SteamGuid)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: System.IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Steam.Common.SteamGuid
+    name: SteamGuid
+    nameWithType: SteamGuid
+    fullName: Steam.Common.SteamGuid
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: System.IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Steam.Common.SteamGuid
+    name: SteamGuid
+    nameWithType: SteamGuid
+    fullName: Steam.Common.SteamGuid
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: System.IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: System.IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: Steam.Common.SteamGuid
+  commentId: T:Steam.Common.SteamGuid
+  parent: Steam.Common
+  isExternal: false
+  name: SteamGuid
+  nameWithType: SteamGuid
+  fullName: Steam.Common.SteamGuid
+- uid: Steam.Common.SteamGuid.SequentialCount*
+  commentId: Overload:Steam.Common.SteamGuid.SequentialCount
+  isExternal: false
+  name: SequentialCount
+  nameWithType: SteamGuid.SequentialCount
+  fullName: Steam.Common.SteamGuid.SequentialCount
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: Steam.Common.SteamGuid.StartTime*
+  commentId: Overload:Steam.Common.SteamGuid.StartTime
+  isExternal: false
+  name: StartTime
+  nameWithType: SteamGuid.StartTime
+  fullName: Steam.Common.SteamGuid.StartTime
+- uid: Steam.Common.SteamGuid.ProcessId*
+  commentId: Overload:Steam.Common.SteamGuid.ProcessId
+  isExternal: false
+  name: ProcessId
+  nameWithType: SteamGuid.ProcessId
+  fullName: Steam.Common.SteamGuid.ProcessId
+- uid: Steam.Common.SteamGuid.BoxId*
+  commentId: Overload:Steam.Common.SteamGuid.BoxId
+  isExternal: false
+  name: BoxId
+  nameWithType: SteamGuid.BoxId
+  fullName: Steam.Common.SteamGuid.BoxId
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: Steam.Common.SteamGuid.#ctor*
+  commentId: Overload:Steam.Common.SteamGuid.#ctor
+  isExternal: false
+  name: SteamGuid
+  nameWithType: SteamGuid.SteamGuid
+  fullName: Steam.Common.SteamGuid.SteamGuid
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: Steam.Common.SteamGuid.ToUInt64*
+  commentId: Overload:Steam.Common.SteamGuid.ToUInt64
+  isExternal: false
+  name: ToUInt64
+  nameWithType: SteamGuid.ToUInt64
+  fullName: Steam.Common.SteamGuid.ToUInt64
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: Steam.Common.SteamGuid.FromUInt64*
+  commentId: Overload:Steam.Common.SteamGuid.FromUInt64
+  isExternal: false
+  name: FromUInt64
+  nameWithType: SteamGuid.FromUInt64
+  fullName: Steam.Common.SteamGuid.FromUInt64
+- uid: Steam.Common.SteamGuid.op_Implicit*
+  commentId: Overload:Steam.Common.SteamGuid.op_Implicit
+  isExternal: false
+  name: Implicit
+  nameWithType: SteamGuid.Implicit
+  fullName: Steam.Common.SteamGuid.Implicit
+  nameWithType.vb: SteamGuid.Widening
+  fullName.vb: Steam.Common.SteamGuid.Widening
+  name.vb: Widening
+- uid: Steam.Common.SteamGuid.Equals*
+  commentId: Overload:Steam.Common.SteamGuid.Equals
+  isExternal: false
+  name: Equals
+  nameWithType: SteamGuid.Equals
+  fullName: Steam.Common.SteamGuid.Equals
+- uid: System.IEquatable{Steam.Common.SteamGuid}.Equals(Steam.Common.SteamGuid)
+  commentId: M:System.IEquatable{Steam.Common.SteamGuid}.Equals(Steam.Common.SteamGuid)
+  parent: System.IEquatable{Steam.Common.SteamGuid}
+  definition: System.IEquatable`1.Equals(`0)
+  name: Equals(SteamGuid)
+  nameWithType: IEquatable<SteamGuid>.Equals(SteamGuid)
+  fullName: System.IEquatable<Steam.Common.SteamGuid>.Equals(Steam.Common.SteamGuid)
+  nameWithType.vb: IEquatable(Of SteamGuid).Equals(SteamGuid)
+  fullName.vb: System.IEquatable(Of Steam.Common.SteamGuid).Equals(Steam.Common.SteamGuid)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<SteamGuid>.Equals
+    fullName: System.IEquatable<Steam.Common.SteamGuid>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Common.SteamGuid
+    name: SteamGuid
+    nameWithType: SteamGuid
+    fullName: Steam.Common.SteamGuid
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of SteamGuid).Equals
+    fullName: System.IEquatable(Of Steam.Common.SteamGuid).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Common.SteamGuid
+    name: SteamGuid
+    nameWithType: SteamGuid
+    fullName: Steam.Common.SteamGuid
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<T>.Equals
+    fullName: System.IEquatable<T>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of T).Equals
+    fullName: System.IEquatable(Of T).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Common.SteamGuid.GetHashCode*
+  commentId: Overload:Steam.Common.SteamGuid.GetHashCode
+  isExternal: false
+  name: GetHashCode
+  nameWithType: SteamGuid.GetHashCode
+  fullName: Steam.Common.SteamGuid.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Common.SteamGuid.ToString*
+  commentId: Overload:Steam.Common.SteamGuid.ToString
+  isExternal: false
+  name: ToString
+  nameWithType: SteamGuid.ToString
+  fullName: Steam.Common.SteamGuid.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Steam.Common.SteamGuid.op_Equality*
+  commentId: Overload:Steam.Common.SteamGuid.op_Equality
+  isExternal: false
+  name: Equality
+  nameWithType: SteamGuid.Equality
+  fullName: Steam.Common.SteamGuid.Equality
+- uid: Steam.Common.SteamGuid.op_Inequality*
+  commentId: Overload:Steam.Common.SteamGuid.op_Inequality
+  isExternal: false
+  name: Inequality
+  nameWithType: SteamGuid.Inequality
+  fullName: Steam.Common.SteamGuid.Inequality

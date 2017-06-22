@@ -1,0 +1,621 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Sockets.InvalidPacketException
+  commentId: T:Steam.Net.Sockets.InvalidPacketException
+  id: InvalidPacketException
+  parent: Steam.Net.Sockets
+  children:
+  - Steam.Net.Sockets.InvalidPacketException.#ctor
+  - Steam.Net.Sockets.InvalidPacketException.#ctor(System.String)
+  - Steam.Net.Sockets.InvalidPacketException.ActualData
+  - Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+  - Steam.Net.Sockets.InvalidPacketException.ToString
+  langs:
+  - csharp
+  - vb
+  name: InvalidPacketException
+  nameWithType: InvalidPacketException
+  fullName: Steam.Net.Sockets.InvalidPacketException
+  type: Class
+  source:
+    id: InvalidPacketException
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 4
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: 'public class InvalidPacketException : Exception'
+    content.vb: >-
+      Public Class InvalidPacketException
+
+          Inherits Exception
+  inheritance:
+  - System.Object
+  - System.Exception
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+  commentId: P:Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+  id: ExcepectedData
+  parent: Steam.Net.Sockets.InvalidPacketException
+  langs:
+  - csharp
+  - vb
+  name: ExcepectedData
+  nameWithType: InvalidPacketException.ExcepectedData
+  fullName: Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+  type: Property
+  source:
+    id: ExcepectedData
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 6
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: public object ExcepectedData { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property ExcepectedData As Object
+  overload: Steam.Net.Sockets.InvalidPacketException.ExcepectedData*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Sockets.InvalidPacketException.ActualData
+  commentId: P:Steam.Net.Sockets.InvalidPacketException.ActualData
+  id: ActualData
+  parent: Steam.Net.Sockets.InvalidPacketException
+  langs:
+  - csharp
+  - vb
+  name: ActualData
+  nameWithType: InvalidPacketException.ActualData
+  fullName: Steam.Net.Sockets.InvalidPacketException.ActualData
+  type: Property
+  source:
+    id: ActualData
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: public object ActualData { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property ActualData As Object
+  overload: Steam.Net.Sockets.InvalidPacketException.ActualData*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Sockets.InvalidPacketException.#ctor
+  commentId: M:Steam.Net.Sockets.InvalidPacketException.#ctor
+  id: '#ctor'
+  parent: Steam.Net.Sockets.InvalidPacketException
+  langs:
+  - csharp
+  - vb
+  name: InvalidPacketException()
+  nameWithType: InvalidPacketException.InvalidPacketException()
+  fullName: Steam.Net.Sockets.InvalidPacketException.InvalidPacketException()
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 10
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: public InvalidPacketException()
+    content.vb: Public Sub New
+  overload: Steam.Net.Sockets.InvalidPacketException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Sockets.InvalidPacketException.#ctor(System.String)
+  commentId: M:Steam.Net.Sockets.InvalidPacketException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Steam.Net.Sockets.InvalidPacketException
+  langs:
+  - csharp
+  - vb
+  name: InvalidPacketException(String)
+  nameWithType: InvalidPacketException.InvalidPacketException(String)
+  fullName: Steam.Net.Sockets.InvalidPacketException.InvalidPacketException(System.String)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 12
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: public InvalidPacketException(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(message As String)
+  overload: Steam.Net.Sockets.InvalidPacketException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Steam.Net.Sockets.InvalidPacketException.ToString
+  commentId: M:Steam.Net.Sockets.InvalidPacketException.ToString
+  id: ToString
+  parent: Steam.Net.Sockets.InvalidPacketException
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: InvalidPacketException.ToString()
+  fullName: Steam.Net.Sockets.InvalidPacketException.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: G:\Steam\src\Network\Steam.Net\Sockets\InvalidPacketException.cs
+    startLine: 13
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net.Sockets
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Exception.ToString
+  overload: Steam.Net.Sockets.InvalidPacketException.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Steam.Net.Sockets
+  commentId: N:Steam.Net.Sockets
+  isExternal: false
+  name: Steam.Net.Sockets
+  nameWithType: Steam.Net.Sockets
+  fullName: Steam.Net.Sockets
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    nameWithType: Exception.GetBaseException
+    fullName: System.Exception.GetBaseException
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    nameWithType: Exception.GetBaseException
+    fullName: System.Exception.GetBaseException
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Net.Sockets.InvalidPacketException.ExcepectedData*
+  commentId: Overload:Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+  isExternal: false
+  name: ExcepectedData
+  nameWithType: InvalidPacketException.ExcepectedData
+  fullName: Steam.Net.Sockets.InvalidPacketException.ExcepectedData
+- uid: Steam.Net.Sockets.InvalidPacketException.ActualData*
+  commentId: Overload:Steam.Net.Sockets.InvalidPacketException.ActualData
+  isExternal: false
+  name: ActualData
+  nameWithType: InvalidPacketException.ActualData
+  fullName: Steam.Net.Sockets.InvalidPacketException.ActualData
+- uid: Steam.Net.Sockets.InvalidPacketException.#ctor*
+  commentId: Overload:Steam.Net.Sockets.InvalidPacketException.#ctor
+  isExternal: false
+  name: InvalidPacketException
+  nameWithType: InvalidPacketException.InvalidPacketException
+  fullName: Steam.Net.Sockets.InvalidPacketException.InvalidPacketException
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    nameWithType: Exception.ToString
+    fullName: System.Exception.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    nameWithType: Exception.ToString
+    fullName: System.Exception.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.Sockets.InvalidPacketException.ToString*
+  commentId: Overload:Steam.Net.Sockets.InvalidPacketException.ToString
+  isExternal: false
+  name: ToString
+  nameWithType: InvalidPacketException.ToString
+  fullName: Steam.Net.Sockets.InvalidPacketException.ToString

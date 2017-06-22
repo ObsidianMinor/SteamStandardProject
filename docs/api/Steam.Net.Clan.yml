@@ -1,0 +1,518 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Clan
+  commentId: T:Steam.Net.Clan
+  id: Clan
+  parent: Steam.Net
+  children:
+  - Steam.Net.Clan.#ctor(Steam.Net.SteamNetworkClient)
+  - Steam.Net.Clan.Relationship
+  langs:
+  - csharp
+  - vb
+  name: Clan
+  nameWithType: Clan
+  fullName: Steam.Net.Clan
+  type: Class
+  source:
+    id: Clan
+    path: G:\Steam\src\Network\Steam.Net\Clan.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nRepresents a Steam group on the Steam community\n"
+  example: []
+  syntax:
+    content: 'public class Clan : Account'
+    content.vb: >-
+      Public Class Clan
+
+          Inherits Account
+  inheritance:
+  - System.Object
+  - Steam.Net.NetworkEntity
+  - Steam.Net.Account
+  inheritedMembers:
+  - Steam.Net.Account.Id
+  - Steam.Net.Account.Name
+  - Steam.Net.Account.AvatarHash
+  - Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  - Steam.Net.NetworkEntity.Client
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Steam.Net.Clan.Relationship
+  commentId: P:Steam.Net.Clan.Relationship
+  id: Relationship
+  parent: Steam.Net.Clan
+  langs:
+  - csharp
+  - vb
+  name: Relationship
+  nameWithType: Clan.Relationship
+  fullName: Steam.Net.Clan.Relationship
+  type: Property
+  source:
+    id: Relationship
+    path: G:\Steam\src\Network\Steam.Net\Clan.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public ClanRelationship Relationship { get; }
+    parameters: []
+    return:
+      type: Steam.Net.ClanRelationship
+    content.vb: Public ReadOnly Property Relationship As ClanRelationship
+  overload: Steam.Net.Clan.Relationship*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Steam.Net.Clan.#ctor(Steam.Net.SteamNetworkClient)
+  commentId: M:Steam.Net.Clan.#ctor(Steam.Net.SteamNetworkClient)
+  id: '#ctor(Steam.Net.SteamNetworkClient)'
+  parent: Steam.Net.Clan
+  langs:
+  - csharp
+  - vb
+  name: Clan(SteamNetworkClient)
+  nameWithType: Clan.Clan(SteamNetworkClient)
+  fullName: Steam.Net.Clan.Clan(Steam.Net.SteamNetworkClient)
+  type: Constructor
+  source:
+    id: .ctor
+    path: G:\Steam\src\Network\Steam.Net\Clan.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: public Clan(SteamNetworkClient client)
+    parameters:
+    - id: client
+      type: Steam.Net.SteamNetworkClient
+    content.vb: Public Sub New(client As SteamNetworkClient)
+  overload: Steam.Net.Clan.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Steam.Net.NetworkEntity
+  commentId: T:Steam.Net.NetworkEntity
+  parent: Steam.Net
+  isExternal: false
+  name: NetworkEntity
+  nameWithType: NetworkEntity
+  fullName: Steam.Net.NetworkEntity
+- uid: Steam.Net.Account
+  commentId: T:Steam.Net.Account
+  parent: Steam.Net
+  isExternal: false
+  name: Account
+  nameWithType: Account
+  fullName: Steam.Net.Account
+- uid: Steam.Net.Account.Id
+  commentId: P:Steam.Net.Account.Id
+  parent: Steam.Net.Account
+  isExternal: false
+  name: Id
+  nameWithType: Account.Id
+  fullName: Steam.Net.Account.Id
+- uid: Steam.Net.Account.Name
+  commentId: P:Steam.Net.Account.Name
+  parent: Steam.Net.Account
+  isExternal: false
+  name: Name
+  nameWithType: Account.Name
+  fullName: Steam.Net.Account.Name
+- uid: Steam.Net.Account.AvatarHash
+  commentId: P:Steam.Net.Account.AvatarHash
+  parent: Steam.Net.Account
+  isExternal: false
+  name: AvatarHash
+  nameWithType: Account.AvatarHash
+  fullName: Steam.Net.Account.AvatarHash
+- uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  commentId: M:Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  parent: Steam.Net.Account
+  isExternal: false
+  name: GetAvatarUri(ImageSize)
+  nameWithType: Account.GetAvatarUri(ImageSize)
+  fullName: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+  spec.csharp:
+  - uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+    name: GetAvatarUri
+    nameWithType: Account.GetAvatarUri
+    fullName: Steam.Net.Account.GetAvatarUri
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Steam.Net.Account.GetAvatarUri(Steam.Web.ImageSize)
+    name: GetAvatarUri
+    nameWithType: Account.GetAvatarUri
+    fullName: Steam.Net.Account.GetAvatarUri
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Steam.Web.ImageSize
+    name: ImageSize
+    nameWithType: ImageSize
+    fullName: Steam.Web.ImageSize
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Steam.Net.NetworkEntity.Client
+  commentId: P:Steam.Net.NetworkEntity.Client
+  parent: Steam.Net.NetworkEntity
+  isExternal: false
+  name: Client
+  nameWithType: NetworkEntity.Client
+  fullName: Steam.Net.NetworkEntity.Client
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Steam.Net.Clan.Relationship*
+  commentId: Overload:Steam.Net.Clan.Relationship
+  isExternal: false
+  name: Relationship
+  nameWithType: Clan.Relationship
+  fullName: Steam.Net.Clan.Relationship
+- uid: Steam.Net.ClanRelationship
+  commentId: T:Steam.Net.ClanRelationship
+  parent: Steam.Net
+  isExternal: false
+  name: ClanRelationship
+  nameWithType: ClanRelationship
+  fullName: Steam.Net.ClanRelationship
+- uid: Steam.Net.Clan.#ctor*
+  commentId: Overload:Steam.Net.Clan.#ctor
+  isExternal: false
+  name: Clan
+  nameWithType: Clan.Clan
+  fullName: Steam.Net.Clan.Clan
+- uid: Steam.Net.SteamNetworkClient
+  commentId: T:Steam.Net.SteamNetworkClient
+  parent: Steam.Net
+  isExternal: false
+  name: SteamNetworkClient
+  nameWithType: SteamNetworkClient
+  fullName: Steam.Net.SteamNetworkClient

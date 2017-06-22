@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Web.ServerLoad
+  commentId: T:Steam.Web.ServerLoad
+  id: ServerLoad
+  parent: Steam.Web
+  children:
+  - Steam.Web.ServerLoad.Full
+  - Steam.Web.ServerLoad.High
+  - Steam.Web.ServerLoad.Idle
+  - Steam.Web.ServerLoad.Low
+  - Steam.Web.ServerLoad.Medium
+  langs:
+  - csharp
+  - vb
+  name: ServerLoad
+  nameWithType: ServerLoad
+  fullName: Steam.Web.ServerLoad
+  type: Enum
+  source:
+    id: ServerLoad
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 2
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: public enum ServerLoad
+    content.vb: Public Enum ServerLoad
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Web.ServerLoad.Idle
+  commentId: F:Steam.Web.ServerLoad.Idle
+  id: Idle
+  parent: Steam.Web.ServerLoad
+  langs:
+  - csharp
+  - vb
+  name: Idle
+  nameWithType: ServerLoad.Idle
+  fullName: Steam.Web.ServerLoad.Idle
+  type: Field
+  source:
+    id: Idle
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 4
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Idle = 0
+    return:
+      type: Steam.Web.ServerLoad
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServerLoad.Low
+  commentId: F:Steam.Web.ServerLoad.Low
+  id: Low
+  parent: Steam.Web.ServerLoad
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: ServerLoad.Low
+  fullName: Steam.Web.ServerLoad.Low
+  type: Field
+  source:
+    id: Low
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 5
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Low = 1
+    return:
+      type: Steam.Web.ServerLoad
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServerLoad.Medium
+  commentId: F:Steam.Web.ServerLoad.Medium
+  id: Medium
+  parent: Steam.Web.ServerLoad
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: ServerLoad.Medium
+  fullName: Steam.Web.ServerLoad.Medium
+  type: Field
+  source:
+    id: Medium
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 6
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Medium = 2
+    return:
+      type: Steam.Web.ServerLoad
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServerLoad.High
+  commentId: F:Steam.Web.ServerLoad.High
+  id: High
+  parent: Steam.Web.ServerLoad
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: ServerLoad.High
+  fullName: Steam.Web.ServerLoad.High
+  type: Field
+  source:
+    id: High
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 7
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: High = 3
+    return:
+      type: Steam.Web.ServerLoad
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Web.ServerLoad.Full
+  commentId: F:Steam.Web.ServerLoad.Full
+  id: Full
+  parent: Steam.Web.ServerLoad
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: ServerLoad.Full
+  fullName: Steam.Web.ServerLoad.Full
+  type: Field
+  source:
+    id: Full
+    path: G:\Steam\src\Web\Steam.Web\ServerLoad.cs
+    startLine: 8
+  assemblies:
+  - Steam.Web
+  namespace: Steam.Web
+  syntax:
+    content: Full = 4
+    return:
+      type: Steam.Web.ServerLoad
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Web
+  commentId: N:Steam.Web
+  isExternal: false
+  name: Steam.Web
+  nameWithType: Steam.Web
+  fullName: Steam.Web
+- uid: Steam.Web.ServerLoad
+  commentId: T:Steam.Web.ServerLoad
+  parent: Steam.Web
+  isExternal: false
+  name: ServerLoad
+  nameWithType: ServerLoad
+  fullName: Steam.Web.ServerLoad

@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  id: Steam.Local.Apps
+  children:
+  - Steam.Local.Apps.AppState
+  - Steam.Local.Apps.AppUpdateResult
+  - Steam.Local.Apps.Dlc
+  - Steam.Local.Apps.Library
+  - Steam.Local.Apps.LibraryCollection
+  - Steam.Local.Apps.LocalApp
+  - Steam.Local.Apps.StagedDepot
+  langs:
+  - csharp
+  - vb
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps
+  type: Namespace
+  assemblies:
+  - Steam.Local
+references:
+- uid: Steam.Local.Apps.AppState
+  commentId: T:Steam.Local.Apps.AppState
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppState
+  nameWithType: AppState
+  fullName: Steam.Local.Apps.AppState
+- uid: Steam.Local.Apps.AppUpdateResult
+  commentId: T:Steam.Local.Apps.AppUpdateResult
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: AppUpdateResult
+  nameWithType: AppUpdateResult
+  fullName: Steam.Local.Apps.AppUpdateResult
+- uid: Steam.Local.Apps.Dlc
+  commentId: T:Steam.Local.Apps.Dlc
+  isExternal: false
+  name: Dlc
+  nameWithType: Dlc
+  fullName: Steam.Local.Apps.Dlc
+- uid: Steam.Local.Apps.Library
+  commentId: T:Steam.Local.Apps.Library
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: Library
+  nameWithType: Library
+  fullName: Steam.Local.Apps.Library
+- uid: Steam.Local.Apps.LibraryCollection
+  commentId: T:Steam.Local.Apps.LibraryCollection
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: LibraryCollection
+  nameWithType: LibraryCollection
+  fullName: Steam.Local.Apps.LibraryCollection
+- uid: Steam.Local.Apps.LocalApp
+  commentId: T:Steam.Local.Apps.LocalApp
+  parent: Steam.Local.Apps
+  isExternal: false
+  name: LocalApp
+  nameWithType: LocalApp
+  fullName: Steam.Local.Apps.LocalApp
+- uid: Steam.Local.Apps.StagedDepot
+  commentId: T:Steam.Local.Apps.StagedDepot
+  isExternal: false
+  name: StagedDepot
+  nameWithType: StagedDepot
+  fullName: Steam.Local.Apps.StagedDepot
+- uid: Steam.Local.Apps
+  commentId: N:Steam.Local.Apps
+  isExternal: false
+  name: Steam.Local.Apps
+  nameWithType: Steam.Local.Apps
+  fullName: Steam.Local.Apps

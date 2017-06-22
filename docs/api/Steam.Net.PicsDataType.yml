@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.PicsDataType
+  commentId: T:Steam.Net.PicsDataType
+  id: PicsDataType
+  parent: Steam.Net
+  children:
+  - Steam.Net.PicsDataType.App
+  - Steam.Net.PicsDataType.Invalid
+  - Steam.Net.PicsDataType.Package
+  langs:
+  - csharp
+  - vb
+  name: PicsDataType
+  nameWithType: PicsDataType
+  fullName: Steam.Net.PicsDataType
+  type: Enum
+  source:
+    id: PicsDataType
+    path: G:\Steam\src\Network\Steam.Net\PicsDataType.cs
+    startLine: 5
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  summary: "\nSpecifies what type of data is for a PICS database entry\n"
+  example: []
+  syntax:
+    content: public enum PicsDataType
+    content.vb: Public Enum PicsDataType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Steam.Net.PicsDataType.Invalid
+  commentId: F:Steam.Net.PicsDataType.Invalid
+  id: Invalid
+  parent: Steam.Net.PicsDataType
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: PicsDataType.Invalid
+  fullName: Steam.Net.PicsDataType.Invalid
+  type: Field
+  source:
+    id: Invalid
+    path: G:\Steam\src\Network\Steam.Net\PicsDataType.cs
+    startLine: 7
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Invalid = 0
+    return:
+      type: Steam.Net.PicsDataType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PicsDataType.App
+  commentId: F:Steam.Net.PicsDataType.App
+  id: App
+  parent: Steam.Net.PicsDataType
+  langs:
+  - csharp
+  - vb
+  name: App
+  nameWithType: PicsDataType.App
+  fullName: Steam.Net.PicsDataType.App
+  type: Field
+  source:
+    id: App
+    path: G:\Steam\src\Network\Steam.Net\PicsDataType.cs
+    startLine: 8
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: App = 1
+    return:
+      type: Steam.Net.PicsDataType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Steam.Net.PicsDataType.Package
+  commentId: F:Steam.Net.PicsDataType.Package
+  id: Package
+  parent: Steam.Net.PicsDataType
+  langs:
+  - csharp
+  - vb
+  name: Package
+  nameWithType: PicsDataType.Package
+  fullName: Steam.Net.PicsDataType.Package
+  type: Field
+  source:
+    id: Package
+    path: G:\Steam\src\Network\Steam.Net\PicsDataType.cs
+    startLine: 9
+  assemblies:
+  - Steam.Net
+  namespace: Steam.Net
+  syntax:
+    content: Package = 2
+    return:
+      type: Steam.Net.PicsDataType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Steam.Net
+  commentId: N:Steam.Net
+  isExternal: false
+  name: Steam.Net
+  nameWithType: Steam.Net
+  fullName: Steam.Net
+- uid: Steam.Net.PicsDataType
+  commentId: T:Steam.Net.PicsDataType
+  parent: Steam.Net
+  isExternal: false
+  name: PicsDataType
+  nameWithType: PicsDataType
+  fullName: Steam.Net.PicsDataType

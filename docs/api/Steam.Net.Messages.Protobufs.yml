@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Steam.Net.Messages.Protobufs
+  commentId: N:Steam.Net.Messages.Protobufs
+  id: Steam.Net.Messages.Protobufs
+  children:
+  - Steam.Net.Messages.Protobufs.GameConnectTokens
+  - Steam.Net.Messages.Protobufs.LogonResponse
+  langs:
+  - csharp
+  - vb
+  name: Steam.Net.Messages.Protobufs
+  nameWithType: Steam.Net.Messages.Protobufs
+  fullName: Steam.Net.Messages.Protobufs
+  type: Namespace
+  assemblies:
+  - Steam.Net
+references:
+- uid: Steam.Net.Messages.Protobufs.GameConnectTokens
+  commentId: T:Steam.Net.Messages.Protobufs.GameConnectTokens
+  isExternal: false
+  name: GameConnectTokens
+  nameWithType: GameConnectTokens
+  fullName: Steam.Net.Messages.Protobufs.GameConnectTokens
+- uid: Steam.Net.Messages.Protobufs.LogonResponse
+  commentId: T:Steam.Net.Messages.Protobufs.LogonResponse
+  isExternal: false
+  name: LogonResponse
+  nameWithType: LogonResponse
+  fullName: Steam.Net.Messages.Protobufs.LogonResponse
