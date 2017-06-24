@@ -1,4 +1,5 @@
-﻿using Steam.Net.Sockets;
+﻿using Steam.Common;
+using Steam.Net.Sockets;
 using Steam.Web;
 using System;
 using System.Collections.Generic;
@@ -32,5 +33,10 @@ namespace Steam.Net
         /// Gets or sets a list of WebSocket connection managers which can be used before resorting to the web API
         /// </summary>
         public IEnumerable<Uri> WebSockets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the default universe the Steam client will be in before logging in
+        /// </summary>
+        public Universe DefaultUniverse { get; set; } = Universe.Public;
     }
 }

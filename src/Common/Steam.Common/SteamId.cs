@@ -35,11 +35,20 @@ namespace Steam.Common
         // ah fuck, masks and bitwise operations
         const uint IdMask = 0xFFFFFFFF;
         const int InstanceMask = 0x000FFFFF;
-
-        const int ChatAccountInstanceMask = 0x00000FFF; // hm. why is this not used
-        const int ClanChatMask = (InstanceMask + 1) >> 1;
-        const int LobbyChatMask = (InstanceMask + 1) >> 2;
-        const int MMSLobbyChatMask = (InstanceMask + 1) >> 3; // this isn't even used in the source sdk
+        
+        private const int ChatAccountInstanceMask = 0x00000FFF; // hm. why is this not used
+        /// <summary>
+        /// Represents the clan chat instance value
+        /// </summary>
+        public const int ClanChatInstance = (InstanceMask + 1) >> 1;
+        /// <summary>
+        /// Represents the lobby chat instance value
+        /// </summary>
+        public const int LobbyChatInstance = (InstanceMask + 1) >> 2;
+        /// <summary>
+        /// Represents the mms lobby chat instance value
+        /// </summary>
+        public const int MMSLobbyChatInstance = (InstanceMask + 1) >> 3; // this isn't even used in the source sdk
 
         /// <summary>
         /// Gets whether this account is pending
@@ -173,9 +182,9 @@ namespace Steam.Common
                 instance = 1;
             
             if (typeChar == 'c')
-                instance |= ClanChatMask;
+                instance |= ClanChatInstance;
             else if (typeChar == 'L')
-                instance |= LobbyChatMask;
+                instance |= LobbyChatInstance;
 
             return new SteamId(id, universe, type, instance);
         }
@@ -184,13 +193,13 @@ namespace Steam.Common
         /// Returns whether this Steam ID belongs to a lobby chat
         /// </summary>
         /// <returns></returns>
-        public bool IsLobby => ((AccountInstance & LobbyChatMask) != 0 || (AccountInstance & MMSLobbyChatMask) != 0) && AccountType == AccountType.Chat;
+        public bool IsLobby => ((AccountInstance & LobbyChatInstance) != 0 || (AccountInstance & MMSLobbyChatInstance) != 0) && AccountType == AccountType.Chat;
 
         /// <summary>
         /// Sets whether this Steam ID belongs to a group chat
         /// </summary>
         /// <returns></returns>
-        public bool IsGroupChat => (AccountInstance & ClanChatMask) != 0 && AccountType == AccountType.Chat;
+        public bool IsGroupChat => (AccountInstance & ClanChatInstance) != 0 && AccountType == AccountType.Chat;
 
         /// <summary>
         /// Gets the instance user account instance if it exists
@@ -335,8 +344,16 @@ namespace Steam.Common
             return ToCommunityId() == id.ToCommunityId();
         }
 
+        /// <summary>
+        /// Performs an implicit conversion from a Steam ID to a ulong
+        /// </summary>
+        /// <param name="id"></param>
         public static implicit operator ulong(SteamId id) => id.ToCommunityId();
 
+        /// <summary>
+        /// Performs an implict conversion from a ulong to a Steam ID
+        /// </summary>
+        /// <param name="id"></param>
         public static implicit operator SteamId(ulong id) => FromCommunityId(id);
     }
 }

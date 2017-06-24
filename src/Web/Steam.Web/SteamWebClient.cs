@@ -1,15 +1,16 @@
-﻿using Steam.Web.API;
+﻿using Steam.Common;
+using Steam.Community;
 using Steam.Rest;
+using Steam.Web.API;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System;
-using Steam.Common;
-using System.Linq;
 
 namespace Steam.Web
 {
-    public class SteamWebClient
+    public class SteamWebClient : ICommunityClient
     {
         internal readonly SteamWebApiClient ApiClient;
 
@@ -64,7 +65,7 @@ namespace Steam.Web
             return await ApiClient.GetServerTime(options).ConfigureAwait(false);
         }
 
-        public async Task<IReadOnlyCollection<UserProfile>> GetPlayerSummariesAsync(IEnumerable<SteamId> steamIds, RequestOptions options = null)
+        public async Task<IReadOnlyCollection<WebUser>> GetUsersAsync(IEnumerable<SteamId> steamIds, RequestOptions options = null)
         {
             throw new NotImplementedException();
         }
@@ -121,6 +122,9 @@ namespace Steam.Web
         {
             return GetCdnImageUrl("items", appId.ToString(), hash, ImageSize.Small); // say small because there is no other sizes for items
         }
+
+        async Task<IUser> ICommunityClient.GetUserAsync(SteamId id) 
+            => await GetUsersAsync(new[] { id }, null).ConfigureAwait(false);
 
         private const string cdnUrl = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images";
         private static readonly Uri cdnUri = new Uri(cdnUrl);

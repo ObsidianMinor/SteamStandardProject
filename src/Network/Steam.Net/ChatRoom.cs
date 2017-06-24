@@ -1,13 +1,14 @@
 ﻿using Steam.Common;
+using Steam.Net.Utilities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Steam.Net
 {
     /// <summary>
-    /// Represents a Steam chat room between a friend or a clan
+    /// Represents a Steam clan chat room
     /// </summary>
-    public class ChatRoom : NetworkEntity
+    public class ChatRoom : NetworkEntity, IChatRoom
     {
         private ChatRoom(SteamNetworkClient client) : base(client)
         {
@@ -34,6 +35,15 @@ namespace Steam.Net
         public async Task EnterTypingStateAsync()
         {
             await Client.ApiClient.SendChatMessageAsync(Id, null, ChatEntryType.Typing).ConfigureAwait(false);
+        }
+
+        internal static ChatRoom Create(SteamNetworkClient client, User friend, IEnumerable<ChatMessage> offlineMessages)
+        {
+            return new ChatRoom(client)
+            {
+                Members = new[] { friend }.ToReadOnlyCollection(),
+                Messages = offlineMessages.ToReadOnlyCollection(),
+            };
         }
     }
 }

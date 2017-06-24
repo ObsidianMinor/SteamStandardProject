@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Steam.Common;
+using System.Collections.Generic;
 
 namespace Steam.Net
 {
@@ -35,9 +36,12 @@ namespace Steam.Net
         {
         }
 
-        internal static SelfUser Create(SteamNetworkClient client)
+        internal static SelfUser Create(SteamNetworkClient client, Universe defaultUniverse)
         {
-            return new SelfUser(client);
+            return new SelfUser(client)
+            {
+                Id = new SteamId(0, defaultUniverse, AccountType.Individual, 1)
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Steam.Common;
+using Steam.Community;
 using Steam.Rest;
 using System;
 using System.Net;
@@ -9,9 +10,9 @@ namespace Steam.Web
     /// <summary>
     /// Represents a user's profile on the Steam community
     /// </summary>
-    public class UserProfile : Entity
+    public class WebUser : Entity, IUser
     {
-        private UserProfile(SteamWebClient webClient) : base(webClient)
+        private WebUser(SteamWebClient webClient) : base(webClient)
         {
         }
 
@@ -40,12 +41,12 @@ namespace Steam.Web
         /// </summary>
         public bool CanCommenting { get; private set; }
         public string ProfileUrl { get; private set; }
-        public string AvatarUrl { get; private set; }
-        public string MediumAvatarUrl { get; private set; }
-        public string FullAvatarUrl { get; private set; }
+        public Uri AvatarUri { get; private set; }
+        public Uri MediumAvatarUri { get; private set; }
+        public Uri FullAvatarUri { get; private set; }
         public bool UsePersona { get; private set; }
         public PersonaState PersonaState { get; private set; }
-        public string RealName { get; private set; }
+        public string Name { get; private set; }
         public SteamId PrimaryGroupId { get; private set; }
         public DateTimeOffset TimeCreated { get; private set; }
         public PersonaStateFlag PersonaStateFlags { get; private set; }

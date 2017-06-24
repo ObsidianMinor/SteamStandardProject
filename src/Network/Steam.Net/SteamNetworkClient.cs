@@ -1,12 +1,13 @@
 ﻿using Steam.Common;
 using Steam.Common.Logging;
+using Steam.Community;
 using Steam.Web;
 using System;
 using System.Threading.Tasks;
 
 namespace Steam.Net
 {
-    public partial class SteamNetworkClient : SteamWebClient
+    public partial class SteamNetworkClient : SteamWebClient, ICommunityClient
     {
         internal new readonly SteamNetworkApiClient ApiClient; // severe lack of private protected
         
@@ -21,12 +22,7 @@ namespace Steam.Net
         public SteamNetworkClient(SteamNetworkConfig config) : base(new SteamNetworkApiClient(config, new LogManager("Client", config.LogLevel)))
         {
             ApiClient = base.ApiClient as SteamNetworkApiClient;
-            ApiClient.State.CurrentUser = SelfUser.Create(this);
-        }
-
-        public async Task SetCurrentGameAsync(uint appId)
-        {
-
+            ApiClient.State.CurrentUser = SelfUser.Create(this, config.DefaultUniverse);
         }
 
         public async Task StartAsync() => await ApiClient.StartAsync().ConfigureAwait(false);

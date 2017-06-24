@@ -12,5 +12,10 @@ namespace Steam.Net
         public Clan(SteamNetworkClient client) : base(client)
         {
         }
+
+        public async Task JoinChatRoomAsync()
+        {
+            await Client.ApiClient.EnterChatRoomAsync(Id).ConfigureAwait(false);
+        }
     }
 }

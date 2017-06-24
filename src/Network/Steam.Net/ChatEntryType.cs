@@ -1,4 +1,4 @@
-﻿namespace Steam.Common
+﻿namespace Steam.Net
 {
     /// <summary>
     /// Chat event types

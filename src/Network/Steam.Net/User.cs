@@ -1,4 +1,5 @@
 ﻿using Steam.Common;
+using Steam.Community;
 using Steam.Rest;
 using Steam.Web;
 using System.Linq;
@@ -42,9 +43,9 @@ namespace Steam.Net
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<UserProfile> GetProfileAsync(RequestOptions options = null)
+        public async Task<WebUser> GetProfileAsync(RequestOptions options = null)
         {
-            var profiles = await Client.GetPlayerSummariesAsync(new[] { Id }, options);
+            var profiles = await Client.GetUsersAsync(new[] { Id }, options);
             return profiles.FirstOrDefault();
         }
     }

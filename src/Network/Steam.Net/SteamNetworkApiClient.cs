@@ -15,6 +15,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.WebSockets;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -160,6 +161,7 @@ namespace Steam.Net
         private void OnDisconnected(object sender, Exception exception)
         {
             _encryption = null;
+            DisconnectedEvent?.Invoke(this, exception);
             _connection.Error(exception);
         }
 
@@ -263,9 +265,51 @@ namespace Steam.Net
             await SendAsync(new ClientProtobufMessage<Heartbeat>(MessageType.ClientHeartBeat));
         }
 
-        internal async Task SendChatMessageAsync(SteamId chatRoom, string message, ChatEntryType type)
+        internal async Task SendChatMessageAsync(SteamId chat, string message, ChatEntryType type)
         {
+            if(chat.AccountType == AccountType.Clan)
+                chat = new SteamId(chat.AccountId, chat.AccountUniverse, AccountType.Chat, SteamId.ClanChatInstance);
 
+            var chatMessage = new ClientStructMessage<ClientChatMessage>();
+            chatMessage.Body.Author = _state.CurrentUser.Id;
+            chatMessage.Body.Room = chat;
+            chatMessage.Body.Type = type;
+
+            chatMessage.Payload = Encoding.UTF8.GetBytes(message + '\0');
+
+            await SendAsync(chatMessage).ConfigureAwait(false);
+        }
+        
+        internal async Task EnterChatRoomAsync(SteamId chat)
+        {
+            var request = new ClientStructMessage<JoinChat>(MessageType.ClientJoinChat);
+            if (chat.AccountType == AccountType.Clan)
+                chat = new SteamId(chat.AccountId, chat.AccountUniverse, AccountType.Chat, SteamId.ClanChatInstance);
+
+            request.Body.ChatId = chat;
+            await SendAsync(request).ConfigureAwait(false);
+        }
+
+        internal async Task LeaveChatRoomAsync(SteamId chat)
+        {
+            if (chat.AccountType == AccountType.Clan)
+                chat = new SteamId(chat.AccountId, chat.AccountUniverse, AccountType.Chat, SteamId.ClanChatInstance);
+
+            var leaveChat = new ClientStructMessage<ChatMemberInfo>(MessageType.ClientChatMemberInfo);
+
+            leaveChat.Body.ChatId = chat;
+            leaveChat.Body.Type = ChatInfoType.StateChange;
+
+            byte[] steamId = BitConverter.GetBytes(_state.CurrentUser.Id);
+            byte[] state = BitConverter.GetBytes((uint)ChatMemberStateChange.Left);
+            CopyArraysToPayload(leaveChat, steamId, state, steamId);
+
+            await SendAsync(leaveChat).ConfigureAwait(false);
+        }
+
+        private static void CopyArraysToPayload(IPayload payload, params byte[][] arrays)
+        {
+            payload.Payload = arrays.SelectMany(a => a).ToArray();
         }
         
         private async Task RunHeartbeatAsync(int interval, CancellationToken token)
@@ -354,6 +398,9 @@ namespace Steam.Net
                             case Result.AccountLogonDeniedVerifiedEmailRequired:
                                 _previousLogonResponse = response.Body;
                                 _continueLogin = true;
+                                break;
+                            default:
+                                LoginRejectedEvent?.Invoke(this, response.Body);
                                 break;
                         }
                     }
