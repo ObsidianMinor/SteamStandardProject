@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="IReceiveMethodResolver.cs~RF31d3fa55.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.4.0" />
+    <PackageReference Include="protobuf-net" Version="2.3.2" />
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.4.0" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="System.Net.NameResolution" Version="4.3.0" />
+    <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\Steam.Community\Steam.Community.csproj" />
+    <ProjectReference Include="..\Steam.Rest\Steam.Rest.csproj" />
+    <ProjectReference Include="..\Steam.Web\Steam.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Messages\KeyValues\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Utilities\HardwareUtils.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="README.md" />
+    <None Remove="WebAttribute.cs~RF37b92e4a.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SteamWebClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.DispatchProxy" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\Steam.Community\Steam.Community.csproj" />
+    <ProjectReference Include="..\Steam.Rest\Steam.Rest.csproj" />
+  </ItemGroup>
+
+</Project>
