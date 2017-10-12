@@ -143,6 +143,15 @@ namespace Steam.Tests
             Assert.True(SteamId.FromCommunityId(76561198006409530).Equals(SteamId.FromCommunityId(76561198006409530)));
         }
 
+        [Fact(DisplayName = "Back and forth")]
+        public void BackForth()
+        {
+            ulong original = 76561198006409530;
+            ulong newVal = SteamId.FromCommunityId(76561198006409530);
+
+            Assert.Equal(original, newVal);
+        }
+
         [Fact(DisplayName = "Game Server Instance is All")]
         public void InstanceOfGameServerIsAll()
         {

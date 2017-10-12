@@ -2,7 +2,7 @@ using System;
 
 namespace Steam.Web.StringSerializers
 {
-    public class SteamIdStringSerializer : StringSerializer
+    public class SteamIdSerializer : StringSerializer
     {
         public override bool CanConvert(Type t) => t == typeof(SteamId);
 

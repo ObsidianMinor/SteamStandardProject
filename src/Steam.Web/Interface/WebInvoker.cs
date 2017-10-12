@@ -26,7 +26,7 @@ namespace Steam.Web.Interface
             var interfaceName = @interface.Name;
             var methodName = method.Name;
             var httpMethod = method.Method;
-            var query = new KeyValuePair<string, string>[method.HasOptions ? parameters.Length - 1 : parameters.Length];
+            var query = new (string, string)[method.HasOptions ? parameters.Length - 1 : parameters.Length];
             var options = method.HasOptions ? parameters.Last() as RequestOptions : null;
 
             for(int i = 0; i < query.Length; i++)
@@ -36,6 +36,7 @@ namespace Steam.Web.Interface
 
                 if (param == null && contract.Optional)
                     continue;
+                    
                 string value = null;
                 if (contract.Serializer.CanConvert(param.GetType()))
                 {
@@ -48,10 +49,10 @@ namespace Steam.Web.Interface
                 else
                     value = StringSerializer.Instance.ToString(param);
 
-                query[i] = new KeyValuePair<string, string>(contract.Name, value);
+                query[i] = (contract.Name, value);
             }
             
-            var send = SendAsync(httpMethod, interfaceName, methodName, method.Version, method.RequiresKey, options, query.Select(q => (q.Key, q.Value)).ToArray());
+            var send = SendAsync(httpMethod, interfaceName, methodName, method.Version, method.RequiresKey, options, query);
 
             if (returnType == typeof(void))
             {

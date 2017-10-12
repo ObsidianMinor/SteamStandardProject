@@ -10,6 +10,6 @@ namespace Steam.Web
         Task<WebResponse<ConnectionManagerList>> GetConnectionManagerListAsync(long cellid, long? maxcount = null);
 
         [WebMethod(Name = "GetCSList")]
-        Task<WebResponse<IEnumerable<Uri>>> GetContentServersAsync(long cellid, long? maxCount = null);
+        Task<WebResponse<ContentServerList>> GetContentServersAsync(long cellid, long? maxCount = null);
     }
 }

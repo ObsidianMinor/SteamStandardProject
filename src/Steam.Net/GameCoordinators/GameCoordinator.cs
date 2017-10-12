@@ -23,9 +23,10 @@ namespace Steam.Net.GameCoordinators
             if(appId < uint.MinValue)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
+            _client = client ?? throw new ArgumentNullException(nameof(client), "Can't attach GC to null client");
+
             _dispatchers = new Dictionary<GameCoordinatorMessageType, GameCoordinatorReceiver>();
             AppId = appId;
-            _client = client ?? throw new ArgumentNullException(nameof(client), "Can't attach GC to null client");
             _gcLog = client.AttachGC(this);
             _jobs = new JobManager<GameCoordinatorMessage>(_gcLog);
         }

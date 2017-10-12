@@ -1,15 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3</TargetFrameworks>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <RootNamespace>Steam</RootNamespace>
     <AssemblyName>Steam.Common</AssemblyName>
-    <DocumentationFile>bin\${Configuration)\$(TargetFramework)\Steam.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Version>1.0.1</Version>
+    <Authors>ObsidianMinor</Authors>
+    <Description>A collection of common Steam types including cryptography and enums for use in other libraries</Description>
+    <PackageLicenseUrl>https://github.com/ObsidianMinor/SteamStandard/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ObsidianMinor/SteamStandard</PackageProjectUrl>
+    <RepositoryUrl>git://github.com/ObsidianMinor/SteamStandard.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>steam, netstandard, common</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="README.md" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />

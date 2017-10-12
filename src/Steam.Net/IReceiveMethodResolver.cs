@@ -1,4 +1,5 @@
-﻿using Steam.Net.GameCoordinators.Messages;
+﻿using Steam.Net.GameCoordinators;
+using Steam.Net.GameCoordinators.Messages;
 using Steam.Net.Messages;
 using System.Reflection;
 using System.Threading.Tasks;

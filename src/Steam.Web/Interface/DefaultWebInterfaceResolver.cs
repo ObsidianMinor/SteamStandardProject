@@ -60,7 +60,8 @@ namespace Steam.Web.Interface
                 Return = ResolveReturn(method.ReturnParameter),
                 Parameters = method.GetParameters().Select(p => ResolveParameter(p)).ToArray(),
                 RequiresKey = attribute.RequireKey,
-                HasOptions = parameters.LastOrDefault()?.ParameterType == typeof(RequestOptions),
+                HasOptions = parameters.LastOrDefault()?.ParameterType == typeof(RequestOptions) 
+                    || (parameters.LastOrDefault()?.ParameterType?.IsSubclassOf(typeof(RequestOptions)) ?? false),
                 CanInvoke = method.ReturnType == typeof(void) 
                     || method.ReturnType == typeof(Task) 
                     || method.ReturnType.GetGenericTypeDefinition() == typeof(Task<>)

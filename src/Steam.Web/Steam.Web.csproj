@@ -2,16 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="README.md" />
-    <None Remove="WebAttribute.cs~RF37b92e4a.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="SteamWebClient.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
@@ -21,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Steam.Common\Steam.Common.csproj" />
-    <ProjectReference Include="..\Steam.Community\Steam.Community.csproj" />
     <ProjectReference Include="..\Steam.Rest\Steam.Rest.csproj" />
   </ItemGroup>
 

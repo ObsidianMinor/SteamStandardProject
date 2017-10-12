@@ -141,10 +141,25 @@ namespace Steam
         /// Failed to acquire access lock for this operation
         /// </summary>
         LockingFailed = 33,
+        /// <summary>
+        /// The logon session has been replaced.
+        /// </summary>
         LogonSessionReplaced = 34,
+        /// <summary>
+        /// Failed to connect
+        /// </summary>
         ConnectFailed = 35,
+        /// <summary>
+        /// The authentication handshake has failed
+        /// </summary>
         HandshakeFailed = 36,
+        /// <summary>
+        /// There has been a generic IO failure
+        /// </summary>
         IOFailure = 37,
+        /// <summary>
+        /// The remote server has disconnected
+        /// </summary>
         RemoteDisconnect = 38,
         /// <summary>
         /// Failed to find the shopping cart requested
@@ -258,7 +273,13 @@ namespace Steam
         /// Account login denied due to 2nd factor auth failure - and no mail has been sent
         /// </summary>
         AccountLogonDeniedNoMail = 66,
+        /// <summary>
+        /// The users hardware does not support Intel's Identity Protection Technology (IPT).
+        /// </summary>
         HardwareNotCapableOfIPT = 67,
+        /// <summary>
+        /// Intel's Identity Protection Technology (IPT) has failed to initialize.
+        /// </summary>
         IPTInitError = 68,
         /// <summary>
         /// Operation failed due to parental control restrictions for current user
@@ -272,6 +293,9 @@ namespace Steam
         /// Account login denied due to auth code expired
         /// </summary>
         ExpiredLoginAuthCode = 71,
+        /// <summary>
+        /// The login failed due to an IP resriction.
+        /// </summary>
         IPLoginRestrictionFailed = 72,
         /// <summary>
         /// Account is locked down
@@ -281,6 +305,9 @@ namespace Steam
         /// Logon denied, you must verify logon through email
         /// </summary>
         AccountLogonDeniedVerifiedEmailRequired = 74,
+        /// <summary>
+        /// There is no URL matching the provided values.
+        /// </summary>
         NoMatchingURL = 75,
         /// <summary>
         /// Parse failure, missing field, etc.

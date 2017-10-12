@@ -44,9 +44,15 @@ namespace Steam.Net.Messages
                 int size = Marshal.SizeOf(_value);
                 byte[] value = new byte[size];
                 IntPtr ptr = Marshal.AllocHGlobal(size);
-                Marshal.StructureToPtr(_value, ptr, false);
-                Marshal.Copy(ptr, value, 0, size);
-                Marshal.FreeHGlobal(ptr);
+                try
+                {
+                    Marshal.StructureToPtr(_value, ptr, false);
+                    Marshal.Copy(ptr, value, 0, size);
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(ptr);
+                }
                 return value;
             }
         }
@@ -65,9 +71,14 @@ namespace Steam.Net.Messages
             {
                 var data = _body?.ToArray();
                 var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
-                var value = Marshal.PtrToStructure(handle.AddrOfPinnedObject(), type);
-                handle.Free();
-                return value;
+                try
+                {
+                    return Marshal.PtrToStructure(handle.AddrOfPinnedObject(), type);
+                }
+                finally
+                {
+                    handle.Free();
+                }
             }
         }
     }

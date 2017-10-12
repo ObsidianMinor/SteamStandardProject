@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
@@ -25,9 +26,32 @@ namespace Steam
         public static readonly SteamId Pending = new SteamId(true, false);
 
         /// <summary>
-        /// Represents a Steam ID with the value 0
+        /// A generic invalid Steam ID with the value 0
         /// </summary>
         public static readonly SteamId Zero = 0;
+
+        /// <summary>
+        /// Sent from user game connection to an out of date game server that hasn't 
+        /// implemented the protocol to provide its Steam ID
+        /// </summary>
+        public static readonly SteamId OutOfDateGameServer = new SteamId(0, 0, 0, 0);
+
+        /// <summary>
+        /// Sent from a user game connection to an sv_lan game server
+        /// </summary>
+        public static readonly SteamId LanModeGameServer = new SteamId(0, Universe.Public, 0, 0);
+
+        /// <summary>
+        /// Sent from a user game connection to a game server that has just booted but hasn't 
+        /// started its Steam3 component and started logging on
+        /// </summary>
+        public static readonly SteamId NotYetInitializedGameServer = new SteamId(1, 0, 0, 0);
+
+        /// <summary>
+        /// Sent from a user game connection to a game server that isn't using the Steam 
+        /// authentication system but still wants to support the "Join Game" option in the friends list
+        /// </summary>
+        public static readonly SteamId NoSteamGameServer = new SteamId(2, 0, 0, 0);
 
         const string PendingString = "STEAM_ID_PENDING";
         const string UnknownString = "UNKNOWN";
@@ -79,7 +103,7 @@ namespace Steam
         /// Gets the 20 bit instance value
         /// </summary>
         public long AccountInstance => _accountInstance;
-
+        
         private SteamId(bool pending, bool unknown) : this(0, 0, AccountType.Pending, 0)
         {
             if (pending && unknown)
@@ -128,6 +152,20 @@ namespace Steam
             : this(accountId > uint.MaxValue || accountId < uint.MinValue ? throw new ArgumentOutOfRangeException(nameof(accountId)) : (uint)accountId, universe, type, instance < uint.MinValue || instance > uint.MaxValue ? throw new ArgumentOutOfRangeException(nameof(instance)) : (uint)instance)
         {
         }
+
+        /// <summary>
+        /// Creates an anonymous user in the specified universe
+        /// </summary>
+        /// <param name="universe">The universe</param>
+        /// <returns>A new Steam ID</returns>
+        public static SteamId CreateAnonymousUser(Universe universe) => new SteamId(0, universe, AccountType.AnonUser, 0);
+
+        /// <summary>
+        /// Creates an anonymous game server in the specified universe
+        /// </summary>
+        /// <param name="universe">The universe</param>
+        /// <returns>A new Steam ID</returns>
+        public static SteamId CreateAnonymousGameServer(Universe universe) => new SteamId(0, universe, AccountType.AnonGameServer, 0);
         
         /// <summary>
         /// Converts a community Id into a Steam ID. This API is not CLS compliant
@@ -175,8 +213,6 @@ namespace Steam
                 return Zero;
 
             Universe universe = (Universe)int.Parse(match.Groups[1].Value);
-            if (universe == Universe.Invalid)
-                universe = Universe.Public;
             uint magic = uint.Parse(match.Groups[2].Value); // I don't get it
             uint id = uint.Parse(match.Groups[3].Value);
             return new SteamId((id * 2) + magic, universe, AccountType.Individual, 1);
@@ -217,10 +253,65 @@ namespace Steam
         }
 
         /// <summary>
+        /// Gets whether this Steam ID is an account to be filled in
+        /// </summary>
+        public bool IsBlankAnonymousAccount => AccountId == 0 && IsAnonymousAccount && AccountInstance == 0;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for a persistent game server
+        /// </summary>
+        public bool IsPersistentGameServer => AccountType == AccountType.GameServer;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for an anonymous or persistent game server
+        /// </summary>
+        public bool IsGameServer => IsAnonymousGameServer || IsPersistentGameServer;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for a content server
+        /// </summary>
+        public bool IsContentServer => AccountType == AccountType.ContentServer;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for a Steam group
+        /// </summary>
+        public bool IsClan => AccountType == AccountType.Clan;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for a chat
+        /// </summary>
+        public bool IsChat => AccountType == AccountType.Chat;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for a console user or individual user
+        /// </summary>
+        public bool IsIndividualAccount => AccountType == AccountType.Individual || IsConsoleUser;
+
+        /// <summary>
+        /// Gets whether this Steam ID is a fake for a PlayStation Network friend account
+        /// </summary>
+        public bool IsConsoleUser => AccountType == AccountType.ConsoleUser;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for an anonymous game server
+        /// </summary>
+        public bool IsAnonymousGameServer => AccountType == AccountType.AnonGameServer;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for an anonymous user
+        /// </summary>
+        public bool IsAnonymousUser => AccountType == AccountType.AnonUser;
+
+        /// <summary>
+        /// Gets whether this Steam ID is for an anonymous account
+        /// </summary>
+        public bool IsAnonymousAccount => IsAnonymousUser || IsAnonymousGameServer;
+
+        /// <summary>
         /// Gets whether this Steam ID belongs to a lobby chat
         /// </summary>
         /// <returns></returns>
-        public bool IsLobby => ((AccountInstance & LobbyChatInstance) != 0 || (AccountInstance & MMSLobbyChatInstance) != 0) && AccountType == AccountType.Chat;
+        public bool IsLobby => (AccountInstance & LobbyChatInstance) != 0 && AccountType == AccountType.Chat;
 
         /// <summary>
         /// Gets whether this Steam ID belongs to a group chat
@@ -282,6 +373,48 @@ namespace Steam
         }
 
         /// <summary>
+        /// Returns the matching chat Steam ID with the default instance of 0. If this Steam ID is already a chat ID, this method returns this Steam ID
+        /// </summary>
+        /// <returns></returns>
+        public SteamId ToChat()
+        {
+            return IsChat ? this : new SteamId(AccountId, AccountUniverse, AccountType.Chat, 0);
+        }
+
+        /// <summary>
+        /// Returns the matching clan Steam ID with the default instance of 0. If this Steam ID is already a clan ID, this method returns this Steam ID
+        /// </summary>
+        /// <returns></returns>
+        public SteamId ToClan()
+        {
+            return IsClan ? this : new SteamId(AccountId, AccountUniverse, AccountType.Clan, 0);
+        }
+
+        /// <summary>
+        /// Converts this chat ID to a matching clan ID
+        /// </summary>
+        /// <returns></returns>
+        public SteamId ChatToClan()
+        {
+            if (AccountType != AccountType.Chat)
+                throw new InvalidOperationException($"Cannot convert a {AccountType} Steam ID to a clan Steam ID");
+
+            return ToClan();
+        }
+
+        /// <summary>
+        /// Converts this clan ID to a matching chat ID
+        /// </summary>
+        /// <returns></returns>
+        public SteamId ClanToChat()
+        {
+            if (AccountType != AccountType.Clan)
+                throw new InvalidOperationException($"Cannot convert a {AccountType} Steam ID to a clan Steam ID");
+            
+            return ToChat();
+        }
+        
+        /// <summary>
         /// Renders this Steam ID as an unsigned 64 bit integer. This API is not CLS compliant
         /// </summary>
         /// <returns></returns>
@@ -296,6 +429,22 @@ namespace Steam
         /// </summary>
         /// <returns></returns>
         public decimal ToDecimalCommunityId() => ToCommunityId();
+
+        /// <summary>
+        /// Converts the static parts of a steam ID to a 64-bit representation.
+        /// </summary>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        public ulong ToStaticAccountKey()
+        {
+            return _accountId | ((ulong)AccountType << 52) | ((ulong)AccountUniverse << 56);
+        }
+
+        /// <summary>
+        /// Converts the static parts of a steam ID to a 64-bit representation.
+        /// </summary>
+        /// <returns></returns>
+        public decimal ToDecimalStaticAccountKey() => ToStaticAccountKey();
 
         private char GetCharFromAccountType(AccountType type)
         {

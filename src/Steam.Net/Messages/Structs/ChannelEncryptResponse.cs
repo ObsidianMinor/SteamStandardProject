@@ -7,6 +7,10 @@ namespace Steam.Net.Messages.Structs
     {
         public uint ProtocolVersion;
         public uint KeySize;
-        public byte[] Payload;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        public byte[] EncryptedHandshake;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        public byte[] KeyHash;
+        public uint Padding;
     }
 }

@@ -12,7 +12,10 @@ namespace Steam.Web.Interface
         public virtual TResult ReadResponse<TResult>(RestResponse response)
         {
             using (StreamReader reader = new StreamReader(response.Content))
-                return JsonConvert.DeserializeObject<TResult>(reader.ReadToEnd());
+            {
+                string data = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<TResult>(data);
+            }
         }
     }
 }

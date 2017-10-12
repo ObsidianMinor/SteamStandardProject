@@ -1,5 +1,8 @@
 ﻿namespace Steam.Rest
 {
+    /// <summary>
+    /// The HTTP methods supported by Steam
+    /// </summary>
     public enum HttpMethod
     {
         /// <summary>

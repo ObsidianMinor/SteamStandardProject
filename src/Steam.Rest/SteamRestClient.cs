@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,9 +33,15 @@ namespace Steam.Rest
             {
                 CancellationTokenSource linkedTimeout = CancellationTokenSource.CreateLinkedTokenSource(options.CancellationToken);
 
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
                 Task<RestResponse> responseTask = _client.SendAsync(request, linkedTimeout.Token);
                 Task timeout = Task.Delay(options.RequestTimeout);
                 Task result = await Task.WhenAny(responseTask, timeout).ConfigureAwait(false);
+
+                stopwatch.Stop();
+                LogVerbose("REST", $"{Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()} {request.RequestUri} : {stopwatch.ElapsedMilliseconds} ms");
 
                 if (result == timeout)
                 {

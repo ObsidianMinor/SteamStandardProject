@@ -54,7 +54,7 @@ namespace Steam.Rest
 
         private HttpRequestMessage CreateRequest(RestRequest request)
         {
-            HttpRequestMessage message = new HttpRequestMessage(new System.Net.Http.HttpMethod(request.ToString()), request.RequestUri);
+            HttpRequestMessage message = new HttpRequestMessage(new System.Net.Http.HttpMethod(Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()), request.RequestUri);
             foreach (var header in request.RequestHeaders)
             {
                 message.Headers.Remove(header.Key);

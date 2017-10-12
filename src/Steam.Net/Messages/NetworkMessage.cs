@@ -1,7 +1,6 @@
 ﻿using Steam.Net.Utilities;
 using System;
 using System.IO;
-using System.Text;
 using ProtoBuf;
 using Steam.Net.Messages.Protobufs;
 
@@ -159,7 +158,7 @@ namespace Steam.Net.Messages
 
                     if (reader.ReadByte() != 239)
                     {
-                        stream.Seek(3, SeekOrigin.Begin);
+                        stream.Seek(4, SeekOrigin.Begin);
                         ReadHeader();
                     }
                     else
@@ -173,6 +172,7 @@ namespace Steam.Net.Messages
                 }
                 else
                 {
+                    stream.Seek(4, SeekOrigin.Begin);
                     ReadHeader();
                 }
 
@@ -190,10 +190,15 @@ namespace Steam.Net.Messages
             using (BinaryWriter writer = new BinaryWriter(stream))
             {
                 writer.Write(MessageTypeUtils.MergeMessage(MessageType, Protobuf));
-                if (Header is Header head)
+                if (Header is ProtobufClientHeader head)
                 {
-                    writer.Write(head.JobId);
-                    writer.Write(ulong.MaxValue);
+                    using (MemoryStream protoStream = new MemoryStream())
+                    {
+                        Serializer.Serialize(protoStream, (Header as ProtobufClientHeader).CreateProtobuf());
+                        byte[] content = protoStream.ToArray();
+                        writer.Write(content.Length);
+                        writer.Write(content);
+                    }
                 }
                 else if (Header is ClientHeader extended)
                 {
@@ -207,13 +212,8 @@ namespace Steam.Net.Messages
                 }
                 else
                 {
-                    using (MemoryStream protoStream = new MemoryStream())
-                    {
-                        Serializer.Serialize(protoStream, (Header as ProtobufClientHeader).CreateProtobuf());
-                        byte[] content = protoStream.ToArray();
-                        writer.Write(content.Length);
-                        writer.Write(content);
-                    }
+                    writer.Write(Header.JobId);
+                    writer.Write(ulong.MaxValue);
                 }
                 writer.Write(_body.Serialize());
                 return stream.ToArray();

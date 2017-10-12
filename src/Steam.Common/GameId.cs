@@ -38,7 +38,7 @@ namespace Steam
         [CLSCompliant(false)]
         public GameId(int appId, GameType type, uint modId)
         {
-            if (appId > 0xFFFFFF | appId < 0)
+            if (appId > 0xFFFFFF || appId < 0)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
             if (type > GameType.P2P)
@@ -162,8 +162,7 @@ namespace Steam
         /// <param name="id"></param>
         public static explicit operator decimal(GameId id)
             => id.ToDecimal();
-
-
+        
         /// <summary>
         /// Converts this <see cref="decimal"/> to a <see cref="GameId"/>
         /// </summary>

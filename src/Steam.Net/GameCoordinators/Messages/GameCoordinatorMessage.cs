@@ -36,17 +36,17 @@ namespace Steam.Net.GameCoordinators.Messages
 
         public static GameCoordinatorMessage CreateMessage(object value)
         {
-            throw new NotImplementedException();
+            return new GameCoordinatorMessage(0, false, new Header(SteamGid.Invalid), value);
         }
 
         public static GameCoordinatorMessage CreateMessage(GameCoordinatorMessageType type, object value)
         {
-            throw new NotImplementedException();
+            return new GameCoordinatorMessage(type, false, new Header(SteamGid.Invalid), value);
         }
 
         public static GameCoordinatorMessage CreateProtobufMessage(GameCoordinatorMessageType type, object value)
         {
-            throw new NotImplementedException();
+            return new GameCoordinatorMessage(type, true, new GameCoordinatorProtobufHeader(new GameCoordinatorHeader()), value);
         }
 
         public byte[] Serialize()
@@ -74,7 +74,8 @@ namespace Steam.Net.GameCoordinators.Messages
                 }
                 else
                 {
-                    reader.ReadUInt16();reader.ReadUInt64();
+                    reader.ReadUInt16(); // version
+                    reader.ReadUInt64(); // target
                     SteamGid source = reader.ReadUInt64();
                     return new GameCoordinatorMessage(messageType, protobuf, new Header(source), new ArraySegment<byte>(data, (int)stream.Position, (int)stream.Length - (int)stream.Position));
                 }

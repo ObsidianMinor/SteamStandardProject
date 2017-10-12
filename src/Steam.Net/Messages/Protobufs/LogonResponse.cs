@@ -3,7 +3,7 @@
 namespace Steam.Net.Messages.Protobufs
 {
     [ProtoContract(Name = @"CMsgClientLogonResponse")]
-    internal partial class LogonResponse : IExtensible
+    internal class LogonResponse : IExtensible
     {
         [ProtoMember(1, DataFormat = DataFormat.TwosComplement)]
         public int Result { get; set; } = 2;

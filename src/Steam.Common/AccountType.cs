@@ -40,11 +40,11 @@
         /// <summary>
         /// A chat room between multiple users
         /// </summary>
-        Chat = 8,
+        Chat,
         /// <summary>
-        /// A P2P SuperSeeder
+        /// A console user
         /// </summary>
-        Seeder,
+        ConsoleUser,
         /// <summary>
         /// An anonymous user
         /// </summary>

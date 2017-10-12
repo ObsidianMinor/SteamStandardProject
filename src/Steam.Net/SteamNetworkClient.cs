@@ -61,6 +61,8 @@ namespace Steam.Net
         public int SessionId { get; private set; }
 
         public SteamId SteamId { get; private set; }
+
+        public long CellId => GetConfig<SteamNetworkConfig>().CellId;
         
         public SteamNetworkClient() : this(new SteamNetworkConfig()) { }
         
@@ -86,7 +88,7 @@ namespace Steam.Net
                 resolver = config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
             }
 
-            foreach(MethodInfo method in GetType().GetMethods())
+            foreach(MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
                 var attribute = method.GetCustomAttribute<MessageReceiverAttribute>();
                 if (attribute != null)
@@ -104,7 +106,10 @@ namespace Steam.Net
         /// <param name="receiver"></param>
         public void Subscribe(MessageType type, MessageReceiver receiver)
         {
-            _eventDispatchers[type] += receiver;
+            if (!_eventDispatchers.ContainsKey(type))
+                _eventDispatchers[type] = receiver;
+            else
+                _eventDispatchers[type] += receiver;
         }
 
         /// <summary>
@@ -114,7 +119,8 @@ namespace Steam.Net
         /// <param name="receiver"></param>
         public void Unsubscribe(MessageType type, MessageReceiver receiver)
         {
-            _eventDispatchers[type] -= receiver;
+            if (!_eventDispatchers.ContainsKey(type))
+                _eventDispatchers[type] -= receiver;
         }
         
         /// <summary>
@@ -421,7 +427,7 @@ namespace Steam.Net
                 instance = 1;
 
             LogInfo(_source, $"Logging in as {username ?? (instance == 0 ? "an anonymous user" : "a console user")}");
-            Task<byte[]> machineIdTask = HardwareUtils.GetMachineId(); // while we set up the logon object, we will start to get the machine ID
+            byte[] machineId = await HardwareUtils.GetMachineId(); // while we set up the logon object, we will start to get the machine ID
 
             var body = new LogonRequest
             {
@@ -429,8 +435,10 @@ namespace Steam.Net
                 client_os_type = (uint)(accountId == 0 ? HardwareUtils.GetCurrentOsType() : OsType.PS3),
                 client_language = GetConfig<SteamNetworkConfig>().Language.GetApiLanguageCode(),
                 cell_id = (uint)GetConfig<SteamNetworkConfig>().CellId,
-                machine_id = await machineIdTask
             };
+
+            if (machineId != null && machineId.Length != 0)
+                body.machine_id = machineId;
             
             if (accountType != AccountType.AnonUser)
             {
@@ -654,7 +662,7 @@ namespace Steam.Net
             if (_encryption != null && !_encryptionPending)
                 data = _encryption.Encrypt(data);
 
-            LogDebug(_source, $"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}. Body object type is {message.Body.GetType()}. Resulting packet is {data.Length} bytes long.");
+            LogDebug(_source, $"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}. Resulting packet is {data.Length} bytes long.");
 
             await _socket.SendAsync(data).ConfigureAwait(false);
         }
@@ -762,6 +770,10 @@ namespace Steam.Net
                         LogError(_source, $"A message receiver threw an exception: {e}");
                     }
                 }
+            }
+            else
+            {
+                LogDebug(_source, $"No receiver found for message type {message.MessageType}");
             }
         }
 
