@@ -19,7 +19,7 @@ A collection of .NET Standard libraries using common types that provide function
 ### Getting started
 If you want to help develop this project, you will need a two things:
 
- * [.NET Core 2.0 preview](https://www.microsoft.com/net/core/preview)
+ * [.NET Core 2.0](https://www.microsoft.com/net/core#windowscmd)
  * [Visual Studio 2017 15.3 Preview](https://www.visualstudio.com/vs/preview/)
 
 #### But why
