@@ -84,7 +84,7 @@ namespace Steam.Net.Messages
         /// <returns></returns>
         public static NetworkMessage CreateProtobufMessage(MessageType type, object body)
         {
-            var head = new ProtobufClientHeader(new ProtobufHeader());
+            var head = new ProtobufClientHeader();
             return new NetworkMessage(type, head, body);
         }
 
@@ -104,28 +104,10 @@ namespace Steam.Net.Messages
             (message.Header as ProtobufClientHeader).RoutingAppId = appId;
             return message;
         }
-        
-        /// <summary>
-        /// Deserializes the body as the specified type
-        /// </summary>
-        /// <typeparam name="T">The type to deserialize as</typeparam>
-        /// <returns>The type deserialized</returns>
-        public T Deserialize<T>()
-        {
-            return (T) Deserialize(typeof(T));
-        }
 
-        /// <summary>
-        /// Deserializes the body as the specified type
-        /// </summary>
-        /// <param name="type">The type to deserialize as</param>
-        /// <returns>An object of the specified type</returns>
-        public object Deserialize(Type type)
-        {
-            return _body.Deserialize(type);
-        }
-        
-        internal static NetworkMessage Deserialize(byte[] data)
+        public static NetworkMessage CreateFromByteArray(byte[] data) => CreateFromByteArray(data, false);
+
+        public static NetworkMessage CreateFromByteArray(byte[] data, bool server)
         {
             using (MemoryStream stream = new MemoryStream(data, false))
             using (BinaryReader reader = new BinaryReader(stream))
@@ -144,11 +126,11 @@ namespace Steam.Net.Messages
                 if (protobuf)
                 {
                     int length = reader.ReadInt32();
-                    ProtobufHeader protobufHeader;
+                    CMsgProtoBufHeader protobufHeader;
                     using (MemoryStream protoStream = new MemoryStream(reader.ReadBytes(length)))
-                        protobufHeader = Serializer.Deserialize<ProtobufHeader>(protoStream);
+                        protobufHeader = Serializer.Deserialize<CMsgProtoBufHeader>(protoStream);
 
-                    header = new ProtobufClientHeader(protobufHeader);
+                    header = new ProtobufClientHeader(protobufHeader, false);
                 }
                 else if (stream.Length > 36 && reader.ReadByte() == 36 && reader.ReadUInt16() == 2)
                 {
@@ -179,12 +161,39 @@ namespace Steam.Net.Messages
                 return new NetworkMessage(type, header, new ArraySegment<byte>(data, (int)stream.Position, (int)(stream.Length - stream.Position)));
             }
         }
+        
+        /// <summary>
+        /// Deserializes the body as the specified type
+        /// </summary>
+        /// <typeparam name="T">The type to deserialize as</typeparam>
+        /// <returns>The type deserialized</returns>
+        public T Deserialize<T>()
+        {
+            return (T) Deserialize(typeof(T));
+        }
+
+        /// <summary>
+        /// Deserializes the body as the specified type
+        /// </summary>
+        /// <param name="type">The type to deserialize as</param>
+        /// <returns>An object of the specified type</returns>
+        public object Deserialize(Type type)
+        {
+            return _body.Deserialize(type);
+        }
 
         /// <summary>
         /// Serializes this message as a byte array
         /// </summary>
         /// <returns></returns>
-        public byte[] Serialize()
+        public byte[] Serialize() => Serialize(false);
+
+        /// <summary>
+        /// Serializes this message as a byte array and optionally positions the job ID in the header as though we are a server
+        /// </summary>
+        /// <param name="server"></param>
+        /// <returns></returns>
+        public byte[] Serialize(bool server)
         {
             using (MemoryStream stream = new MemoryStream())
             using (BinaryWriter writer = new BinaryWriter(stream))
@@ -194,7 +203,7 @@ namespace Steam.Net.Messages
                 {
                     using (MemoryStream protoStream = new MemoryStream())
                     {
-                        Serializer.Serialize(protoStream, (Header as ProtobufClientHeader).CreateProtobuf());
+                        Serializer.Serialize(protoStream, (Header as ProtobufClientHeader).CreateProtobuf(server));
                         byte[] content = protoStream.ToArray();
                         writer.Write(content.Length);
                         writer.Write(content);
@@ -204,16 +213,16 @@ namespace Steam.Net.Messages
                 {
                     writer.Write((byte)36);
                     writer.Write((ushort)2);
-                    writer.Write(extended.JobId);
-                    writer.Write(ulong.MaxValue);
+                    writer.Write(server ? SteamGid.Invalid : extended.JobId);
+                    writer.Write(server ? extended.JobId : SteamGid.Invalid);
                     writer.Write((byte)239);
                     writer.Write(extended.SteamId);
                     writer.Write(extended.SessionId);
                 }
                 else
                 {
-                    writer.Write(Header.JobId);
-                    writer.Write(ulong.MaxValue);
+                    writer.Write(server ? SteamGid.Invalid : Header.JobId);
+                    writer.Write(server ? Header.JobId : SteamGid.Invalid);
                 }
                 writer.Write(_body.Serialize());
                 return stream.ToArray();

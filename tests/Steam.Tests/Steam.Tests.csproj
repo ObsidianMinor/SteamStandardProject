@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Steam.Common\Steam.Common.csproj" />
-    <ProjectReference Include="..\..\src\Steam.Community\Steam.Community.csproj" />
     <ProjectReference Include="..\..\src\Steam.Net\Steam.Net.csproj" />
     <ProjectReference Include="..\..\src\Steam.Rest\Steam.Rest.csproj" />
     <ProjectReference Include="..\..\src\Steam.Web\Steam.Web.csproj" />

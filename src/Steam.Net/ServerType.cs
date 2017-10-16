@@ -1,5 +1,6 @@
 ﻿namespace Steam.Net
 {
+    #pragma warning disable
     public enum ServerType
     {
         Invalid = -1,

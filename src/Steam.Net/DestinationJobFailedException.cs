@@ -5,7 +5,7 @@ namespace Steam.Net
     /// <summary>
     /// The exception that is used to communicate a remote job has failed
     /// </summary>
-    public class DestinationJobFailedException : Exception
+    public class DestinationJobFailedException : SteamException
     {
         public SteamGid JobId { get; }
 

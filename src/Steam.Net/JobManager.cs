@@ -13,12 +13,12 @@ namespace Steam.Net
         private const int period = Timeout.Infinite;
 
         private ConcurrentDictionary<SteamGid, (TaskCompletionSource<T>, Timer)> _runningJobs = new ConcurrentDictionary<SteamGid, (TaskCompletionSource<T>, Timer)>();
-        private LogManager _jobLog;
+        private Logger _jobLog;
         private int _currentJobId = 0;
         private DateTime _startTime;
         private int _processId;
 
-        internal JobManager(LogManager manager)
+        internal JobManager(Logger manager)
         {
             _jobLog = manager;
             var process = Process.GetCurrentProcess();
@@ -34,15 +34,15 @@ namespace Steam.Net
             return (task, gid);
         }
 
-        internal Task<T> AddJob(SteamGid job)
+        internal async Task<T> AddJob(SteamGid job)
         {
             var timeout = new Timer(TimeoutTimer, job, jobTimeout, period);
             var task = new TaskCompletionSource<T>();
 
             _runningJobs[job] = (task, timeout);
-            _jobLog.LogDebug("JOBS", $"Added job {job}");
+            await _jobLog.DebugAsync($"Added job {job}").ConfigureAwait(false);
 
-            return task.Task;
+            return await task.Task.ConfigureAwait(false);
         }
 
         internal bool IsRunningJob(SteamGid job)
@@ -50,27 +50,33 @@ namespace Steam.Net
             return _runningJobs.ContainsKey(job);
         }
 
-        internal void HeartbeatJob(SteamGid job)
+        internal async Task HeartbeatJob(SteamGid job)
         {
-            _jobLog.LogDebug("JOBS", $"Extending job ({job}) timeout by {jobTimeout} ms");
+            await _jobLog.DebugAsync($"Extending job ({job}) timeout by {jobTimeout} ms").ConfigureAwait(false);
             _runningJobs[job].Item2.Change(jobTimeout, period);
         }
 
-        internal void SetJobResult(T message, SteamGid job)
+        internal async Task SetJobResult(T message, SteamGid job)
         {
-            _jobLog.LogDebug("JOBS", $"Setting successful job result for job {job}");
+            await _jobLog.DebugAsync($"Setting successful job result for job {job}").ConfigureAwait(false);
             _runningJobs[job].Item1.SetResult(message);
         }
 
-        internal void SetJobFail(SteamGid job, Exception ex)
+        internal async Task CancelAllJobs()
+        {
+            foreach (var job in _runningJobs)
+                await SetJobFail(job.Key, new TaskCanceledException(job.Value.Item1.Task));
+        }
+
+        internal async Task SetJobFail(SteamGid job, Exception ex)
         {
             if (!_runningJobs.TryRemove(job, out (TaskCompletionSource<T>, Timer) jobTuple))
             {
-                _jobLog.LogWarning("JOBS", $"Could not find a job by ID {job}, someone has set a job outside the manager");
+                await _jobLog.WarningAsync($"Could not find a job by ID {job}, someone has set a job outside the manager").ConfigureAwait(false);
                 return;
             }
 
-            _jobLog.LogDebug("JOBS", $"Failed job {job}");
+            await _jobLog.DebugAsync($"Failed job {job}").ConfigureAwait(false);
 
             jobTuple.Item1.SetException(ex);
             jobTuple.Item2.Dispose();

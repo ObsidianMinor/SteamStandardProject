@@ -18,14 +18,14 @@ namespace Steam.Net
             Array.Copy(_sessionKey, _hmacSecret, _hmacSecret.Length);
         }
 
-        public byte[] Decrypt(byte[] data)
+        public void Decrypt(ref byte[] data)
         {
-            return CryptoUtils.SymmetricDecryptWithHmacIv(data, _sessionKey, _hmacSecret);
+            data = CryptoUtils.SymmetricDecryptWithHmacIv(data, _sessionKey, _hmacSecret);
         }
 
-        public byte[] Encrypt(byte[] data)
+        public void Encrypt(ref byte[] data)
         {
-            return CryptoUtils.SymmetricEncryptWithHmacIv(data, _sessionKey, _hmacSecret);
+            data = CryptoUtils.SymmetricEncryptWithHmacIv(data, _sessionKey, _hmacSecret);
         }
     }
 }

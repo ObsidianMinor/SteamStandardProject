@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Steam.Common\Steam.Common.csproj" />
-    <ProjectReference Include="..\Steam.Community\Steam.Community.csproj" />
     <ProjectReference Include="..\Steam.Net\Steam.Net.csproj" />
     <ProjectReference Include="..\Steam.Rest\Steam.Rest.csproj" />
     <ProjectReference Include="..\Steam.Web\Steam.Web.csproj" />

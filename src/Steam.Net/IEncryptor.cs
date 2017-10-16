@@ -2,7 +2,7 @@
 {
     internal interface IEncryptor
     {
-        byte[] Decrypt(byte[] data);
-        byte[] Encrypt(byte[] data);
+        void Decrypt(ref byte[] data);
+        void Encrypt(ref byte[] data);
     }
 }

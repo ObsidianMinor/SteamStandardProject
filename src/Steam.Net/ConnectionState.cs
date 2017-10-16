@@ -11,13 +11,9 @@
         /// </summary>
         Connecting,
         /// <summary>
-        /// The client is connected to a connection manager and encryption should be set up soon
+        /// The client is connected to a connection manager and encryption is set up
         /// </summary>
         Connected,
-        /// <summary>
-        /// The connection is encrypted and messages can now be sent and received
-        /// </summary>
-        Encrypted,
         /// <summary>
         /// The client is disconnecting from the network
         /// </summary>

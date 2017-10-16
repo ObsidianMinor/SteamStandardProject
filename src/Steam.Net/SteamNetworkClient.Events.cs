@@ -1,26 +1,40 @@
-﻿using Steam.Net.Messages.Protobufs;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Steam.Net
 {
     public partial class SteamNetworkClient
     {
+        private readonly AsyncEvent<Func<Task>> _connected = new AsyncEvent<Func<Task>>();
         /// <summary>
-        /// The connection is encrypted and messages can now be sent to the servers
+        /// The client is connected to a connection manager
         /// </summary>
-        public event EventHandler Connected;
+        public event Func<Task> Connected
+        {
+            add => _connected.Add(value);
+            remove => _connected.Remove(value);
+        }
 
+        private readonly AsyncEvent<Func<Task>> _ready = new AsyncEvent<Func< Task>>();
         /// <summary>
-        /// The connection is encrypted and a previous login can't be resumed
+        /// The connection is ready for a login request
         /// </summary>
-        public event EventHandler CanLogin;
-
+        public event Func<Task> Ready
+        {
+            add => _ready.Add(value);
+            remove => _ready.Remove(value);
+        }
+        
+        private readonly AsyncEvent<Func<Exception, Task>> _disconnected = new AsyncEvent<Func<Exception, Task>>();
         /// <summary>
         /// The client has been disconnected from the connection manager
         /// </summary>
-        public event EventHandler<Exception> Disconnected;
-        
+        public event Func<Exception, Task> Disconnected
+        {
+            add => _disconnected.Add(value);
+            remove => _disconnected.Remove(value);
+        }
+
         #region Steam apps
 
         #endregion
@@ -36,13 +50,13 @@ namespace Steam.Net
 
 
         #endregion
-        
+
         #region Steam Game Server
 
 
 
         #endregion
-        
+
         #region Steam Screenshots
 
 
@@ -62,20 +76,36 @@ namespace Steam.Net
         #endregion
 
         #region Steam User
-        
-        public event EventHandler<Result> LoggedOff;
 
+        private readonly AsyncEvent<Func<Result, Task>> _loggedOffEvent = new AsyncEvent<Func<Result, Task>>();
         /// <summary>
-        /// Invoked when login was denied and can be continued with a auth or two factor code in <see cref="ContinueLoginAsync(string)"/>
+        /// Invoked when the client is logged off
         /// </summary>
-        public event EventHandler LoginActionRequested;
+        public event Func<Result, Task> LoggedOff
+        {
+            add => _loggedOffEvent.Add(value);
+            remove => _loggedOffEvent.Remove(value);
+        }
 
+        private readonly AsyncEvent<Func<Result, SteamId, Task>> _loginRejectedEvent = new AsyncEvent<Func<Result, SteamId, Task>>();
         /// <summary>
-        /// Invoked when login was denied and can't be continued with <see cref="ContinueLoginAsync(string)"/>
+        /// Invoked when login was denied
         /// </summary>
-        public event EventHandler LoginRejected;
+        public event Func<Result, SteamId, Task> LoginRejected
+        {
+            add => _loginRejectedEvent.Add(value);
+            remove => _loginRejectedEvent.Remove(value);
+        }
 
-        public event EventHandler LoggedOn;
+        private readonly AsyncEvent<Func<Task>> _loggedOnEvent = new AsyncEvent<Func<Task>>();
+        /// <summary>
+        /// Invoked when the client has logged on
+        /// </summary>
+        public event Func<Task> LoggedOn
+        {
+            add => _loggedOnEvent.Add(value);
+            remove => _loggedOnEvent.Remove(value);
+        }
 
         #endregion
 

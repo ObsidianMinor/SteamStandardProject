@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="xsl msxsl"
@@ -18,7 +18,7 @@
   <xsl:param name="clientProxy"/>
   <xsl:param name="defaultNamespace"/>
   <xsl:param name="import"/>
-  
+
   <xsl:key name="fieldNames" match="//FieldDescriptorProto" use="name"/>
   <xsl:output method="text" indent="no" omit-xml-declaration="yes"/>
 
@@ -43,6 +43,7 @@
 //     the code is regenerated.
 // &lt;/auto-generated&gt;
 //------------------------------------------------------------------------------
+#pragma warning disable CS1591
 </xsl:text><!--
     --><xsl:apply-templates select="*"/><!--
   --></xsl:template>
@@ -60,7 +61,7 @@ using <xsl:value-of select="substring-before($ns,';')"/>;<!--
 using <xsl:value-of select="$ns"/>;
    </xsl:otherwise>
  </xsl:choose></xsl:if></xsl:template>
-  
+
   <xsl:template match="FileDescriptorSet">
     <xsl:if test="$help='true'">
       <xsl:message terminate="yes">
@@ -103,7 +104,7 @@ using <xsl:value-of select="$ns"/>;
 // Option: pre-observable (OnPropertyChanging) enabled
     </xsl:if><xsl:if test="$partialMethods">
 // Option: partial methods (On*Changing/On*Changed) enabled
-    </xsl:if><xsl:if test="$optionDetectMissing">
+    </xsl:if><xsl:if test="$detectMissing">
 // Option: missing-value detection (*Specified/ShouldSerialize*/Reset*) enabled
     </xsl:if><xsl:if test="not($optionFullFramework)">
 // Option: light framework (CF/Silverlight) enabled
@@ -116,10 +117,10 @@ using <xsl:value-of select="$ns"/>;
     <xsl:apply-templates select="file/FileDescriptorProto"/>
   </xsl:template>
 
-  
+
   <xsl:template match="FileDescriptorProto">
 // Generated from: <xsl:value-of select="name"/>
-    
+
     <xsl:apply-templates select="dependency/string[.!='']"/>
     <xsl:variable name="namespace"><xsl:call-template name="PickNamespace">
       <xsl:with-param name="defaultNamespace" select="$defaultNamespace"/>
@@ -130,8 +131,9 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
 {</xsl:if>
     <xsl:apply-templates select="message_type | enum_type | service"/>
     <xsl:if test="string($namespace) != ''">
-}</xsl:if></xsl:template>
-  
+}
+</xsl:if></xsl:template>
+
   <xsl:template match="FileDescriptorProto/dependency/string">
 // Note: requires additional types generated from: <xsl:value-of select="."/></xsl:template>
 
@@ -147,7 +149,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:otherwise><xsl:value-of select="$value"/></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <xsl:template match="DescriptorProto">
   [<xsl:if test="$optionFullFramework">global::System.Serializable, </xsl:if>global::ProtoBuf.ProtoContract(Name=@"<xsl:value-of select="name"/>")]
   <xsl:if test="$optionDataContract">[global::System.Runtime.Serialization.DataContract(Name=@"<xsl:value-of select="name"/>")]
@@ -174,13 +176,13 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
     { if(PropertyChanging != null) PropertyChanging(this, new global::System.ComponentModel.PropertyChangingEventArgs(propertyName)); }
     </xsl:if>
     private global::ProtoBuf.IExtension extensionObject;
-    IExtension IExtensible.GetExtensionObject(bool createIfMissing)
-      => Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   </xsl:template>
 
   <xsl:template match="DescriptorProto/name | DescriptorProto/extension_range | DescriptorProto/extension"/>
-  
+
   <xsl:template match="
                 FileDescriptorProto/message_type | FileDescriptorProto/enum_type | FileDescriptorProto/service
                 | DescriptorProto/enum_type | DescriptorProto/message_type
@@ -195,7 +197,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
   </xsl:template>
 
   <xsl:template match="EnumDescriptorProto">
-    [global::ProtoBuf.ProtoContract(Name=@"<xsl:value-of select="name"/>")]
+    [global::ProtoBuf.ProtoContract(Name=@"<xsl:value-of select="name"/>", EnumPassthru=true)]
     <xsl:if test="$optionDataContract">[global::System.Runtime.Serialization.DataContract(Name=@"<xsl:value-of select="name"/>")]
     </xsl:if>
     <xsl:if test="$optionXml">[global::System.Xml.Serialization.XmlType(TypeName=@"<xsl:value-of select="name"/>")]
@@ -210,7 +212,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:variable name="value"><xsl:choose>
         <xsl:when test="number"><xsl:value-of select="number"/></xsl:when>
         <xsl:otherwise>0</xsl:otherwise>
-      </xsl:choose></xsl:variable>      
+      </xsl:choose></xsl:variable>
       [global::ProtoBuf.ProtoEnum(Name=@"<xsl:value-of select="name"/>", Value=<xsl:value-of select="$value"/>)]<!--
       --><xsl:if test="$optionDataContract">
       [global::System.Runtime.Serialization.EnumMember(Value=@"<xsl:value-of select="name"/>")]</xsl:if><!--
@@ -310,7 +312,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
         </xsl:message>
       </xsl:otherwise>
     </xsl:choose>
-    
+
   </xsl:template>
 
   <xsl:template match="FieldDescriptorProto[default_value]" mode="defaultValue">
@@ -319,18 +321,34 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:when test="type='TYPE_ENUM'"><xsl:apply-templates select="." mode="type"/>.<xsl:call-template name="pascal">
         <xsl:with-param name="value" select="default_value"/>
       </xsl:call-template></xsl:when>
-      <xsl:when test="type='TYPE_BYTES'"> /* 
+      <xsl:when test="type='TYPE_BYTES'"> /*
         <xsl:value-of select="default_value"/>
         */ null </xsl:when>
       <xsl:otherwise>(<xsl:apply-templates select="." mode="type"/>)<xsl:value-of select="default_value"/></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template match="FieldDescriptorProto[default_value]" mode="attribDefaultValue">
+    <xsl:choose>
+      <xsl:when test="type='TYPE_STRING'">@"<xsl:value-of select="default_value"/>"</xsl:when>
+      <xsl:when test="type='TYPE_ENUM'"><xsl:apply-templates select="." mode="type"/>.<xsl:call-template name="pascal">
+        <xsl:with-param name="value" select="default_value"/>
+      </xsl:call-template></xsl:when>
+      <xsl:when test="type='TYPE_BYTES'"> /*
+        <xsl:value-of select="default_value"/>
+        */ null </xsl:when>
+	  <xsl:when test="type='TYPE_UINT64'">@"<xsl:value-of select="default_value"/>"</xsl:when>
+	  <xsl:when test="type='TYPE_FIXED64'">@"<xsl:value-of select="default_value"/>"</xsl:when>
+      <xsl:otherwise>(<xsl:apply-templates select="." mode="type"/>)<xsl:value-of select="default_value"/></xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+
   <!--
     We need to find the first enum value given .foo.bar.SomeEnum - but the enum itself
     only knows about SomeEnum; we need to look at all parent DescriptorProto nodes, and
     the FileDescriptorProto for the namespace.
-    
+
     This does an annoying up/down recursion... a bit expensive, but *generally* OK.
     Could perhaps index the last part of the enum name to reduce overhead?
   -->
@@ -338,7 +356,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
     <xsl:variable name="hunt" select="type_name"/>
     <xsl:for-each select="//EnumDescriptorProto">
       <xsl:variable name="fullName">
-        <xsl:for-each select="ancestor::FileDescriptorProto[package!='']">.<xsl:value-of select="package"/></xsl:for-each>
+        <xsl:for-each select="ancestor::FileDescriptorProto">.<xsl:value-of select="package"/></xsl:for-each>
         <xsl:for-each select="ancestor::DescriptorProto">.<xsl:value-of select="name"/></xsl:for-each>
         <xsl:value-of select="'.'"/>
         <xsl:call-template name="pascal"/>
@@ -346,8 +364,18 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:if test="$fullName=$hunt"><xsl:value-of select="(value/EnumValueDescriptorProto)[1]/name"/></xsl:if>
     </xsl:for-each>
   </xsl:template>
-  
+
   <xsl:template match="FieldDescriptorProto[not(default_value)]" mode="defaultValue">
+    <xsl:choose>
+      <xsl:when test="type='TYPE_STRING'">""</xsl:when>
+      <xsl:when test="type='TYPE_MESSAGE'">null</xsl:when>
+      <xsl:when test="type='TYPE_BYTES'">null</xsl:when>
+      <xsl:when test="type='TYPE_ENUM'"><xsl:apply-templates select="." mode="type"/>.<xsl:call-template name="GetFirstEnumValue"/></xsl:when>
+      <xsl:otherwise>default(<xsl:apply-templates select="." mode="type"/>)</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="FieldDescriptorProto[not(default_value)]" mode="attribDefaultValue">
     <xsl:choose>
       <xsl:when test="type='TYPE_STRING'">""</xsl:when>
       <xsl:when test="type='TYPE_MESSAGE'">null</xsl:when>
@@ -365,13 +393,15 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
     <xsl:variable name="format"><xsl:apply-templates select="." mode="format"/></xsl:variable>
     <xsl:variable name="primitiveType"><xsl:apply-templates select="." mode="primitiveType"/></xsl:variable>
     <xsl:variable name="defaultValue"><xsl:apply-templates select="." mode="defaultValue"/></xsl:variable>
+    <xsl:variable name="attribDefaultValue"><xsl:apply-templates select="." mode="attribDefaultValue"/></xsl:variable>
     <xsl:variable name="field"><xsl:apply-templates select="." mode="field"/></xsl:variable>
     <xsl:variable name="specified" select="$optionDetectMissing and ($primitiveType='struct' or $primitiveType='class')"/>
     <xsl:variable name="fieldType"><xsl:value-of select="$propType"/><xsl:if test="$specified and $primitiveType='struct'">?</xsl:if></xsl:variable>
+
     private <xsl:value-of select="concat($fieldType,' ',$field)"/><xsl:if test="not($specified)"> = <xsl:value-of select="$defaultValue"/></xsl:if>;
-    [<xsl:apply-templates select="." mode="checkDeprecated"/>ProtoMember(<xsl:value-of select="number"/>, IsRequired = false, DataFormat = DataFormat.<xsl:value-of select="$format"/>)]<!--
+    [<xsl:apply-templates select="." mode="checkDeprecated"/>global::ProtoBuf.ProtoMember(<xsl:value-of select="number"/>, IsRequired = false, Name=@"<xsl:value-of select="name"/>", DataFormat = global::ProtoBuf.DataFormat.<xsl:value-of select="$format"/>)]<!--
     --><xsl:if test="not($specified)">
-    [global::System.ComponentModel.DefaultValue(<xsl:value-of select="$defaultValue"/>)]</xsl:if><!--
+    [global::System.ComponentModel.DefaultValue(<xsl:value-of select="$attribDefaultValue"/>)]</xsl:if><!--
     --><xsl:if test="$optionXml">
     [global::System.Xml.Serialization.XmlElement(@"<xsl:value-of select="name"/>", Order = <xsl:value-of select="number"/>)]
     </xsl:if><xsl:if test="$optionDataContract">
@@ -385,7 +415,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:with-param name="specified" select="$specified"/>
     </xsl:call-template>
   </xsl:template>
-  
+
   <xsl:template match="FieldDescriptorProto[label='LABEL_REQUIRED']">
     <xsl:variable name="type"><xsl:apply-templates select="." mode="type"/></xsl:variable>
     <xsl:variable name="format"><xsl:apply-templates select="." mode="format"/></xsl:variable>
@@ -401,7 +431,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:with-param name="propType" select="$type"/>
       <xsl:with-param name="name"><xsl:call-template name="pascal"/></xsl:with-param>
       <xsl:with-param name="field" select="$field"/>
-    </xsl:call-template>    
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="stripKeyword">
@@ -411,7 +441,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       <xsl:otherwise><xsl:value-of select="$value"/></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <xsl:template name="WriteGetSet">
     <xsl:param name="fieldType"/>
     <xsl:param name="propType"/>
@@ -425,42 +455,38 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
       </xsl:call-template></xsl:variable>
     public <xsl:value-of select="concat($propType,' ',$name)"/>
     {
-      get => <xsl:value-of select="$field"/> <xsl:if test="$specified">?? <xsl:value-of select="$defaultValue"/></xsl:if>;
-      set => <xsl:if test="$optionPartialMethods">On<xsl:value-of select="$nameNoKeyword"/>Changing(value); </xsl:if><xsl:if test="$optionPreObservable">OnPropertyChanging(@"<xsl:value-of select="$nameNoKeyword"/>"); </xsl:if><xsl:value-of select="$field"/> = value; <xsl:if test="$optionObservable">OnPropertyChanged(@"<xsl:value-of select="$nameNoKeyword"/>"); </xsl:if><xsl:if test="$optionPartialMethods">On<xsl:value-of select="$nameNoKeyword"/>Changed();</xsl:if>}
+      get { return <xsl:value-of select="$field"/> <xsl:if test="$specified">?? <xsl:value-of select="$defaultValue"/></xsl:if>; }
+      set { <xsl:if test="$optionPartialMethods">On<xsl:value-of select="$nameNoKeyword"/>Changing(value); </xsl:if><xsl:if test="$optionPreObservable">OnPropertyChanging(@"<xsl:value-of select="$nameNoKeyword"/>"); </xsl:if><xsl:value-of select="$field"/> = value; <xsl:if test="$optionObservable">OnPropertyChanged(@"<xsl:value-of select="$nameNoKeyword"/>"); </xsl:if><xsl:if test="$optionPartialMethods">On<xsl:value-of select="$nameNoKeyword"/>Changed();</xsl:if>}
     }<xsl:if test="$optionPartialMethods">
     partial void On<xsl:value-of select="$nameNoKeyword"/>Changing(<xsl:value-of select="$propType"/> value);
     partial void On<xsl:value-of select="$nameNoKeyword"/>Changed();</xsl:if><xsl:if test="$specified">
+    [global::System.Xml.Serialization.XmlIgnore]
     <xsl:if test="$optionFullFramework">[global::System.ComponentModel.Browsable(false)]</xsl:if>
     public bool <xsl:value-of select="$nameNoKeyword"/>Specified
     {
-      get => <xsl:value-of select="$field"/> != null;
-      set 
-      { 
-        if (value == !<xsl:value-of select="$nameNoKeyword"/>Specified) 
-          <xsl:value-of select="$field"/> = value ? <xsl:value-of select="$name"/> : (<xsl:value-of select="$fieldType"/>)null; 
-      }
+      get { return <xsl:value-of select="$field"/> != null; }
+      set { if (value == (<xsl:value-of select="$field"/>== null)) <xsl:value-of select="$field"/> = value ? this.<xsl:value-of select="$name"/> : (<xsl:value-of select="$fieldType"/>)null; }
     }
-    
-    private bool ShouldSerialize<xsl:value-of select="$nameNoKeyword"/>() => <xsl:value-of select="$nameNoKeyword"/>Specified;
-    private void Reset<xsl:value-of select="$nameNoKeyword"/>() => <xsl:value-of select="$nameNoKeyword"/>Specified = false;
+    private bool ShouldSerialize<xsl:value-of select="$nameNoKeyword"/>() { return <xsl:value-of select="$nameNoKeyword"/>Specified; }
+    private void Reset<xsl:value-of select="$nameNoKeyword"/>() { <xsl:value-of select="$nameNoKeyword"/>Specified = false; }
     </xsl:if>
   </xsl:template>
   <xsl:template match="FieldDescriptorProto[label='LABEL_REPEATED']">
     <xsl:variable name="type"><xsl:apply-templates select="." mode="type"/></xsl:variable>
     <xsl:variable name="format"><xsl:apply-templates select="." mode="format"/></xsl:variable>
     <xsl:variable name="field"><xsl:apply-templates select="." mode="field"/></xsl:variable>
-    private <xsl:if test="not($optionXml)">readonly</xsl:if> List&lt;<xsl:value-of select="$type" />&gt; <xsl:value-of select="$field"/> = new List&lt;<xsl:value-of select="$type"/>&gt;();
-    [<xsl:apply-templates select="." mode="checkDeprecated"/>ProtoMember(<xsl:value-of select="number"/>, DataFormat = DataFormat.<xsl:value-of select="$format"/><xsl:if test="options/packed='true'">, Options = MemberSerializationOptions.Packed</xsl:if>)]<!--
+    private <xsl:if test="not($optionXml)">readonly</xsl:if> global::System.Collections.Generic.List&lt;<xsl:value-of select="$type" />&gt; <xsl:value-of select="$field"/> = new global::System.Collections.Generic.List&lt;<xsl:value-of select="$type"/>&gt;();
+    [<xsl:apply-templates select="." mode="checkDeprecated"/>global::ProtoBuf.ProtoMember(<xsl:value-of select="number"/>, Name=@"<xsl:value-of select="name"/>", DataFormat = global::ProtoBuf.DataFormat.<xsl:value-of select="$format"/><xsl:if test="options/packed='true'">, Options = global::ProtoBuf.MemberSerializationOptions.Packed</xsl:if>)]<!--
     --><xsl:if test="$optionDataContract">
     [global::System.Runtime.Serialization.DataMember(Name=@"<xsl:value-of select="name"/>", Order = <xsl:value-of select="number"/>, IsRequired = false)]
     </xsl:if><xsl:if test="$optionXml">
     [global::System.Xml.Serialization.XmlElement(@"<xsl:value-of select="name"/>", Order = <xsl:value-of select="number"/>)]
     </xsl:if>
-    public List&lt;<xsl:value-of select="$type" />&gt; <xsl:call-template name="pascal"/>
+    public global::System.Collections.Generic.List&lt;<xsl:value-of select="$type" />&gt; <xsl:call-template name="pascal"/>
     {
-      get => <xsl:value-of select="$field"/>;<!--
+      get { return <xsl:value-of select="$field"/>; }<!--
       --><xsl:if test="$optionXml">
-      set => <xsl:value-of select="$field"/> = value;</xsl:if>
+      set { <xsl:value-of select="$field"/> = value; }</xsl:if>
     }
   </xsl:template>
 
@@ -471,7 +497,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
     {
       <xsl:apply-templates select="method"/>
     }
-    
+
     <xsl:if test="$optionProtoRpc">
     public class <xsl:value-of select="name"/>Client : global::ProtoBuf.ServiceModel.RpcClient
     {
@@ -480,7 +506,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
     }
     </xsl:if>
     <xsl:apply-templates select="." mode="clientProxy"/>
-    
+
   </xsl:template>
 
   <xsl:template match="MethodDescriptorProto">
@@ -514,16 +540,16 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
         private object[] results;
 
         public <xsl:value-of select="name"/>CompletedEventArgs(object[] results, global::System.Exception exception, bool cancelled, object userState)
-            : base(exception, cancelled, userState) 
+            : base(exception, cancelled, userState)
         {
             this.results = results;
         }
-        
+
         public <xsl:apply-templates select="output_type"/> Result
         {
-            get { 
+            get {
                 base.RaiseExceptionIfNecessary();
-                return (<xsl:apply-templates select="output_type"/>)(this.results[0]); 
+                return (<xsl:apply-templates select="output_type"/>)(this.results[0]);
             }
         }
     }
@@ -533,17 +559,17 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
   <xsl:template match="ServiceDescriptorProto" mode="clientProxy">
   <xsl:if test="$optionAsynchronous and $optionDataContract and $optionClientProxy">
     <xsl:apply-templates select="method/MethodDescriptorProto" mode="CompleteEvent"/>
-    
+
     [global::System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class <xsl:value-of select="name"/>Client : global::System.ServiceModel.ClientBase&lt;I<xsl:value-of select="name"/>&gt;, I<xsl:value-of select="name"/>
     {
 
         public <xsl:value-of select="name"/>Client()
         {}
-        public <xsl:value-of select="name"/>Client(string endpointConfigurationName) 
-            : base(endpointConfigurationName) 
+        public <xsl:value-of select="name"/>Client(string endpointConfigurationName)
+            : base(endpointConfigurationName)
         {}
-        public <xsl:value-of select="name"/>Client(string endpointConfigurationName, string remoteAddress) 
+        public <xsl:value-of select="name"/>Client(string endpointConfigurationName, string remoteAddress)
             : base(endpointConfigurationName, remoteAddress)
         {}
         public <xsl:value-of select="name"/>Client(string endpointConfigurationName, global::System.ServiceModel.EndpointAddress remoteAddress)
@@ -554,7 +580,7 @@ namespace <xsl:value-of select="translate($namespace,':-/\','__..')"/>
         {}
 
         <xsl:apply-templates select="method/MethodDescriptorProto" mode="clientProxy"/>
-    }  
+    }
   </xsl:if>
   </xsl:template>
 

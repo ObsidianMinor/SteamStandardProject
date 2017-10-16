@@ -11,14 +11,14 @@ namespace Steam.Net
             _sessionKey = sessionKey;
         }
 
-        public byte[] Decrypt(byte[] data)
+        public void Decrypt(ref byte[] data)
         {
-            return CryptoUtils.SymmetricDecrypt(data, _sessionKey, out _);
+            data = CryptoUtils.SymmetricDecrypt(data, _sessionKey, out _);
         }
 
-        public byte[] Encrypt(byte[] data)
+        public void Encrypt(ref byte[] data)
         {
-            return CryptoUtils.SymmetricEncrypt(data, _sessionKey);
+            data = CryptoUtils.SymmetricEncrypt(data, _sessionKey);
         }
     }
 }
