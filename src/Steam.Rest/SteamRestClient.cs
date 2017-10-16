@@ -1,3 +1,4 @@
+using Steam.Logging;
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -13,6 +14,8 @@ namespace Steam.Rest
     {
         private IRestClient _client;
 
+        protected Logger RestLog { get; }
+
         public SteamRestClient(SteamRestConfig config) : base(config)
         {
             var cloneConfig = GetConfig<SteamRestConfig>();
@@ -23,6 +26,13 @@ namespace Steam.Rest
             }
             else
                 _client = new DefaultRestClient();
+
+            RestLog = LogManager.CreateLogger("REST");
+        }
+
+        protected void SetCookie(Uri uri, Cookie cookie)
+        {
+            _client.SetCookie(uri, cookie);
         }
         
         protected internal async Task<RestResponse> SendAsync(RestRequest request, RequestOptions options)
@@ -41,7 +51,7 @@ namespace Steam.Rest
                 Task result = await Task.WhenAny(responseTask, timeout).ConfigureAwait(false);
 
                 stopwatch.Stop();
-                LogVerbose("REST", $"{Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()} {request.RequestUri} : {stopwatch.ElapsedMilliseconds} ms");
+                await RestLog.VerboseAsync($"{Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()} {request.RequestUri} : {stopwatch.ElapsedMilliseconds} ms");
 
                 if (result == timeout)
                 {

@@ -9,10 +9,142 @@ namespace Steam.Net
 {
     public class SteamNetworkConfig : SteamWebConfig
     {
+        private static IReadOnlyDictionary<Universe, IReadOnlyCollection<IPEndPoint>> GetEndpoints()
+        {
+            return new Dictionary<Universe, IReadOnlyCollection<IPEndPoint>>()
+            {
+                {
+                    Universe.Public,
+                    new List<IPEndPoint>()
+                    {
+                        new IPEndPoint(IPAddress.Parse("162.254.193.6"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.6"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.6"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.6"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.6"), 27021),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.7"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.7"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.7"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.7"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.7"), 27021),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.46"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.46"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.46"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.46"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.46"), 27021),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.47"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.47"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.47"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.47"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.193.47"), 27021),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.10"), 27017),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.10"), 27018),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.10"), 27019),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.12"), 27017),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.12"), 27018),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.12"), 27019),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.13"), 27017),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.13"), 27018),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.13"), 27019),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.14"), 27017),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.14"), 27018),
+                        new IPEndPoint(IPAddress.Parse("208.78.164.14"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.44"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.44"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.44"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.44"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.44"), 27021),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.45"), 27017),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.45"), 27018),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.45"), 27019),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.45"), 27020),
+                        new IPEndPoint(IPAddress.Parse("162.254.195.45"), 27021),
+                    }
+                },
+                {
+                    Universe.Beta,
+                    new List<IPEndPoint>()
+                    {
+                        new IPEndPoint(IPAddress.Parse("172.16.3.106"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.3.36"), 27017),
+                    }
+                },
+                {
+                    Universe.Internal,
+                    new List<IPEndPoint>()
+                    {
+                        new IPEndPoint(IPAddress.Parse("172.16.2.200"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.2.200"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.2.201"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.2.202"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.2.203"), IPEndPoint.MinPort),
+                        new IPEndPoint(IPAddress.Parse("172.16.2.207"), IPEndPoint.MinPort),
+                    }
+                },
+                {
+                    Universe.Dev,
+                    new List<IPEndPoint>()
+                    {
+                        new IPEndPoint(IPAddress.Parse("127.0.0.1"), 27017)
+                    }
+                }
+            };
+        }
+
+        private static IReadOnlyDictionary<Universe, IReadOnlyCollection<Uri>> GetWebSockets()
+        {
+            return new Dictionary<Universe, IReadOnlyCollection<Uri>>()
+            {
+                {
+                    Universe.Public,
+                    new List<Uri>()
+                    {
+                        new Uri("cm01-ord.cm.steampowered.com:443"),
+                        new Uri("cm02-ord.cm.steampowered.com:443"),
+                        new Uri("cm03-ord.cm.steampowered.com:443"),
+                        new Uri("cm04-ord.cm.steampowered.com:443"),
+                        new Uri("CM02-IAD.cm.steampowered.com:443"),
+                        new Uri("CM04-IAD.cm.steampowered.com:443"),
+                        new Uri("CM05-IAD.cm.steampowered.com:443"),
+                        new Uri("CM06-IAD.cm.steampowered.com:443"),
+                        new Uri("cm01-lax.cm.steampowered.com:443"),
+                        new Uri("cm02-lax.cm.steampowered.com:443")
+                    }
+                },
+                {
+                    Universe.Beta,
+                    new List<Uri>()
+                    {
+                        new Uri("steam3beta-mds.valvesoftware.com:443"),
+                        new Uri("steam3-beta8.valvesoftware.com:443")
+                    }
+                },
+                {
+                    Universe.Internal,
+                    new List<Uri>()
+                    {
+                        new Uri("172.16.2.199:443"),
+                        new Uri("172.16.2.200:443"),
+                        new Uri("172.16.2.201:443"),
+                        new Uri("172.16.2.202:443"),
+                        new Uri("172.16.2.203:443"),
+                        new Uri("172.16.2.207:443")
+                    }
+                },
+                {
+                    Universe.Dev,
+                    new List<Uri>()
+                    {
+                        new Uri("127.0.0.1:3443")
+                    }
+                }
+            };
+        }
+
         /// <summary>
         /// Sets the socket client provider for this client. The default is a TCP client provider
         /// </summary>
-        public SocketClientProvider SocketClient { get; set; } = (func, connect, disconnect) => new DefaultTcpSocketClient(func, connect, disconnect);
+        public Func<ISocketClient> SocketClient { get; set; } = () => new DefaultTcpSocketClient();
 
         /// <summary>
         /// The time in milliseconds to wait for a connection to complete before aborting
@@ -54,9 +186,27 @@ namespace Steam.Net
         /// </summary>
         public Func<IReceiveMethodResolver> ReceiveMethodResolver { get; set; } = () => new DefaultReceiveMethodResolver();
 
-        public static ISocketClient DefaultWebSocketProvider(Func<byte[], Task> dataReceivedFunc, Func<Task> connectedFunc, Func<Exception, Task> disconnectedFunc)
-        {
-            return new DefaultWebSocketClient(dataReceivedFunc, connectedFunc, disconnectedFunc);
-        }
+        /// <summary>
+        /// Sets the timeout period in milliseconds for receiver methods to complete exection asynchronously
+        /// </summary>
+        public int ReceiveMethodTimeout { get; set; } = 6000000;
+
+        /// <summary>
+        /// Represents the provider to get the default web socket implementation
+        /// </summary>
+        /// <returns></returns>
+        public static ISocketClient DefaultWebSocketProvider() => new DefaultWebSocketClient();
+
+        /// <summary>
+        /// Gets a dictionary with a collection of default IP endpoints used in the various Steam universes
+        /// </summary>
+        /// <remarks>
+        /// Yes I got them from steamclient.dylib
+        /// </remarks>
+        public static IReadOnlyDictionary<Universe, IReadOnlyCollection<IPEndPoint>> DefaultEndpoints => GetEndpoints();
+        /// <summary>
+        /// Gets a dictionary with a collection of default web socket endpoints used in the various Steam universes
+        /// </summary>
+        public static IReadOnlyDictionary<Universe, IReadOnlyCollection<Uri>> DefaultWebSocketEndpoints => GetWebSockets();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Text;
 
-namespace Steam.Logging
+namespace Steam
 {
     /// <summary>
     /// A simple log message
@@ -12,17 +13,17 @@ namespace Steam.Logging
         /// </summary>
         public string Source { get; }
         /// <summary>
-        /// The time this message was created
-        /// </summary>
-        public DateTime Time { get; }
-        /// <summary>
         /// The message
         /// </summary>
         public string Message { get; }
         /// <summary>
         /// The log severity
         /// </summary>
-        public LogSeverity Level { get; }
+        public LogSeverity Severity { get; }
+        /// <summary>
+        /// The exception
+        /// </summary>
+        public Exception Exception { get; }
 
         /// <summary>
         /// Creates a new log message
@@ -30,21 +31,93 @@ namespace Steam.Logging
         /// <param name="source"></param>
         /// <param name="level"></param>
         /// <param name="message"></param>
-        public LogMessage(string source, LogSeverity level, string message)
+        /// <param name="ex"></param>
+        public LogMessage(LogSeverity level, string source, string message, Exception ex)
         {
             Source = source;
-            Time = DateTime.Now;
-            Level = level;
+            Severity = level;
             Message = message;
+            Exception = ex;
         }
 
-        /// <summary>
-        /// Returns the string form of this message
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override string ToString() => ToString(null);
+        public string ToString(StringBuilder builder = null, bool fullException = true, bool prependTimestamp = true, DateTimeKind timestampKind = DateTimeKind.Local, int? padSource = 11)
         {
-            return $"{Time.ToString("HH:mm:ss:fffffff")} - [{Source}] - {Level} - {Message}";
+            string sourceName = Source;
+            string message = Message;
+            string exMessage = fullException ? Exception?.ToString() : Exception?.Message;
+
+            int maxLength = 1 +
+                (prependTimestamp ? 8 : 0) + 1 +
+                (padSource ?? sourceName?.Length ?? 0) + 1 +
+                (message?.Length ?? 0) +
+                (exMessage?.Length ?? 0) + 3;
+
+            if (builder == null)
+                builder = new StringBuilder(maxLength);
+            else
+            {
+                builder.Clear();
+                builder.EnsureCapacity(maxLength);
+            }
+
+            if (prependTimestamp)
+            {
+                DateTime now;
+                if (timestampKind == DateTimeKind.Utc)
+                    now = DateTime.UtcNow;
+                else
+                    now = DateTime.Now;
+                if (now.Hour < 10)
+                    builder.Append('0');
+                builder.Append(now.Hour);
+                builder.Append(':');
+                if (now.Minute < 10)
+                    builder.Append('0');
+                builder.Append(now.Minute);
+                builder.Append(':');
+                if (now.Second < 10)
+                    builder.Append('0');
+                builder.Append(now.Second);
+                builder.Append(' ');
+            }
+            if (sourceName != null)
+            {
+                if (padSource.HasValue)
+                {
+                    if (sourceName.Length < padSource.Value)
+                    {
+                        builder.Append(sourceName);
+                        builder.Append(' ', padSource.Value - sourceName.Length);
+                    }
+                    else if (sourceName.Length > padSource.Value)
+                        builder.Append(sourceName.Substring(0, padSource.Value));
+                    else
+                        builder.Append(sourceName);
+                }
+                builder.Append(' ');
+            }
+            if (!string.IsNullOrEmpty(Message))
+            {
+                for (int i = 0; i < message.Length; i++)
+                {
+                    //Strip control chars
+                    char c = message[i];
+                    if (!char.IsControl(c))
+                        builder.Append(c);
+                }
+            }
+            if (exMessage != null)
+            {
+                if (!string.IsNullOrEmpty(Message))
+                {
+                    builder.Append(':');
+                    builder.AppendLine();
+                }
+                builder.Append(exMessage);
+            }
+
+            return builder.ToString();
         }
     }
 }

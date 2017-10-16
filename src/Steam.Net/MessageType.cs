@@ -58,7 +58,6 @@ namespace Steam.Net
         ShellSearchLogsResponse = 236,
         ShellCheckWindowsUpdates = 237,
         ShellCheckWindowsUpdatesResponse = 238,
-        BaseGM = 300,
         Heartbeat = 300,
         ShellFailed = 301,
         ExitShells = 307,

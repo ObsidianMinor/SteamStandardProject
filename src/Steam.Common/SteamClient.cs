@@ -1,5 +1,6 @@
 ﻿using Steam.Logging;
 using System;
+using System.Threading.Tasks;
 
 namespace Steam
 {
@@ -9,7 +10,12 @@ namespace Steam
     public abstract class SteamClient
     {
         private readonly SteamConfig _config;
-        private readonly LogManager _log;
+
+        /// <summary>
+        /// Gets the <see cref="LogManager"/> to 
+        /// </summary>
+        protected LogManager LogManager { get; }
+        private AsyncEvent<Func<LogMessage, Task>> _logEvent = new AsyncEvent<Func<LogMessage, Task>>();
 
         /// <summary>
         /// Creates a new <see cref="SteamClient"/> with the specified <see cref="SteamConfig"/>
@@ -21,7 +27,8 @@ namespace Steam
                 throw new ArgumentNullException(nameof(config));
 
             _config = config.Clone();
-            _log = new LogManager(config.LogLevel);
+            LogManager = new LogManager(config.LogLevel);
+            LogManager.Message += async msg => await _logEvent.InvokeAsync(msg).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -30,79 +37,14 @@ namespace Steam
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         protected T GetConfig<T>() where T : SteamConfig => _config as T;
-
-        /// <summary>
-        /// Gets the log manager for this client
-        /// </summary>
-        protected LogManager LogManager => _log;
-
+        
         /// <summary>
         /// Occurs when a message of greater severity than the log level is logged
         /// </summary>
-        public event EventHandler<LogMessage> Log
+        public event Func<LogMessage, Task> Log
         {
-            add => _log.Log += value;
-            remove => _log.Log -= value;
-        }
-
-        /// <summary>
-        /// Logs a debug message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogDebug(string source, string message)
-        {
-            _log.LogDebug(source, message);
-        }
-
-        /// <summary>
-        /// Logs a verbose message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogVerbose(string source, string message)
-        {
-            _log.LogVerbose(source, message);
-        }
-
-        /// <summary>
-        /// Logs an info message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogInfo(string source, string message)
-        {
-            _log.LogInfo(source, message);
-        }
-
-        /// <summary>
-        /// Logs a warning message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogWarning(string source, string message)
-        {
-            _log.LogWarning(source, message);
-        }
-
-        /// <summary>
-        /// Logs an error message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogError(string source, string message)
-        {
-            _log.LogError(source, message);
-        }
-
-        /// <summary>
-        /// Logs a critical error message as the specified source
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="message"></param>
-        protected virtual void LogCritical(string source, string message)
-        {
-            _log.LogCritical(source, message);
+            add => _logEvent.Add(value);
+            remove => _logEvent.Remove(value);
         }
     }
 }

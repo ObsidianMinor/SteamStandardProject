@@ -6,14 +6,12 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Sockets;
 using Steam.Net.Utilities;
+using Steam.Rest;
 using Steam.Web;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
-using System.Net.WebSockets;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,58 +23,121 @@ namespace Steam.Net
     /// </summary>
     public partial class SteamNetworkClient : SteamWebClient
     {
-        private const string _source = "NET";
         private const uint _currentProtocolVer = 65579;
         private const uint _obfuscationMask = 0xBAADF00D;
-        
+
+        private static readonly NoEncryptor _defaultEncryptor = new NoEncryptor();
+
         private readonly SemaphoreSlim _stateLock;
+        private readonly SemaphoreSlim _connectionStateLock;
         private readonly JobManager<NetworkMessage> _jobs;
         private readonly ConnectionManager _connection;
-        private readonly ISocketClient _socket;
-        private readonly bool _isWebSocket;
+        private readonly ISocketClient Socket;
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
-        private int _connectTimeout;
-        private uint _defaultCellId;
-        private bool _encryptionPending = false;
-        private IEncryptor _encryption;
-        private IPAddress _localIp;
-        private ServerList _currentServers;
-        private bool _firstConnect = true;
+        private readonly List<IPEndPoint> _endpoints;
+        private readonly List<Uri> _webSockets;
+        private Func<Exception, Task> _socketDisconnected;
+
+        private CancellationTokenSource _connectCancellationToken;
+        private IEncryptor _encryptor;
+
         private Task _heartBeatTask;
         private CancellationTokenSource _heartbeatCancel;
-        private bool _continueLogin;
+
         // login continuation
         private NetworkMessage _logonContinuation;
-        private LogonResponse _previousLogonResponse;
+        private CMsgClientLogonResponse _previousLogonResponse;
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
         private TaskCompletionSource<object> _loginPromise;
+        private Func<Task> _loginAction;
+
+        private List<ServerType> _serverTypesAvailable = new List<ServerType>();
 
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
         /// </summary>
         public IReadOnlyCollection<GameCoordinator> GameCoordinators { get; }
-        
-        public ConnectionState ConnectionState { get; private set; }
-        
+
+        /// <summary>
+        /// Gets the logger for this network client
+        /// </summary>
+        protected Logger NetLog { get; }
+
+        internal IPEndPoint CurrentEndPoint { get; private set; }
+
+        internal Uri CurrentWebSocket { get; private set; }
+
+        internal IEncryptor Encryption
+        {
+            get
+            {
+                if ((ConnectionState != ConnectionState.Connected && !_connection.IsConnectionComplete) || _encryptor == null)
+                    return _defaultEncryptor;
+                else
+                    return _encryptor;
+            }
+            set
+            {
+                _encryptor = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the client's current connection state
+        /// </summary>
+        public ConnectionState ConnectionState => _connection.State;
+
+        /// <summary>
+        /// Gets the client's current session ID
+        /// </summary>
         public int SessionId { get; private set; }
 
+        /// <summary>
+        /// Gets the client's current user's Steam ID
+        /// </summary>
         public SteamId SteamId { get; private set; }
 
-        public long CellId => GetConfig<SteamNetworkConfig>().CellId;
+        /// <summary>
+        /// Gets the client's current cell ID
+        /// </summary>
+        public long CellId { get; private set; }
         
+        /// <summary>
+        /// Creates a new <see cref="SteamNetworkClient"/> with the default config
+        /// </summary>
         public SteamNetworkClient() : this(new SteamNetworkConfig()) { }
-        
+
+        /// <summary>
+        /// Creates a new <see cref="SteamNetworkClient"/> with the specified config
+        /// </summary>
+        /// <param name="config"></param>
         public SteamNetworkClient(SteamNetworkConfig config) : base(config)
         {
-            _socket = config.SocketClient(ReceiveAsync, OnConnected, OnSocketDisconnectedAsync);
-            _connectTimeout = config.NetworkConnectionTimeout;
-            _isWebSocket = _socket is IWebSocketClient;
-            _defaultCellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : (uint)config.CellId;
+            Socket = config.SocketClient();
+            Socket.MessageReceived += ReceiveAsync;
+            Socket.Disconnected += async ex =>
+            {
+                await DisconnectAsync().ConfigureAwait(false);
+                await _socketDisconnected(ex).ConfigureAwait(false);
+            };
+            CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
             _stateLock = new SemaphoreSlim(1, 1);
-            _currentServers = new ServerList(_defaultCellId, GetInterface<ISteamDirectory>(), GetConfig<SteamNetworkConfig>().WebSockets ?? Enumerable.Empty<Uri>(), GetConfig<SteamNetworkConfig>().ConnectionManagers ?? Enumerable.Empty<IPEndPoint>());
-            _jobs = new JobManager<NetworkMessage>(LogManager);
-            _connection = new ConnectionManager(_stateLock, LogManager, GetConfig<SteamNetworkConfig>().NetworkConnectionTimeout, OnConnectingAsync, OnConnected, OnDisconnectingAsync, x => Disconnected += x);
-            _connection.Disconnected += OnDisconnected;
+            _connectionStateLock = new SemaphoreSlim(1, 1);
+            _jobs = new JobManager<NetworkMessage>(LogManager.CreateLogger("Jobs"));
+            NetLog = LogManager.CreateLogger("Net");
+            if (Socket is IWebSocketClient)
+                _webSockets = new List<Uri>(GetConfig<SteamNetworkConfig>().WebSockets ?? Enumerable.Empty<Uri>());
+            else
+                _endpoints = new List<IPEndPoint>(GetConfig<SteamNetworkConfig>().ConnectionManagers ?? Enumerable.Empty<IPEndPoint>());
+
+            _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), GetConfig<SteamNetworkConfig>().NetworkConnectionTimeout,
+                OnConnectingAsync, OnDisconnectingAsync, (x) => _socketDisconnected = x);
+
+            _connection.Disconnected += (ex, recon) => TimedInvokeAsync(_disconnected, nameof(Disconnected), ex);
+            _connection.Connected += async () =>
+            {
+                await TimedInvokeAsync(_connected, nameof(Connected));
+            };
 
             IReceiveMethodResolver resolver;
             if (config.ReceiveMethodResolver == null)
@@ -88,7 +149,7 @@ namespace Steam.Net
                 resolver = config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
             }
 
-            foreach(MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            foreach (MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
                 var attribute = method.GetCustomAttribute<MessageReceiverAttribute>();
                 if (attribute != null)
@@ -122,7 +183,7 @@ namespace Steam.Net
             if (!_eventDispatchers.ContainsKey(type))
                 _eventDispatchers[type] -= receiver;
         }
-        
+
         /// <summary>
         /// Connects this client to the Steam network
         /// </summary>
@@ -133,18 +194,7 @@ namespace Steam.Net
         /// Disconnects this client from the Steam network and disconnects all game coordinators
         /// </summary>
         /// <returns></returns>
-        public async Task StopAsync()
-        {
-            if (_gameCoordinators.Count != 0)
-            {
-                foreach (var gc in _gameCoordinators)
-                {
-                    await gc.Value.StopAsync();
-                }
-            }
-
-            await _connection.StopAsync().ConfigureAwait(false);
-        }
+        public async Task StopAsync() => await _connection.StopAsync().ConfigureAwait(false);
 
         /// <summary>
         /// Connects this client to a connection manager 
@@ -152,125 +202,160 @@ namespace Steam.Net
         /// <returns></returns>
         private async Task OnConnectingAsync()
         {
-            if (_continueLogin && LoginActionRequested.GetInvocationList().Length != 0)
+            await NetLog.DebugAsync("Connecting client").ConfigureAwait(false);
+            await ConnectAsync().ConfigureAwait(false);
+
+            if (!(Socket is IWebSocketClient))
             {
-                LogDebug(_source, "Previous login failed and LoginActionRequested has subscribers, running event before resuming connection");
-                LoginActionRequested?.Invoke(this, EventArgs.Empty);
+                await NetLog.DebugAsync("Waiting for encryption");
+                await _connection.WaitAsync().ConfigureAwait(false);
             }
 
-            if (_firstConnect)
+            await NetLog.DebugAsync("Performing possible login actions");
+            // todo: resume connections and things
+            if (_loginPromise != null)
             {
-                LogInfo(_source, $"Steam.Net");
-                _firstConnect = false;
-            }
-
-            List<Win32Exception> exceptions = new List<Win32Exception>();
-
-            if (_isWebSocket)
-            {
-                IWebSocketClient webSocket = _socket as IWebSocketClient;
-                do
-                {
-                    Uri endpoint = await _currentServers.GetCurrentWebSocketConnectionManagerAsync();
-                    try
-                    {
-                        await webSocket.ConnectAsync(endpoint);
-                        return;
-                    }
-                    catch (WebSocketException e)
-                    {
-                        LogError(_source, $"Could not connect to {endpoint}: {e.ErrorCode} {e.Message}");
-                        _currentServers.MarkCurrentWebSocket();
-                        exceptions.Add(e);
-                    }
-                } while (_currentServers.HasValidWebSocketManagers);
+                _loginPromise.SetResult(new object());
             }
             else
             {
-                do
-                {
-                    IPEndPoint endpoint = await _currentServers.GetCurrentConnectionManagerAsync();
-                    try
-                    {
-                        await _socket.ConnectAsync(endpoint, _connectTimeout);
-                        return;
-                    }
-                    catch (SocketException e)
-                    {
-                        LogWarning(_source, $"Could not connect to {endpoint}: {e.GetType()} {e.Message}");
-                        _currentServers.MarkCurrent();
-                        exceptions.Add(e);
-                    }
-                } while (_currentServers.HasValidManagers);
+                await _ready.InvokeAsync().ConfigureAwait(false);
             }
 
-            throw new AggregateException("Could not connect to any of the specified, retreived, or fallback endpoints", exceptions);
+            await _connection.CompleteAsync();
         }
 
         private async Task OnDisconnectingAsync(Exception ex)
         {
-            await _socket.DisconnectAsync().ConfigureAwait(false);
-            _localIp = null;
-
-            ConnectionState = ConnectionState.Disconnected;
-        }
-
-        private async Task OnConnected()
-        {
-            _localIp = _socket.LocalIp;
-
-            if (_isWebSocket)
-                await ConnectedAsync();
-        }
-
-        private void OnDisconnected(object sender, DisconnectedEventArgs exception)
-        {
-            _encryption = null;
-            Disconnected?.Invoke(this, exception.Exception);
-            _connection.Error(exception.Exception);
-        }
-
-        private Task OnSocketDisconnectedAsync(Exception ex)
-        {
-            LogDebug(_source, "Socket disconnected. The connection manager will handle reconnecting soon.");
-            return Task.CompletedTask;
-        }
-
-        private async Task ConnectedAsync()
-        {
-            await _connection.CompleteAsync().ConfigureAwait(false);
-            Connected?.Invoke(this, new EventArgs());
-
-            if (!_continueLogin)
+            await NetLog.DebugAsync("Disconnecting all game coordinators").ConfigureAwait(false);
+            foreach (var gc in _gameCoordinators)
             {
-                if (_loginPromise != null)
+                await gc.Value.StopAsync();
+                _gameCoordinators.Remove(gc.Key);
+            }
+
+            await NetLog.InfoAsync("Logging off");
+            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientLogOff, null));
+
+            await NetLog.DebugAsync("Cancelling all jobs").ConfigureAwait(false);
+            await _jobs.CancelAllJobs().ConfigureAwait(false);
+
+            await NetLog.DebugAsync("Waiting for heartbeat").ConfigureAwait(false);
+            if (_heartBeatTask != null)
+                await _heartBeatTask.ConfigureAwait(false);
+            _heartBeatTask = null;
+
+            await NetLog.DebugAsync("Disconnecting client").ConfigureAwait(false);
+            await DisconnectAsync();
+        }
+
+        private async Task ConnectAsync()
+        {
+            await _stateLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                await ConnectInternalAsync().ConfigureAwait(false);
+            }
+            finally
+            {
+                _stateLock.Release();
+            }
+        }
+
+        private async Task ConnectInternalAsync()
+        {
+            try
+            {
+                _connectCancellationToken = new CancellationTokenSource();
+                Socket.SetCancellationToken(_connectCancellationToken.Token);
+
+                if (Socket is IWebSocketClient webSocketClient)
                 {
-                    _loginPromise.SetResult(new object());
+                    if (_webSockets.Count == 0)
+                    {
+                        ISteamDirectory directory = GetInterface<ISteamDirectory>();
+                        try
+                        {
+                            var cmList = await directory.GetConnectionManagerListAsync(CellId);
+                            _webSockets.AddRange(cmList.Response.WebSocketServerList);
+                            if (_webSockets.Count == 0)
+                                throw new InvalidOperationException();
+                        }
+                        catch (HttpException e)
+                        {
+                            await NetLog.ErrorAsync("Could not fetch the Steam directory: ", e);
+                            throw;
+                        }
+                    }
+
+                    if (CurrentWebSocket == null)
+                        CurrentWebSocket = new Uri($"wss://{_webSockets.First()}/cmsocket/");
+
+                    await NetLog.InfoAsync($"Connecting to WebSocket {CurrentWebSocket}");
+                    await webSocketClient.ConnectAsync(CurrentWebSocket);
                 }
                 else
                 {
-                    CanLogin?.Invoke(this, new EventArgs());
+                    if (_endpoints.Count == 0)
+                    {
+                        ISteamDirectory directory = GetInterface<ISteamDirectory>();
+                        try
+                        {
+                            var cmList = await directory.GetConnectionManagerListAsync(CellId);
+                            _endpoints.AddRange(cmList.Response.ServerList);
+                            if (_endpoints.Count == 0)
+                                throw new InvalidOperationException();
+                        }
+                        catch (HttpException e)
+                        {
+                            await NetLog.ErrorAsync("Could not fetch the Steam directory: ", e);
+                            throw;
+                        }
+                    }
+
+                    if (CurrentEndPoint == null)
+                        CurrentEndPoint = _endpoints.First();
+
+                    await NetLog.InfoAsync($"Connecting to endpoint {CurrentEndPoint}");
+                    await Socket.ConnectAsync(CurrentEndPoint);
                 }
             }
-            else
+            catch (Exception e)
             {
-                LogDebug(_source, "Can continue login from previous disconnect, sending previous info");
-                await ContinueLoginAsync().ConfigureAwait(false);
+                await DisconnectInternalAsync().ConfigureAwait(false);
+                throw e;
             }
         }
-        
-        private async Task ContinueLoginAsync()
+
+        private async Task DisconnectAsync()
         {
-            await SendAsync(_logonContinuation);
-            _logonContinuation = null;
-            _continueLogin = false;
+            await _stateLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                await DisconnectInternalAsync().ConfigureAwait(false);
+            }
+            finally
+            {
+                _stateLock.Release();
+            }
         }
-        
-        // in exchange for a gc instance to track + a name, we give back a log manager
-        internal LogManager AttachGC(GameCoordinator gc)
+
+        private async Task DisconnectInternalAsync()
+        {
+            try
+            {
+                _connectCancellationToken?.Cancel(false);
+            }
+            catch { }
+
+            await Socket.DisconnectAsync();
+        }
+
+        // in exchange for a gc instance to track, we give back a log manager
+        internal (Logger, JobManager<GameCoordinatorMessage>) AttachGC(GameCoordinator gc, string name)
         {
             _gameCoordinators.Add(gc.AppId, gc);
-            return LogManager;
+            return (LogManager.CreateLogger(name), new JobManager<GameCoordinatorMessage>(LogManager.CreateLogger("GCJobs")));
         }
 
         /// <summary>
@@ -417,7 +502,7 @@ namespace Steam.Net
             await WaitForConnectionAsync();
             await LoginGameServerAnonymousAsync(appId);
         }
-        
+
         private async Task LoginAsync(string username, string password, string twoFactorCode, string authCode, string loginKey, bool shouldRememberPassword, bool requestSteam2Ticket, byte[] sentryFileHash, uint accountId, AccountType accountType)
         {
             uint instance = 0;
@@ -426,10 +511,10 @@ namespace Steam.Net
             else if (accountType != AccountType.AnonUser)
                 instance = 1;
 
-            LogInfo(_source, $"Logging in as {username ?? (instance == 0 ? "an anonymous user" : "a console user")}");
+            await NetLog.InfoAsync($"Logging in as {username ?? (instance == 0 ? "an anonymous user" : "a console user")}");
             byte[] machineId = await HardwareUtils.GetMachineId(); // while we set up the logon object, we will start to get the machine ID
 
-            var body = new LogonRequest
+            var body = new CMsgClientLogon
             {
                 protocol_version = 65579,
                 client_os_type = (uint)(accountId == 0 ? HardwareUtils.GetCurrentOsType() : OsType.PS3),
@@ -439,7 +524,7 @@ namespace Steam.Net
 
             if (machineId != null && machineId.Length != 0)
                 body.machine_id = machineId;
-            
+
             if (accountType != AccountType.AnonUser)
             {
                 body.account_name = username;
@@ -452,10 +537,10 @@ namespace Steam.Net
                 body.sha_sentryfile = sentryFileHash;
                 body.eresult_sentryfile = (int)(sentryFileHash is null ? Result.FileNotFound : Result.OK);
                 body.client_package_version = 1771;
-                body.obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? _socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId);
+                body.obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId);
                 body.supports_rate_limit_response = true;
             }
-            
+
             var logon = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogon, body);
 
             (logon.Header as ClientHeader).SteamId = new SteamId(accountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, accountType, instance);
@@ -464,37 +549,15 @@ namespace Steam.Net
 
             _logonContinuation = logon;
         }
-        
+
+        /// <summary>
+        /// Requests a validation email to be sent for the current account
+        /// </summary>
+        /// <returns></returns>
         public async Task<Result> RequestValidationEmailAsync()
         {
             GenericResponse response = await SendJobAsync<GenericResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientRequestValidationMail, null));
             return response.Result;
-        }
-
-        /// <summary>
-        /// Continues a denied login request using the provided code as an auth or two factor code
-        /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
-        public void ContinueLogin(string code)
-        {
-            if (_logonContinuation == null || _previousLogonResponse == null)
-                throw new InvalidOperationException("Can't continue previous logon, original logon request or response doesn't exist");
-
-            switch ((Result)_previousLogonResponse.Result)
-            {
-                case Result.AccountLogonDeniedVerifiedEmailRequired:
-                    (_logonContinuation.Body as LogonRequest).auth_code = code;
-                    break;
-                case Result.AccountLoginDeniedNeedTwoFactor:
-                case Result.AccountLogonDenied:
-                    (_logonContinuation.Body as LogonRequest).two_factor_code = code;
-                    break;
-                default:
-                    throw new InvalidOperationException("Previous logon error was not denied for verification email or two factor failure");
-            }
-
-            _previousLogonResponse = null;
         }
 
         /// <summary>
@@ -505,18 +568,16 @@ namespace Steam.Net
         public async Task SetPlayingGameAsync(int appId)
         {
             GameId id = new GameId(appId, GameType.App, 0);
-
-            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, new ClientGamesPlayed
+            var body = new CMsgClientGamesPlayed
             {
-                OsType = (uint)HardwareUtils.GetCurrentOsType(),
-                GamesPlayed = new List<GamePlayed>
-                {
-                    new GamePlayed
-                    {
-                        GameId = id
-                    }
-                }
+                client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
+            };
+            body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
+            {
+                game_id = id
             });
+
+            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, body);
 
             await SendAsync(message).ConfigureAwait(false);
         }
@@ -529,19 +590,17 @@ namespace Steam.Net
         public async Task SetPlayingGameAsync(string game)
         {
             GameId id = GameId.Shortcut;
-
-            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, new ClientGamesPlayed 
-            { 
-               OsType = (uint)HardwareUtils.GetCurrentOsType(),
-               GamesPlayed = new List<GamePlayed>
-               {
-                   new GamePlayed
-                   {
-                       GameId = id,
-                       ExtraGameInfo = game
-                   }
-               }
+            var body = new CMsgClientGamesPlayed
+            {
+                client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
+            };
+            body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
+            {
+                game_id = id,
+                game_extra_info = game
             });
+
+            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, body);
 
             await SendAsync(message).ConfigureAwait(false);
         }
@@ -555,22 +614,19 @@ namespace Steam.Net
         public async Task SetPlayingGameAsync(int appId, long modId)
         {
             GameId id = new GameId(appId, GameType.Mod, modId);
-            
-            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, new ClientGamesPlayed 
-            { 
-               OsType = (uint)HardwareUtils.GetCurrentOsType(),
-               GamesPlayed = new List<GamePlayed>
-               {
-                   new GamePlayed
-                   {
-                       GameId = id
-                   }
-               }
+            var body = new CMsgClientGamesPlayed
+            {
+                client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
+            };
+            body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
+            {
+                game_id = id
             });
-
+            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGamesPlayed, body);
+            
             await SendAsync(message).ConfigureAwait(false);
         }
-        
+
         /// <summary>
         /// Returns the number of current players playing the specified game on Steam
         /// </summary>
@@ -580,7 +636,7 @@ namespace Steam.Net
         /// A task that when awaited returns the number of players playing the specified app. 
         /// </para>
         /// <para>
-        /// </para>If the response result is not <see cref="Result.OK"/>, the returned value is <value>-1</value> and the result code is logged
+        /// If the response result is not <see cref="Result.OK"/>, the returned value is <value>-1</value> and the result code is logged
         /// </para>
         /// </returns>
         public async Task<int> GetNumberOfCurrentPlayersAsync(long appId)
@@ -588,54 +644,78 @@ namespace Steam.Net
             if (appId < uint.MinValue || appId > uint.MaxValue)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
-            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGetNumberOfCurrentPlayersDP, new DPGetNumberOfCurrentPlayers {AppId = (uint) appId});
-            var response = await SendJobAsync<DPGetNumberOfCurrentPlayersResponse>(message);
+            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGetNumberOfCurrentPlayersDP, new CMsgDPGetNumberOfCurrentPlayers { appid = (uint)appId });
+            var response = await SendJobAsync<CMsgDPGetNumberOfCurrentPlayersResponse>(message);
 
-            if ((Result)response.Result != Result.OK)
-            {
-                LogInfo(_source, $"A request for the current player count of app ID {appId} did not complete succesfully. Result: {(Result) response.Result}");
-                return -1;
-            }
-            else
-                return response.PlayerCount;
+            SteamException.ThrowIfNotOK(response.eresult, $"A request for the current player count of app ID {appId} did not complete succesfully. Result: {(Result)response.eresult}");
+            return response.player_count;
         }
-        
+
         internal async Task SendGameCoordinatorMessage(int appid, GameCoordinatorMessage gcmessage)
         {
-            GameCoordinatorClientMessage body = new GameCoordinatorClientMessage()
+            CMsgGCClient body = new CMsgGCClient()
             {
-                MessageType = MessageTypeUtils.MergeMessage((uint)gcmessage.MessageType, gcmessage.Protobuf),
-                AppId = (uint)appid,
-                Payload = gcmessage.Serialize()
+                msgtype = MessageTypeUtils.MergeMessage((uint)gcmessage.MessageType, gcmessage.Protobuf),
+                appid = (uint)appid,
+                payload = gcmessage.Serialize()
             };
-            
+
             await SendAsync(NetworkMessage.CreateAppRoutedMessage(MessageType.ClientToGC, body, appid)).ConfigureAwait(false);
         }
-        
+
         private async Task RunHeartbeatAsync(int interval, CancellationToken token)
         {
-            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.Heartbeat, new Heartbeat());
+            #region Valve sucks at naming enum members
+            /*
+             * Let me tell you a story about 10/14/2017
+             * So I was working on this lib ironing out some kinks, rewriting the connection code
+             * when I finally completed it and decided to test it. So I pop open a console just to 
+             * find obvious bugs like the whole thing exploding for no reason. Suddenly at about 5:08 PM
+             * it starts working properly. Stuff starts printing in the console and it's working properly. 
+             * It works correctly until about 20 seconds later when the console window vanishes and up pops an error
+             * "IOException: Unable to transfer data" bla bla bla BASICALLY the connection was aborted.
+             * This brought up another bug in my TCP client where I wouldn't actually tell anyone the connection disconnected,
+             * but who cares about that. This brought in a more important problem: Steam drops my connection even though my heart is beating
+             * So I try a WebSocket. Same thing. Check the headers (because there's nothing the in body), everything lines up.
+             * I reference the SteamKit, everything related to serialization is in order. Everything is right except one thing.
+             * One small piece that nobody would notice.
+             * The correct message type for a heartbeat is "ClientHeartBeat", not "Heartbeat"...
+             * I found this out after 3 hours. Please kill me.
+             * 
+             * 
+             * TLDR: Valve sucks at naming enum members.
+             */
+            #endregion
+
+            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.ClientHeartBeat, new CMsgClientHeartBeat());
             try
             {
-                LogDebug(_source, $"Heartbeat started on a {interval} ms interval");
+                await NetLog.DebugAsync($"Heartbeat started on a {interval} ms interval");
                 while (!token.IsCancellationRequested)
                 {
                     await Task.Delay(interval, token).ConfigureAwait(false);
 
-                    await SendAsync(message).ConfigureAwait(false);
-                    LogDebug(_source, "Sent heartbeat");
+                    try
+                    {
+                        await SendAsync(message).ConfigureAwait(false);
+                        await NetLog.DebugAsync("Sent heartbeat");
+                    }
+                    catch (Exception ex)
+                    {
+                        await NetLog.ErrorAsync($"The heartbeat task encountered an unknown exception", ex);
+                    }
                 }
             }
             catch (OperationCanceledException)
             {
-                LogDebug(_source, "Heartbeat stopped");
+                await NetLog.DebugAsync("Heartbeat stopped");
             }
             catch (Exception ex)
             {
-                LogError(_source, $"The heartbeat task encountered an unknown exception: {ex}");
+                await NetLog.ErrorAsync($"The heartbeat task encountered an unknown exception", ex);
             }
         }
-        
+
         #region Send Receive
 
         /// <summary>
@@ -650,7 +730,7 @@ namespace Steam.Net
 
             if (message.Header is ClientHeader clientHeader)
             {
-                if (SessionId > 0)
+                if (SessionId != 0)
                     clientHeader.SessionId = SessionId;
 
                 if (SteamId > 0 && clientHeader.SteamId == SteamId.Zero)
@@ -659,12 +739,11 @@ namespace Steam.Net
 
             byte[] data = message.Serialize();
 
-            if (_encryption != null && !_encryptionPending)
-                data = _encryption.Encrypt(data);
+            Encryption.Encrypt(ref data);
 
-            LogDebug(_source, $"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}. Resulting packet is {data.Length} bytes long.");
+            await NetLog.DebugAsync($"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}. Resulting packet is {data.Length} bytes long.");
 
-            await _socket.SendAsync(data).ConfigureAwait(false);
+            await Socket.SendAsync(data).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -676,7 +755,7 @@ namespace Steam.Net
         protected internal async Task<T> SendJobAsync<T>(NetworkMessage message)
         {
             if (typeof(T) == typeof(NetworkMessage))
-                return (T) (object) await SendJobAsync(message).ConfigureAwait(false); // ok c#
+                return (T)(object)await SendJobAsync(message).ConfigureAwait(false); // ok c#
 
             NetworkMessage response = await SendJobAsync(message).ConfigureAwait(false);
 
@@ -718,65 +797,131 @@ namespace Steam.Net
             while (!completionFunc(result))
             {
                 responses.Add(result);
-                
+
                 task = _jobs.AddJob(job);
                 response = await task;
                 result = response.Deserialize<TResponse>();
             }
-            
+
             return selector(responses.ToReadOnlyCollection());
         }
-        
-        private byte[] Decrypt(byte[] data)
-        {
-            if (_encryption != null && !_encryptionPending)
-                return _encryption.Decrypt(data);
-            else
-                return data;
-        }
-        
-        private Task ReceiveAsync(byte[] data)
-        {
-            data = Decrypt(data);
-            DispatchData(data).ContinueWith(ContinueDispatch);
-            return Task.CompletedTask;
-        }
 
-        private void ContinueDispatch(Task task)
+        private async Task ReceiveAsync(byte[] data)
         {
-            if (task.IsFaulted)
-            {
-                LogError(_source, $"The dispatcher threw an exception: {(task.Exception.InnerExceptions.Count == 1 ? task.Exception.InnerException.ToString() : task.Exception.ToString())}");
-            }
+            Encryption.Decrypt(ref data);
+            await DispatchData(data).ConfigureAwait(false);
         }
 
         private async Task DispatchData(byte[] data)
         {
-            NetworkMessage message = NetworkMessage.Deserialize(data);
-            
-            if(_jobs.IsRunningJob(message.Header.JobId))
-                _jobs.SetJobResult(message, message.Header.JobId);
+            NetworkMessage message = NetworkMessage.CreateFromByteArray(data);
+
+            await NetLog.DebugAsync($"Received message of type {message.MessageType}");
+
+            if (_jobs.IsRunningJob(message.Header.JobId))
+                await _jobs.SetJobResult(message, message.Header.JobId);
 
             if (_eventDispatchers.TryGetValue(message.MessageType, out var dispatch))
             {
                 foreach (MessageReceiver dispatcher in dispatch.GetInvocationList())
                 {
-                    try
-                    {
-                        await dispatcher(message).ConfigureAwait(false);
-                    }
-                    catch (Exception e) // I don't trust anyone that uses my lib
-                    {
-                        LogError(_source, $"A message receiver threw an exception: {e}");
-                    }
+                    await TimeoutWrap(dispatcher.Method.ToString(), () => dispatcher(message));
                 }
             }
             else
             {
-                LogDebug(_source, $"No receiver found for message type {message.MessageType}");
+                await NetLog.DebugAsync($"No receiver found for message type {message.MessageType}");
             }
         }
 
         #endregion
+
+        private async Task TimedInvokeAsync(AsyncEvent<Func<Task>> eventHandler, string name)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync()).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync().ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimedInvokeAsync<T>(AsyncEvent<Func<T, Task>> eventHandler, string name, T arg)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync(arg)).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync(arg).ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimedInvokeAsync<T1, T2>(AsyncEvent<Func<T1, T2, Task>> eventHandler, string name, T1 arg1, T2 arg2)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2)).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync(arg1, arg2).ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimedInvokeAsync<T1, T2, T3>(AsyncEvent<Func<T1, T2, T3, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3)).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync(arg1, arg2, arg3).ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimedInvokeAsync<T1, T2, T3, T4>(AsyncEvent<Func<T1, T2, T3, T4, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3, arg4)).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync(arg1, arg2, arg3, arg4).ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimedInvokeAsync<T1, T2, T3, T4, T5>(AsyncEvent<Func<T1, T2, T3, T4, T5, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
+        {
+            if (eventHandler.HasSubscribers)
+            {
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                    await TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3, arg4, arg5)).ConfigureAwait(false);
+                else
+                    await eventHandler.InvokeAsync(arg1, arg2, arg3, arg4, arg5).ConfigureAwait(false);
+            }
+        }
+
+        private async Task TimeoutWrap(string name, Func<Task> action)
+        {
+            CancellationTokenSource cancellationToken = new CancellationTokenSource();
+            cancellationToken.CancelAfter(GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout);
+            await Task.Run(action, cancellationToken.Token).ContinueWith(async (t) =>
+            {
+                if (t.IsCanceled)
+                    await NetLog.ErrorAsync($"A receiver method or event handler took too long to complete execution and was cancelled prematurely", new TaskCanceledException(t));
+
+                if (t.IsFaulted)
+                    await NetLog.ErrorAsync($"A receiver method or event handler threw an exception", t.Exception);
+            }).ContinueWith(SwallowExceptions);
+        }
+
+        private void SwallowExceptions(Task task)
+        {
+            if (task.IsFaulted)
+            {
+                Exception e = task.Exception; // if you get here you should rethink life
+            }
+        }
     }
 }

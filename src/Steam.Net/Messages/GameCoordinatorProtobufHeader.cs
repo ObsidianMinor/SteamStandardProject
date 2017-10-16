@@ -1,4 +1,4 @@
-﻿using Steam.Net.Messages.Protobufs;
+﻿using Steam.Net.GameCoordinators.Messages.Protobufs;
 
 namespace Steam.Net.Messages
 {
@@ -9,21 +9,12 @@ namespace Steam.Net.Messages
         public long SourceAppId { get; internal set; }
         public string TargetJobName { get; internal set; }
 
-        internal GameCoordinatorProtobufHeader(GameCoordinatorHeader header) : base(header.JobIdTarget ?? ulong.MaxValue)
+        internal GameCoordinatorProtobufHeader(CMsgProtoBufHeader header) : base(header.job_id_target)
         {
-            ClientSteamId = header.ClientSteamId ?? SteamId.Zero;
-            ClientSessionId = header.ClientSessionId ?? 0;
-            SourceAppId = header.SourceAppId ?? 0;
-            TargetJobName = header.TargetJobName;
+            ClientSteamId = header.client_steam_id;
+            ClientSessionId = header.client_session_id;
+            SourceAppId = header.source_app_id;
+            TargetJobName = header.target_job_name;
         }
-    }
-
-    public enum MessageSource
-    {
-        Unspecified,
-        System,
-        SteamId,
-        GameCoordinator,
-        ReplySystem
     }
 }

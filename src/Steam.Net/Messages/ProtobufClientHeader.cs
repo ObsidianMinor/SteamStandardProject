@@ -24,11 +24,11 @@ namespace Steam.Net.Messages
                     throw new ArgumentOutOfRangeException(nameof(value));
 
                 _routingAppId = (uint)value;
-            }    
+            }
         }
 
         public string TargetJobName { get; internal set; }
-        
+
         public decimal TraceTag
         {
             get => _traceTag;
@@ -41,7 +41,9 @@ namespace Steam.Net.Messages
             }
         }
 
-        internal ProtobufClientHeader(ProtobufHeader header) : base(header.jobid_source, header.steamid, header.client_sessionid)
+        internal ProtobufClientHeader() : base(SteamGid.Invalid, SteamId.Zero, 0) { }
+
+        internal ProtobufClientHeader(CMsgProtoBufHeader header, bool server) : base(server ? header.jobid_target : header.jobid_source, header.steamid, header.client_sessionid)
         {
             if (header.routing_appidSpecified)
                 _routingAppId = header.routing_appid;
@@ -53,9 +55,9 @@ namespace Steam.Net.Messages
                 TraceTag = header.trace_tag;
         }
 
-        internal ProtobufHeader CreateProtobuf()
+        internal CMsgProtoBufHeader CreateProtobuf(bool server)
         {
-            ProtobufHeader header = new ProtobufHeader();
+            CMsgProtoBufHeader header = new CMsgProtoBufHeader();
 
             if (_routingAppId != 0)
                 header.routing_appid = _routingAppId;
@@ -66,8 +68,13 @@ namespace Steam.Net.Messages
             if (TargetJobName != null)
                 header.target_job_name = TargetJobName;
 
-            if (JobId != 0)
-                header.jobid_target = JobId;
+            if (JobId != SteamGid.Invalid)
+            {
+                if (server)
+                    header.jobid_source = JobId;
+                else
+                    header.jobid_target = JobId;
+            }
             
             header.client_sessionid = SessionId;
             header.steamid = SteamId;

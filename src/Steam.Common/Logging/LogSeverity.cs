@@ -1,4 +1,4 @@
-﻿namespace Steam.Logging
+﻿namespace Steam
 {
     /// <summary>
     /// Log severity levels

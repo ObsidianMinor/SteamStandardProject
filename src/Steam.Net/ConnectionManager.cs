@@ -1,6 +1,6 @@
 ﻿using Steam.Logging;
+using Steam.Net.Utilities;
 using System;
-using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,14 +8,16 @@ namespace Steam.Net
 {
     internal class ConnectionManager
     {
-        public event EventHandler<DisconnectedEventArgs> Disconnected;
+        public event Func<Task> Connected { add { _connectedEvent.Add(value); } remove { _connectedEvent.Remove(value); } }
+        private readonly AsyncEvent<Func<Task>> _connectedEvent = new AsyncEvent<Func<Task>>();
+        public event Func<Exception, bool, Task> Disconnected { add { _disconnectedEvent.Add(value); } remove { _disconnectedEvent.Remove(value); } }
+        private readonly AsyncEvent<Func<Exception, bool, Task>> _disconnectedEvent = new AsyncEvent<Func<Exception, bool, Task>>();
 
         private readonly SemaphoreSlim _stateLock;
-        private readonly LogManager _logger;
+        private readonly Logger _logger;
         private readonly int _connectionTimeout;
         private readonly Func<Task> _onConnecting;
         private readonly Func<Exception, Task> _onDisconnecting;
-        private readonly Func<Task> _onConnected;
 
         private TaskCompletionSource<bool> _connectionPromise, _readyPromise;
         private CancellationTokenSource _combinedCancelToken, _reconnectCancelToken, _connectionCancelToken;
@@ -23,24 +25,26 @@ namespace Steam.Net
 
         public ConnectionState State { get; private set; }
         public CancellationToken CancelToken { get; private set; }
+        public bool IsConnectionComplete => _readyPromise?.Task.IsCompleted ?? false ? _readyPromise?.Task.Result ?? false : false;
 
-        internal ConnectionManager(SemaphoreSlim stateLock, LogManager logger, int connectionTimeout, Func<Task> onConnecting, Func<Task> onConnected, Func<Exception, Task> onDisconnecting, Action<EventHandler<Exception>> clientDisconnectHandler)
+        internal ConnectionManager(SemaphoreSlim stateLock, Logger logger, int connectionTimeout,
+            Func<Task> onConnecting, Func<Exception, Task> onDisconnecting, Action<Func<Exception, Task>> clientDisconnectHandler)
         {
             _stateLock = stateLock;
             _logger = logger;
             _connectionTimeout = connectionTimeout;
             _onConnecting = onConnecting;
             _onDisconnecting = onDisconnecting;
-            _onConnected = onConnected;
-
-            clientDisconnectHandler((src, ex) =>
+            
+            clientDisconnectHandler(ex =>
             {
                 if (ex != null)
                 {
-                    Error(new Exception("Socket connection was closed", ex));
+                    Error(new Exception("The connection was closed", ex));
                 }
                 else
-                    Error(new Exception("Socket connection was closed"));
+                    Error(new Exception("The connection was closed"));
+                return Task.CompletedTask;
             });
         }
 
@@ -73,12 +77,12 @@ namespace Steam.Net
                             Error(ex); //In case this exception didn't come from another Error call
                             if (!reconnectCancelToken.IsCancellationRequested)
                             {
-                                _logger.LogWarning("CM", ex.ToString());
+                                await _logger.WarningAsync(ex).ConfigureAwait(false);
                                 await DisconnectAsync(ex, true).ConfigureAwait(false);
                             }
                             else
                             {
-                                _logger.LogError("CM", ex.ToString());
+                                await _logger.ErrorAsync(ex).ConfigureAwait(false);
                                 await DisconnectAsync(ex, false).ConfigureAwait(false);
                             }
                         }
@@ -112,7 +116,7 @@ namespace Steam.Net
 
             _connectionPromise = new TaskCompletionSource<bool>();
             State = ConnectionState.Connecting;
-            _logger.LogInfo("CM", "Connecting");
+            await _logger.InfoAsync("Connecting").ConfigureAwait(false);
 
             try
             {
@@ -133,10 +137,10 @@ namespace Steam.Net
 
                 await _onConnecting().ConfigureAwait(false);
 
-                _logger.LogInfo("CM", "Connected");
+                await _logger.InfoAsync("Connected").ConfigureAwait(false);
                 State = ConnectionState.Connected;
-                _logger.LogDebug("CM", "Raising Event");
-                await _onConnected();
+                await _logger.DebugAsync("Raising Event").ConfigureAwait(false);
+                await _connectedEvent.InvokeAsync().ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -144,23 +148,22 @@ namespace Steam.Net
                 throw;
             }
         }
-
         private async Task DisconnectAsync(Exception ex, bool isReconnecting)
         {
             if (State == ConnectionState.Disconnected) return;
             State = ConnectionState.Disconnecting;
-            _logger.LogInfo("CM", "Disconnecting");
+            await _logger.InfoAsync("Disconnecting").ConfigureAwait(false);
 
             await _onDisconnecting(ex).ConfigureAwait(false);
 
-            _logger.LogInfo("CM", "Disconnected");
+            await _logger.InfoAsync("Disconnected").ConfigureAwait(false);
             State = ConnectionState.Disconnected;
-            Disconnected?.Invoke(this, new DisconnectedEventArgs(isReconnecting, ex));
+            await _disconnectedEvent.InvokeAsync(ex, isReconnecting).ConfigureAwait(false);
         }
 
-        public Task CompleteAsync()
+        public async Task CompleteAsync()
         {
-            return Task.Run(() => _readyPromise.TrySetResult(true));
+            await _readyPromise.TrySetResultAsync(true).ConfigureAwait(false);
         }
         public async Task WaitAsync()
         {
@@ -176,7 +179,6 @@ namespace Steam.Net
         }
         public void Error(Exception ex)
         {
-            ex = ex ?? new SocketException((int)SocketError.ConnectionReset);
             _readyPromise.TrySetException(ex);
             _connectionPromise.TrySetException(ex);
             _connectionCancelToken?.Cancel();
