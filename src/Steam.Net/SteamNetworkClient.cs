@@ -234,13 +234,11 @@ namespace Steam.Net
                 _gameCoordinators.Remove(gc.Key);
             }
 
-            await NetLog.InfoAsync("Logging off");
-            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientLogOff, null));
-
             await NetLog.DebugAsync("Cancelling all jobs").ConfigureAwait(false);
             await _jobs.CancelAllJobs().ConfigureAwait(false);
 
             await NetLog.DebugAsync("Waiting for heartbeat").ConfigureAwait(false);
+            _heartbeatCancel?.Cancel();
             if (_heartBeatTask != null)
                 await _heartBeatTask.ConfigureAwait(false);
             _heartBeatTask = null;
@@ -702,7 +700,7 @@ namespace Steam.Net
                     }
                     catch (Exception ex)
                     {
-                        await NetLog.ErrorAsync($"The heartbeat task encountered an unknown exception", ex);
+                        await NetLog.ErrorAsync($"The heartbeat task encountered an unknown exception while sending the heartbeat message", ex);
                     }
                 }
             }
@@ -815,9 +813,7 @@ namespace Steam.Net
         private async Task DispatchData(byte[] data)
         {
             NetworkMessage message = NetworkMessage.CreateFromByteArray(data);
-
-            await NetLog.DebugAsync($"Received message of type {message.MessageType}");
-
+            
             if (_jobs.IsRunningJob(message.Header.JobId))
                 await _jobs.SetJobResult(message, message.Header.JobId);
 
@@ -830,7 +826,7 @@ namespace Steam.Net
             }
             else
             {
-                await NetLog.DebugAsync($"No receiver found for message type {message.MessageType}");
+                await NetLog.DebugAsync($"No receiver found for message type {message.MessageType} ({(int)message.MessageType})");
             }
         }
 

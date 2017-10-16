@@ -13,8 +13,7 @@ namespace Steam.Net.Sockets
         private readonly AsyncEvent<Func<Exception, Task>> _disconnectedEvent = new AsyncEvent<Func<Exception, Task>>();
 
         private readonly SemaphoreSlim _lock;
-        private TcpClient _tcpClient;
-        private NetworkStream _networkStream;
+        private Socket _socket;
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken, _parentToken = default;
         private Task _runTask;
@@ -39,7 +38,7 @@ namespace Steam.Net.Sockets
             _cancellationTokenSource = new CancellationTokenSource();
         }
 
-        public IPAddress LocalIp => (_tcpClient.Client.LocalEndPoint as IPEndPoint).Address;
+        public IPAddress LocalIp => (_socket.LocalEndPoint as IPEndPoint).Address;
         
         public async Task ConnectAsync(IPEndPoint endpoint)
         {
@@ -60,11 +59,10 @@ namespace Steam.Net.Sockets
 
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, _cancellationTokenSource.Token).Token;
-            
-            _tcpClient = new TcpClient();
-            await Task.Run(() => _tcpClient.ConnectAsync(endpoint.Address, endpoint.Port), _cancellationToken);
 
-            _networkStream = _tcpClient.GetStream();
+            _socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            await Task.Run(() => _socket.Connect(endpoint), _cancellationToken);
+            
             _runTask = ReceiveAsync(_cancellationToken);
         }
 
@@ -93,20 +91,19 @@ namespace Steam.Net.Sockets
             try
             {
                 if (!disposing)
-                    await (_runTask ?? Task.Delay(0)).ConfigureAwait(false);
+                    await (_runTask ?? Task.CompletedTask).ConfigureAwait(false);
             }
             finally { _isDisconnecting = false; }
 
-            if(_tcpClient != null)
+            if(_socket != null)
             {
                 try
                 {
-                    _tcpClient.Dispose();
-                    _networkStream.Dispose();
+                    _socket.Close();
+                    _socket.Dispose();
                 }
                 catch { }
-                _tcpClient = null;
-                _networkStream = null;
+                _socket = null;
             }
         }
 
@@ -115,9 +112,12 @@ namespace Steam.Net.Sockets
             await _lock.WaitAsync().ConfigureAwait(false);
             try
             {
-                await _networkStream.WriteAsync(BitConverter.GetBytes(data.Length), 0, 4).ConfigureAwait(false);
-                await _networkStream.WriteAsync(BitConverter.GetBytes(_tcpMagic), 0, 4).ConfigureAwait(false);
-                await _networkStream.WriteAsync(data, 0, data.Length).ConfigureAwait(false);
+                if (_socket.Send(BitConverter.GetBytes(data.Length)) == 0 ||
+                    _socket.Send(BitConverter.GetBytes(_tcpMagic)) == 0 ||
+                    _socket.Send(data) == 0)
+                {
+                    throw new SocketException((int)SocketError.NotConnected);
+                }
             }
             finally
             {
@@ -133,18 +133,23 @@ namespace Steam.Net.Sockets
         
         private async Task ReceiveAsync(CancellationToken cancellationToken)
         {
+            await Task.Yield();
+
             Task _sentData = Task.CompletedTask;
             try
             {
                 while (!cancellationToken.IsCancellationRequested)
                 {
-                    if (!_networkStream.CanRead)
+                    if (!_socket.Poll(-1, SelectMode.SelectRead))
                     {
                         continue;
                     }
 
+                    if (!_socket.Connected)
+                        throw new SocketException((int)SocketError.ConnectionReset);
+
                     byte[] bytes = new byte[8];
-                    if (await _networkStream.ReadAsync(bytes, 0, bytes.Length, cancellationToken).ConfigureAwait(false) == 0)
+                    if (_socket.Receive(bytes, 0, bytes.Length, SocketFlags.None) == 0)
                         throw new SocketException((int)SocketError.ConnectionReset);
 
                     uint length = BitConverter.ToUInt32(bytes, 0);
@@ -156,7 +161,7 @@ namespace Steam.Net.Sockets
                     }
 
                     bytes = new byte[length];
-                    await ReceiveDataAsync(bytes, bytes.Length, cancellationToken).ConfigureAwait(false);
+                    ReceiveData(bytes, bytes.Length);
 
                     await _sentData.ConfigureAwait(false);
 
@@ -186,10 +191,10 @@ namespace Steam.Net.Sockets
             await _disconnectedEvent.InvokeAsync(ex);
         }
 
-        private async Task ReceiveDataAsync(byte[] buffer, int length, CancellationToken token) // sometimes Steam sends data in batches and ReadAsync doesn't return that amount, so we need to loop until we get the whole packet
+        private void ReceiveData(byte[] buffer, int length) // sometimes Steam sends data in batches and ReadAsync doesn't return that amount, so we need to loop until we get the whole packet
         {
-            for (int remainingData = length, receivedData = 0; remainingData > 0 && !token.IsCancellationRequested; remainingData -= receivedData)
-                receivedData = await _networkStream.ReadAsync(buffer, receivedData, remainingData).ConfigureAwait(false);
+            for (int remainingData = length, receivedData = 0; remainingData > 0; remainingData -= receivedData)
+                receivedData = _socket.Receive(buffer, receivedData, remainingData, SocketFlags.None);
         }
 
         #region IDisposable Support
