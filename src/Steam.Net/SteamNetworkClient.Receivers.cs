@@ -141,6 +141,7 @@ namespace Steam.Net
         {
             await NetLog.InfoAsync($"Log off: {(Result)loggedOff.eresult} ({loggedOff.eresult})");
             await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult);
+	    _gracefulLogoff = true;
         }
     }
 }

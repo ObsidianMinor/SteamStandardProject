@@ -45,13 +45,10 @@ namespace Steam.Net
         private CancellationTokenSource _heartbeatCancel;
 
         // login continuation
-        private NetworkMessage _logonContinuation;
         private CMsgClientLogonResponse _previousLogonResponse;
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
-        private TaskCompletionSource<object> _loginPromise;
-        private Func<Task> _loginAction;
-
-        private List<ServerType> _serverTypesAvailable = new List<ServerType>();
+        private Func<Task> _logonFunc;
+        private bool _gracefulLogoff;
 
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
@@ -133,7 +130,10 @@ namespace Steam.Net
             _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), GetConfig<SteamNetworkConfig>().NetworkConnectionTimeout,
                 OnConnectingAsync, OnDisconnectingAsync, (x) => _socketDisconnected = x);
 
-            _connection.Disconnected += (ex, recon) => TimedInvokeAsync(_disconnected, nameof(Disconnected), ex);
+            _connection.Disconnected += async (ex, recon) => 
+            {
+                await TimedInvokeAsync(_disconnected, nameof(Disconnected), ex);
+            };
             _connection.Connected += async () =>
             {
                 await TimedInvokeAsync(_connected, nameof(Connected));
@@ -213,9 +213,9 @@ namespace Steam.Net
 
             await NetLog.DebugAsync("Performing possible login actions");
             // todo: resume connections and things
-            if (_loginPromise != null)
+            if (_logonFunc != null)
             {
-                _loginPromise.SetResult(new object());
+                await _logonFunc().ConfigureAwait(false);
             }
             else
             {
@@ -227,6 +227,12 @@ namespace Steam.Net
 
         private async Task OnDisconnectingAsync(Exception ex)
         {
+            if (!_gracefulLogoff)
+            {
+                CurrentEndPoint = null;
+                CurrentWebSocket = null;
+            }
+
             await NetLog.DebugAsync("Disconnecting all game coordinators").ConfigureAwait(false);
             foreach (var gc in _gameCoordinators)
             {
@@ -262,66 +268,67 @@ namespace Steam.Net
 
         private async Task ConnectInternalAsync()
         {
-            try
+            _connectCancellationToken = new CancellationTokenSource();
+            Socket.SetCancellationToken(_connectCancellationToken.Token);
+            if (Socket is IWebSocketClient webSocketClient)
             {
-                _connectCancellationToken = new CancellationTokenSource();
-                Socket.SetCancellationToken(_connectCancellationToken.Token);
-
-                if (Socket is IWebSocketClient webSocketClient)
+                if (_webSockets.Count == 0)
                 {
+                    IEnumerable<Uri> webSockets = GetConfig<SteamNetworkConfig>().WebSockets;
+                    _webSockets.AddRange(webSockets ?? Enumerable.Empty<Uri>());
                     if (_webSockets.Count == 0)
                     {
                         ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                        try
+                        var cmList = await directory.GetConnectionManagerListAsync(CellId);
+                        _webSockets.AddRange(cmList.Response.WebSocketServerList);
+                        if (_webSockets.Count == 0)
                         {
-                            var cmList = await directory.GetConnectionManagerListAsync(CellId);
-                            _webSockets.AddRange(cmList.Response.WebSocketServerList);
-                            if (_webSockets.Count == 0)
-                                throw new InvalidOperationException();
-                        }
-                        catch (HttpException e)
-                        {
-                            await NetLog.ErrorAsync("Could not fetch the Steam directory: ", e);
-                            throw;
+                            await NetLog.WarningAsync("The Steam directory did not return any WebSocket addresses");
+                            throw new InvalidOperationException("Could not find any WebSocket addresses to connect to");
                         }
                     }
-
-                    if (CurrentWebSocket == null)
-                        CurrentWebSocket = new Uri($"wss://{_webSockets.First()}/cmsocket/");
-
-                    await NetLog.InfoAsync($"Connecting to WebSocket {CurrentWebSocket}");
-                    await webSocketClient.ConnectAsync(CurrentWebSocket);
                 }
-                else
+
+                while (CurrentWebSocket == null && _webSockets.Count != 0)
                 {
+                    if (_webSockets.First() == null)
+                    {
+                        _webSockets.RemoveAt(0);
+                        continue;
+                    }
+                    CurrentWebSocket = new Uri($"wss://{_webSockets.First()}/cmsocket/");
+                }
+
+                await NetLog.InfoAsync($"Connecting to WebSocket {CurrentWebSocket}");
+                await webSocketClient.ConnectAsync(CurrentWebSocket);
+            }
+            else
+            {
+                if (_endpoints.Count == 0)
+                {
+                    IEnumerable<IPEndPoint> endPoints = GetConfig<SteamNetworkConfig>().ConnectionManagers;
+                    _endpoints.AddRange(endPoints ?? Enumerable.Empty<IPEndPoint>());
                     if (_endpoints.Count == 0)
                     {
                         ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                        try
+                        var cmList = await directory.GetConnectionManagerListAsync(CellId);
+                        _endpoints.AddRange(cmList.Response.ServerList);
+                        if (_endpoints.Count == 0)
                         {
-                            var cmList = await directory.GetConnectionManagerListAsync(CellId);
-                            _endpoints.AddRange(cmList.Response.ServerList);
-                            if (_endpoints.Count == 0)
-                                throw new InvalidOperationException();
-                        }
-                        catch (HttpException e)
-                        {
-                            await NetLog.ErrorAsync("Could not fetch the Steam directory: ", e);
-                            throw;
+                            await NetLog.WarningAsync("The Steam directory did not return any IP end points");
+                            throw new InvalidOperationException("Could not find any WebSocket addresses to connect to");
                         }
                     }
-
-                    if (CurrentEndPoint == null)
-                        CurrentEndPoint = _endpoints.First();
-
-                    await NetLog.InfoAsync($"Connecting to endpoint {CurrentEndPoint}");
-                    await Socket.ConnectAsync(CurrentEndPoint);
                 }
-            }
-            catch (Exception e)
-            {
-                await DisconnectInternalAsync().ConfigureAwait(false);
-                throw e;
+
+                while (CurrentEndPoint == null && _endpoints.Count != 0)
+                {
+                    CurrentEndPoint = _endpoints.First();
+                    _endpoints.RemoveAt(0);
+                }
+
+                await NetLog.InfoAsync($"Connecting to endpoint {CurrentEndPoint}");
+                await Socket.ConnectAsync(CurrentEndPoint);
             }
         }
 
@@ -433,13 +440,6 @@ namespace Steam.Net
 
         // StartAndLogin feels hacky, please post suggestions for it
 
-        private async Task WaitForConnectionAsync()
-        {
-            _loginPromise = new TaskCompletionSource<object>();
-            await _loginPromise.Task;
-            _loginPromise = null;
-        }
-
         /// <summary>
         /// Starts the client and logs in using the specified username and password
         /// </summary>
@@ -454,51 +454,44 @@ namespace Steam.Net
             string authCode = null, bool rememberPassword = false, bool requestSteam2Ticket = false)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginAsync(username, password, twoFactor, authCode, rememberPassword, requestSteam2Ticket);
+            _logonFunc = () => LoginAsync(username, password, twoFactor, authCode, rememberPassword, requestSteam2Ticket);
         }
 
         public async Task StartAndLoginAsync(string username, string password, byte[] sentryFileHash,
             bool requestSteam2Ticket = false)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginAsync(username, password, sentryFileHash, requestSteam2Ticket);
+            _logonFunc = () => LoginAsync(username, password, sentryFileHash, requestSteam2Ticket);
         }
 
         public async Task StartAndLoginAsync(string username, string loginKey, bool requestSteam2Ticket = false)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginAsync(username, loginKey, requestSteam2Ticket);
+            _logonFunc = () => LoginAsync(username, loginKey, requestSteam2Ticket);
         }
 
         public async Task StartAndLoginAnonymousAsync()
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginAnonymousAsync();
+            _logonFunc = LoginAnonymousAsync;
         }
 
         public async Task StartAndLoginConsoleAsync(long accountId)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginConsoleAsync(accountId);
+            _logonFunc = () => LoginConsoleAsync(accountId);
         }
 
         public async Task StartAndLoginGameServerAsync(long appId, string token)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginGameServerAsync(appId, token);
+            _logonFunc = () => LoginGameServerAsync(appId, token);
         }
 
         public async Task StartAndLoginGameServerAnonymousAsync(long appId)
         {
             await StartAsync();
-            await WaitForConnectionAsync();
-            await LoginGameServerAnonymousAsync(appId);
+            _logonFunc = () =>  LoginGameServerAnonymousAsync(appId);
         }
 
         private async Task LoginAsync(string username, string password, string twoFactorCode, string authCode, string loginKey, bool shouldRememberPassword, bool requestSteam2Ticket, byte[] sentryFileHash, uint accountId, AccountType accountType)
@@ -544,8 +537,6 @@ namespace Steam.Net
             (logon.Header as ClientHeader).SteamId = new SteamId(accountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, accountType, instance);
 
             await SendAsync(logon).ConfigureAwait(false);
-
-            _logonContinuation = logon;
         }
 
         /// <summary>

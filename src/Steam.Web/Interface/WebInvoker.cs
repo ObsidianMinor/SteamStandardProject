@@ -91,7 +91,16 @@ namespace Steam.Web.Interface
 
         private static object ContinuationFunction<TResult>(Task<RestResponse> response, ResponseConverter converter)
         {
-            return response.ContinueWith((t) => converter.ReadResponse<TResult>(t.Result), TaskContinuationOptions.OnlyOnRanToCompletion);
+            return response.ContinueWith((t) => 
+            { 
+                if (t.IsFaulted)
+                    throw t.Exception.GetBaseException();
+
+                if (t.IsCanceled)
+                    throw new TaskCanceledException(t);
+                    
+                return converter.ReadResponse<TResult>(t.Result);
+            });
         }
     }
 }
