@@ -130,7 +130,7 @@ namespace Steam.Net.Messages
                     using (MemoryStream protoStream = new MemoryStream(reader.ReadBytes(length)))
                         protobufHeader = Serializer.Deserialize<CMsgProtoBufHeader>(protoStream);
 
-                    header = new ProtobufClientHeader(protobufHeader, false);
+                    header = new ProtobufClientHeader(protobufHeader, server);
                 }
                 else if (stream.Length > 36 && reader.ReadByte() == 36 && reader.ReadUInt16() == 2)
                 {

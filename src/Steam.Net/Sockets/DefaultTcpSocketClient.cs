@@ -61,7 +61,7 @@ namespace Steam.Net.Sockets
             _cancellationToken = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, _cancellationTokenSource.Token).Token;
 
             _socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            await Task.Run(() => _socket.Connect(endpoint), _cancellationToken);
+            await Task.Run(() => _socket.Connect(endpoint), _cancellationToken).ConfigureAwait(false);
             
             _runTask = ReceiveAsync(_cancellationToken);
         }
@@ -182,13 +182,13 @@ namespace Steam.Net.Sockets
             await _lock.WaitAsync().ConfigureAwait(false);
             try
             {
-                await DisconnectInternalAsync(false);
+                await DisconnectInternalAsync(false).ConfigureAwait(false);
             }
             finally
             {
                 _lock.Release();
             }
-            await _disconnectedEvent.InvokeAsync(ex);
+            await _disconnectedEvent.InvokeAsync(ex).ConfigureAwait(false);
         }
 
         private void ReceiveData(byte[] buffer, int length) // sometimes Steam sends data in batches and ReadAsync doesn't return that amount, so we need to loop until we get the whole packet

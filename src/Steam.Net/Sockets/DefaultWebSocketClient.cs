@@ -112,7 +112,7 @@ namespace Steam.Net.Sockets
             {
                 if (!isDisposing)
                 {
-                    try { await _client.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", new CancellationToken()); }
+                    try { await _client.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", new CancellationToken()).ConfigureAwait(false); }
                     catch { }
                 }
                 try { _client.Dispose(); }
@@ -129,13 +129,13 @@ namespace Steam.Net.Sockets
             await _lock.WaitAsync().ConfigureAwait(false);
             try
             {
-                await DisconnectInternalAsync(false);
+                await DisconnectInternalAsync(false).ConfigureAwait(false);
             }
             finally
             {
                 _lock.Release();
             }
-            await Disconnected(ex);
+            await Disconnected(ex).ConfigureAwait(false);
         }
 
         public void SetHeader(string key, string value)

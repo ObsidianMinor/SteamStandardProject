@@ -58,7 +58,7 @@ namespace Steam.Net.GameCoordinators
         /// <returns></returns>
         protected internal async Task SendAsync(GameCoordinatorMessage message)
         {
-            await _client.SendGameCoordinatorMessage(AppId, message);
+            await _client.SendGameCoordinatorMessage(AppId, message).ConfigureAwait(false);
         }
         
         /// <summary>
@@ -81,7 +81,7 @@ namespace Steam.Net.GameCoordinators
             message.Header.JobId = job;
 
             await SendAsync(message).ConfigureAwait(false);
-            return await task;
+            return await task.ConfigureAwait(false);
         }
 
         /// <summary>

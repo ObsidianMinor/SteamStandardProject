@@ -34,15 +34,14 @@ namespace Steam.Net
             return (task, gid);
         }
 
-        internal async Task<T> AddJob(SteamGid job)
+        internal Task<T> AddJob(SteamGid job)
         {
             var timeout = new Timer(TimeoutTimer, job, jobTimeout, period);
             var task = new TaskCompletionSource<T>();
 
             _runningJobs[job] = (task, timeout);
-            await _jobLog.DebugAsync($"Added job {job}").ConfigureAwait(false);
 
-            return await task.Task.ConfigureAwait(false);
+            return task.Task;
         }
 
         internal bool IsRunningJob(SteamGid job)
@@ -58,14 +57,21 @@ namespace Steam.Net
 
         internal async Task SetJobResult(T message, SteamGid job)
         {
+            if (!_runningJobs.TryRemove(job, out var tuple))
+            {
+                await _jobLog.WarningAsync($"Could not find a job by ID {job}, someone has set a job outside the manager").ConfigureAwait(false);
+                return;
+            }
             await _jobLog.DebugAsync($"Setting successful job result for job {job}").ConfigureAwait(false);
-            _runningJobs[job].Item1.SetResult(message);
+
+            tuple.Item2.Dispose();
+            tuple.Item1.SetResult(message);
         }
 
         internal async Task CancelAllJobs()
         {
             foreach (var job in _runningJobs)
-                await SetJobFail(job.Key, new TaskCanceledException(job.Value.Item1.Task));
+                await SetJobFail(job.Key, new TaskCanceledException(job.Value.Item1.Task)).ConfigureAwait(false);
         }
 
         internal async Task SetJobFail(SteamGid job, Exception ex)
@@ -78,18 +84,16 @@ namespace Steam.Net
 
             await _jobLog.DebugAsync($"Failed job {job}").ConfigureAwait(false);
 
-            jobTuple.Item1.SetException(ex);
             jobTuple.Item2.Dispose();
+            jobTuple.Item1.SetException(ex);
         }
         
         private void TimeoutTimer(object state)
         {
-#if !DEBUG  // if we're debugging, we don't need to timeout
             SteamGid jobId = (SteamGid)state;
-            _runningJobs.TryRemove(jobId, out Job job);
+            _runningJobs.TryRemove(jobId, out var job);
             job.Item1.SetException(new TimeoutException("The destination job timed out"));
             job.Item2.Dispose();
-#endif
         }
     }
 }

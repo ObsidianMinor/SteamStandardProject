@@ -3,10 +3,8 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Utilities;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,14 +43,14 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ChannelEncryptRequest)]
         private async Task ReceiveEncryptRequest(ChannelEncryptRequest encryptRequest)
         {
-            await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}");
+            await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
             SteamId = SteamId.CreateAnonymousUser(encryptRequest.Universe);
 
             byte[] challange = encryptRequest.Challenge.Length >= 16 ? encryptRequest.Challenge : null;
             byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
             if (publicKey == null)
             {
-                await NetLog.ErrorAsync($"Cannot find public key for universe {encryptRequest.Universe}");
+                await NetLog.ErrorAsync($"Cannot find public key for universe {encryptRequest.Universe}").ConfigureAwait(false);
                 throw new InvalidOperationException($"Public key does not exist for universe {encryptRequest.Universe}");
             }
 
@@ -93,8 +91,8 @@ namespace Steam.Net
         {
             if (encryptResult.Result == Result.OK)
             {
-                await NetLog.DebugAsync("Channel encrypted");
-                await _connection.CompleteAsync();
+                await NetLog.DebugAsync("Channel encrypted").ConfigureAwait(false);
+                await _connection.CompleteAsync().ConfigureAwait(false);
             }
         }
 
@@ -103,7 +101,7 @@ namespace Steam.Net
         {
             CMsgClientLogonResponse response = messsage.Deserialize<CMsgClientLogonResponse>();
             if (response.eresult != 1)
-                await NetLog.InfoAsync($"Logon denied: {(Result)response.eresult}. Expect to disconnect");
+                await NetLog.InfoAsync($"Logon denied: {(Result)response.eresult}. Expect to disconnect").ConfigureAwait(false);
 
             switch ((Result)response.eresult)
             {
@@ -111,14 +109,14 @@ namespace Steam.Net
                     GetConfig<SteamNetworkConfig>().CellId = response.cell_id;
                     SessionId = (messsage.Header as ClientHeader).SessionId;
                     SteamId = (messsage.Header as ClientHeader).SteamId;
-                    await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}");
+                    await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
                     
                     _heartbeatCancel = new CancellationTokenSource();
                     _heartBeatTask = RunHeartbeatAsync(response.out_of_game_heartbeat_seconds * 1000, _connection.CancelToken);
-                    await _loggedOnEvent.InvokeAsync();
+                    await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
                     break;
                 default:
-                    await _loginRejectedEvent.InvokeAsync((Result)response.eresult, response.client_supplied_steamid);
+                    await TimedInvokeAsync(_loginRejectedEvent, nameof(LoginRejected), (Result)response.eresult, response.client_supplied_steamid).ConfigureAwait(false);
                     _previousLogonResponse = response;
                     break;
             }
@@ -127,21 +125,26 @@ namespace Steam.Net
         [MessageReceiver(MessageType.JobHeartbeat)]
         private async Task HeartbeatJob(Header header)
         {
-            await _jobs.HeartbeatJob(header.JobId);
+            await _jobs.HeartbeatJob(header.JobId).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.DestJobFailed)]
         private async Task FailJob(Header header)
         {
-            await _jobs.SetJobFail(header.JobId, new DestinationJobFailedException(header.JobId));
+            await _jobs.SetJobFail(header.JobId, new DestinationJobFailedException(header.JobId)).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientLoggedOff)]
         private async Task ReceiveLogOff(CMsgClientLoggedOff loggedOff)
         {
-            await NetLog.InfoAsync($"Log off: {(Result)loggedOff.eresult} ({loggedOff.eresult})");
-            await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult);
-	    _gracefulLogoff = true;
+            await NetLog.InfoAsync($"Log off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
+            await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult).ConfigureAwait(false);
+            _gracefulLogoff = true;
+        }
+
+        private async Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
+        {
+            
         }
     }
 }

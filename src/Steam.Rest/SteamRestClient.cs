@@ -51,7 +51,7 @@ namespace Steam.Rest
                 Task result = await Task.WhenAny(responseTask, timeout).ConfigureAwait(false);
 
                 stopwatch.Stop();
-                await RestLog.VerboseAsync($"{Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()} {request.RequestUri} : {stopwatch.ElapsedMilliseconds} ms");
+                await RestLog.VerboseAsync($"{Enum.GetName(typeof(HttpMethod), request.Method).ToUpper()} {request.RequestUri} : {stopwatch.ElapsedMilliseconds} ms").ConfigureAwait(false);
 
                 if (result == timeout)
                 {
@@ -68,7 +68,7 @@ namespace Steam.Rest
                         continue;
                 }
 
-                RestResponse response = await responseTask;
+                RestResponse response = await responseTask.ConfigureAwait(false);
 
                 switch (response.Status)
                 {

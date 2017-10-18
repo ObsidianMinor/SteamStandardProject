@@ -31,8 +31,8 @@ namespace Steam.Rest
         public async Task<RestResponse> SendAsync(RestRequest request, CancellationToken token)
         {
             HttpRequestMessage message = CreateRequest(request);
-            HttpResponseMessage response = await _client.SendAsync(message, token);
-            return await CreateResponse(response);
+            HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
+            return await CreateResponse(response).ConfigureAwait(false);
         }
 
         public void SetCookie(Uri uri, Cookie cookie)
@@ -49,7 +49,7 @@ namespace Steam.Rest
 
         private async Task<RestResponse> CreateResponse(HttpResponseMessage response)
         {
-            return new RestResponse(response.StatusCode, response.Headers.ToDictionary(k => k.Key, k => new RestHeaderValue(k.Value)), await response.Content.ReadAsStreamAsync());
+            return new RestResponse(response.StatusCode, response.Headers.ToDictionary(k => k.Key, k => new RestHeaderValue(k.Value)), await response.Content.ReadAsStreamAsync().ConfigureAwait(false));
         }
 
         private HttpRequestMessage CreateRequest(RestRequest request)

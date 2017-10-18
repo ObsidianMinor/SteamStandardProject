@@ -43,7 +43,7 @@ namespace Steam.Net.Messages
 
         internal ProtobufClientHeader() : base(SteamGid.Invalid, SteamId.Zero, 0) { }
 
-        internal ProtobufClientHeader(CMsgProtoBufHeader header, bool server) : base(server ? header.jobid_target : header.jobid_source, header.steamid, header.client_sessionid)
+        internal ProtobufClientHeader(CMsgProtoBufHeader header, bool server) : base(server ? header.jobid_source : header.jobid_target, header.steamid, header.client_sessionid)
         {
             if (header.routing_appidSpecified)
                 _routingAppId = header.routing_appid;
@@ -71,9 +71,9 @@ namespace Steam.Net.Messages
             if (JobId != SteamGid.Invalid)
             {
                 if (server)
-                    header.jobid_source = JobId;
-                else
                     header.jobid_target = JobId;
+                else
+                    header.jobid_source = JobId;
             }
             
             header.client_sessionid = SessionId;
