@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Steam.Web.StringSerializers;
 
 namespace Steam.Web.Interface
 {
@@ -22,6 +23,18 @@ namespace Steam.Web.Interface
                 return _instance;
             }
         }
+
+        private readonly static StringSerializer[] _serializers = new[]
+        {
+            new TimeSpanSerializer(),
+            new JsonStringSerializer(),
+            new LanguageSerializer(),
+            new DateTimeSerializer(),
+            new SteamIdSerializer(),
+            new ByteArraySerializer(), // byte array before enumerable because enumerable also can handle arrays
+            new CommaSeperatedEnumerableSerializer(),
+            StringSerializer.Instance,
+        };
         
         public virtual WebInterfaceContract ResolveInterface(Type type)
         {
@@ -82,7 +95,7 @@ namespace Steam.Web.Interface
                 parameter.ParameterType.IsValueType || Nullable.GetUnderlyingType(parameter.ParameterType) != null;
 
             contract.Serializer = attribute?.SerializerType == null 
-                ? StringSerializer.Instance 
+                ? FindBuiltInStringSerializer(parameter.ParameterType)
                 : WebContractReflector.GetParameterSerializer(attribute.SerializerType, attribute.SerializerArgs);
 
             return contract;
@@ -98,6 +111,11 @@ namespace Steam.Web.Interface
                 : WebContractReflector.GetResponseConverter(attribute.ResponseConverterType, attribute.ResponseConverterParameters);
 
             return contract;
+        }
+
+        protected virtual StringSerializer FindBuiltInStringSerializer(Type paramType)
+        {
+            return _serializers.First(s => s.CanConvert(paramType));
         }
     }
 }

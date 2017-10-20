@@ -44,7 +44,7 @@ namespace Steam.Net
         private async Task ReceiveEncryptRequest(ChannelEncryptRequest encryptRequest)
         {
             await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
-            SteamId = SteamId.CreateAnonymousUser(encryptRequest.Universe);
+            CurrentUser = SelfUser.CreateAnonymousUser(SteamId.CreateAnonymousUser(encryptRequest.Universe));
 
             byte[] challange = encryptRequest.Challenge.Length >= 16 ? encryptRequest.Challenge : null;
             byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
@@ -108,7 +108,13 @@ namespace Steam.Net
                 case Result.OK:
                     GetConfig<SteamNetworkConfig>().CellId = response.cell_id;
                     SessionId = (messsage.Header as ClientHeader).SessionId;
-                    SteamId = (messsage.Header as ClientHeader).SteamId;
+                    var id = (messsage.Header as ClientHeader).SteamId;
+                    if (id.IsAnonymousAccount)
+                        CurrentUser = SelfUser.CreateAnonymousUser(id);
+                    else
+                    {
+                        
+                    }
                     await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
                     
                     _heartbeatCancel = new CancellationTokenSource();
@@ -116,8 +122,12 @@ namespace Steam.Net
                     await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
                     break;
                 default:
-                    await TimedInvokeAsync(_loginRejectedEvent, nameof(LoginRejected), (Result)response.eresult, response.client_supplied_steamid).ConfigureAwait(false);
+                    await StartEventWait();
+                    Result result = (Result)response.eresult;
+                    bool canContinue = result == Result.AccountLoginDeniedNeedTwoFactor || result == Result.AccountLogonDeniedVerifiedEmailRequired || result == Result.TwoFactorCodeMismatch;
                     _previousLogonResponse = response;
+                    await _loginRejectedEvent.InvokeAsync(result, response.client_supplied_steamid, canContinue).ConfigureAwait(false);
+                    await CompleteAsync();
                     break;
             }
         }

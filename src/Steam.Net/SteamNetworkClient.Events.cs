@@ -87,11 +87,11 @@ namespace Steam.Net
             remove => _loggedOffEvent.Remove(value);
         }
 
-        private readonly AsyncEvent<Func<Result, SteamId, Task>> _loginRejectedEvent = new AsyncEvent<Func<Result, SteamId, Task>>();
+        private readonly AsyncEvent<Func<Result, SteamId, bool, Task>> _loginRejectedEvent = new AsyncEvent<Func<Result, SteamId, bool, Task>>();
         /// <summary>
         /// Invoked when login was denied
         /// </summary>
-        public event Func<Result, SteamId, Task> LoginRejected
+        public event Func<Result, SteamId, bool, Task> LoginRejected
         {
             add => _loginRejectedEvent.Add(value);
             remove => _loginRejectedEvent.Remove(value);

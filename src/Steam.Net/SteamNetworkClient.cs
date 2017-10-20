@@ -46,11 +46,13 @@ namespace Steam.Net
 
         // login continuation
         private CMsgClientLogonResponse _previousLogonResponse;
-        private CMsgClientLogon _previousLogonRequest;
+        private LoginInfo _previousLogonRequest;
         private Func<Task> _logonFunc;
 
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
         private bool _gracefulLogoff;
+
+        private TaskCompletionSource<bool> _continueWaiter;
 
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
@@ -94,7 +96,9 @@ namespace Steam.Net
         /// <summary>
         /// Gets the client's current user's Steam ID
         /// </summary>
-        public SteamId SteamId { get; private set; }
+        public SteamId SteamId => CurrentUser.Id;
+
+        public SelfUser CurrentUser { get; private set; }
 
         /// <summary>
         /// Gets the client's current cell ID
@@ -215,7 +219,11 @@ namespace Steam.Net
 
             await NetLog.DebugAsync("Performing possible login actions").ConfigureAwait(false);
             // todo: resume connections and things
-            if (_logonFunc != null)
+            if (_previousLogonResponse != null)
+            {
+                await LoginAsync(_previousLogonRequest).ConfigureAwait(false);
+            }
+            else if (_logonFunc != null)
             {
                 await _logonFunc().ConfigureAwait(false);
             }
@@ -253,6 +261,12 @@ namespace Steam.Net
 
             await NetLog.DebugAsync("Disconnecting client").ConfigureAwait(false);
             await DisconnectAsync().ConfigureAwait(false);
+
+            if (_continueWaiter != null)
+            {
+                await NetLog.DebugAsync("Waiting for previous logon result");
+                await WaitAsync();
+            }
         }
 
         private async Task ConnectAsync()
@@ -358,6 +372,23 @@ namespace Steam.Net
             await Socket.DisconnectAsync().ConfigureAwait(false);
         }
 
+        private async Task StartEventWait()
+        {
+            await WaitAsync();
+            _continueWaiter = new TaskCompletionSource<bool>();
+        }
+
+        private async Task WaitAsync()
+        {
+            await (_continueWaiter?.Task ?? Task.FromResult(true));
+        }
+
+        private async Task CompleteAsync()
+        {
+            await _continueWaiter?.TrySetResultAsync(true);
+            _continueWaiter = null;
+        }
+
         // in exchange for a gc instance to track, we give back a log manager
         internal (Logger, JobManager<GameCoordinatorMessage>) AttachGC(GameCoordinator gc, string name)
         {
@@ -377,7 +408,16 @@ namespace Steam.Net
         /// <returns>An awaitable task</returns>
         public async Task LoginAsync(string username, string password, string twoFactor = null, string authCode = null, bool rememberPassword = false, bool requestSteam2Ticket = false)
         {
-            await LoginAsync(username, password, twoFactor, authCode, null, rememberPassword, requestSteam2Ticket, null, 0, AccountType.Individual).ConfigureAwait(false);
+            await LoginAsync(new LoginInfo 
+            {
+                Username = username,
+                Password = password,
+                TwoFactorCode = twoFactor,
+                AuthCode = authCode,
+                ShouldRememberPassword = rememberPassword,
+                RequestSteam2Ticket = requestSteam2Ticket,
+                AccountType = AccountType.Individual
+            }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -390,7 +430,14 @@ namespace Steam.Net
         /// <returns></returns>
         public async Task LoginAsync(string username, string password, byte[] sentryFileHash, bool requestSteam2Ticket = false)
         {
-            await LoginAsync(username, password, null, null, null, false, requestSteam2Ticket, sentryFileHash, 0, AccountType.Individual).ConfigureAwait(false);
+            await LoginAsync(new LoginInfo
+            {
+                Username = username,
+                Password = password,
+                SentryFileHash = sentryFileHash,
+                RequestSteam2Ticket = requestSteam2Ticket,
+                AccountType = AccountType.Individual
+            }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -402,7 +449,13 @@ namespace Steam.Net
         /// <returns></returns>
         public async Task LoginAsync(string username, string loginKey, bool requestSteam2Ticket = false)
         {
-            await LoginAsync(username, null, null, null, loginKey, true, requestSteam2Ticket, null, 0, AccountType.Individual).ConfigureAwait(false);
+            await LoginAsync(new LoginInfo 
+            { 
+                Username = username, 
+                LoginKey = loginKey, 
+                RequestSteam2Ticket = requestSteam2Ticket,
+                AccountType = AccountType.Individual 
+            }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -411,7 +464,7 @@ namespace Steam.Net
         /// <returns></returns>
         public async Task LoginAnonymousAsync()
         {
-            await LoginAsync(null, null, null, null, null, false, false, null, 0, AccountType.AnonUser).ConfigureAwait(false);
+            await LoginAsync(new LoginInfo { AccountType = AccountType.AnonUser }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -421,7 +474,7 @@ namespace Steam.Net
         /// <returns></returns>
         public async Task LoginConsoleAsync(long accountId)
         {
-            await LoginAsync(null, null, null, null, null, false, false, null, (uint)accountId, AccountType.Individual).ConfigureAwait(false);
+            await LoginAsync(new LoginInfo { AccountId = (uint)accountId, AccountType = AccountType.Individual }).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -453,7 +506,19 @@ namespace Steam.Net
 
         public async Task LoginGameServerAnonymousAsync(int appId)
         {
+            CMsgClientLogon logon = new CMsgClientLogon()
+            {
+                protocol_version = _currentProtocolVer,
+                obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId),
+                client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
+                game_server_app_id = appId,
+                machine_id = await HardwareUtils.GetMachineId().ConfigureAwait(false),
+            };
 
+            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogon, logon);
+            (message.Header as ClientHeader).SteamId = SteamId.CreateAnonymousGameServer(GetConfig<SteamNetworkConfig>().DefaultUniverse);
+
+            await SendAsync(message).ConfigureAwait(false);
         }
 
         // StartAndLogin feels hacky, please post suggestions for it
@@ -512,21 +577,21 @@ namespace Steam.Net
             _logonFunc = () =>  LoginGameServerAnonymousAsync(appId);
         }
 
-        private async Task LoginAsync(string username, string password, string twoFactorCode, string authCode, string loginKey, bool shouldRememberPassword, bool requestSteam2Ticket, byte[] sentryFileHash, uint accountId, AccountType accountType)
+        private async Task LoginAsync(LoginInfo info)
         {
             uint instance = 0;
-            if (accountId != 0)
+            if (info.AccountId != 0)
                 instance = 2;
-            else if (accountType != AccountType.AnonUser)
+            else if (info.AccountType != AccountType.AnonUser)
                 instance = 1;
 
-            await NetLog.InfoAsync($"Logging in as {username ?? (instance == 0 ? "an anonymous user" : "a console user")}").ConfigureAwait(false);
+            await NetLog.InfoAsync($"Logging in as {info.Username ?? (instance == 0 ? "an anonymous user" : "a console user")}").ConfigureAwait(false);
             byte[] machineId = await HardwareUtils.GetMachineId().ConfigureAwait(false); // while we set up the logon object, we will start to get the machine ID
 
             var body = new CMsgClientLogon
             {
                 protocol_version = 65579,
-                client_os_type = (uint)(accountId == 0 ? HardwareUtils.GetCurrentOsType() : OsType.PS3),
+                client_os_type = (uint)(info.AccountId == 0 ? HardwareUtils.GetCurrentOsType() : OsType.PS3),
                 client_language = GetConfig<SteamNetworkConfig>().Language.GetApiLanguageCode(),
                 cell_id = (uint)GetConfig<SteamNetworkConfig>().CellId,
             };
@@ -534,17 +599,17 @@ namespace Steam.Net
             if (machineId != null && machineId.Length != 0)
                 body.machine_id = machineId;
 
-            if (accountType != AccountType.AnonUser)
+            if (info.AccountType != AccountType.AnonUser)
             {
-                body.account_name = username;
-                body.password = password;
-                body.should_remember_password = shouldRememberPassword;
-                body.steam2_ticket_request = requestSteam2Ticket;
-                body.two_factor_code = twoFactorCode;
-                body.auth_code = authCode;
-                body.login_key = loginKey;
-                body.sha_sentryfile = sentryFileHash;
-                body.eresult_sentryfile = (int)(sentryFileHash is null ? Result.FileNotFound : Result.OK);
+                body.account_name = info.Username;
+                body.password = info.Password;
+                body.should_remember_password = info.ShouldRememberPassword;
+                body.steam2_ticket_request = info.RequestSteam2Ticket;
+                body.two_factor_code = info.TwoFactorCode;
+                body.auth_code = info.AuthCode;
+                body.login_key = info.LoginKey;
+                body.sha_sentryfile = info.SentryFileHash;
+                body.eresult_sentryfile = (int)(info.SentryFileHash is null ? Result.FileNotFound : Result.OK);
                 body.client_package_version = 1771;
                 body.obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId);
                 body.supports_rate_limit_response = true;
@@ -552,9 +617,11 @@ namespace Steam.Net
 
             var logon = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogon, body);
 
-            (logon.Header as ClientHeader).SteamId = new SteamId(accountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, accountType, instance);
+            (logon.Header as ClientHeader).SteamId = new SteamId(info.AccountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, info.AccountType, instance);
 
             await SendAsync(logon).ConfigureAwait(false);
+
+            _previousLogonRequest = info;
         }
 
         /// <summary>
@@ -562,7 +629,33 @@ namespace Steam.Net
         /// </summary>
         public void SetLoginInformation(string code)
         {
-            
+            if (_previousLogonResponse == null)
+                throw new InvalidOperationException("Cannot continue successful logon");
+
+            if (string.IsNullOrEmpty(code))
+                throw new ArgumentException("Provided code cannot be null or empty", nameof(code));
+
+            switch((Result)_previousLogonResponse.eresult)
+            {
+                case Result.AccountLoginDeniedNeedTwoFactor:
+                case Result.TwoFactorCodeMismatch:
+                    _previousLogonRequest.TwoFactorCode = code;
+                    break;
+                case Result.AccountLogonDeniedVerifiedEmailRequired:
+                    _previousLogonRequest.AuthCode = code;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(_previousLogonResponse.eresult), "The response cannot be continue with a provided auth code");
+            }
+        }
+
+        public async Task<string> GetWebUserNonceKey()
+        {
+            var nonce = await SendJobAsync<CMsgClientRequestWebAPIAuthenticateUserNonceResponse>(
+                NetworkMessage.CreateProtobufMessage(MessageType.ClientRequestWebAPIAuthenticateUserNonce, null)).ConfigureAwait(false);
+
+            SteamException.ThrowIfNotOK(nonce.eresult, "The request for a Web API user nonce key did not complete succesfully");
+            return nonce.webapi_authenticate_user_nonce;
         }
 
         /// <summary>
@@ -733,7 +826,6 @@ namespace Steam.Net
                     try
                     {
                         await SendAsync(message).ConfigureAwait(false);
-                        await NetLog.DebugAsync("Sent heartbeat").ConfigureAwait(false);
                     }
                     catch (Exception ex)
                     {
