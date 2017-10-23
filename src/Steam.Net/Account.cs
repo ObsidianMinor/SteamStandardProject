@@ -1,8 +1,11 @@
-﻿namespace Steam.Net
+﻿using System.Diagnostics;
+
+namespace Steam.Net
 {
     /// <summary>
     /// Represents a basic Steam account with a Steam ID
     /// </summary>
+    [DebuggerDisplay("SteamId = {SteamId}")]
     public abstract class Account
     {
         /// <summary>

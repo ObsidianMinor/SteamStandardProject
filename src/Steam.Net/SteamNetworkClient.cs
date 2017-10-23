@@ -6,7 +6,6 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Sockets;
 using Steam.Net.Utilities;
-using Steam.Rest;
 using Steam.Web;
 using System;
 using System.Collections.Generic;
@@ -28,6 +27,7 @@ namespace Steam.Net
 
         private static readonly NoEncryptor _defaultEncryptor = new NoEncryptor();
 
+        private readonly IReceiveMethodResolver _resolver;
         private readonly SemaphoreSlim _stateLock;
         private readonly SemaphoreSlim _connectionStateLock;
         private readonly JobManager<NetworkMessage> _jobs;
@@ -96,14 +96,22 @@ namespace Steam.Net
         /// <summary>
         /// Gets the client's current user's Steam ID
         /// </summary>
-        public SteamId SteamId => CurrentUser.Id;
+        public SteamId SteamId => CurrentUser?.Id ?? SteamId.Zero;
 
+        /// <summary>
+        /// Gets the client's current user
+        /// </summary>
         public SelfUser CurrentUser { get; private set; }
 
         /// <summary>
         /// Gets the client's current cell ID
         /// </summary>
         public long CellId { get; private set; }
+
+        /// <summary>
+        /// Gets the client's current instance ID
+        /// </summary>
+        public long InstanceId { get; private set; }
         
         /// <summary>
         /// Creates a new <see cref="SteamNetworkClient"/> with the default config
@@ -144,15 +152,14 @@ namespace Steam.Net
             {
                 await TimedInvokeAsync(_connected, nameof(Connected)).ConfigureAwait(false);
             };
-
-            IReceiveMethodResolver resolver;
+            
             if (config.ReceiveMethodResolver == null)
             {
-                resolver = new DefaultReceiveMethodResolver();
+                _resolver = new DefaultReceiveMethodResolver();
             }
             else
             {
-                resolver = config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
+                _resolver = config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
             }
 
             foreach (MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
@@ -160,7 +167,7 @@ namespace Steam.Net
                 var attribute = method.GetCustomAttribute<MessageReceiverAttribute>();
                 if (attribute != null)
                 {
-                    if (resolver.TryResolve(method, this, out MessageReceiver receiver))
+                    if (_resolver.TryResolve(method, this, out MessageReceiver receiver))
                         Subscribe(attribute.Type, receiver);
                 }
             }
@@ -389,11 +396,11 @@ namespace Steam.Net
             _continueWaiter = null;
         }
 
-        // in exchange for a gc instance to track, we give back a log manager
-        internal (Logger, JobManager<GameCoordinatorMessage>) AttachGC(GameCoordinator gc, string name)
+        // in exchange for a gc instance to track, we give back a logger, job manager, and method resolver
+        internal (Logger, JobManager<GameCoordinatorMessage>, IReceiveMethodResolver) AttachGC(GameCoordinator gc, string name)
         {
             _gameCoordinators.Add(gc.AppId, gc);
-            return (LogManager.CreateLogger(name), new JobManager<GameCoordinatorMessage>(LogManager.CreateLogger("GCJobs")));
+            return (LogManager.CreateLogger(name), new JobManager<GameCoordinatorMessage>(LogManager.CreateLogger("GCJobs")), _resolver);
         }
 
         /// <summary>
@@ -498,12 +505,18 @@ namespace Steam.Net
                 game_server_token = token
             };
 
-            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogonGameServer, logon);
-            (message.Header as ClientHeader).SteamId = new SteamId(0, GetConfig<SteamNetworkConfig>().DefaultUniverse, AccountType.GameServer, 0);
+            NetworkMessage message = NetworkMessage
+                .CreateProtobufMessage(MessageType.ClientLogonGameServer, logon)
+                .WithClientInfo(new SteamId(0, GetConfig<SteamNetworkConfig>().DefaultUniverse, AccountType.GameServer, 0), 0);
 
-            await SendAsync(message).ConfigureAwait(false);
+            await SendAsync(message.Serialize()).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Logs into the Steam network as an anonymous game server
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <returns></returns>
         public async Task LoginGameServerAnonymousAsync(int appId)
         {
             CMsgClientLogon logon = new CMsgClientLogon()
@@ -515,10 +528,11 @@ namespace Steam.Net
                 machine_id = await HardwareUtils.GetMachineId().ConfigureAwait(false),
             };
 
-            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogon, logon);
-            (message.Header as ClientHeader).SteamId = SteamId.CreateAnonymousGameServer(GetConfig<SteamNetworkConfig>().DefaultUniverse);
+            NetworkMessage message = NetworkMessage
+                .CreateProtobufMessage(MessageType.ClientLogon, logon)
+                .WithClientInfo(SteamId.CreateAnonymousGameServer(GetConfig<SteamNetworkConfig>().DefaultUniverse), 0);
 
-            await SendAsync(message).ConfigureAwait(false);
+            await SendAsync(message.Serialize()).ConfigureAwait(false);
         }
 
         // StartAndLogin feels hacky, please post suggestions for it
@@ -615,11 +629,11 @@ namespace Steam.Net
                 body.supports_rate_limit_response = true;
             }
 
-            var logon = NetworkMessage.CreateProtobufMessage(MessageType.ClientLogon, body);
+            var logon = NetworkMessage
+                .CreateProtobufMessage(MessageType.ClientLogon, body)
+                .WithClientInfo(new SteamId(info.AccountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, info.AccountType, instance), 0);
 
-            (logon.Header as ClientHeader).SteamId = new SteamId(info.AccountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, info.AccountType, instance);
-
-            await SendAsync(logon).ConfigureAwait(false);
+            await SendAsync(logon.Serialize()).ConfigureAwait(false);
 
             _previousLogonRequest = info;
         }
@@ -749,7 +763,7 @@ namespace Steam.Net
             if (appId < uint.MinValue || appId > uint.MaxValue)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
-            var message = NetworkMessage.CreateProtobufMessage(MessageType.ClientGetNumberOfCurrentPlayersDP, new CMsgDPGetNumberOfCurrentPlayers { appid = (uint)appId });
+            var message = NetworkMessage.CreateAppRoutedMessage(MessageType.ClientGetNumberOfCurrentPlayersDP, new CMsgDPGetNumberOfCurrentPlayers { appid = (uint)appId }, appId);
             var response = await SendJobAsync<CMsgDPGetNumberOfCurrentPlayersResponse>(message).ConfigureAwait(false);
 
             SteamException.ThrowIfNotOK(response.eresult, $"A request for the current player count of app ID {appId} did not complete succesfully. Result: {(Result)response.eresult}");
@@ -779,13 +793,13 @@ namespace Steam.Net
             return PicsChanges.Create(response);
         }
 
-        internal async Task SendGameCoordinatorMessage(int appid, GameCoordinatorMessage gcmessage)
+        internal async Task SendGameCoordinatorMessage(int appid, GameCoordinatorMessage message)
         {
             CMsgGCClient body = new CMsgGCClient()
             {
-                msgtype = MessageTypeUtils.MergeMessage((uint)gcmessage.MessageType, gcmessage.Protobuf),
+                msgtype = MessageTypeUtils.MergeMessage((uint)message.MessageType, message.Protobuf),
                 appid = (uint)appid,
-                payload = gcmessage.Serialize()
+                payload = message.Serialize()
             };
 
             await SendAsync(NetworkMessage.CreateAppRoutedMessage(MessageType.ClientToGC, body, appid)).ConfigureAwait(false);
@@ -814,8 +828,10 @@ namespace Steam.Net
              * TLDR: Valve sucks at naming enum members.
              */
             #endregion
+            
+            // cache the data so we don't serialize 500 times per session. Our session ID will never change and neither will our Steam ID
+            byte[] data = NetworkMessage.CreateProtobufMessage(MessageType.ClientHeartBeat, new CMsgClientHeartBeat()).WithClientInfo(SteamId, SessionId).Serialize();
 
-            NetworkMessage message = NetworkMessage.CreateProtobufMessage(MessageType.ClientHeartBeat, new CMsgClientHeartBeat());
             try
             {
                 await NetLog.DebugAsync($"Heartbeat started on a {interval} ms interval").ConfigureAwait(false);
@@ -825,7 +841,7 @@ namespace Steam.Net
 
                     try
                     {
-                        await SendAsync(message).ConfigureAwait(false);
+                        await SendAsync(data).ConfigureAwait(false);
                     }
                     catch (Exception ex)
                     {
@@ -854,27 +870,27 @@ namespace Steam.Net
         {
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
-
-            if (message.Header is ClientHeader clientHeader)
-            {
-                if (SessionId != 0)
-                    clientHeader.SessionId = SessionId;
-
-                if (SteamId > 0 && clientHeader.SteamId == SteamId.Zero)
-                    clientHeader.SteamId = SteamId;
-            }
-
-            byte[] data = message.Serialize();
-
-            Encryption.Encrypt(ref data);
-
-            await NetLog.DebugAsync($"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}. Resulting packet is {data.Length} bytes long.").ConfigureAwait(false);
-
-            await Socket.SendAsync(data).ConfigureAwait(false);
+            
+            await NetLog.DebugAsync($"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}.").ConfigureAwait(false);
+            
+            await SendAsync(message.WithClientInfo(SteamId, SessionId).Serialize()).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Sends a message to Steam as a job and returns the body of the response
+        /// Sends an array of bytes to Steam
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        protected internal async Task SendAsync(byte[] message)
+        {
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            
+            await Socket.SendAsync(Encryption.Encrypt(message)).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Sends a message to Steam as a job and returns the body of the response. If the type of T is <see cref="NetworkMessage"/> this returns the response message
         /// </summary>
         /// <typeparam name="T">The type of the response</typeparam>
         /// <param name="message">The message to send</param>
@@ -897,9 +913,8 @@ namespace Steam.Net
         protected internal async Task<NetworkMessage> SendJobAsync(NetworkMessage message)
         {
             (var task, var job) = _jobs.AddJob();
-            message.Header.JobId = job;
 
-            await SendAsync(message).ConfigureAwait(false);
+            await SendAsync(message.WithJobId(job)).ConfigureAwait(false);
             return await task.ConfigureAwait(false);
         }
 
@@ -914,7 +929,7 @@ namespace Steam.Net
         protected internal async Task<TResult> SendJobAsync<TResponse, TResult>(NetworkMessage message, Func<TResponse, bool> completionFunc, Func<IEnumerable<TResponse>, TResult> selector)
         {
             (var task, var job) = _jobs.AddJob();
-            message.Header.JobId = job;
+            message = message.WithJobId(job);
 
             await SendAsync(message).ConfigureAwait(false);
 
@@ -932,11 +947,10 @@ namespace Steam.Net
 
             return selector(responses.ToReadOnlyCollection());
         }
-
+        
         private async Task ReceiveAsync(byte[] data)
         {
-            Encryption.Decrypt(ref data);
-            await DispatchData(data).ConfigureAwait(false);
+            await DispatchData(Encryption.Decrypt(data)).ConfigureAwait(false);
         }
 
         private async Task DispatchData(byte[] data)

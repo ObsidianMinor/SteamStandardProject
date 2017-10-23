@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="FriendsList.cs~RF50c6b40.TMP" />
-    <None Remove="SteamNetworkClient.cs~RF43979c9.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="protobuf-net" Version="2.3.2" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.4.0" />

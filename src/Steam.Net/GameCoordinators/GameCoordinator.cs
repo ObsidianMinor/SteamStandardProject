@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using Steam.Logging;
 using Steam.Net.GameCoordinators.Messages;
@@ -27,9 +28,44 @@ namespace Steam.Net.GameCoordinators
 
             _dispatchers = new Dictionary<GameCoordinatorMessageType, GameCoordinatorReceiver>();
             AppId = appId;
-            (Log, _jobs) = client.AttachGC(this, "GC");
+            IReceiveMethodResolver resolver;
+            (Log, _jobs, resolver) = client.AttachGC(this, "GC");
+
+            foreach (MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            {
+                var attribute = method.GetCustomAttribute<GameCoordinatorReceiverAttribute>();
+                if (attribute != null)
+                {
+                    if (resolver.TryResolve(method, this, out GameCoordinatorReceiver receiver))
+                        Subscribe(attribute.Type, receiver);
+                }
+            }
         }
-        
+
+        /// <summary>
+        /// Subscribes the specified receiver to messages of the specified type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="receiver"></param>
+        public void Subscribe(GameCoordinatorMessageType type, GameCoordinatorReceiver receiver)
+        {
+            if (!_dispatchers.ContainsKey(type))
+                _dispatchers[type] = receiver;
+            else
+                _dispatchers[type] += receiver;
+        }
+
+        /// <summary>
+        /// Unsubscribes the specified receiver from messages of the specified type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="receiver"></param>
+        public void Unsubscribe(GameCoordinatorMessageType type, GameCoordinatorReceiver receiver)
+        {
+            if (!_dispatchers.ContainsKey(type))
+                _dispatchers[type] -= receiver;
+        }
+
         internal async Task DispatchToReceiver(GameCoordinatorMessage message)
         {
             if (_dispatchers.TryGetValue(message.MessageType, out var value))
@@ -51,7 +87,7 @@ namespace Steam.Net.GameCoordinators
                 await Log.VerboseAsync($"Received message of type {message.MessageType} ({(int)message.MessageType})").ConfigureAwait(false);
             }
         }
-
+        
         /// <summary>
         /// Sends a message to the game coordinator as an async task
         /// </summary>
@@ -78,9 +114,8 @@ namespace Steam.Net.GameCoordinators
         protected internal async Task<GameCoordinatorMessage> SendJobAsync(GameCoordinatorMessage message)
         {
             (var task, var job) = _jobs.AddJob();
-            message.Header.JobId = job;
 
-            await SendAsync(message).ConfigureAwait(false);
+            await SendAsync(message.WithJobId(job)).ConfigureAwait(false);
             return await task.ConfigureAwait(false);
         }
 

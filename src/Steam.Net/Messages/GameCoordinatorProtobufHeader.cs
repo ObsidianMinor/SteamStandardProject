@@ -2,19 +2,15 @@
 
 namespace Steam.Net.Messages
 {
-    public class GameCoordinatorProtobufHeader : Header
+    public class GameCoordinatorProtobufHeader : Header // nothing in the protobuf header is actually used
     {
-        public SteamId ClientSteamId { get; internal set; }
-        public int ClientSessionId { get; internal set; }
-        public long SourceAppId { get; internal set; }
-        public string TargetJobName { get; internal set; }
+        internal GameCoordinatorProtobufHeader(SteamGid gid) : base(gid) { }
 
-        internal GameCoordinatorProtobufHeader(CMsgProtoBufHeader header) : base(header.job_id_target)
+        internal GameCoordinatorProtobufHeader(CMsgProtoBufHeader header) : this(header.job_id_source) { }
+
+        protected override Header Clone()
         {
-            ClientSteamId = header.client_steam_id;
-            ClientSessionId = header.client_session_id;
-            SourceAppId = header.source_app_id;
-            TargetJobName = header.target_job_name;
+            return new GameCoordinatorProtobufHeader(JobId);
         }
     }
 }

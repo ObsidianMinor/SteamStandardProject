@@ -1,6 +1,7 @@
 ﻿using ProtoBuf;
 using Steam.Net.GameCoordinators.Messages.Protobufs;
 using Steam.Net.Messages;
+using Steam.Net.Utilities;
 using System;
 using System.IO;
 
@@ -23,24 +24,31 @@ namespace Steam.Net.GameCoordinators.Messages
         /// </summary>
         public GameCoordinatorMessageType MessageType { get; }
 
+        /// <summary>
+        /// Gets the header of this message
+        /// </summary>
         public Header Header { get; }
 
+        /// <summary>
+        /// Gets the body of this message
+        /// </summary>
         public object Body => _body;
 
-        private GameCoordinatorMessage(GameCoordinatorMessageType messageType, bool protobuf, Header header, object body)
+        private GameCoordinatorMessage(GameCoordinatorMessageType messageType, bool protobuf, Header header, Body body)
         {
             MessageType = messageType;
             Protobuf = protobuf;
             Header = header;
-            _body = new Body(body);
+            _body = body;
         }
 
-        private GameCoordinatorMessage(GameCoordinatorMessageType messageType, bool protobuf, Header header, ArraySegment<byte> body)
+        private GameCoordinatorMessage(GameCoordinatorMessageType messageType, bool protobuf, Header header, object body) : this(messageType, protobuf, header, new Body(body)) { }
+
+        private GameCoordinatorMessage(GameCoordinatorMessageType messageType, bool protobuf, Header header, ArraySegment<byte> body) : this(messageType, protobuf, header, new Body(body)) { }
+
+        public GameCoordinatorMessage WithJobId(SteamGid jobId)
         {
-            MessageType = messageType;
-            Protobuf = protobuf;
-            Header = header;
-            _body = new Body(body);
+            return new GameCoordinatorMessage(MessageType, Protobuf, Header.WithJobId(jobId), _body);
         }
 
         public static GameCoordinatorMessage CreateMessage(object value)
@@ -74,8 +82,8 @@ namespace Steam.Net.GameCoordinators.Messages
                 }
                 else
                 {
-                    reader.ReadUInt16(); // version
-                    reader.ReadUInt64(); // target
+                    reader.ReadUInt16(); // version, always 1
+                    SteamGid target = reader.ReadUInt64();
                     SteamGid source = reader.ReadUInt64();
                     return new GameCoordinatorMessage(type, protobuf, new Header(source), new ArraySegment<byte>(data, (int)stream.Position, (int)stream.Length - (int)stream.Position));
                 }
@@ -84,12 +92,39 @@ namespace Steam.Net.GameCoordinators.Messages
 
         public byte[] Serialize()
         {
-            throw new NotImplementedException();
+            using (MemoryStream stream = new MemoryStream())
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            {
+                if (Protobuf)
+                {
+                    writer.Write(MessageTypeUtils.MergeMessage((uint)MessageType, Protobuf));
+                    using (MemoryStream protoStream = new MemoryStream())
+                    {
+                        Serializer.Serialize(protoStream, (Header as GameCoordinatorProtobufHeader));
+                        writer.Write((uint)protoStream.Length);
+                        writer.Write(protoStream.ToArray());
+                    }
+                }
+                else
+                {
+                    writer.Write((ushort)1);
+                    writer.Write(SteamGid.Invalid);
+                    writer.Write(Header.JobId);
+                }
+
+                writer.Write(_body.Serialize());
+                return stream.ToArray();
+            }
         }
 
         public T Deserialize<T>()
         {
-            throw new NotImplementedException();
+            return (T)Deserialize(typeof(T));
+        }
+
+        public object Deserialize(Type type)
+        {
+            return _body.Deserialize(type);
         }
     }
 }

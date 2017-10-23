@@ -1,8 +1,11 @@
-﻿using Steam.Net.Messages;
+﻿using Steam.Net.GameCoordinators;
+using Steam.Net.GameCoordinators.Messages;
+using Steam.Net.Messages;
 using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Utilities;
 using System;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
@@ -72,8 +75,7 @@ namespace Steam.Net
                     encryptedHandshake = rsa.Encrypt(tempSessionKey);
                 }
             }
-
-            // no need to use streams and append zeros on the end when they're already the default value
+            
             Encryption = challange != null ? (IEncryptor)new HmacEncryptor(tempSessionKey) : new SimpleEncryptor(tempSessionKey);
 
             var encryptResponse = NetworkMessage.CreateMessage(MessageType.ChannelEncryptResponse, new ChannelEncryptResponse 
@@ -106,15 +108,15 @@ namespace Steam.Net
             switch ((Result)response.eresult)
             {
                 case Result.OK:
-                    GetConfig<SteamNetworkConfig>().CellId = response.cell_id;
+                    CellId = response.cell_id;
                     SessionId = (messsage.Header as ClientHeader).SessionId;
                     var id = (messsage.Header as ClientHeader).SteamId;
-                    if (id.IsAnonymousAccount)
+                    InstanceId = (long)response.client_instance_id;
+                    if (id.IsAnonymousAccount || id.IsGameServer)
                         CurrentUser = SelfUser.CreateAnonymousUser(id);
                     else
-                    {
-                        
-                    }
+                        CurrentUser = SelfUser.CreateUser(id, _previousLogonRequest.Username, response.vanity_url, (AccountFlags)response.account_flags);
+
                     await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
                     
                     _heartbeatCancel = new CancellationTokenSource();
@@ -122,8 +124,8 @@ namespace Steam.Net
                     await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
                     break;
                 default:
-                    await StartEventWait();
-                    Result result = (Result)response.eresult;
+                    await StartEventWait(); // start a block so we can't reconnect until LoginRejected completes
+                    Result result = (Result)response.eresult; // todo: improve this
                     bool canContinue = result == Result.AccountLoginDeniedNeedTwoFactor || result == Result.AccountLogonDeniedVerifiedEmailRequired || result == Result.TwoFactorCodeMismatch;
                     _previousLogonResponse = response;
                     await _loginRejectedEvent.InvokeAsync(result, response.client_supplied_steamid, canContinue).ConfigureAwait(false);
@@ -147,14 +149,31 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ClientLoggedOff)]
         private async Task ReceiveLogOff(CMsgClientLoggedOff loggedOff)
         {
-            await NetLog.InfoAsync($"Log off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
+            await NetLog.InfoAsync($"Logged off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
             await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult).ConfigureAwait(false);
             _gracefulLogoff = true;
         }
 
-        private async Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
+        [MessageReceiver(MessageType.ClientFromGC)]
+        private async Task RouteGCMessage(CMsgGCClient msg)
         {
-            
+            GameCoordinator gc = _gameCoordinators[(int)msg.appid];
+            (var type, var protobuf) = MessageTypeUtils.SplitUInt32Message(msg.msgtype);
+
+            await gc.DispatchToReceiver(GameCoordinatorMessage.CreateFromByteArray((GameCoordinatorMessageType)type, protobuf, msg.payload));
+        }
+
+        [MessageReceiver(MessageType.ClientEmailAddrInfo)]
+        private Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
+        {
+            CurrentUser.UpdateEmailInfo(email.email_address, email.email_is_validated, email.credential_change_requires_code, email.password_or_secretqa_change_requires_code);
+            return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientAccountInfo)]
+        private async Task ReceiveAccountInfo(CMsgClientAccountInfo accountInfo)
+        {
+
         }
     }
 }

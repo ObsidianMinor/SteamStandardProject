@@ -90,10 +90,12 @@ namespace Steam.Net
         
         private void TimeoutTimer(object state)
         {
+#if !DEBUG
             SteamGid jobId = (SteamGid)state;
             _runningJobs.TryRemove(jobId, out var job);
             job.Item1.SetException(new TimeoutException("The destination job timed out"));
             job.Item2.Dispose();
+#endif
         }
     }
 }

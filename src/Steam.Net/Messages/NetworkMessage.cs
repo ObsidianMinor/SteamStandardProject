@@ -13,8 +13,14 @@ namespace Steam.Net.Messages
     {
         private readonly Body _body;
 
+        /// <summary>
+        /// Gets whether this message is a protobuf message
+        /// </summary>
         public bool Protobuf => Header is ProtobufClientHeader;
 
+        /// <summary>
+        /// Gets the message type of this message
+        /// </summary>
         public MessageType MessageType { get; }
         
         /// <summary>
@@ -27,20 +33,32 @@ namespace Steam.Net.Messages
         /// </summary>
         public object Body => _body;
 
-        internal NetworkMessage(MessageType type, Header header, ArraySegment<byte> body)
+        internal NetworkMessage(MessageType type, Header header, ArraySegment<byte> body) : this(type, header, new Body(body)) { }
+
+        internal NetworkMessage(MessageType type, Header header, object body) : this(type, header, new Body(body)) { }
+
+        internal NetworkMessage(MessageType type, Header header, Body body)
         {
             MessageType = type;
-            _body = new Body(body);
             Header = header;
+            _body = body;
         }
 
-        internal NetworkMessage(MessageType type, Header header, object body)
+        public NetworkMessage WithClientInfo(SteamId id, int sessionId)
         {
-            MessageType = type;
-            _body = new Body(body);
-            Header = header;
+            if (Header is ClientHeader clientHeader)
+            {
+                return new NetworkMessage(MessageType, clientHeader.WithSessionId(sessionId).WithSteamId(id), _body);
+            }
+            else
+                throw new InvalidOperationException("Cannot set client information on a message without a client header");
         }
 
+        public NetworkMessage WithJobId(SteamGid job)
+        {
+            return new NetworkMessage(MessageType, Header.WithJobId(job), _body);
+        }
+        
         /// <summary>
         /// Creates a struct message without client information in the header
         /// </summary>
@@ -81,6 +99,7 @@ namespace Steam.Net.Messages
         /// </summary>
         /// <param name="type"></param>
         /// <param name="body"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
         public static NetworkMessage CreateProtobufMessage(MessageType type, object body)
         {
@@ -100,9 +119,8 @@ namespace Steam.Net.Messages
             if (appId < uint.MinValue || appId > uint.MaxValue)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
-            NetworkMessage message = CreateProtobufMessage(type, body);
-            (message.Header as ProtobufClientHeader).RoutingAppId = appId;
-            return message;
+            var header = new ProtobufClientHeader((uint)appId, 0, null, SteamGid.Invalid, SteamId.Zero, 0);
+            return new NetworkMessage(type, header, body);
         }
 
         public static NetworkMessage CreateFromByteArray(byte[] data) => CreateFromByteArray(data, false);

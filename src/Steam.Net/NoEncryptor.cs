@@ -2,14 +2,14 @@
 {
     internal class NoEncryptor : IEncryptor
     {
-        public void Decrypt(ref byte[] data)
+        public byte[] Decrypt(byte[] data)
         {
-            return;
+            return data;
         }
 
-        public void Encrypt(ref byte[] data)
+        public byte[] Encrypt(byte[] data)
         {
-            return;
+            return data;
         }
     }
 }

@@ -133,7 +133,7 @@ namespace Steam.Net.Sockets
         
         private async Task ReceiveAsync(CancellationToken cancellationToken)
         {
-            await Task.Yield();
+            await Task.Yield(); // force ourselves to complete async
 
             Task _sentData = Task.CompletedTask;
             try

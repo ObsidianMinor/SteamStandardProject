@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Steam.Logging
@@ -21,8 +22,11 @@ namespace Steam.Logging
         {
             try
             {
+                var message = new LogMessage(severity, source, null, ex);
                 if (severity <= Level)
-                    await _messageEvent.InvokeAsync(new LogMessage(severity, source, null, ex)).ConfigureAwait(false);
+                    await _messageEvent.InvokeAsync(message).ConfigureAwait(false);
+
+                Debug.WriteLine(message);
             }
             catch { }
         }
@@ -30,8 +34,11 @@ namespace Steam.Logging
         {
             try
             {
+                var logMessage = new LogMessage(severity, source, message, ex);
                 if (severity <= Level)
-                    await _messageEvent.InvokeAsync(new LogMessage(severity, source, message, ex)).ConfigureAwait(false);
+                    await _messageEvent.InvokeAsync(logMessage).ConfigureAwait(false);
+
+                Debug.WriteLine(message);
             }
             catch { }
         }

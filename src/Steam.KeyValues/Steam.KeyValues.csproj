@@ -2,8 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Binary">
+      <Version>0.1.0-e171021-2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Formatting">
+      <Version>0.1.0-e171021-2</Version>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

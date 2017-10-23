@@ -1,5 +1,4 @@
 ﻿using Steam.Net.Messages.Protobufs;
-using System;
 
 namespace Steam.Net.Messages
 {
@@ -8,37 +7,33 @@ namespace Steam.Net.Messages
     /// </summary>
     /// <remarks>
     /// This only exposes the App ID routing, target job name, and trace tag parameters 
-    /// due to them being the only exposed parameters in CProtoBufNetPacket class in the Steam client
+    /// due to them being the only exposed fields in the CProtoBufNetPacket class
     /// </remarks>
     public class ProtobufClientHeader : ClientHeader
     {
         private uint _routingAppId;
         private ulong _traceTag;
 
-        public long RoutingAppId
-        {
-            get => _routingAppId;
-            set
-            {
-                if (value > uint.MaxValue || value < uint.MinValue)
-                    throw new ArgumentOutOfRangeException(nameof(value));
+        public long RoutingAppId => _routingAppId;
 
-                _routingAppId = (uint)value;
-            }
+        public string TargetJobName { get; }
+
+        public decimal TraceTag => _traceTag;
+
+        /// <summary>
+        /// Clones the current <see cref="ProtobufClientHeader"/>
+        /// </summary>
+        /// <returns></returns>
+        protected override Header Clone()
+        {
+            return new ProtobufClientHeader(_routingAppId, _traceTag, TargetJobName, JobId, SteamId, SessionId);
         }
 
-        public string TargetJobName { get; internal set; }
-
-        public decimal TraceTag
+        internal ProtobufClientHeader(uint routingAppId, ulong traceTag, string targetJobName, SteamGid jobId, SteamId steamId, int sessionId) : base(jobId, steamId, sessionId)
         {
-            get => _traceTag;
-            set
-            {
-                if (value > ulong.MaxValue || value < ulong.MinValue)
-                    throw new ArgumentOutOfRangeException(nameof(value));
-
-                _traceTag = decimal.ToUInt64(value);
-            }
+            _routingAppId = routingAppId;
+            _traceTag = traceTag;
+            TargetJobName = targetJobName;
         }
 
         internal ProtobufClientHeader() : base(SteamGid.Invalid, SteamId.Zero, 0) { }
@@ -52,7 +47,7 @@ namespace Steam.Net.Messages
                 TargetJobName = header.target_job_name;
 
             if (header.trace_tagSpecified)
-                TraceTag = header.trace_tag;
+                _traceTag = header.trace_tag;
         }
 
         internal CMsgProtoBufHeader CreateProtobuf(bool server)
@@ -69,13 +64,8 @@ namespace Steam.Net.Messages
                 header.target_job_name = TargetJobName;
 
             if (JobId != SteamGid.Invalid)
-            {
-                if (server)
-                    header.jobid_target = JobId;
-                else
-                    header.jobid_source = JobId;
-            }
-            
+                header.jobid_source = JobId;
+
             header.client_sessionid = SessionId;
             header.steamid = SteamId;
 
