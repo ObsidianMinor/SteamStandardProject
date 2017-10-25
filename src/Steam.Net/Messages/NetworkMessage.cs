@@ -33,11 +33,11 @@ namespace Steam.Net.Messages
         /// </summary>
         public object Body => _body;
 
-        internal NetworkMessage(MessageType type, Header header, ArraySegment<byte> body) : this(type, header, new Body(body)) { }
+        private NetworkMessage(MessageType type, Header header, ArraySegment<byte> body) : this(type, header, new Body(body)) { }
 
-        internal NetworkMessage(MessageType type, Header header, object body) : this(type, header, new Body(body)) { }
+        private NetworkMessage(MessageType type, Header header, object body) : this(type, header, new Body(body)) { }
 
-        internal NetworkMessage(MessageType type, Header header, Body body)
+        private NetworkMessage(MessageType type, Header header, Body body)
         {
             MessageType = type;
             Header = header;
@@ -51,7 +51,7 @@ namespace Steam.Net.Messages
                 return new NetworkMessage(MessageType, clientHeader.WithSessionId(sessionId).WithSteamId(id), _body);
             }
             else
-                throw new InvalidOperationException("Cannot set client information on a message without a client header");
+                return this;
         }
 
         public NetworkMessage WithJobId(SteamGid job)
@@ -99,7 +99,6 @@ namespace Steam.Net.Messages
         /// </summary>
         /// <param name="type"></param>
         /// <param name="body"></param>
-        /// <param name="options"></param>
         /// <returns></returns>
         public static NetworkMessage CreateProtobufMessage(MessageType type, object body)
         {

@@ -8,7 +8,7 @@ SteamApps appsHandler = client.GetHandler<SteamApps>();
 appsHandler.Subscribe<SteamApps.LicenseListCallback>(OnLicenseReceive);
 ```
 
-In Steam.Net the handler system has been replaced with multicast delegates and all handlers have been removed and placed in SteamNetworkClient for easy access.
+In Steam.Net the handler system has been replaced with multicast delegates and all methods and properties exist in the SteamNetworkClient.
 ```csharp
 network.ReceivedLicenses += OnLicenseReceive;
 ```
@@ -32,3 +32,16 @@ In Steam.Net, AsyncJobs have been removed and replaced with normal Task objects.
 Task<PicsChanges> changesTask = GetPicsChangesAsync(0);
 PicsChanges changes = await changesTask;
 ```
+
+## Extending
+In SteamKit, the client could be extended by creating classes that implement ClientMsgHandler and creating them with the `GetHandler` method.
+
+```csharp
+public class CustomHandler : ClientMsgHandler
+{
+    // handler code
+}
+CustomHandler handler = client.GetHandler<CustomHandler>();
+```
+
+In Steam.Net, as stated before, the client is extended by creating a sub class of the SteamNetworkClient.

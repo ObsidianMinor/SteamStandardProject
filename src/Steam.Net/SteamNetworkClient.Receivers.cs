@@ -169,11 +169,5 @@ namespace Steam.Net
             CurrentUser.UpdateEmailInfo(email.email_address, email.email_is_validated, email.credential_change_requires_code, email.password_or_secretqa_change_requires_code);
             return Task.CompletedTask;
         }
-
-        [MessageReceiver(MessageType.ClientAccountInfo)]
-        private async Task ReceiveAccountInfo(CMsgClientAccountInfo accountInfo)
-        {
-
-        }
     }
 }
