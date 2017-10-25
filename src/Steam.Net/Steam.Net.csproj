@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Steam.Web\Steam.Web.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GameCoordinators\Messages\Protobufs\" />
-  </ItemGroup>
-
 </Project>
