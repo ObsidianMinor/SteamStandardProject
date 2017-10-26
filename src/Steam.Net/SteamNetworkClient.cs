@@ -153,16 +153,15 @@ namespace Steam.Net
                 await TimedInvokeAsync(_connected, nameof(Connected)).ConfigureAwait(false);
             };
             
-            if (config.ReceiveMethodResolver == null)
-            {
-                _resolver = new DefaultReceiveMethodResolver();
-            }
-            else
-            {
-                _resolver = config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
-            }
+            _resolver = config.ReceiveMethodResolver == null ? new DefaultReceiveMethodResolver() : config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
 
-            foreach (MethodInfo method in GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            List<TypeInfo> types = new List<TypeInfo>();
+            for (TypeInfo type = GetType().GetTypeInfo(); type != null; type = type.BaseType?.GetTypeInfo())
+            {
+                types.Add(type);
+            }
+            
+            foreach (MethodInfo method in types.SelectMany(t => t.DeclaredMethods))
             {
                 var attribute = method.GetCustomAttribute<MessageReceiverAttribute>();
                 if (attribute != null)
@@ -172,7 +171,7 @@ namespace Steam.Net
                 }
             }
         }
-
+ 
         /// <summary>
         /// Subscribes the specified receiver to messages of the specified type
         /// </summary>
