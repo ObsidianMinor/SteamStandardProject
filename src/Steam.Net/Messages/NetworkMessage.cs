@@ -44,6 +44,12 @@ namespace Steam.Net.Messages
             _body = body;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="NetworkMessage"/> with the specified Steam ID and session ID in its header. If the current message is not a client message, this returns the current message
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="sessionId"></param>
+        /// <returns></returns>
         public NetworkMessage WithClientInfo(SteamId id, int sessionId)
         {
             if (Header is ClientHeader clientHeader)
@@ -54,6 +60,11 @@ namespace Steam.Net.Messages
                 return this;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="NetworkMessage"/> with the specified job ID in its header
+        /// </summary>
+        /// <param name="job"></param>
+        /// <returns></returns>
         public NetworkMessage WithJobId(SteamGid job)
         {
             return new NetworkMessage(MessageType, Header.WithJobId(job), _body);
@@ -122,8 +133,19 @@ namespace Steam.Net.Messages
             return new NetworkMessage(type, header, body);
         }
 
+        /// <summary>
+        /// Deserializes a <see cref="NetworkMessage"/> from a byte array
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public static NetworkMessage CreateFromByteArray(byte[] data) => CreateFromByteArray(data, false);
 
+        /// <summary>
+        /// Deserializes a <see cref="NetworkMessage"/> from a byte array as a server
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="server"></param>
+        /// <returns></returns>
         public static NetworkMessage CreateFromByteArray(byte[] data, bool server)
         {
             using (MemoryStream stream = new MemoryStream(data, false))

@@ -1,0 +1,12 @@
+﻿<Project>
+  <PropertyGroup>
+    <Authors>ObsidianMinor</Authors>
+    <PackageProjectUrl>https://github.com/ObsidianMinor/SteamStandardProject</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/ObsidianMinor/SteamStandardProject/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <LangVersion>7.1</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RepositoryUrl>git://github.com/ObsidianMinor/SteamStandardProject.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+</Project>

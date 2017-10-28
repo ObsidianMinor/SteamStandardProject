@@ -1,5 +1,6 @@
 using System;
 
+#pragma warning disable
 namespace Steam.Net
 {
     /// <summary>

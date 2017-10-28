@@ -5,7 +5,6 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Utilities;
 using System;
-using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
@@ -47,7 +46,7 @@ namespace Steam.Net
         private async Task ReceiveEncryptRequest(ChannelEncryptRequest encryptRequest)
         {
             await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
-            CurrentUser = SelfUser.CreateAnonymousUser(SteamId.CreateAnonymousUser(encryptRequest.Universe));
+            CurrentUser.Id = SteamId.CreateAnonymousUser(encryptRequest.Universe);
 
             byte[] challange = encryptRequest.Challenge.Length >= 16 ? encryptRequest.Challenge : null;
             byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
@@ -105,32 +104,37 @@ namespace Steam.Net
             if (response.eresult != 1)
                 await NetLog.InfoAsync($"Logon denied: {(Result)response.eresult}. Expect to disconnect").ConfigureAwait(false);
 
-            switch ((Result)response.eresult)
+            if (response.eresult == 1)
             {
-                case Result.OK:
-                    CellId = response.cell_id;
-                    SessionId = (messsage.Header as ClientHeader).SessionId;
-                    var id = (messsage.Header as ClientHeader).SteamId;
-                    InstanceId = (long)response.client_instance_id;
-                    if (id.IsAnonymousAccount || id.IsGameServer)
-                        CurrentUser = SelfUser.CreateAnonymousUser(id);
-                    else
-                        CurrentUser = SelfUser.CreateUser(id, _previousLogonRequest.Username, response.vanity_url, (AccountFlags)response.account_flags);
+                CellId = response.cell_id;
+                SessionId = (messsage.Header as ClientHeader).SessionId;
+                var id = (messsage.Header as ClientHeader).SteamId;
+                InstanceId = (long)response.client_instance_id;
+                if (id.IsAnonymousAccount || id.IsGameServer)
+                    CurrentUser.Id = id;
+                else
+                {
+                    CurrentUser.Id = id;
+                    CurrentUser.AccountName = _previousLogonRequest.Username;
+                    CurrentUser.Flags = (AccountFlags)response.account_flags;
 
-                    await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
-                    
-                    _heartbeatCancel = new CancellationTokenSource();
-                    _heartBeatTask = RunHeartbeatAsync(response.out_of_game_heartbeat_seconds * 1000, _connection.CancelToken);
-                    await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
-                    break;
-                default:
-                    await StartEventWait(); // start a block so we can't reconnect until LoginRejected completes
-                    Result result = (Result)response.eresult; // todo: improve this
-                    bool canContinue = result == Result.AccountLoginDeniedNeedTwoFactor || result == Result.AccountLogonDeniedVerifiedEmailRequired || result == Result.TwoFactorCodeMismatch;
-                    _previousLogonResponse = response;
-                    await _loginRejectedEvent.InvokeAsync(result, response.client_supplied_steamid, canContinue).ConfigureAwait(false);
-                    await CompleteAsync();
-                    break;
+                    CurrentUser.Status = PersonaState.Online; // everyone is online until proven otherwise by a ClientPersonaUpdate
+                }
+
+                await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
+
+                _heartbeatCancel = new CancellationTokenSource();
+                _heartBeatTask = RunHeartbeatAsync(response.out_of_game_heartbeat_seconds * 1000, _connection.CancelToken);
+                await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
+            }
+            else
+            {
+                await StartEventWait(); // start a block so we can't reconnect until LoginRejected completes
+                Result result = (Result)response.eresult; // todo: improve this
+                bool canContinue = result == Result.AccountLoginDeniedNeedTwoFactor || result == Result.AccountLogonDeniedVerifiedEmailRequired || result == Result.TwoFactorCodeMismatch;
+                _previousLogonResponse = response;
+                await _loginRejectedEvent.InvokeAsync(result, response.client_supplied_steamid, canContinue).ConfigureAwait(false);
+                await CompleteAsync();
             }
         }
 
@@ -152,6 +156,7 @@ namespace Steam.Net
             await NetLog.InfoAsync($"Logged off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
             await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult).ConfigureAwait(false);
             _gracefulLogoff = true;
+            CurrentUser.Reset();
         }
 
         [MessageReceiver(MessageType.ClientFromGC)]
@@ -166,8 +171,40 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ClientEmailAddrInfo)]
         private Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
         {
-            CurrentUser.UpdateEmailInfo(email.email_address, email.email_is_validated, email.credential_change_requires_code, email.password_or_secretqa_change_requires_code);
+            CurrentUser.PasswordOrSecretQuestionChangeRequiresCode = email.password_or_secretqa_change_requires_code;
+            CurrentUser.Email = email.email_address;
+            CurrentUser.EmailValidated = email.email_is_validated;
+            CurrentUser.CredentialChangeRequiresCode = email.credential_change_requires_code;
             return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientAccountInfo)]
+        private Task ReceiveAccountInfo(CMsgClientAccountInfo info)
+        {
+            CurrentUser.PlayerName = info.persona_name;
+            return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientWalletInfoUpdate)]
+        private Task ReceiveWallet(CMsgClientWalletInfoUpdate wallet)
+        {
+            CurrentUser.Wallet.Currency = (CurrencyCode)wallet.currency;
+            CurrentUser.Wallet.Cents = wallet.balance64;
+            CurrentUser.Wallet.CentsPending = wallet.balance64_delayed;
+            return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientFriendsList)]
+        private async Task ReceiveFriendsList(CMsgClientFriendsList friends)
+        {
+            
+        }
+
+        [MessageReceiver(MessageType.ClientNewLoginKey)]
+        private async Task ReceiveLoginKey(CMsgClientNewLoginKey newKey)
+        {
+            LoginKey = newKey.login_key;
+            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientNewLoginKeyAccepted, new CMsgClientNewLoginKeyAccepted { unique_id = newKey.unique_id }));
         }
     }
 }

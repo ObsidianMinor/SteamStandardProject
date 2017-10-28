@@ -8,12 +8,9 @@ namespace Steam.Net
     [DebuggerDisplay("{PlayerName} : {SteamId}")]
     public class User : Account
     {
-        public string PlayerName { get; }
-        public PersonaState Status { get; }
+        public string PlayerName { get; internal set; }
+        public PersonaState Status { get; internal set; }
         
-        protected User(SteamId id) : base(id)
-        {
-            
-        }
+        protected User(SteamId id) : base(id) { }
     }
 }

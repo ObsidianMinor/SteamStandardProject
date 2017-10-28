@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27019.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{67E68591-4872-4561-91D4-4C8F5D084573}"
 EndProject
@@ -21,6 +21,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Steam.Net", "src\Steam.Net\Steam.Net.csproj", "{F7F574D9-2BF0-4D36-8210-726F69A08085}"
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Steam.Net.FSharp", "src\Steam.Net.FSharp\Steam.Net.FSharp.fsproj", "{DB422363-8B7E-4428-8608-E6A022B685ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{B9DE4D3B-A358-4AA4-938F-C86E117262DD}"
+	ProjectSection(SolutionItems) = preProject
+		tools\common.props = tools\common.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,4 @@
-﻿using Steam.Web.Interface;
-using System;
+﻿using System;
 
 namespace Steam.Web
 {
