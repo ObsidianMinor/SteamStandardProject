@@ -8,7 +8,10 @@ using Steam.Net.Sockets;
 using Steam.Net.Utilities;
 using Steam.Web;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -33,9 +36,9 @@ namespace Steam.Net
         private readonly JobManager<NetworkMessage> _jobs;
         private readonly ConnectionManager _connection;
         private readonly ISocketClient Socket;
+        private readonly List<IPEndPoint> _endpoints = new List<IPEndPoint>();
+        private readonly List<Uri> _webSockets = new List<Uri>();
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
-        private readonly List<IPEndPoint> _endpoints;
-        private readonly List<Uri> _webSockets;
         private Func<Exception, Task> _socketDisconnected;
 
         private CancellationTokenSource _connectCancellationToken;
@@ -53,6 +56,8 @@ namespace Steam.Net
         private bool _gracefulLogoff;
 
         private TaskCompletionSource<bool> _continueWaiter;
+        private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
+        private List<Server> _cmServers;
 
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
@@ -63,10 +68,8 @@ namespace Steam.Net
         /// Gets the logger for this network client
         /// </summary>
         protected Logger NetLog { get; }
-
-        internal IPEndPoint CurrentEndPoint { get; private set; }
-
-        internal Uri CurrentWebSocket { get; private set; }
+        
+        internal Server CurrentServer { get; private set; }
 
         internal IEncryptor Encryption
         {
@@ -82,7 +85,7 @@ namespace Steam.Net
                 _encryptor = value;
             }
         }
-
+        
         /// <summary>
         /// Gets the client's current connection state
         /// </summary>
@@ -129,6 +132,7 @@ namespace Steam.Net
         /// <param name="config"></param>
         public SteamNetworkClient(SteamNetworkConfig config) : base(config)
         {
+            config = GetConfig<SteamNetworkConfig>();
             Socket = config.SocketClient();
             Socket.MessageReceived += ReceiveAsync;
             Socket.Disconnected += async ex =>
@@ -141,12 +145,9 @@ namespace Steam.Net
             _connectionStateLock = new SemaphoreSlim(1, 1);
             _jobs = new JobManager<NetworkMessage>(LogManager.CreateLogger("Jobs"));
             NetLog = LogManager.CreateLogger("Net");
-            if (Socket is IWebSocketClient)
-                _webSockets = new List<Uri>(GetConfig<SteamNetworkConfig>().WebSockets ?? Enumerable.Empty<Uri>());
-            else
-                _endpoints = new List<IPEndPoint>(GetConfig<SteamNetworkConfig>().ConnectionManagers ?? Enumerable.Empty<IPEndPoint>());
+            _cmServers = new List<Server>(config.ConnectionManagers?.Select(x => new Server(x)) ?? config.WebSockets?.Select(x => new Server(x)) ?? Enumerable.Empty<Server>());
 
-            _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), GetConfig<SteamNetworkConfig>().NetworkConnectionTimeout,
+            _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), config.NetworkConnectionTimeout,
                 OnConnectingAsync, OnDisconnectingAsync, (x) => _socketDisconnected = x);
 
             CurrentUser = new SelfUser(SteamId.CreateAnonymousUser(config.DefaultUniverse));
@@ -246,8 +247,7 @@ namespace Steam.Net
         {
             if (!_gracefulLogoff)
             {
-                CurrentEndPoint = null;
-                CurrentWebSocket = null;
+                CurrentServer = null;
             }
 
             await NetLog.DebugAsync("Disconnecting all game coordinators").ConfigureAwait(false);
@@ -295,7 +295,7 @@ namespace Steam.Net
             Socket.SetCancellationToken(_connectCancellationToken.Token);
             if (Socket is IWebSocketClient webSocketClient)
             {
-                if (_webSockets.Count == 0)
+                if (!_servers.ContainsKey(ServerType.ConnectionManager) || _servers[ServerType.ConnectionManager].Where(x => x.IsUri).Count() == 0)
                 {
                     IEnumerable<Uri> webSockets = GetConfig<SteamNetworkConfig>().WebSockets;
                     _webSockets.AddRange(webSockets ?? Enumerable.Empty<Uri>());
@@ -312,22 +312,22 @@ namespace Steam.Net
                     }
                 }
 
-                while (CurrentWebSocket == null && _webSockets.Count != 0)
+                while (CurrentServer == null && _webSockets.Count != 0)
                 {
                     if (_webSockets.First() == null)
                     {
                         _webSockets.RemoveAt(0);
                         continue;
                     }
-                    CurrentWebSocket = new Uri($"wss://{_webSockets.First()}/cmsocket/");
+                    CurrentServer = new Uri($"wss://{_webSockets.First()}/cmsocket/");
                 }
 
-                await NetLog.InfoAsync($"Connecting to WebSocket {CurrentWebSocket}").ConfigureAwait(false);
-                await webSocketClient.ConnectAsync(CurrentWebSocket).ConfigureAwait(false);
+                await NetLog.InfoAsync($"Connecting to WebSocket {CurrentServer}").ConfigureAwait(false);
+                await webSocketClient.ConnectAsync(CurrentServer).ConfigureAwait(false);
             }
             else
             {
-                if (_endpoints.Count == 0)
+                if (!_servers.ContainsKey(ServerType.ConnectionManager) || _endpoints.Count == 0)
                 {
                     IEnumerable<IPEndPoint> endPoints = GetConfig<SteamNetworkConfig>().ConnectionManagers;
                     _endpoints.AddRange(endPoints ?? Enumerable.Empty<IPEndPoint>());
@@ -344,14 +344,14 @@ namespace Steam.Net
                     }
                 }
 
-                while (CurrentEndPoint == null && _endpoints.Count != 0)
+                while (CurrentServer == null && _endpoints.Count != 0)
                 {
-                    CurrentEndPoint = _endpoints.First();
+                    CurrentServer = _endpoints.First();
                     _endpoints.RemoveAt(0);
                 }
 
-                await NetLog.InfoAsync($"Connecting to endpoint {CurrentEndPoint}").ConfigureAwait(false);
-                await Socket.ConnectAsync(CurrentEndPoint).ConfigureAwait(false);
+                await NetLog.InfoAsync($"Connecting to endpoint {CurrentServer}").ConfigureAwait(false);
+                await Socket.ConnectAsync(CurrentServer.GetIPEndPoint()).ConfigureAwait(false);
             }
         }
 
@@ -699,6 +699,16 @@ namespace Steam.Net
         }
 
         /// <summary>
+        /// Gets servers of the specified type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public IReadOnlyCollection<Server> GetServers(ServerType type)
+        {
+            return _servers.ContainsKey(type) ? _servers[type] : ImmutableHashSet<Server>.Empty;
+        }
+
+        /// <summary>
         /// Gets a new Steam Web API nonce 
         /// </summary>
         /// <returns></returns>
@@ -910,8 +920,6 @@ namespace Steam.Net
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
             
-            await NetLog.DebugAsync($"Sending message of message type {message.MessageType} as a {(message.Protobuf ? "protobuf" : "struct")}.").ConfigureAwait(false);
-            
             await SendAsync(message.WithClientInfo(SteamId, SessionId).Serialize()).ConfigureAwait(false);
         }
 
@@ -924,7 +932,9 @@ namespace Steam.Net
         {
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
-            
+
+            await NetLog.DebugAsync($"Sending {message.Length} byte message.").ConfigureAwait(false);
+
             await Socket.SendAsync(Encryption.Encrypt(message)).ConfigureAwait(false);
         }
 

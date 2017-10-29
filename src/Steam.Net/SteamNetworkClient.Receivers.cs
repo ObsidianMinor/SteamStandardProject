@@ -5,8 +5,12 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Utilities;
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -193,18 +197,43 @@ namespace Steam.Net
             CurrentUser.Wallet.CentsPending = wallet.balance64_delayed;
             return Task.CompletedTask;
         }
-
-        [MessageReceiver(MessageType.ClientFriendsList)]
-        private async Task ReceiveFriendsList(CMsgClientFriendsList friends)
-        {
-            
-        }
-
+        
         [MessageReceiver(MessageType.ClientNewLoginKey)]
         private async Task ReceiveLoginKey(CMsgClientNewLoginKey newKey)
         {
             LoginKey = newKey.login_key;
             await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientNewLoginKeyAccepted, new CMsgClientNewLoginKeyAccepted { unique_id = newKey.unique_id }));
+        }
+
+        [MessageReceiver(MessageType.ClientServerList)]
+        private Task ReceiveServerList(CMsgClientServerList list)
+        {
+            foreach (var server in list.servers)
+            {
+                var type = (ServerType)server.server_type;
+                Server serverValue = new Server(server.server_ip.ToIPAddress(), (int)server.server_port);
+                if (_servers.ContainsKey(type))
+                    _servers[type].Add(serverValue);
+                else
+                    _servers[type] = ImmutableHashSet.Create(serverValue);
+            }
+
+            return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientCMList)]
+        private Task ReceiveCMList(CMsgClientCMList list)
+        {
+            List<Server> servers = new List<Server>(list.cm_websocket_addresses.Select(x => new Server(new Uri(x))));
+            for(int i = 0; i < list.cm_addresses.Count; i++)
+                servers.Add(new Server(list.cm_addresses[i].ToIPAddress(), (int)list.cm_ports[i]));
+
+            if (_servers.ContainsKey(ServerType.ConnectionManager))
+                _servers[ServerType.ConnectionManager].Union(servers);
+            else
+                _servers[ServerType.ConnectionManager] = servers.ToImmutableHashSet();
+
+            return Task.CompletedTask;
         }
     }
 }
