@@ -47,7 +47,7 @@ namespace Steam.Net
             get => _notEmpty;
             set
             {
-                if (value && _empty == true)
+                if (value && _empty)
                     _empty = false;
 
                 _notEmpty = value;
@@ -83,7 +83,7 @@ namespace Steam.Net
             get => _empty;
             set
             {
-                if (value && _notEmpty == true)
+                if (value && _notEmpty)
                     _notEmpty = false;
 
                 _empty = value;
@@ -151,7 +151,8 @@ namespace Steam.Net
             if (NotEmpty)
                 builder.Append(@"\empty\1");
 
-            // todo: add Empty
+            if (Empty)
+                builder.Append(@"\noplayers\1");
 
             if (NotFull)
                 builder.Append(@"\full\1");
