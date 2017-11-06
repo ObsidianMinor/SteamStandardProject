@@ -15,8 +15,8 @@ namespace Steam.Net.Sockets
         public const int SendChunkSize = 4 * 1024; //4KB
         private const int HR_TIMEOUT = -2147012894;
 
-        public event Func<byte[], Task> MessageReceived;
-        public event Func<Exception, Task> Disconnected;
+        public event AsyncEventHandler<DataReceivedEventArgs> MessageReceived;
+        public event AsyncEventHandler<SocketDisconnectedEventArgs> Disconnected;
 
         private readonly SemaphoreSlim _lock;
         private readonly Dictionary<string, string> _headers;
@@ -135,7 +135,7 @@ namespace Steam.Net.Sockets
             {
                 _lock.Release();
             }
-            await Disconnected(ex).ConfigureAwait(false);
+            await Disconnected.InvokeAsync(this, new SocketDisconnectedEventArgs(ex)).ConfigureAwait(false);
         }
 
         public void SetHeader(string key, string value)
@@ -231,7 +231,7 @@ namespace Steam.Net.Sockets
                         throw new NotSupportedException();
                     }
                     else
-                        await MessageReceived(result).ConfigureAwait(false);
+                        await MessageReceived.InvokeAsync(this, new DataReceivedEventArgs(result)).ConfigureAwait(false);
                 }
             }
             catch (Win32Exception ex) when (ex.HResult == HR_TIMEOUT)

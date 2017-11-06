@@ -7,8 +7,8 @@ namespace Steam.Net.Sockets
 {
     public interface ISocketClient : IDisposable
     {
-        event Func<byte[], Task> MessageReceived;
-        event Func<Exception, Task> Disconnected;
+        event AsyncEventHandler<DataReceivedEventArgs> MessageReceived;
+        event AsyncEventHandler<SocketDisconnectedEventArgs> Disconnected;
 
         IPAddress LocalIp { get; }
         

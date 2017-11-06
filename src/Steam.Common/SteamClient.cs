@@ -1,6 +1,5 @@
 ﻿using Steam.Logging;
 using System;
-using System.Threading.Tasks;
 
 namespace Steam
 {
@@ -15,7 +14,6 @@ namespace Steam
         /// Gets the <see cref="LogManager"/> to 
         /// </summary>
         protected LogManager LogManager { get; }
-        private AsyncEvent<Func<LogMessage, Task>> _logEvent = new AsyncEvent<Func<LogMessage, Task>>();
 
         /// <summary>
         /// Creates a new <see cref="SteamClient"/> with the specified <see cref="SteamConfig"/>
@@ -28,7 +26,7 @@ namespace Steam
 
             _config = config.Clone();
             LogManager = new LogManager(config.LogLevel);
-            LogManager.Message += async msg => await _logEvent.InvokeAsync(msg).ConfigureAwait(false);
+            LogManager.Message += async (src, msg) => await Log.InvokeAsync(this, msg).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -37,14 +35,10 @@ namespace Steam
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         protected T GetConfig<T>() where T : SteamConfig => _config as T;
-        
+
         /// <summary>
         /// Occurs when a message of greater severity than the log level is logged
         /// </summary>
-        public event Func<LogMessage, Task> Log
-        {
-            add => _logEvent.Add(value);
-            remove => _logEvent.Remove(value);
-        }
+        public event AsyncEventHandler<LogEventArgs> Log;
     }
 }

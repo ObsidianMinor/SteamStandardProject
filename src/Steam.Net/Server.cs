@@ -8,74 +8,114 @@ namespace Steam.Net
     /// </summary>
     public class Server : IEquatable<Server>
     {
-        private readonly IPEndPoint _endpoint;
-        private readonly Uri _uri;
+        private readonly string _hostName;
+        private readonly IPAddress _address;
+        private readonly int _port;
 
-        public Server(IPAddress address, int port)
+        private Server(int port)
         {
-            _endpoint = new IPEndPoint(address ?? throw new ArgumentNullException(nameof(address)), port);
+            if (port < IPEndPoint.MinPort || port > IPEndPoint.MaxPort)
+                throw new ArgumentOutOfRangeException(nameof(port));
+
+            _port = port;
         }
 
-        public Server(IPEndPoint endpoint)
+        public Server(IPAddress address, int port) : this(port)
         {
-            if (endpoint == null)
-                throw new ArgumentNullException(nameof(endpoint));
+            _address = address ?? throw new ArgumentNullException(nameof(address));
+        }
 
-            _endpoint = new IPEndPoint(endpoint.Address, endpoint.Port);
+        public Server(IPEndPoint endpoint) : this(endpoint?.Port ?? throw new ArgumentNullException(nameof(endpoint)))
+        {
+            _address = endpoint.Address;
+        }
+
+        public Server(DnsEndPoint endpoint) : this(endpoint?.Port ?? throw new ArgumentNullException(nameof(endpoint)))
+        {
+            _hostName = endpoint.Host;
         }
 
         public Server(Uri uri)
         {
-            if (!uri.IsAbsoluteUri)
+            if (!uri?.IsAbsoluteUri ?? throw new ArgumentNullException(nameof(uri)))
                 throw new ArgumentException("The provided URI is not absolute");
 
-            _uri = uri ?? throw new ArgumentNullException(nameof(uri));
+            _hostName = uri.Host;
+            _port = uri.Port;
         }
 
-        public bool IsEndPoint => _endpoint != null;
-        public bool IsUri => _uri != null;
-
-        public bool TryGetIPEndPoint(out IPEndPoint endpoint)
+        public Server(string host, int port) : this(port)
         {
-            if (_endpoint != null)
+            _hostName = string.IsNullOrEmpty(host) ? throw new ArgumentNullException(nameof(host)) : host;
+        }
+
+        /// <summary>
+        /// Gets whether this endpoint is represented by a IP address
+        /// </summary>
+        public bool IsEndPoint => _address != null;
+
+        /// <summary>
+        /// Gets whether this server is represented by a host name
+        /// </summary>
+        public bool IsUri => _hostName != null;
+
+        /// <summary>
+        /// Gets this server's port
+        /// </summary>
+        public int Port => _port;
+
+        /// <summary>
+        /// Gets this server's host name
+        /// </summary>
+        public string Host => _hostName ?? _address.ToString();
+
+        public override bool Equals(object obj)
+        {
+            switch(obj)
             {
-                endpoint = new IPEndPoint(_endpoint.Address, _endpoint.Port);
-                return true;
-            }
-            else if (_uri.IsAbsoluteUri && _uri.HostNameType == UriHostNameType.IPv4 && _uri.HostNameType == UriHostNameType.IPv6 && IPAddress.TryParse(_uri.Host, out var address))
-            {
-                endpoint = new IPEndPoint(address, _uri.Port);
-                return true;
-            }
-            else
-            {
-                endpoint = null;
-                return false;
+                case Server server:
+                    return Equals(server);
+                case DnsEndPoint dns:
+                    return dns.Host == _hostName && dns.Port == _port;
+                case IPEndPoint endpoint:
+                    return endpoint.Address == _address && endpoint.Port == _port;
+                default:
+                    return false;
             }
         }
 
         public IPEndPoint GetIPEndPoint()
         {
-            if (!TryGetIPEndPoint(out var endpoint))
-                throw new InvalidOperationException("Could not convert Server to IPEndPoint");
-            else
-                return endpoint;
+            return IsEndPoint ? new IPEndPoint(_address, _port) : null;
+        }
+
+        public DnsEndPoint GetDnsEndPoint()
+        {
+            return new DnsEndPoint(Host, Port);
         }
 
         public Uri GetUri()
         {
-            if (_endpoint != null)
+            return new UriBuilder()
             {
-                return new UriBuilder()
-                {
-                    Host = _endpoint.Address.ToString(),
-                    Port = _endpoint.Port
-                }.Uri;
-            }
-            else
-            {
-                return _uri;
-            }
+                Host = Host,
+                Port = Port
+            }.Uri;
+        }
+
+        public override int GetHashCode()
+        {
+            return ((object)_hostName ?? _address).GetHashCode() * 18 ^ _port.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"{Host}:{Port}";
+        }
+
+        public bool Equals(Server other)
+        {
+            return _port == other._port && _address == other._address && _hostName == other._hostName;
         }
 
         public static implicit operator Server(IPEndPoint endpoint)
@@ -83,36 +123,29 @@ namespace Steam.Net
             return new Server(endpoint);
         }
 
-        public static implicit operator Server(Uri uri)
+        public static implicit operator Server(DnsEndPoint endpoint)
+        {
+            return new Server(endpoint);
+        }
+
+        public static explicit operator Server(Uri uri)
         {
             return new Server(uri);
         }
 
-        public static implicit operator Uri(Server server) => server.GetUri();
-
-        public static explicit operator IPEndPoint(Server server) => server.GetIPEndPoint();
-
-        public override bool Equals(object obj)
+        public static explicit operator IPEndPoint(Server server)
         {
-            if (obj is Server server)
-                return Equals(server);
-            else
-                return false;
+            return server.GetIPEndPoint();
         }
 
-        public override int GetHashCode()
+        public static explicit operator DnsEndPoint(Server server)
         {
-            return _endpoint?.GetHashCode() ?? _uri.GetHashCode();
+            return server.GetDnsEndPoint();
         }
 
-        public override string ToString()
+        public static explicit operator Uri(Server server)
         {
-            return _endpoint?.ToString() ?? _uri.ToString();
-        }
-
-        public bool Equals(Server other)
-        {
-            return _endpoint == other._endpoint && _uri == other._uri;
+            return server.GetUri();
         }
     }
 }

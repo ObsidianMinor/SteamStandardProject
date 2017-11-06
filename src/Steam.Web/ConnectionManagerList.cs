@@ -9,7 +9,7 @@ namespace Steam.Web
     {
         [JsonProperty("serverlist", ItemConverterType = typeof(IPEndPointConverter))]
         public IReadOnlyCollection<IPEndPoint> ServerList { get; set; }
-        [JsonProperty("serverlist_websockets")]
+        [JsonProperty("serverlist_websockets", ItemConverterType = typeof(NoSchemeWebSocketUriConverter))]
         public IReadOnlyCollection<Uri> WebSocketServerList { get; set; }
     }
 }

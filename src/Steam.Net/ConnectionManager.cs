@@ -8,10 +8,8 @@ namespace Steam.Net
 {
     internal class ConnectionManager
     {
-        public event Func<Task> Connected { add { _connectedEvent.Add(value); } remove { _connectedEvent.Remove(value); } }
-        private readonly AsyncEvent<Func<Task>> _connectedEvent = new AsyncEvent<Func<Task>>();
-        public event Func<Exception, bool, Task> Disconnected { add { _disconnectedEvent.Add(value); } remove { _disconnectedEvent.Remove(value); } }
-        private readonly AsyncEvent<Func<Exception, bool, Task>> _disconnectedEvent = new AsyncEvent<Func<Exception, bool, Task>>();
+        public event AsyncEventHandler Connected;
+        public event AsyncEventHandler<DisconnectedEventArgs> Disconnected;
 
         private readonly SemaphoreSlim _stateLock;
         private readonly Logger _logger;
@@ -140,7 +138,7 @@ namespace Steam.Net
                 await _logger.InfoAsync("Connected").ConfigureAwait(false);
                 State = ConnectionState.Connected;
                 await _logger.DebugAsync("Raising Event").ConfigureAwait(false);
-                await _connectedEvent.InvokeAsync().ConfigureAwait(false);
+                await Connected.InvokeAsync(this, EventArgs.Empty).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -158,7 +156,7 @@ namespace Steam.Net
 
             await _logger.InfoAsync("Disconnected").ConfigureAwait(false);
             State = ConnectionState.Disconnected;
-            await _disconnectedEvent.InvokeAsync(ex, isReconnecting).ConfigureAwait(false);
+            await Disconnected.InvokeAsync(this, new DisconnectedEventArgs(isReconnecting, ex)).ConfigureAwait(false);
         }
 
         public async Task CompleteAsync()

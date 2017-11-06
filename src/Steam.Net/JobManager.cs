@@ -73,7 +73,7 @@ namespace Steam.Net
             foreach (var job in _runningJobs)
                 await SetJobFail(job.Key, new TaskCanceledException(job.Value.Item1.Task)).ConfigureAwait(false);
         }
-
+        
         internal async Task SetJobFail(SteamGid job, Exception ex)
         {
             if (!_runningJobs.TryRemove(job, out (TaskCompletionSource<T>, Timer) jobTuple))
@@ -90,7 +90,7 @@ namespace Steam.Net
         
         private void TimeoutTimer(object state)
         {
-#if !DEBUG
+#if ENABLE_TIMEOUT // in debug mode we disable timeouts because breaks
             SteamGid jobId = (SteamGid)state;
             _runningJobs.TryRemove(jobId, out var job);
             job.Item1.SetException(new TimeoutException("The destination job timed out"));

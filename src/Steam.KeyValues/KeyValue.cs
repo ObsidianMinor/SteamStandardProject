@@ -7,6 +7,9 @@ using System.Text.Utf8;
 
 namespace Steam.KeyValues
 {
+    /// <summary>
+    /// Represents an immutable KeyValue structure
+    /// </summary>
     public ref struct KeyValue
     {
         private BufferPool _pool;

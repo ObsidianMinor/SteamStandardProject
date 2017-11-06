@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Steam.Logging;
 using Steam.Net.GameCoordinators.Messages;
 
 namespace Steam.Net.GameCoordinators

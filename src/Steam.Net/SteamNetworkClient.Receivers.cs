@@ -7,7 +7,6 @@ using Steam.Net.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -52,7 +51,7 @@ namespace Steam.Net
             await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
             CurrentUser.Id = SteamId.CreateAnonymousUser(encryptRequest.Universe);
 
-            byte[] challange = encryptRequest.Challenge.Length >= 16 ? encryptRequest.Challenge : null;
+            byte[] challange = encryptRequest.Challenge.All(b => b == 0) ? encryptRequest.Challenge : null; // check if all the values were made 0 by the marshal
             byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
             if (publicKey == null)
             {
@@ -119,7 +118,6 @@ namespace Steam.Net
                 else
                 {
                     CurrentUser.Id = id;
-                    CurrentUser.AccountName = _previousLogonRequest.Username;
                     CurrentUser.Flags = (AccountFlags)response.account_flags;
 
                     CurrentUser.Status = PersonaState.Online; // everyone is online until proven otherwise by a ClientPersonaUpdate
@@ -128,17 +126,12 @@ namespace Steam.Net
                 await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
 
                 _heartbeatCancel = new CancellationTokenSource();
-                _heartBeatTask = RunHeartbeatAsync(response.out_of_game_heartbeat_seconds * 1000, _connection.CancelToken);
-                await TimedInvokeAsync(_loggedOnEvent, nameof(LoggedOn)).ConfigureAwait(false);
+                _heartBeatTask = RunHeartbeatAsync(response.out_of_game_heartbeat_seconds * 1000, _heartbeatCancel.Token);
+                await TimedInvokeAsync(LoggedOn, EventArgs.Empty).ConfigureAwait(false);
             }
             else
             {
-                await StartEventWait(); // start a block so we can't reconnect until LoginRejected completes
-                Result result = (Result)response.eresult; // todo: improve this
-                bool canContinue = result == Result.AccountLoginDeniedNeedTwoFactor || result == Result.AccountLogonDeniedVerifiedEmailRequired || result == Result.TwoFactorCodeMismatch;
-                _previousLogonResponse = response;
-                await _loginRejectedEvent.InvokeAsync(result, response.client_supplied_steamid, canContinue).ConfigureAwait(false);
-                await CompleteAsync();
+                await LoginRejected.InvokeAsync(this, new LoginRejectedEventArgs(response.client_supplied_steamid, (Result)response.eresult, (Result)response.eresult_extended, response.email_domain)).ConfigureAwait(false);
             }
         }
 
@@ -158,7 +151,7 @@ namespace Steam.Net
         private async Task ReceiveLogOff(CMsgClientLoggedOff loggedOff)
         {
             await NetLog.InfoAsync($"Logged off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
-            await _loggedOffEvent.InvokeAsync((Result)loggedOff.eresult).ConfigureAwait(false);
+            await LoggedOff.InvokeAsync(this, new LogOffEventArgs((Result)loggedOff.eresult));
             _gracefulLogoff = true;
             CurrentUser.Reset();
         }
@@ -175,10 +168,8 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ClientEmailAddrInfo)]
         private Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
         {
-            CurrentUser.PasswordOrSecretQuestionChangeRequiresCode = email.password_or_secretqa_change_requires_code;
             CurrentUser.Email = email.email_address;
             CurrentUser.EmailValidated = email.email_is_validated;
-            CurrentUser.CredentialChangeRequiresCode = email.credential_change_requires_code;
             return Task.CompletedTask;
         }
 
@@ -201,7 +192,6 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ClientNewLoginKey)]
         private async Task ReceiveLoginKey(CMsgClientNewLoginKey newKey)
         {
-            LoginKey = newKey.login_key;
             await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientNewLoginKeyAccepted, new CMsgClientNewLoginKeyAccepted { unique_id = newKey.unique_id }));
         }
 

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Steam.Rest;
-using Steam.Web.StringSerializers;
 
 namespace Steam.Web
 {

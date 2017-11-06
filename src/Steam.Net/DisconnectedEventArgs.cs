@@ -2,10 +2,10 @@
 
 namespace Steam.Net
 {
-    internal class DisconnectedEventArgs : EventArgs
+    public class DisconnectedEventArgs : EventArgs
     {
-        internal bool IsReconnecting { get; }
-        internal Exception Exception { get; }
+        public bool IsReconnecting { get; }
+        public Exception Exception { get; }
 
         internal DisconnectedEventArgs(bool reconnecting, Exception execption)
         {

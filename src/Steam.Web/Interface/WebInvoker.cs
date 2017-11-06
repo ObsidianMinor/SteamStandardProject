@@ -1,14 +1,13 @@
 ﻿using Steam.Rest;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Steam.Web.Interface
 {
-    public class WebInvoker : RestEntity
+    public class WebInvoker : WebEntity<SteamWebClient>
     {
         static readonly ConcurrentDictionary<Type, Func<Task<RestResponse>, ResponseConverter, object>> _continuationFunctions = new ConcurrentDictionary<Type, Func<Task<RestResponse>, ResponseConverter, object>>();
         static readonly MethodInfo ContinuationMethodInfo = typeof(WebInvoker).GetMethod(nameof(ContinuationFunction), BindingFlags.Static | BindingFlags.NonPublic);
@@ -85,10 +84,7 @@ namespace Steam.Web.Interface
                 return delegateMethod as Func<Task<RestResponse>, ResponseConverter, object>;
             });
         }
-
-        protected internal Task<RestResponse> SendAsync(HttpMethod httpMethod, string interfaceName, string method, int version, bool requireKey, RequestOptions options = null, params (string, string)[] parameters)
-            => (Client as SteamWebClient).SendAsync(httpMethod, interfaceName, method, version, requireKey, options, parameters);
-
+        
         private static object ContinuationFunction<TResult>(Task<RestResponse> response, ResponseConverter converter)
         {
             return response.ContinueWith((t) => 

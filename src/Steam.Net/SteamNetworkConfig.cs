@@ -3,7 +3,6 @@ using Steam.Web;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace Steam.Net
 {
@@ -99,43 +98,43 @@ namespace Steam.Net
                     Universe.Public,
                     new List<Uri>()
                     {
-                        new Uri("cm01-ord.cm.steampowered.com:443"),
-                        new Uri("cm02-ord.cm.steampowered.com:443"),
-                        new Uri("cm03-ord.cm.steampowered.com:443"),
-                        new Uri("cm04-ord.cm.steampowered.com:443"),
-                        new Uri("CM02-IAD.cm.steampowered.com:443"),
-                        new Uri("CM04-IAD.cm.steampowered.com:443"),
-                        new Uri("CM05-IAD.cm.steampowered.com:443"),
-                        new Uri("CM06-IAD.cm.steampowered.com:443"),
-                        new Uri("cm01-lax.cm.steampowered.com:443"),
-                        new Uri("cm02-lax.cm.steampowered.com:443")
+                        new Uri("wss://cm01-ord.cm.steampowered.com:443"),
+                        new Uri("wss://cm02-ord.cm.steampowered.com:443"),
+                        new Uri("wss://cm03-ord.cm.steampowered.com:443"),
+                        new Uri("wss://cm04-ord.cm.steampowered.com:443"),
+                        new Uri("wss://CM02-IAD.cm.steampowered.com:443"),
+                        new Uri("wss://CM04-IAD.cm.steampowered.com:443"),
+                        new Uri("wss://CM05-IAD.cm.steampowered.com:443"),
+                        new Uri("wss://CM06-IAD.cm.steampowered.com:443"),
+                        new Uri("wss://cm01-lax.cm.steampowered.com:443"),
+                        new Uri("wss://cm02-lax.cm.steampowered.com:443")
                     }
                 },
                 {
                     Universe.Beta,
                     new List<Uri>()
                     {
-                        new Uri("steam3beta-mds.valvesoftware.com:443"),
-                        new Uri("steam3-beta8.valvesoftware.com:443")
+                        new Uri("wss://steam3beta-mds.valvesoftware.com:443"),
+                        new Uri("wss://steam3-beta8.valvesoftware.com:443")
                     }
                 },
                 {
                     Universe.Internal,
                     new List<Uri>()
                     {
-                        new Uri("172.16.2.199:443"),
-                        new Uri("172.16.2.200:443"),
-                        new Uri("172.16.2.201:443"),
-                        new Uri("172.16.2.202:443"),
-                        new Uri("172.16.2.203:443"),
-                        new Uri("172.16.2.207:443")
+                        new Uri("wss://172.16.2.199:443"),
+                        new Uri("wss://172.16.2.200:443"),
+                        new Uri("wss://172.16.2.201:443"),
+                        new Uri("wss://172.16.2.202:443"),
+                        new Uri("wss://172.16.2.203:443"),
+                        new Uri("wss://172.16.2.207:443")
                     }
                 },
                 {
                     Universe.Dev,
                     new List<Uri>()
                     {
-                        new Uri("127.0.0.1:3443")
+                        new Uri("wss://127.0.0.1:3443")
                     }
                 }
             };

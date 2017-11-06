@@ -9,9 +9,6 @@ namespace Steam.Net.Sockets
 {
     internal class DefaultTcpSocketClient : ISocketClient
     {
-        private readonly AsyncEvent<Func<byte[], Task>> _receiveDataEvent = new AsyncEvent<Func<byte[], Task>>();
-        private readonly AsyncEvent<Func<Exception, Task>> _disconnectedEvent = new AsyncEvent<Func<Exception, Task>>();
-
         private readonly SemaphoreSlim _lock;
         private TcpClient _client;
         private NetworkStream _networkStream;
@@ -22,17 +19,9 @@ namespace Steam.Net.Sockets
         const int _tcpMagic = 0x31305456;
         private readonly byte[] _tcpMagicBytes = BitConverter.GetBytes(_tcpMagic);
 
-        public event Func<byte[], Task> MessageReceived
-        {
-            add => _receiveDataEvent.Add(value);
-            remove => _receiveDataEvent.Remove(value);
-        }
+        public event AsyncEventHandler<DataReceivedEventArgs> MessageReceived;
 
-        public event Func<Exception, Task> Disconnected
-        {
-            add => _disconnectedEvent.Add(value);
-            remove => _disconnectedEvent.Remove(value);
-        }
+        public event AsyncEventHandler<SocketDisconnectedEventArgs> Disconnected;
 
         public DefaultTcpSocketClient()
         {
@@ -164,7 +153,7 @@ namespace Steam.Net.Sockets
 
                     await _sentData.ConfigureAwait(false);
 
-                    _sentData = _receiveDataEvent.InvokeAsync(bytes);
+                    _sentData = MessageReceived.InvokeAsync(this, new DataReceivedEventArgs(bytes));
                 }
             }
             catch (Exception ex)
@@ -187,7 +176,7 @@ namespace Steam.Net.Sockets
             {
                 _lock.Release();
             }
-            await _disconnectedEvent.InvokeAsync(ex).ConfigureAwait(false);
+            await Disconnected.InvokeAsync(this, new SocketDisconnectedEventArgs(ex)).ConfigureAwait(false);
         }
 
         private async Task ReceiveDataAsync(byte[] buffer, int length) // sometimes Steam sends data in batches and ReadAsync doesn't return that amount, so we need to loop until we get the whole packet

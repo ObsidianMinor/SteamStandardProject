@@ -6,14 +6,13 @@ using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
 using Steam.Net.Sockets;
 using Steam.Net.Utilities;
+using Steam.Rest;
 using Steam.Web;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,9 +35,8 @@ namespace Steam.Net
         private readonly JobManager<NetworkMessage> _jobs;
         private readonly ConnectionManager _connection;
         private readonly ISocketClient Socket;
-        private readonly List<IPEndPoint> _endpoints = new List<IPEndPoint>();
-        private readonly List<Uri> _webSockets = new List<Uri>();
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
+        private int _serverIndex = -1;
         private Func<Exception, Task> _socketDisconnected;
 
         private CancellationTokenSource _connectCancellationToken;
@@ -46,19 +44,15 @@ namespace Steam.Net
 
         private Task _heartBeatTask;
         private CancellationTokenSource _heartbeatCancel;
-
-        // login continuation
-        private CMsgClientLogonResponse _previousLogonResponse;
-        private LoginInfo _previousLogonRequest;
+        
         private Func<Task> _logonFunc;
 
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
         private bool _gracefulLogoff;
-
-        private TaskCompletionSource<bool> _continueWaiter;
+        
         private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
-        private List<Server> _cmServers;
-
+        private List<Server> _connectionManagers;
+        
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
         /// </summary>
@@ -115,11 +109,6 @@ namespace Steam.Net
         /// Gets the client's current instance ID
         /// </summary>
         public long InstanceId { get; private set; }
-
-        /// <summary>
-        /// Gets the client's current login key that it uses to auto login to the current user
-        /// </summary>
-        public string LoginKey { get; private set; }
         
         /// <summary>
         /// Creates a new <see cref="SteamNetworkClient"/> with the default config
@@ -135,31 +124,31 @@ namespace Steam.Net
             config = GetConfig<SteamNetworkConfig>();
             Socket = config.SocketClient();
             Socket.MessageReceived += ReceiveAsync;
-            Socket.Disconnected += async ex =>
+            Socket.Disconnected += async (_, ex) =>
             {
                 await DisconnectAsync().ConfigureAwait(false);
-                await _socketDisconnected(ex).ConfigureAwait(false);
+                await _socketDisconnected(ex.Exception).ConfigureAwait(false);
             };
             CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
             _stateLock = new SemaphoreSlim(1, 1);
             _connectionStateLock = new SemaphoreSlim(1, 1);
             _jobs = new JobManager<NetworkMessage>(LogManager.CreateLogger("Jobs"));
             NetLog = LogManager.CreateLogger("Net");
-            _cmServers = new List<Server>(config.ConnectionManagers?.Select(x => new Server(x)) ?? config.WebSockets?.Select(x => new Server(x)) ?? Enumerable.Empty<Server>());
-
+            _connectionManagers = new List<Server>();
+            
             _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), config.NetworkConnectionTimeout,
                 OnConnectingAsync, OnDisconnectingAsync, (x) => _socketDisconnected = x);
+            
+            _connection.Disconnected += async (_, args) => 
+            {
+                await TimedInvokeAsync(Disconnected, args).ConfigureAwait(false);
+            };
+            _connection.Connected += async (_, __) =>
+            {
+                await TimedInvokeAsync(Connected, EventArgs.Empty).ConfigureAwait(false);
+            };
 
             CurrentUser = new SelfUser(SteamId.CreateAnonymousUser(config.DefaultUniverse));
-
-            _connection.Disconnected += async (ex, recon) => 
-            {
-                await TimedInvokeAsync(_disconnected, nameof(Disconnected), ex).ConfigureAwait(false);
-            };
-            _connection.Connected += async () =>
-            {
-                await TimedInvokeAsync(_connected, nameof(Connected)).ConfigureAwait(false);
-            };
             
             _resolver = config.ReceiveMethodResolver == null ? new DefaultReceiveMethodResolver() : config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
             
@@ -203,7 +192,7 @@ namespace Steam.Net
         /// </summary>
         /// <returns></returns>
         public async Task StartAsync() => await _connection.StartAsync().ConfigureAwait(false);
-
+        
         /// <summary>
         /// Disconnects this client from the Steam network and disconnects all game coordinators
         /// </summary>
@@ -227,17 +216,13 @@ namespace Steam.Net
 
             await NetLog.DebugAsync("Performing possible login actions").ConfigureAwait(false);
             // todo: resume connections and things
-            if (_previousLogonResponse != null)
-            {
-                await LoginAsync(_previousLogonRequest).ConfigureAwait(false);
-            }
-            else if (_logonFunc != null)
+            if (_logonFunc != null)
             {
                 await _logonFunc().ConfigureAwait(false);
             }
             else
             {
-                await _ready.InvokeAsync().ConfigureAwait(false);
+                await Ready.InvokeAsync(this, EventArgs.Empty).ConfigureAwait(false);
             }
 
             await _connection.CompleteAsync().ConfigureAwait(false);
@@ -249,14 +234,7 @@ namespace Steam.Net
             {
                 CurrentServer = null;
             }
-
-            await NetLog.DebugAsync("Disconnecting all game coordinators").ConfigureAwait(false);
-            foreach (var gc in _gameCoordinators)
-            {
-                await gc.Value.StopAsync().ConfigureAwait(false);
-                _gameCoordinators.Remove(gc.Key);
-            }
-
+            
             await NetLog.DebugAsync("Cancelling all jobs").ConfigureAwait(false);
             await _jobs.CancelAllJobs().ConfigureAwait(false);
 
@@ -269,11 +247,23 @@ namespace Steam.Net
             await NetLog.DebugAsync("Disconnecting client").ConfigureAwait(false);
             await DisconnectAsync().ConfigureAwait(false);
 
-            if (_continueWaiter != null)
-            {
-                await NetLog.DebugAsync("Waiting for previous logon result");
-                await WaitAsync();
-            }
+            // reset state
+            await NetLog.DebugAsync("Resetting the client state").ConfigureAwait(false);
+            ResetState();
+        }
+
+        private void ResetState()
+        {
+            /*
+             * Here's a block comment. If you add data to the state, write down what the state is to reset and fill in the code to reset it
+             * CurrentUser
+             * SessionId
+             * InstanceId
+             */
+
+            CurrentUser.Reset();
+            SessionId = 0;
+            InstanceId = 0;
         }
 
         private async Task ConnectAsync()
@@ -289,66 +279,80 @@ namespace Steam.Net
             }
         }
 
+        protected virtual async Task<Server> GetConnectionServerAsync()
+        {
+            while (!AdvanceToMatchingServerIndex(s => s.IsEndPoint))
+            {
+                _connectionManagers.Clear();
+
+                var cms = GetConfig<SteamNetworkConfig>().ConnectionManagers;
+                _connectionManagers.AddRange(cms?.Select(cm => new Server(cm)) ?? Enumerable.Empty<Server>());
+                if (_connectionManagers.Count == 0)
+                {
+                    ISteamDirectory directory = GetInterface<ISteamDirectory>();
+                    try
+                    {
+                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
+                        _connectionManagers.AddRange(cmList.Response.ServerList.Select(cm => new Server(cm)));
+                    }
+                    catch (HttpException) { }
+                }
+            }
+
+            return _connectionManagers[_serverIndex];
+        }
+        
+        protected virtual async Task<Server> GetWebSocketConnectionServerAsync()
+        {
+            while (!AdvanceToMatchingServerIndex(s => s.IsUri))
+            {
+                _connectionManagers.Clear();
+
+                IEnumerable<Uri> webSockets = GetConfig<SteamNetworkConfig>().WebSockets;
+                _connectionManagers.AddRange(webSockets?.Select(cm => new Server(cm)) ?? Enumerable.Empty<Server>());
+                if (_connectionManagers.Count == 0)
+                {
+                    ISteamDirectory directory = GetInterface<ISteamDirectory>();
+                    try
+                    {
+                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
+                        _connectionManagers.AddRange(cmList.Response.WebSocketServerList.Select(cm => new Server(cm)));
+                    }
+                    catch (HttpException) { } // go back around and try again
+                }
+            }
+
+            return _connectionManagers[_serverIndex];
+        }
+
+        private bool AdvanceToMatchingServerIndex(Func<Server, bool> predicate)
+        {
+            // move index up by one, since if we're here that means we need a new server, and the current index satisfies.
+            // move index up by one while the server index is smaller than the CM count and the predicate function returns false
+            for (_serverIndex++; _serverIndex < _connectionManagers.Count && !predicate(_connectionManagers[_serverIndex]); _serverIndex++) { }
+            
+            // if the server index is over the connection manager count or there are no connection managers, set the index to -1
+            if (_serverIndex > _connectionManagers.Count || _connectionManagers.Count == 0)
+                _serverIndex = -1;
+
+            // then return if the index isn't -1
+            return _serverIndex != -1;
+        }
+        
         private async Task ConnectInternalAsync()
         {
             _connectCancellationToken = new CancellationTokenSource();
             Socket.SetCancellationToken(_connectCancellationToken.Token);
             if (Socket is IWebSocketClient webSocketClient)
             {
-                if (!_servers.ContainsKey(ServerType.ConnectionManager) || _servers[ServerType.ConnectionManager].Where(x => x.IsUri).Count() == 0)
-                {
-                    IEnumerable<Uri> webSockets = GetConfig<SteamNetworkConfig>().WebSockets;
-                    _webSockets.AddRange(webSockets ?? Enumerable.Empty<Uri>());
-                    if (_webSockets.Count == 0)
-                    {
-                        ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
-                        _webSockets.AddRange(cmList.Response.WebSocketServerList);
-                        if (_webSockets.Count == 0)
-                        {
-                            await NetLog.WarningAsync("The Steam directory did not return any WebSocket addresses").ConfigureAwait(false);
-                            throw new InvalidOperationException("Could not find any WebSocket addresses to connect to");
-                        }
-                    }
-                }
-
-                while (CurrentServer == null && _webSockets.Count != 0)
-                {
-                    if (_webSockets.First() == null)
-                    {
-                        _webSockets.RemoveAt(0);
-                        continue;
-                    }
-                    CurrentServer = new Uri($"wss://{_webSockets.First()}/cmsocket/");
-                }
+                CurrentServer = await GetWebSocketConnectionServerAsync().ConfigureAwait(false);
 
                 await NetLog.InfoAsync($"Connecting to WebSocket {CurrentServer}").ConfigureAwait(false);
-                await webSocketClient.ConnectAsync(CurrentServer).ConfigureAwait(false);
+                await webSocketClient.ConnectAsync(new Uri($"wss://{CurrentServer.ToString()}/cmsocket/")).ConfigureAwait(false);
             }
             else
             {
-                if (!_servers.ContainsKey(ServerType.ConnectionManager) || _endpoints.Count == 0)
-                {
-                    IEnumerable<IPEndPoint> endPoints = GetConfig<SteamNetworkConfig>().ConnectionManagers;
-                    _endpoints.AddRange(endPoints ?? Enumerable.Empty<IPEndPoint>());
-                    if (_endpoints.Count == 0)
-                    {
-                        ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
-                        _endpoints.AddRange(cmList.Response.ServerList);
-                        if (_endpoints.Count == 0)
-                        {
-                            await NetLog.WarningAsync("The Steam directory did not return any IP end points").ConfigureAwait(false);
-                            throw new InvalidOperationException("Could not find any WebSocket addresses to connect to");
-                        }
-                    }
-                }
-
-                while (CurrentServer == null && _endpoints.Count != 0)
-                {
-                    CurrentServer = _endpoints.First();
-                    _endpoints.RemoveAt(0);
-                }
+                CurrentServer = await GetConnectionServerAsync().ConfigureAwait(false);
 
                 await NetLog.InfoAsync($"Connecting to endpoint {CurrentServer}").ConfigureAwait(false);
                 await Socket.ConnectAsync(CurrentServer.GetIPEndPoint()).ConfigureAwait(false);
@@ -378,24 +382,7 @@ namespace Steam.Net
 
             await Socket.DisconnectAsync().ConfigureAwait(false);
         }
-
-        private async Task StartEventWait()
-        {
-            await WaitAsync();
-            _continueWaiter = new TaskCompletionSource<bool>();
-        }
-
-        private async Task WaitAsync()
-        {
-            await (_continueWaiter?.Task ?? Task.FromResult(true));
-        }
-
-        private async Task CompleteAsync()
-        {
-            await _continueWaiter?.TrySetResultAsync(true);
-            _continueWaiter = null;
-        }
-
+        
         // in exchange for a gc instance to track, we give back a logger, job manager, and method resolver
         internal (Logger, JobManager<GameCoordinatorMessage>, IReceiveMethodResolver) AttachGC(GameCoordinator gc, string name)
         {
@@ -669,35 +656,8 @@ namespace Steam.Net
                 .WithClientInfo(new SteamId(info.AccountId, GetConfig<SteamNetworkConfig>().DefaultUniverse, info.AccountType, instance), 0);
 
             await SendAsync(logon.Serialize()).ConfigureAwait(false);
-
-            _previousLogonRequest = info;
         }
-
-        /// <summary>
-        /// Sets a two factor code based on the previous logon response
-        /// </summary>
-        public void SetLoginInformation(string code)
-        {
-            if (_previousLogonResponse == null)
-                throw new InvalidOperationException("Cannot continue successful logon");
-
-            if (string.IsNullOrEmpty(code))
-                throw new ArgumentException("Provided code cannot be null or empty", nameof(code));
-
-            switch((Result)_previousLogonResponse.eresult)
-            {
-                case Result.AccountLoginDeniedNeedTwoFactor:
-                case Result.TwoFactorCodeMismatch:
-                    _previousLogonRequest.TwoFactorCode = code;
-                    break;
-                case Result.AccountLogonDeniedVerifiedEmailRequired:
-                    _previousLogonRequest.AuthCode = code;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(_previousLogonResponse.eresult), "The response cannot be continue with a provided auth code");
-            }
-        }
-
+        
         /// <summary>
         /// Gets servers of the specified type
         /// </summary>
@@ -879,7 +839,7 @@ namespace Steam.Net
             #endregion
             
             // cache the data so we don't serialize 500 times per session. Our session ID will never change and neither will our Steam ID
-            byte[] data = NetworkMessage.CreateProtobufMessage(MessageType.ClientHeartBeat, new CMsgClientHeartBeat()).WithClientInfo(SteamId, SessionId).Serialize();
+            var beat = NetworkMessage.CreateProtobufMessage(MessageType.ClientHeartBeat, new CMsgClientHeartBeat()).WithClientInfo(SteamId, SessionId).Serialize();
 
             try
             {
@@ -890,7 +850,7 @@ namespace Steam.Net
 
                     try
                     {
-                        await SendAsync(data).ConfigureAwait(false);
+                        await SendAsync(beat).ConfigureAwait(false);
                     }
                     catch (Exception ex)
                     {
@@ -997,9 +957,9 @@ namespace Steam.Net
             return selector(responses.ToReadOnlyCollection());
         }
         
-        private async Task ReceiveAsync(byte[] data)
+        private async Task ReceiveAsync(object sender, DataReceivedEventArgs args)
         {
-            await DispatchData(Encryption.Decrypt(data)).ConfigureAwait(false);
+            await DispatchData(Encryption.Decrypt(args.Data)).ConfigureAwait(false);
         }
 
         private async Task DispatchData(byte[] data)
@@ -1013,7 +973,7 @@ namespace Steam.Net
             {
                 foreach (MessageReceiver dispatcher in dispatch.GetInvocationList())
                 {
-                    TimeoutWrap(dispatcher.Method.ToString(), () => dispatcher(message));
+                    TimeoutWrap(() => dispatcher(message));
                 }
             }
             else
@@ -1023,74 +983,43 @@ namespace Steam.Net
         }
 
         #endregion
-
-        private async Task TimedInvokeAsync(AsyncEvent<Func<Task>> eventHandler, string name)
+        
+        /// <summary>
+        /// Invokes the specified async event on another thread
+        /// </summary>
+        /// <param name="eventHandler"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        protected async Task TimedInvokeAsync(AsyncEventHandler eventHandler, EventArgs args)
         {
-            if (eventHandler.HasSubscribers)
+            if (eventHandler != null)
             {
                 if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync());
+                    TimeoutWrap(() => eventHandler.InvokeAsync(this, args));
                 else
-                    await eventHandler.InvokeAsync().ConfigureAwait(false);
+                    await eventHandler.InvokeAsync(this, args).ConfigureAwait(false);
             }
         }
 
-        private async Task TimedInvokeAsync<T>(AsyncEvent<Func<T, Task>> eventHandler, string name, T arg)
+        /// <summary>
+        /// Invokes the specified async event on another thread
+        /// </summary>
+        /// <typeparam name="TArgs"></typeparam>
+        /// <param name="eventHandler"></param>
+        /// <param name="arg"></param>
+        /// <returns></returns>
+        protected async Task TimedInvokeAsync<TArgs>(AsyncEventHandler<TArgs> eventHandler, TArgs arg) where TArgs : EventArgs
         {
-            if (eventHandler.HasSubscribers)
+            if (eventHandler != null)
             {
                 if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync(arg));
+                    TimeoutWrap(() => eventHandler.InvokeAsync(this, arg));
                 else
-                    await eventHandler.InvokeAsync(arg).ConfigureAwait(false);
+                    await eventHandler.InvokeAsync(this, arg).ConfigureAwait(false);
             }
         }
 
-        private async Task TimedInvokeAsync<T1, T2>(AsyncEvent<Func<T1, T2, Task>> eventHandler, string name, T1 arg1, T2 arg2)
-        {
-            if (eventHandler.HasSubscribers)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2));
-                else
-                    await eventHandler.InvokeAsync(arg1, arg2).ConfigureAwait(false);
-            }
-        }
-
-        private async Task TimedInvokeAsync<T1, T2, T3>(AsyncEvent<Func<T1, T2, T3, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3)
-        {
-            if (eventHandler.HasSubscribers)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3));
-                else
-                    await eventHandler.InvokeAsync(arg1, arg2, arg3).ConfigureAwait(false);
-            }
-        }
-
-        private async Task TimedInvokeAsync<T1, T2, T3, T4>(AsyncEvent<Func<T1, T2, T3, T4, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
-        {
-            if (eventHandler.HasSubscribers)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3, arg4));
-                else
-                    await eventHandler.InvokeAsync(arg1, arg2, arg3, arg4).ConfigureAwait(false);
-            }
-        }
-
-        private async Task TimedInvokeAsync<T1, T2, T3, T4, T5>(AsyncEvent<Func<T1, T2, T3, T4, T5, Task>> eventHandler, string name, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
-        {
-            if (eventHandler.HasSubscribers)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
-                    TimeoutWrap(name, () => eventHandler.InvokeAsync(arg1, arg2, arg3, arg4, arg5));
-                else
-                    await eventHandler.InvokeAsync(arg1, arg2, arg3, arg4, arg5).ConfigureAwait(false);
-            }
-        }
-
-        private void TimeoutWrap(string name, Func<Task> action)
+        private void TimeoutWrap(Func<Task> action)
         {
             CancellationTokenSource cancellationToken = new CancellationTokenSource();
             cancellationToken.CancelAfter(GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout);

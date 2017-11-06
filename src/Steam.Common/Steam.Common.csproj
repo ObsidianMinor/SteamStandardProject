@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../../tools/common.props"/>
+  <Import Project="../../tools/common.props" />
   
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <RootNamespace>Steam</RootNamespace>
     <AssemblyName>Steam.Common</AssemblyName>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>ObsidianMinor</Authors>
     <Description>A collection of common Steam types including cryptography and enums for use in other libraries</Description>
     <PackageTags>steam, netstandard, common</PackageTags>

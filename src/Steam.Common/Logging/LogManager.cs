@@ -9,8 +9,7 @@ namespace Steam.Logging
         public LogSeverity Level { get; }
         private Logger ClientLogger { get; }
 
-        public event Func<LogMessage, Task> Message { add { _messageEvent.Add(value); } remove { _messageEvent.Remove(value); } }
-        private readonly AsyncEvent<Func<LogMessage, Task>> _messageEvent = new AsyncEvent<Func<LogMessage, Task>>();
+        public event AsyncEventHandler<LogEventArgs> Message;
 
         public LogManager(LogSeverity minSeverity)
         {
@@ -22,9 +21,9 @@ namespace Steam.Logging
         {
             try
             {
-                var message = new LogMessage(severity, source, null, ex);
+                var message = new LogEventArgs(severity, source, null, ex);
                 if (severity <= Level)
-                    await _messageEvent.InvokeAsync(message).ConfigureAwait(false);
+                    await Message.InvokeAsync(this, message).ConfigureAwait(false);
 
                 Debug.WriteLine(message);
             }
@@ -34,9 +33,9 @@ namespace Steam.Logging
         {
             try
             {
-                var logMessage = new LogMessage(severity, source, message, ex);
+                var logMessage = new LogEventArgs(severity, source, message, ex);
                 if (severity <= Level)
-                    await _messageEvent.InvokeAsync(logMessage).ConfigureAwait(false);
+                    await Message.InvokeAsync(this, logMessage).ConfigureAwait(false);
 
                 Debug.WriteLine(message);
             }

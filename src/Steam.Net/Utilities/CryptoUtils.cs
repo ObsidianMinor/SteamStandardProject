@@ -18,6 +18,14 @@ namespace Steam.Net.Utilities
             }
         }
 
+        internal static (byte[] encryptedSessionKey, byte[] sessionKey) CreateCryptedSessionKey(byte[] publicKey)
+        {
+            var sessionKey = GenerateBytes(32);
+            
+            using (var rsa = new RsaCrypto(publicKey))
+                return (rsa.Encrypt(sessionKey), sessionKey);
+        }
+
         internal static byte[] SymmetricDecrypt(byte[] data, byte[] key, out byte[] iv)
         {
             using (Aes aes = Aes.Create())

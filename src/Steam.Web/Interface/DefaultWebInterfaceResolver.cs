@@ -24,7 +24,7 @@ namespace Steam.Web.Interface
             }
         }
 
-        private readonly static StringSerializer[] _serializers = new[]
+        private readonly static StringSerializer[] _serializers = new[] // order is important near end when serializers become more generalized
         {
             new TimeSpanSerializer(),
             new JsonStringSerializer(),

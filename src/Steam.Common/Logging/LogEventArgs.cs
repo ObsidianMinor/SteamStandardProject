@@ -6,7 +6,7 @@ namespace Steam
     /// <summary>
     /// A simple log message
     /// </summary>
-    public struct LogMessage
+    public class LogEventArgs : EventArgs
     {
         /// <summary>
         /// The source of this log message
@@ -32,7 +32,7 @@ namespace Steam
         /// <param name="level"></param>
         /// <param name="message"></param>
         /// <param name="ex"></param>
-        public LogMessage(LogSeverity level, string source, string message, Exception ex)
+        public LogEventArgs(LogSeverity level, string source, string message, Exception ex)
         {
             Source = source;
             Severity = level;
