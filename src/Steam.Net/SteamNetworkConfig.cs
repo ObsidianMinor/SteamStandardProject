@@ -188,7 +188,7 @@ namespace Steam.Net
         /// <summary>
         /// Sets the timeout period in milliseconds for receiver methods to complete exection asynchronously
         /// </summary>
-        public int ReceiveMethodTimeout { get; set; } = 6000000;
+        public int ReceiveMethodTimeout { get; set; } = -1;
 
         /// <summary>
         /// Represents the provider to get the default web socket implementation
