@@ -3,34 +3,36 @@
     /// <summary>
     /// Represents the current user's Steam wallet
     /// </summary>
-    public sealed class Wallet
-    {
+    public class Wallet
+    {   
+        private long _cents;
+        private long _centsPending;
+
         /// <summary>
         /// Gets the currency of this wallet
         /// </summary>
-        public CurrencyCode Currency { get; internal set; }
+        public CurrencyCode Currency { get; }
 
         /// <summary>
         /// Get the cents in this wallet that can be used
         /// </summary>
-        public long Cents { get; internal set; }
+        public long Cents => _cents;
 
         /// <summary>
         /// Get the cents in this wallet that are pending and cannot be used yet
         /// </summary>
-        public long CentsPending { get; internal set; }
+        public long CentsPending => _centsPending;
 
-        internal Wallet(CurrencyCode code, long cents, long pending)
+        private Wallet(CurrencyCode code, long cents, long pending)
         {
             Currency = code;
-            Cents = cents;
-            CentsPending = pending;
+            _cents = cents;
+            _centsPending = pending;
         }
 
-        internal void Update(long cents, long pending)
+        internal static Wallet Create(CurrencyCode code, long cents, long pending)
         {
-            Cents = cents;
-            CentsPending = pending;
+            return new Wallet(code, cents, pending);
         }
     }
 }

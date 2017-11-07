@@ -49,7 +49,7 @@ namespace Steam.Net
         private async Task ReceiveEncryptRequest(ChannelEncryptRequest encryptRequest)
         {
             await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
-            CurrentUser.Id = SteamId.CreateAnonymousUser(encryptRequest.Universe);
+            await UpdateCurrentUser(u => (SelfUser)u.WithSteamId(SteamId.CreateAnonymousUser(encryptRequest.Universe))).ConfigureAwait(false);
 
             byte[] challange = encryptRequest.Challenge.All(b => b == 0) ? encryptRequest.Challenge : null; // check if all the values were made 0 by the marshal
             byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
@@ -114,11 +114,12 @@ namespace Steam.Net
                 var id = (messsage.Header as ClientHeader).SteamId;
                 InstanceId = (long)response.client_instance_id;
                 if (id.IsAnonymousAccount || id.IsGameServer)
-                    CurrentUser.Id = id;
+                {
+                    await UpdateCurrentUser(u => (SelfUser)u.WithSteamId(id)).ConfigureAwait(false);
+                }
                 else
                 {
-                    CurrentUser.Id = id;
-                    CurrentUser.Flags = (AccountFlags)response.account_flags;
+                    await UpdateCurrentUser(u => (SelfUser)u.WithFlags((AccountFlags)response.account_flags).WithSteamId(id));
                 }
 
                 await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
@@ -151,7 +152,7 @@ namespace Steam.Net
             await NetLog.InfoAsync($"Logged off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
             await LoggedOff.InvokeAsync(this, new LogOffEventArgs((Result)loggedOff.eresult));
             _gracefulLogoff = true;
-            CurrentUser.Reset();
+            await UpdateCurrentUser(u => new SelfUser(SteamId.CreateAnonymousUser(GetConfig<SteamNetworkConfig>().DefaultUniverse))).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientFromGC)]
@@ -164,27 +165,24 @@ namespace Steam.Net
         }
 
         [MessageReceiver(MessageType.ClientEmailAddrInfo)]
-        private Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
+        private async Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
         {
-            CurrentUser.Email = email.email_address;
-            CurrentUser.EmailValidated = email.email_is_validated;
-            return Task.CompletedTask;
+            await UpdateCurrentUser(u => u.WithEmail(email.email_address).WithEmailValidation(email.email_is_validated)).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientAccountInfo)]
-        private Task ReceiveAccountInfo(CMsgClientAccountInfo info)
+        private async Task ReceiveAccountInfo(CMsgClientAccountInfo info)
         {
-            CurrentUser.PlayerName = info.persona_name;
-            return Task.CompletedTask;
+            await UpdateCurrentUser(u => (SelfUser)u.WithName(info.persona_name)).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientWalletInfoUpdate)]
-        private Task ReceiveWallet(CMsgClientWalletInfoUpdate wallet)
+        private async Task ReceiveWallet(CMsgClientWalletInfoUpdate wallet)
         {
-            CurrentUser.Wallet.Currency = (CurrencyCode)wallet.currency;
-            CurrentUser.Wallet.Cents = wallet.balance64;
-            CurrentUser.Wallet.CentsPending = wallet.balance64_delayed;
-            return Task.CompletedTask;
+            var before = Wallet;
+            var after = Wallet.Create((CurrencyCode)wallet.currency, wallet.balance64, wallet.balance64_delayed);
+            Wallet = after;
+            await WalletUpdated.InvokeAsync(this, new WalletUpdatedEventArgs(before, after)).ConfigureAwait(false);
         }
         
         [MessageReceiver(MessageType.ClientNewLoginKey)]
@@ -234,13 +232,39 @@ namespace Steam.Net
 
                 if (jobResponse.result == 1)
                 {
-                    CurrentUser.Status = PersonaState.Online;
+                    await UpdateCurrentUser(u => (SelfUser)u.WithStatus(PersonaState.Online)).ConfigureAwait(false);
                 }
                 else
                 {
                     await NetLog.WarningAsync($"Auto friends login did not complete successfully: {(Result)jobResponse.result}");
                 }
             }
+        }
+        
+        [MessageReceiver(MessageType.ClientFriendsList)]
+        private async Task ReceiveFriendsList()
+        {
+
+        }
+
+        [MessageReceiver(MessageType.ClientPersonaState)]
+        private async Task ReceivePersonaUpdate(CMsgClientPersonaState state)
+        {
+
+        }
+
+        [MessageReceiver(MessageType.ClientClanState)]
+        private async Task ReceiveClanUpdate(CMsgClientClanState state)
+        {
+
+        }
+
+        private async Task UpdateCurrentUser(Func<SelfUser, SelfUser> updater)
+        {
+            var before = CurrentUser;
+            var after = updater(before);
+            CurrentUser = after;
+            await CurrentUserUpdated.InvokeAsync(this, new CurrentUserUpdatedEventArgs(before, after)).ConfigureAwait(false);
         }
     }
 }

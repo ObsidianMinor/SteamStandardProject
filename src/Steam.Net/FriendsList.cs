@@ -1,23 +1,41 @@
-﻿using System;
+﻿using Steam.Net.Messages.Protobufs;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Steam.Net
 {
-    public class FriendsList : IReadOnlyList<User>
+    /// <summary>
+    /// Represents a Steam friends list
+    /// </summary>
+    public class FriendsList : NetEntity<SteamNetworkClient>, IReadOnlyCollection<IUser>, IReadOnlyCollection<IClan>,
     {
-        public User this[int index] => throw new NotImplementedException();
+        private List<IUser> _users;
+        private List<IClan> _clans;
 
-        public int Count => throw new NotImplementedException();
+        public event AsyncEventHandler<UserUpdatedEventArgs> UserUpdated;
 
-        public IEnumerator<User> GetEnumerator()
+        public event AsyncEventHandler<ClanUpdatedEventArgs> ClanUpdated;
+
+        public int ClanCount => _clans.Count;
+
+        public int FriendCount => _users.Count;
+
+        internal FriendsList(SteamNetworkClient client) : base(client)
         {
-            throw new NotImplementedException();
+            _users = new List<IUser>();
+            _clans = new List<IClan>();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public async Task AddFriend(IUser user)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public async Task RemoveFriend(IUser user)
+        {
+
         }
     }
 }

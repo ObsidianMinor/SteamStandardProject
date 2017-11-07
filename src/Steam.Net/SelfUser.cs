@@ -8,48 +8,61 @@ namespace Steam.Net
     [DebuggerDisplay("{AccountName ?? \"anonymous\"} : {Id.ToString()}")]
     public class SelfUser : User
     {
+        private AccountFlags _flags;
+        private string _vanityUrl;
+        private string _email;
+        private bool _emailValidated;
+
         /// <summary>
         /// Get any flags on this user account
         /// </summary>
-        public AccountFlags Flags { get; internal set; }
+        public AccountFlags Flags { get; }
         
         /// <summary>
         /// Gets the vanity url to access the current user's profile
         /// </summary>
-        public string VanityUrl { get; internal set; }
+        public string VanityUrl { get; }
 
         /// <summary>
         /// Gets the email address for the current user
         /// </summary>
-        public string Email { get; internal set; }
-
-        /// <summary>
-        /// Gets the current user's wallet
-        /// </summary>
-        public Wallet Wallet { get; internal set; }
+        public string Email { get; }
 
         /// <summary>
         /// Gets whether the current user's email is validated
         /// </summary>
-        public bool EmailValidated { get; internal set; }
+        public bool EmailValidated { get; }
         
-        internal SelfUser(SteamId id) : base(id)
+        internal SelfUser(SteamId id) : base(id, 0)
         {
-            Wallet = new Wallet(CurrencyCode.Invalid, 0, 0);
         }
 
-        internal void Reset()
+        internal SelfUser WithFlags(AccountFlags flags)
         {
-            Flags = 0;
-            Email = null;
-            EmailValidated = false;
-            VanityUrl = null;
-            Wallet.Cents = 0;
-            Wallet.CentsPending = 0;
-            Wallet.Currency = 0;
+            var before = (SelfUser)Clone();
+            before._flags = flags;
+            return before;
+        }
 
-            PlayerName = null;
-            Status = 0;
+        internal SelfUser WithVanityUrl(string vanityUrl)
+        {
+            var before = (SelfUser)Clone();
+            before._vanityUrl = vanityUrl;
+            return before;
+        }
+
+        internal SelfUser WithEmail(string email)
+        {
+            var before = (SelfUser)Clone();
+            before._email = email;
+            return before;
+        }
+
+        internal SelfUser WithEmailValidation(bool validated)
+        {
+            var before = (SelfUser)Clone();
+            before._emailValidated = validated;
+            return before;
         }
     }
 }

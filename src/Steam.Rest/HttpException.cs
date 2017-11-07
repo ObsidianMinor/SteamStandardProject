@@ -7,11 +7,18 @@ namespace Steam.Rest
     /// </summary>
     public class HttpException : Exception
     {
+        /// <summary>
+        /// Creates a new <see cref="HttpException"/> with the specifed <see cref="RestResponse"/>
+        /// </summary>
+        /// <param name="response"></param>
         public HttpException(RestResponse response) : base("The response returned didn't contain a success status code")
         {
             Response = response;
         }
 
+        /// <summary>
+        /// Gets the response that created this exception
+        /// </summary>
         public RestResponse Response { get; }
 
         public override string ToString()

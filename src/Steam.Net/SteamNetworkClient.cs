@@ -38,8 +38,8 @@ namespace Steam.Net
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
         private int _serverIndex = -1;
         private Func<Exception, Task> _socketDisconnected;
-
         private CancellationTokenSource _connectCancellationToken;
+
         private IEncryptor _encryptor;
 
         private Task _heartBeatTask;
@@ -52,6 +52,8 @@ namespace Steam.Net
         
         private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
         private List<Server> _connectionManagers;
+
+        private FriendsList _friends;
         
         /// <summary>
         /// Gets a collection of all game coordinators attached to this client
@@ -99,6 +101,11 @@ namespace Steam.Net
         /// Gets the client's current user
         /// </summary>
         public SelfUser CurrentUser { get; private set; }
+
+        /// <summary>
+        /// Gets the current user's wallet
+        /// </summary>
+        public Wallet Wallet { get; private set; }
 
         /// <summary>
         /// Gets the client's current cell ID

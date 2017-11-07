@@ -6,11 +6,50 @@ namespace Steam.Net
     /// Represents a user on Steam
     /// </summary>
     [DebuggerDisplay("{PlayerName} : {SteamId}")]
-    public class User : Account
+    public class User : Account, IUser
     {
-        public string PlayerName { get; internal set; }
-        public PersonaState Status { get; internal set; }
+        private string _playerName;
+        private PersonaState _state;
+        private PersonaStateFlag _stateFlags;
+        private FriendRelationship _relationship;
+
+        public string PlayerName => _playerName;
+        public PersonaState Status => _state;
+        public PersonaStateFlag Flags => _stateFlags;
+
+        public FriendRelationship Relationship => _relationship;
         
-        protected User(SteamId id) : base(id) { }
+        internal User(SteamId id, FriendRelationship relationship) : base(id) 
+        { 
+            _relationship = relationship;
+        }
+
+        internal User WithName(string name)
+        {
+            var before = (User)Clone();
+            before._playerName = name;
+            return before;
+        }
+
+        internal User WithStatus(PersonaState state)
+        {
+            var before = (User)Clone();
+            before._state = state;
+            return before;
+        }
+
+        internal User WithFlags(PersonaStateFlag flag)
+        {
+            var before = (User)Clone();
+            before._stateFlags = flag;
+            return before;
+        }
+
+        internal User WithRelationship(FriendRelationship relationship)
+        {
+            var before = (User)Clone();
+            before._relationship = relationship;
+            return before;
+        }
     }
 }
