@@ -37,7 +37,7 @@ namespace Steam.Logging
                 if (severity <= Level)
                     await Message.InvokeAsync(this, logMessage).ConfigureAwait(false);
 
-                Debug.WriteLine(message);
+                Debug.WriteLine(logMessage);
             }
             catch { }
         }

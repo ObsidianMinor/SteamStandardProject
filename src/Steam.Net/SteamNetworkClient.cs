@@ -448,7 +448,8 @@ namespace Steam.Net
                 Username = username, 
                 LoginKey = loginKey, 
                 RequestSteam2Ticket = requestSteam2Ticket,
-                AccountType = AccountType.Individual 
+                AccountType = AccountType.Individual,
+                ShouldRememberPassword = true
             }).ConfigureAwait(false);
         }
 
@@ -879,6 +880,8 @@ namespace Steam.Net
         {
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
+
+            await NetLog.VerboseAsync($"Sending {(message.Protobuf ? "protobuf" : "struct")} message with type {message.MessageType}");
             
             await SendAsync(message.WithClientInfo(SteamId, SessionId).Serialize()).ConfigureAwait(false);
         }
@@ -994,7 +997,7 @@ namespace Steam.Net
         {
             if (eventHandler != null)
             {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout >= -1)
                     TimeoutWrap(() => eventHandler.InvokeAsync(this, args));
                 else
                     await eventHandler.InvokeAsync(this, args).ConfigureAwait(false);
@@ -1012,7 +1015,7 @@ namespace Steam.Net
         {
             if (eventHandler != null)
             {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout > 0)
+                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout >= -1)
                     TimeoutWrap(() => eventHandler.InvokeAsync(this, arg));
                 else
                     await eventHandler.InvokeAsync(this, arg).ConfigureAwait(false);
@@ -1021,8 +1024,7 @@ namespace Steam.Net
 
         private void TimeoutWrap(Func<Task> action)
         {
-            CancellationTokenSource cancellationToken = new CancellationTokenSource();
-            cancellationToken.CancelAfter(GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout);
+            CancellationTokenSource cancellationToken = new CancellationTokenSource(GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout);
             var _ = Task.Run(action, cancellationToken.Token).ContinueWith(async (t) =>
             {
                 if (t.IsCanceled)
@@ -1030,6 +1032,7 @@ namespace Steam.Net
 
                 if (t.IsFaulted)
                     await NetLog.ErrorAsync($"A receiver method or event handler threw an exception", t.Exception).ConfigureAwait(false);
+
             }).ContinueWith(SwallowExceptions);
         }
 

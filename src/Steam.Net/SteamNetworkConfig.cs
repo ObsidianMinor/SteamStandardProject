@@ -207,5 +207,10 @@ namespace Steam.Net
         /// Gets a dictionary with a collection of default web socket endpoints used in the various Steam universes
         /// </summary>
         public static IReadOnlyDictionary<Universe, IReadOnlyCollection<Uri>> DefaultWebSocketEndpoints => GetWebSockets();
+
+        /// <summary>
+        /// Automatically sign into friends when the client logs in
+        /// </summary>
+        public bool AutoLoginFriends { get; set; } = true;
     }
 }

@@ -119,8 +119,6 @@ namespace Steam.Net
                 {
                     CurrentUser.Id = id;
                     CurrentUser.Flags = (AccountFlags)response.account_flags;
-
-                    CurrentUser.Status = PersonaState.Online; // everyone is online until proven otherwise by a ClientPersonaUpdate
                 }
 
                 await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
@@ -192,7 +190,8 @@ namespace Steam.Net
         [MessageReceiver(MessageType.ClientNewLoginKey)]
         private async Task ReceiveLoginKey(CMsgClientNewLoginKey newKey)
         {
-            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientNewLoginKeyAccepted, new CMsgClientNewLoginKeyAccepted { unique_id = newKey.unique_id }));
+            await LoginKeyReceived.InvokeAsync(this, new LoginKeyReceivedEventArgs(newKey.login_key)).ConfigureAwait(false);
+            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientNewLoginKeyAccepted, new CMsgClientNewLoginKeyAccepted { unique_id = newKey.unique_id })).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientServerList)]
@@ -224,6 +223,24 @@ namespace Steam.Net
                 _servers[ServerType.ConnectionManager] = servers.ToImmutableHashSet();
 
             return Task.CompletedTask;
+        }
+        
+        [MessageReceiver(MessageType.ClientLogOnResponse)]
+        private async Task AutoLoginToFriends(CMsgClientLogonResponse response)
+        {
+            if (response.eresult == 1 && GetConfig<SteamNetworkConfig>().AutoLoginFriends && SteamId.FromCommunityId(response.client_supplied_steamid).IsIndividualAccount)
+            {
+                var jobResponse = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)PersonaState.Online }));
+
+                if (jobResponse.result == 1)
+                {
+                    CurrentUser.Status = PersonaState.Online;
+                }
+                else
+                {
+                    await NetLog.WarningAsync($"Auto friends login did not complete successfully: {(Result)jobResponse.result}");
+                }
+            }
         }
     }
 }
