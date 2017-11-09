@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using Steam.Logging;
+using Steam.Net.Messages;
+using Steam.Net.Messages.Protobufs;
 using Steam.Net.GameCoordinators.Messages;
 using Steam.Net.Utilities;
 
@@ -12,26 +15,31 @@ namespace Steam.Net.GameCoordinators
     /// <summary>
     /// Represents an abstract game coordinator client
     /// </summary>
-    public abstract class GameCoordinator
+    public abstract class GameCoordinator : NetEntity<SteamNetworkClientBase>
     {
-        private readonly SteamNetworkClient _client;
         private readonly JobManager<GameCoordinatorMessage> _jobs;
         private readonly Dictionary<GameCoordinatorMessageType, GameCoordinatorReceiver> _dispatchers;
         private readonly ConnectionManager _connectionManager;
-        private readonly IReceiveMethodResolver _resolver;
+        private readonly Logger _log;
+        private readonly SemaphoreSlim _stateLock;
 
-        protected Logger Log { get; }
+        public AsyncEventHandler Connected;
+
+        public AsyncEventHandler<DisconnectedEventArgs> Disconnected;
 
         public int AppId { get; }
         
-        protected GameCoordinator(SteamNetworkClient client, int appId)
+        protected GameCoordinator(SteamNetworkClientBase client, int appId) : base(client)
         {
             if(appId < uint.MinValue)
                 throw new ArgumentOutOfRangeException(nameof(appId));
 
-            _client = client ?? throw new ArgumentNullException(nameof(client), "Can't attach GC to null client");
+            _log = Client.NetLog;
             _dispatchers = new Dictionary<GameCoordinatorMessageType, GameCoordinatorReceiver>();
-            (Log, _jobs, _resolver) = client.AttachGC(this, "GC");
+            _jobs = new JobManager<GameCoordinatorMessage>(_log);
+            _stateLock = new SemaphoreSlim(1, 1);
+            _connectionManager = new ConnectionManager(_stateLock, _log, Client.ConnectionTimeout, OnConnectingAsync, OnDisconnecting, x => );
+            
             AppId = appId;
 
             foreach (MethodInfo method in this.GetAllTypes().Select(t => t.GetTypeInfo()).SelectMany(t => t.DeclaredMethods))
@@ -39,11 +47,51 @@ namespace Steam.Net.GameCoordinators
                 var attribute = method.GetCustomAttribute<GameCoordinatorReceiverAttribute>();
                 if (attribute != null)
                 {
-                    if (_resolver.TryResolve(method, this, out GameCoordinatorReceiver receiver))
+                    if (Client.Resolver.TryResolve(method, this, out GameCoordinatorReceiver receiver))
                         Subscribe(attribute.Type, receiver);
                 }
             }
         }
+
+        protected virtual async Task OnConnectingAsync()
+        {
+
+        }
+
+        protected virtual async Task OnDisconnecting(Exception ex)
+        {
+
+        }
+
+        private async Task ConnectInternalAsync()
+        {
+            await _stateLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                await ConnectAsync().ConfigureAwait(false);
+            }
+            finally
+            {
+                _stateLock.Release();
+            }
+        }
+
+        private async Task DisconnectInernalAsync(Exception ex)
+        {
+            await _stateLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                await DisconnectAsync(ex).ConfigureAwait(false);
+            }
+            finally
+            {
+                _stateLock.Release();
+            }
+        }
+
+        protected abstract Task ConnectAsync();
+
+        protected abstract Task DisconnectAsync(Exception ex);
 
         /// <summary>
         /// Subscribes the specified receiver to messages of the specified type
@@ -81,14 +129,27 @@ namespace Steam.Net.GameCoordinators
                     }
                     catch (Exception e)
                     {
-                        await Log.ErrorAsync($"A message receiver threw an exception: {e}").ConfigureAwait(false);
+                        await _log.ErrorAsync($"A game coordinator message receiver threw an exception: {e}").ConfigureAwait(false);
                     }
                 }
             }
             else
             {
-                await Log.VerboseAsync($"Received message of type {message.MessageType} ({(int)message.MessageType})").ConfigureAwait(false);
+                await _log.VerboseAsync($"Received unknown game coordinator message of type {message.MessageType} ({(int)message.MessageType})").ConfigureAwait(false);
             }
+        }
+
+        protected internal async Task SendAsync(GameCoordinatorMessageType messageType, bool protobuf, byte[] data)
+        {
+            await SendAsync(NetworkMessage
+                .CreateAppRoutedMessage(MessageType.ClientToGC,
+                new CMsgGCClient 
+                { 
+                    appid = (uint)AppId,
+                    msgtype = MessageTypeUtils.MergeMessage((uint)messageType, protobuf),
+                    payload = data
+                },
+                AppId));
         }
         
         /// <summary>
@@ -97,7 +158,7 @@ namespace Steam.Net.GameCoordinators
         /// <returns></returns>
         protected internal async Task SendAsync(GameCoordinatorMessage message)
         {
-            await _client.SendGameCoordinatorMessage(AppId, message).ConfigureAwait(false);
+            await SendAsync(message.MessageType, message.Protobuf, message.Serialize()).ConfigureAwait(false);
         }
         
         /// <summary>
@@ -133,10 +194,7 @@ namespace Steam.Net.GameCoordinators
         /// <returns></returns>
         public async Task StartAsync()
         {
-            if (_client.ConnectionState != ConnectionState.Connected)
-                throw new InvalidOperationException("Could not start game coordinator: The connected client is not connected to Steam");
-
-            await _client.SetPlayingGameAsync(AppId).ConfigureAwait(false);
+            await _connectionManager.StartAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -145,7 +203,7 @@ namespace Steam.Net.GameCoordinators
         /// <returns></returns>
         public async Task StopAsync()
         {
-            await _client.SetPlayingGameAsync(0).ConfigureAwait(false);
+            await _connectionManager.StartAsync().ConfigureAwait(false);
         }
     }
 }

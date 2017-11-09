@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Steam.Net
 {
-    public abstract class NetEntity<T> : WebEntity<T> where T : SteamNetworkClient
+    public abstract class NetEntity<T> : WebEntity<T> where T : SteamNetworkClientBase
     {
         protected NetEntity(T client) : base(client)
         {

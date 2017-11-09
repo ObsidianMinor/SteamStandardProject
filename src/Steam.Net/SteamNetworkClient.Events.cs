@@ -3,19 +3,9 @@
     public partial class SteamNetworkClient
     {
         /// <summary>
-        /// The client is connected to a connection manager
-        /// </summary>
-        public event AsyncEventHandler Connected;
-
-        /// <summary>
         /// The connection is ready for a login request
         /// </summary>
         public event AsyncEventHandler Ready;
-
-        /// <summary>
-        /// The client has been disconnected from the connection manager
-        /// </summary>
-        public event AsyncEventHandler<DisconnectedEventArgs> Disconnected;
 
         /// <summary>
         /// Invoked when the client is logged off

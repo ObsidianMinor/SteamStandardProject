@@ -11,7 +11,7 @@ namespace Steam
         private readonly SteamConfig _config;
 
         /// <summary>
-        /// Gets the <see cref="LogManager"/> to 
+        /// Gets the <see cref="LogManager"/> to create loggers
         /// </summary>
         protected LogManager LogManager { get; }
 

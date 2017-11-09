@@ -22,71 +22,18 @@ namespace Steam.Net
     /// <summary>
     /// Provides a client with access to Steam's network and the Steam Web API
     /// </summary>
-    public partial class SteamNetworkClient : SteamWebClient
+    public partial class SteamNetworkClient : SteamNetworkClientBase
     {
         private const uint _currentProtocolVer = 65579;
         private const uint _obfuscationMask = 0xBAADF00D;
 
-        private static readonly NoEncryptor _defaultEncryptor = new NoEncryptor();
-
-        private readonly IReceiveMethodResolver _resolver;
-        private readonly SemaphoreSlim _stateLock;
-        private readonly SemaphoreSlim _connectionStateLock;
-        private readonly JobManager<NetworkMessage> _jobs;
-        private readonly ConnectionManager _connection;
-        private readonly ISocketClient Socket;
-        private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
-        private int _serverIndex = -1;
-        private Func<Exception, Task> _socketDisconnected;
-        private CancellationTokenSource _connectCancellationToken;
-
-        private IEncryptor _encryptor;
-
         private Task _heartBeatTask;
         private CancellationTokenSource _heartbeatCancel;
-        
         private Func<Task> _logonFunc;
-
-        private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
         private bool _gracefulLogoff;
-        
         private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
-        private List<Server> _connectionManagers;
-
         private FriendsList _friends;
         
-        /// <summary>
-        /// Gets a collection of all game coordinators attached to this client
-        /// </summary>
-        public IReadOnlyCollection<GameCoordinator> GameCoordinators => _gameCoordinators.Values;
-
-        /// <summary>
-        /// Gets the logger for this network client
-        /// </summary>
-        protected Logger NetLog { get; }
-        
-        internal Server CurrentServer { get; private set; }
-
-        internal IEncryptor Encryption
-        {
-            get
-            {
-                if ((ConnectionState != ConnectionState.Connected && !_connection.IsConnectionComplete) || _encryptor == null)
-                    return _defaultEncryptor;
-                else
-                    return _encryptor;
-            }
-            set
-            {
-                _encryptor = value;
-            }
-        }
-        
-        /// <summary>
-        /// Gets the client's current connection state
-        /// </summary>
-        public ConnectionState ConnectionState => _connection.State;
-
         /// <summary>
         /// Gets the client's current session ID
         /// </summary>
@@ -128,99 +75,27 @@ namespace Steam.Net
         /// <param name="config"></param>
         public SteamNetworkClient(SteamNetworkConfig config) : base(config)
         {
-            config = GetConfig<SteamNetworkConfig>();
-            Socket = config.SocketClient();
-            Socket.MessageReceived += ReceiveAsync;
-            Socket.Disconnected += async (_, ex) =>
-            {
-                await DisconnectAsync().ConfigureAwait(false);
-                await _socketDisconnected(ex.Exception).ConfigureAwait(false);
-            };
-            CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
-            _stateLock = new SemaphoreSlim(1, 1);
-            _connectionStateLock = new SemaphoreSlim(1, 1);
-            _jobs = new JobManager<NetworkMessage>(LogManager.CreateLogger("Jobs"));
-            NetLog = LogManager.CreateLogger("Net");
-            _connectionManagers = new List<Server>();
-            
-            _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), config.NetworkConnectionTimeout,
-                OnConnectingAsync, OnDisconnectingAsync, (x) => _socketDisconnected = x);
-            
-            _connection.Disconnected += async (_, args) => 
-            {
-                await TimedInvokeAsync(Disconnected, args).ConfigureAwait(false);
-            };
-            _connection.Connected += async (_, __) =>
-            {
-                await TimedInvokeAsync(Connected, EventArgs.Empty).ConfigureAwait(false);
-            };
-
             CurrentUser = new SelfUser(SteamId.CreateAnonymousUser(config.DefaultUniverse));
             
-            _resolver = config.ReceiveMethodResolver == null ? new DefaultReceiveMethodResolver() : config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
-            
-            foreach (MethodInfo method in this.GetAllTypes().Select(t => t.GetTypeInfo()).SelectMany(t => t.DeclaredMethods))
+            CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
+        }
+
+        protected override async Task OnDisconnectingAsync(Exception ex)
+        {
+            if (!_gracefulLogoff)
             {
-                var attribute = method.GetCustomAttribute<MessageReceiverAttribute>();
-                if (attribute != null)
-                {
-                    if (_resolver.TryResolve(method, this, out MessageReceiver receiver))
-                        Subscribe(attribute.Type, receiver);
-                }
-            }
-        }
- 
-        /// <summary>
-        /// Subscribes the specified receiver to messages of the specified type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="receiver"></param>
-        public void Subscribe(MessageType type, MessageReceiver receiver)
-        {
-            if (!_eventDispatchers.ContainsKey(type))
-                _eventDispatchers[type] = receiver;
-            else
-                _eventDispatchers[type] += receiver;
-        }
-
-        /// <summary>
-        /// Unsubscribes the specified receiver from messages of the specified type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="receiver"></param>
-        public void Unsubscribe(MessageType type, MessageReceiver receiver)
-        {
-            if (!_eventDispatchers.ContainsKey(type))
-                _eventDispatchers[type] -= receiver;
-        }
-
-        /// <summary>
-        /// Connects this client to the Steam network
-        /// </summary>
-        /// <returns></returns>
-        public async Task StartAsync() => await _connection.StartAsync().ConfigureAwait(false);
-        
-        /// <summary>
-        /// Disconnects this client from the Steam network and disconnects all game coordinators
-        /// </summary>
-        /// <returns></returns>
-        public async Task StopAsync() => await _connection.StopAsync().ConfigureAwait(false);
-
-        /// <summary>
-        /// Connects this client to a connection manager 
-        /// </summary>
-        /// <returns></returns>
-        private async Task OnConnectingAsync()
-        {
-            await NetLog.DebugAsync("Connecting client").ConfigureAwait(false);
-            await ConnectAsync().ConfigureAwait(false);
-
-            if (!(Socket is IWebSocketClient))
-            {
-                await NetLog.DebugAsync("Waiting for encryption").ConfigureAwait(false);
-                await _connection.WaitAsync().ConfigureAwait(false);
+                CurrentServer = null;
             }
 
+            await NetLog.DebugAsync("Waiting for heartbeat").ConfigureAwait(false);
+            _heartbeatCancel?.Cancel();
+            if (_heartBeatTask != null)
+                await _heartBeatTask.ConfigureAwait(false);
+            _heartBeatTask = null;
+        }
+
+        protected override async Task OnConnectedAsync()
+        {
             await NetLog.DebugAsync("Performing possible login actions").ConfigureAwait(false);
             // todo: resume connections and things
             if (_logonFunc != null)
@@ -231,170 +106,6 @@ namespace Steam.Net
             {
                 await Ready.InvokeAsync(this, EventArgs.Empty).ConfigureAwait(false);
             }
-
-            await _connection.CompleteAsync().ConfigureAwait(false);
-        }
-
-        private async Task OnDisconnectingAsync(Exception ex)
-        {
-            if (!_gracefulLogoff)
-            {
-                CurrentServer = null;
-            }
-            
-            await NetLog.DebugAsync("Cancelling all jobs").ConfigureAwait(false);
-            await _jobs.CancelAllJobs().ConfigureAwait(false);
-
-            await NetLog.DebugAsync("Waiting for heartbeat").ConfigureAwait(false);
-            _heartbeatCancel?.Cancel();
-            if (_heartBeatTask != null)
-                await _heartBeatTask.ConfigureAwait(false);
-            _heartBeatTask = null;
-
-            await NetLog.DebugAsync("Disconnecting client").ConfigureAwait(false);
-            await DisconnectAsync().ConfigureAwait(false);
-
-            // reset state
-            await NetLog.DebugAsync("Resetting the client state").ConfigureAwait(false);
-            ResetState();
-        }
-
-        private void ResetState()
-        {
-            /*
-             * Here's a block comment. If you add data to the state, write down what the state is to reset and fill in the code to reset it
-             * CurrentUser
-             * SessionId
-             * InstanceId
-             */
-
-            CurrentUser.Reset();
-            SessionId = 0;
-            InstanceId = 0;
-        }
-
-        private async Task ConnectAsync()
-        {
-            await _stateLock.WaitAsync().ConfigureAwait(false);
-            try
-            {
-                await ConnectInternalAsync().ConfigureAwait(false);
-            }
-            finally
-            {
-                _stateLock.Release();
-            }
-        }
-
-        protected virtual async Task<Server> GetConnectionServerAsync()
-        {
-            while (!AdvanceToMatchingServerIndex(s => s.IsEndPoint))
-            {
-                _connectionManagers.Clear();
-
-                var cms = GetConfig<SteamNetworkConfig>().ConnectionManagers;
-                _connectionManagers.AddRange(cms?.Select(cm => new Server(cm)) ?? Enumerable.Empty<Server>());
-                if (_connectionManagers.Count == 0)
-                {
-                    ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                    try
-                    {
-                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
-                        _connectionManagers.AddRange(cmList.Response.ServerList.Select(cm => new Server(cm)));
-                    }
-                    catch (HttpException) { }
-                }
-            }
-
-            return _connectionManagers[_serverIndex];
-        }
-        
-        protected virtual async Task<Server> GetWebSocketConnectionServerAsync()
-        {
-            while (!AdvanceToMatchingServerIndex(s => s.IsUri))
-            {
-                _connectionManagers.Clear();
-
-                IEnumerable<Uri> webSockets = GetConfig<SteamNetworkConfig>().WebSockets;
-                _connectionManagers.AddRange(webSockets?.Select(cm => new Server(cm)) ?? Enumerable.Empty<Server>());
-                if (_connectionManagers.Count == 0)
-                {
-                    ISteamDirectory directory = GetInterface<ISteamDirectory>();
-                    try
-                    {
-                        var cmList = await directory.GetConnectionManagerListAsync(CellId).ConfigureAwait(false);
-                        _connectionManagers.AddRange(cmList.Response.WebSocketServerList.Select(cm => new Server(cm)));
-                    }
-                    catch (HttpException) { } // go back around and try again
-                }
-            }
-
-            return _connectionManagers[_serverIndex];
-        }
-
-        private bool AdvanceToMatchingServerIndex(Func<Server, bool> predicate)
-        {
-            // move index up by one, since if we're here that means we need a new server, and the current index satisfies.
-            // move index up by one while the server index is smaller than the CM count and the predicate function returns false
-            for (_serverIndex++; _serverIndex < _connectionManagers.Count && !predicate(_connectionManagers[_serverIndex]); _serverIndex++) { }
-            
-            // if the server index is over the connection manager count or there are no connection managers, set the index to -1
-            if (_serverIndex > _connectionManagers.Count || _connectionManagers.Count == 0)
-                _serverIndex = -1;
-
-            // then return if the index isn't -1
-            return _serverIndex != -1;
-        }
-        
-        private async Task ConnectInternalAsync()
-        {
-            _connectCancellationToken = new CancellationTokenSource();
-            Socket.SetCancellationToken(_connectCancellationToken.Token);
-            if (Socket is IWebSocketClient webSocketClient)
-            {
-                CurrentServer = await GetWebSocketConnectionServerAsync().ConfigureAwait(false);
-
-                await NetLog.InfoAsync($"Connecting to WebSocket {CurrentServer}").ConfigureAwait(false);
-                await webSocketClient.ConnectAsync(new Uri($"wss://{CurrentServer.ToString()}/cmsocket/")).ConfigureAwait(false);
-            }
-            else
-            {
-                CurrentServer = await GetConnectionServerAsync().ConfigureAwait(false);
-
-                await NetLog.InfoAsync($"Connecting to endpoint {CurrentServer}").ConfigureAwait(false);
-                await Socket.ConnectAsync(CurrentServer.GetIPEndPoint()).ConfigureAwait(false);
-            }
-        }
-
-        private async Task DisconnectAsync()
-        {
-            await _stateLock.WaitAsync().ConfigureAwait(false);
-            try
-            {
-                await DisconnectInternalAsync().ConfigureAwait(false);
-            }
-            finally
-            {
-                _stateLock.Release();
-            }
-        }
-
-        private async Task DisconnectInternalAsync()
-        {
-            try
-            {
-                _connectCancellationToken?.Cancel(false);
-            }
-            catch { }
-
-            await Socket.DisconnectAsync().ConfigureAwait(false);
-        }
-        
-        // in exchange for a gc instance to track, we give back a logger, job manager, and method resolver
-        internal (Logger, JobManager<GameCoordinatorMessage>, IReceiveMethodResolver) AttachGC(GameCoordinator gc, string name)
-        {
-            _gameCoordinators.Add(gc.AppId, gc);
-            return (LogManager.CreateLogger(name), new JobManager<GameCoordinatorMessage>(LogManager.CreateLogger("GCJobs")), _resolver);
         }
 
         /// <summary>
@@ -493,7 +204,7 @@ namespace Steam.Net
             CMsgClientLogon logon = new CMsgClientLogon()
             {
                 protocol_version = _currentProtocolVer,
-                obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId),
+                obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId),
                 client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
                 game_server_app_id = appId,
                 machine_id = await HardwareUtils.GetMachineId().ConfigureAwait(false),
@@ -517,7 +228,7 @@ namespace Steam.Net
             CMsgClientLogon logon = new CMsgClientLogon()
             {
                 protocol_version = _currentProtocolVer,
-                obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId),
+                obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId),
                 client_os_type = (uint)HardwareUtils.GetCurrentOsType(),
                 game_server_app_id = appId,
                 machine_id = await HardwareUtils.GetMachineId().ConfigureAwait(false),
@@ -655,7 +366,7 @@ namespace Steam.Net
                 body.sha_sentryfile = info.SentryFileHash;
                 body.eresult_sentryfile = (int)(info.SentryFileHash is null ? Result.FileNotFound : Result.OK);
                 body.client_package_version = 1771;
-                body.obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? Socket.LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId);
+                body.obfustucated_private_ip = (uint)(GetConfig<SteamNetworkConfig>().LoginId < 0 ? LocalIp.ToUInt32() ^ _obfuscationMask : GetConfig<SteamNetworkConfig>().LoginId);
                 body.supports_rate_limit_response = true;
             }
 
@@ -810,18 +521,6 @@ namespace Steam.Net
             return PicsChanges.Create(response);
         }
 
-        internal async Task SendGameCoordinatorMessage(int appid, GameCoordinatorMessage message)
-        {
-            CMsgGCClient body = new CMsgGCClient()
-            {
-                msgtype = MessageTypeUtils.MergeMessage((uint)message.MessageType, message.Protobuf),
-                appid = (uint)appid,
-                payload = message.Serialize()
-            };
-
-            await SendAsync(NetworkMessage.CreateAppRoutedMessage(MessageType.ClientToGC, body, appid)).ConfigureAwait(false);
-        }
-
         private async Task RunHeartbeatAsync(int interval, CancellationToken token)
         {
             #region Valve sucks at naming enum members
@@ -873,181 +572,6 @@ namespace Steam.Net
             catch (Exception ex)
             {
                 await NetLog.ErrorAsync($"The heartbeat task encountered an unknown exception", ex).ConfigureAwait(false);
-            }
-        }
-
-        #region Send Receive
-
-        /// <summary>
-        /// Sends a message to Steam
-        /// </summary>
-        /// <param name="message">The message to send</param>
-        /// <returns>An awaitable task</returns>
-        protected internal async Task SendAsync(NetworkMessage message)
-        {
-            if (message == null)
-                throw new ArgumentNullException(nameof(message));
-
-            await NetLog.VerboseAsync($"Sending {(message.Protobuf ? "protobuf" : "struct")} message with type {message.MessageType}");
-            
-            await SendAsync(message.WithClientInfo(SteamId, SessionId).Serialize()).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Sends an array of bytes to Steam
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        protected internal async Task SendAsync(byte[] message)
-        {
-            if (message == null)
-                throw new ArgumentNullException(nameof(message));
-
-            await NetLog.DebugAsync($"Sending {message.Length} byte message.").ConfigureAwait(false);
-
-            await Socket.SendAsync(Encryption.Encrypt(message)).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Sends a message to Steam as a job and returns the body of the response. If the type of T is <see cref="NetworkMessage"/> this returns the response message
-        /// </summary>
-        /// <typeparam name="T">The type of the response</typeparam>
-        /// <param name="message">The message to send</param>
-        /// <returns>An awaitable task</returns>
-        protected internal async Task<T> SendJobAsync<T>(NetworkMessage message)
-        {
-            if (typeof(T) == typeof(NetworkMessage))
-                return (T)(object)await SendJobAsync(message).ConfigureAwait(false); // ok c#
-
-            NetworkMessage response = await SendJobAsync(message).ConfigureAwait(false);
-
-            return response.Deserialize<T>();
-        }
-
-        /// <summary>
-        /// Sends a message to Steam as a job and returns the response message
-        /// </summary>
-        /// <param name="message">The message to send</param>
-        /// <returns>An awaitable task</returns>
-        protected internal async Task<NetworkMessage> SendJobAsync(NetworkMessage message)
-        {
-            (var task, var job) = _jobs.AddJob();
-
-            await SendAsync(message.WithJobId(job)).ConfigureAwait(false);
-            return await task.ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Sends a message to Steam as a job with multiple responses.
-        /// </summary>
-        /// <typeparam name="TResponse">The type of the response</typeparam>
-        /// <typeparam name="TResult">The type of the returned result</typeparam>
-        /// <param name="message">The message to send</param>
-        /// <param name="completionFunc">The function to evaluate if the job is complete</param>
-        /// <param name="selector">The function to combine all responses into one result</param>
-        protected internal async Task<TResult> SendJobAsync<TResponse, TResult>(NetworkMessage message, Func<TResponse, bool> completionFunc, Func<IEnumerable<TResponse>, TResult> selector)
-        {
-            (var task, var job) = _jobs.AddJob();
-            message = message.WithJobId(job);
-
-            await SendAsync(message).ConfigureAwait(false);
-
-            List<TResponse> responses = new List<TResponse>();
-            NetworkMessage response = await task.ConfigureAwait(false);
-            TResponse result = response.Deserialize<TResponse>();
-            while (!completionFunc(result))
-            {
-                responses.Add(result);
-
-                task = _jobs.AddJob(job);
-                response = await task.ConfigureAwait(false);
-                result = response.Deserialize<TResponse>();
-            }
-
-            return selector(responses.ToReadOnlyCollection());
-        }
-        
-        private async Task ReceiveAsync(object sender, DataReceivedEventArgs args)
-        {
-            await DispatchData(Encryption.Decrypt(args.Data)).ConfigureAwait(false);
-        }
-
-        private async Task DispatchData(byte[] data)
-        {
-            NetworkMessage message = NetworkMessage.CreateFromByteArray(data);
-            
-            if (_jobs.IsRunningJob(message.Header.JobId))
-                await _jobs.SetJobResult(message, message.Header.JobId).ConfigureAwait(false);
-
-            if (_eventDispatchers.TryGetValue(message.MessageType, out var dispatch))
-            {
-                foreach (MessageReceiver dispatcher in dispatch.GetInvocationList())
-                {
-                    TimeoutWrap(() => dispatcher(message));
-                }
-            }
-            else
-            {
-                await NetLog.DebugAsync($"No receiver found for message type {message.MessageType} ({(int)message.MessageType})").ConfigureAwait(false);
-            }
-        }
-
-        #endregion
-        
-        /// <summary>
-        /// Invokes the specified async event on another thread
-        /// </summary>
-        /// <param name="eventHandler"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected async Task TimedInvokeAsync(AsyncEventHandler eventHandler, EventArgs args)
-        {
-            if (eventHandler != null)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout >= -1)
-                    TimeoutWrap(() => eventHandler.InvokeAsync(this, args));
-                else
-                    await eventHandler.InvokeAsync(this, args).ConfigureAwait(false);
-            }
-        }
-
-        /// <summary>
-        /// Invokes the specified async event on another thread
-        /// </summary>
-        /// <typeparam name="TArgs"></typeparam>
-        /// <param name="eventHandler"></param>
-        /// <param name="arg"></param>
-        /// <returns></returns>
-        protected async Task TimedInvokeAsync<TArgs>(AsyncEventHandler<TArgs> eventHandler, TArgs arg) where TArgs : EventArgs
-        {
-            if (eventHandler != null)
-            {
-                if (GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout >= -1)
-                    TimeoutWrap(() => eventHandler.InvokeAsync(this, arg));
-                else
-                    await eventHandler.InvokeAsync(this, arg).ConfigureAwait(false);
-            }
-        }
-
-        private void TimeoutWrap(Func<Task> action)
-        {
-            CancellationTokenSource cancellationToken = new CancellationTokenSource(GetConfig<SteamNetworkConfig>().ReceiveMethodTimeout);
-            var _ = Task.Run(action, cancellationToken.Token).ContinueWith(async (t) =>
-            {
-                if (t.IsCanceled)
-                    await NetLog.ErrorAsync($"A receiver method or event handler took too long to complete execution and was cancelled prematurely", new TaskCanceledException(t)).ConfigureAwait(false);
-
-                if (t.IsFaulted)
-                    await NetLog.ErrorAsync($"A receiver method or event handler threw an exception", t.Exception).ConfigureAwait(false);
-
-            }).ContinueWith(SwallowExceptions);
-        }
-
-        private void SwallowExceptions(Task task)
-        {
-            if (task.IsFaulted)
-            {
-                Exception e = task.Exception; // if you get here you should rethink life
             }
         }
     }
