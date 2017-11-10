@@ -1,14 +1,14 @@
-using System;
+﻿using System;
 
 namespace Steam.Net
 {
     public class CurrentUserUpdatedEventArgs : EventArgs
     {
-        public SelfUser Before { get; }
+        public ISelfUser Before { get; }
 
-        public SelfUser After { get; }
+        public ISelfUser After { get; }
 
-        public CurrentUserUpdatedEventArgs(SelfUser before, SelfUser after)
+        public CurrentUserUpdatedEventArgs(ISelfUser before, ISelfUser after)
         {
             Before = before;
             After = after;

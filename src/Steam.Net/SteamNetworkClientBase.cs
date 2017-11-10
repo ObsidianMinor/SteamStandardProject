@@ -1,6 +1,5 @@
 using Steam.Logging;
 using Steam.Net.GameCoordinators;
-using Steam.Net.GameCoordinators.Messages;
 using Steam.Net.Messages;
 using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
@@ -23,6 +22,7 @@ namespace Steam.Net
     public abstract class SteamNetworkClientBase : SteamWebClient
     {
         private static readonly NoEncryptor _defaultEncryptor = new NoEncryptor();
+        private readonly SteamId _defaultSteamId;
 
         private readonly SemaphoreSlim _stateLock;
         private readonly SemaphoreSlim _connectionStateLock;
@@ -32,12 +32,17 @@ namespace Steam.Net
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
         private IEncryptor _encryptor;
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
-        private Func<Exception, Task> _socketDisconnected;        
-        private List<Server> _connectionManagers;        
+        private Func<Exception, Task> _socketDisconnected;
+        private List<Server> _connectionManagers;
         private int _serverIndex = -1;
         private CancellationTokenSource _connectCancellationToken;
+
         private SteamId _steamId;
         private int _sessionId;
+
+        public SteamId SteamId => _steamId == SteamId.Zero ? _defaultSteamId : _steamId;
+
+        public int SessionId => _sessionId;
 
         /// <summary>
         /// The client is connected to a connection manager
@@ -107,6 +112,8 @@ namespace Steam.Net
             
             _connection = new ConnectionManager(_connectionStateLock, LogManager.CreateLogger("CM"), ConnectionTimeout,
                 OnConnectingInternalAsync, OnDisconnectingInternalAsync, (x) => _socketDisconnected = x);
+
+            _defaultSteamId = SteamId.CreateAnonymousUser(config.DefaultUniverse);
             
             _connection.Disconnected += async (_, args) => 
             {

@@ -1,14 +1,9 @@
-﻿using Steam.Net.GameCoordinators;
-using Steam.Net.GameCoordinators.Messages;
-using Steam.Net.Messages;
+﻿using Steam.Net.Messages;
 using Steam.Net.Messages.Protobufs;
-using Steam.Net.Messages.Structs;
 using Steam.Net.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,17 +22,8 @@ namespace Steam.Net
             if (response.eresult == 1)
             {
                 CellId = response.cell_id;
-                SessionId = (messsage.Header as ClientHeader).SessionId;
                 var id = (messsage.Header as ClientHeader).SteamId;
                 InstanceId = (long)response.client_instance_id;
-                if (id.IsAnonymousAccount || id.IsGameServer)
-                {
-                    await UpdateCurrentUser(u => (SelfUser)u.WithSteamId(id)).ConfigureAwait(false);
-                }
-                else
-                {
-                    await UpdateCurrentUser(u => (SelfUser)u.WithFlags((AccountFlags)response.account_flags).WithSteamId(id));
-                }
 
                 await NetLog.InfoAsync($"Logged in to Steam with session Id {SessionId} and steam ID {SteamId}").ConfigureAwait(false);
 
@@ -57,19 +43,6 @@ namespace Steam.Net
             await NetLog.InfoAsync($"Logged off: {(Result)loggedOff.eresult} ({loggedOff.eresult})").ConfigureAwait(false);
             await LoggedOff.InvokeAsync(this, new LogOffEventArgs((Result)loggedOff.eresult));
             _gracefulLogoff = true;
-            await UpdateCurrentUser(u => new SelfUser(SteamId.CreateAnonymousUser(GetConfig<SteamNetworkConfig>().DefaultUniverse))).ConfigureAwait(false);
-        }
-
-        [MessageReceiver(MessageType.ClientEmailAddrInfo)]
-        private async Task ReceiveEmailAddressInfo(CMsgClientEmailAddrInfo email)
-        {
-            await UpdateCurrentUser(u => u.WithEmail(email.email_address).WithEmailValidation(email.email_is_validated)).ConfigureAwait(false);
-        }
-
-        [MessageReceiver(MessageType.ClientAccountInfo)]
-        private async Task ReceiveAccountInfo(CMsgClientAccountInfo info)
-        {
-            await UpdateCurrentUser(u => (SelfUser)u.WithName(info.persona_name)).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientWalletInfoUpdate)]
@@ -128,11 +101,7 @@ namespace Steam.Net
                 // it requires that the session ID and Steam ID be set for the job
                 var jobResponse = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)PersonaState.Online }));
 
-                if (jobResponse.result == 1)
-                {
-                    await UpdateCurrentUser(u => (SelfUser)u.WithStatus(PersonaState.Online)).ConfigureAwait(false);
-                }
-                else
+                if (jobResponse.result != 1)
                 {
                     await NetLog.WarningAsync($"Auto friends login did not complete successfully: {(Result)jobResponse.result}");
                 }
@@ -140,29 +109,21 @@ namespace Steam.Net
         }
         
         [MessageReceiver(MessageType.ClientFriendsList)]
-        private async Task ReceiveFriendsList()
+        private async Task ReceiveFriendsList(CMsgClientFriendsList list)
         {
-
+            await _friends.UpdateList(list).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientPersonaState)]
         private async Task ReceivePersonaUpdate(CMsgClientPersonaState state)
         {
-
+            await _friends.UpdateFriend(state).ConfigureAwait(false);
         }
 
         [MessageReceiver(MessageType.ClientClanState)]
         private async Task ReceiveClanUpdate(CMsgClientClanState state)
         {
-
-        }
-
-        private async Task UpdateCurrentUser(Func<SelfUser, SelfUser> updater)
-        {
-            var before = CurrentUser;
-            var after = updater(before);
-            CurrentUser = after;
-            await CurrentUserUpdated.InvokeAsync(this, new CurrentUserUpdatedEventArgs(before, after)).ConfigureAwait(false);
+            await _friends.UpdateClan(state);
         }
     }
 }

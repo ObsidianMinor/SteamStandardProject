@@ -22,6 +22,7 @@ namespace Steam.Net.GameCoordinators
         private readonly ConnectionManager _connectionManager;
         private readonly Logger _log;
         private readonly SemaphoreSlim _stateLock;
+        private Func<Exception, Task> _gcDisconnect;
 
         public AsyncEventHandler Connected;
 
@@ -38,7 +39,7 @@ namespace Steam.Net.GameCoordinators
             _dispatchers = new Dictionary<GameCoordinatorMessageType, GameCoordinatorReceiver>();
             _jobs = new JobManager<GameCoordinatorMessage>(_log);
             _stateLock = new SemaphoreSlim(1, 1);
-            _connectionManager = new ConnectionManager(_stateLock, _log, Client.ConnectionTimeout, OnConnectingAsync, OnDisconnecting, x => );
+            _connectionManager = new ConnectionManager(_stateLock, _log, Client.ConnectionTimeout, OnConnectingAsync, OnDisconnecting, x => _gcDisconnect = x);
             
             AppId = appId;
 

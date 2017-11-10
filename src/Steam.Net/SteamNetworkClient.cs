@@ -1,19 +1,11 @@
-﻿using Steam.Logging;
-using Steam.Net.GameCoordinators;
-using Steam.Net.GameCoordinators.Messages;
-using Steam.Net.Messages;
+﻿using Steam.Net.Messages;
 using Steam.Net.Messages.Protobufs;
 using Steam.Net.Messages.Structs;
-using Steam.Net.Sockets;
 using Steam.Net.Utilities;
-using Steam.Rest;
-using Steam.Web;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34,21 +26,6 @@ namespace Steam.Net
         private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
         private FriendsList _friends;
         
-        /// <summary>
-        /// Gets the client's current session ID
-        /// </summary>
-        public int SessionId { get; private set; }
-
-        /// <summary>
-        /// Gets the client's current user's Steam ID
-        /// </summary>
-        public SteamId SteamId => CurrentUser.Id;
-
-        /// <summary>
-        /// Gets the client's current user
-        /// </summary>
-        public SelfUser CurrentUser { get; private set; }
-
         /// <summary>
         /// Gets the current user's wallet
         /// </summary>
@@ -75,8 +52,6 @@ namespace Steam.Net
         /// <param name="config"></param>
         public SteamNetworkClient(SteamNetworkConfig config) : base(config)
         {
-            CurrentUser = new SelfUser(SteamId.CreateAnonymousUser(config.DefaultUniverse));
-            
             CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
         }
 

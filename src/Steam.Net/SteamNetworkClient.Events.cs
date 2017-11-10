@@ -23,9 +23,7 @@
         public event AsyncEventHandler LoggedOn;
 
         public event AsyncEventHandler<LoginKeyReceivedEventArgs> LoginKeyReceived;
-
-        public event AsyncEventHandler<CurrentUserUpdatedEventArgs> CurrentUserUpdated;
-
+        
         public event AsyncEventHandler<WalletUpdatedEventArgs> WalletUpdated;
     }
 }
