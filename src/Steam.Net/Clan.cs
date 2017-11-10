@@ -22,31 +22,31 @@ namespace Steam.Net
         {
         }
 
-        public SteamId Id { get; }
+        public SteamId Id => _id;
 
-        public AccountFlags Flags { get; }
+        public AccountFlags Flags => _flags;
 
-        public string Name { get; }
+        public string Name => _name;
 
-        public ImmutableArray<byte> AvatarHash { get; }
+        public ImmutableArray<byte> AvatarHash => _avatar;
 
-        public ClanRelationship Relationship { get; }
+        public ClanRelationship Relationship => _relationship;
 
-        public long Members { get; }
+        public long Members => _members;
 
-        public long Online { get; }
+        public long Online => _online;
 
-        public long Chatting { get; }
+        public long Chatting => _chatting;
 
-        public long InGame { get; }
+        public long InGame => _ingame;
 
-        public IReadOnlyCollection<Event> Events { get; }
+        public IReadOnlyCollection<Event> Events => _events;
 
-        public IReadOnlyCollection<Event> Announcements { get; }
+        public IReadOnlyCollection<Event> Announcements => _announcements;
 
         internal Clan WithState(CMsgClientClanState state)
         {
-
+            
         }
 
         internal Clan WithRelationship(ClanRelationship relationship)
@@ -54,6 +54,11 @@ namespace Steam.Net
             Clan newClan = (Clan)MemberwiseClone();
             newClan._relationship = relationship;
             return newClan;
+        }
+
+        internal static Clan Create(SteamNetworkClient client, UnknownClan unknown, CMsgClientClanState state)
+        {
+            return new Clan(client).WithRelationship(unknown.Relationship).WithState(state);
         }
     }
 }

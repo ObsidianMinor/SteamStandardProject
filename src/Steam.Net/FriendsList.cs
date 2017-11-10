@@ -1,6 +1,7 @@
 ﻿using Steam.Net.Messages.Protobufs;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -59,6 +60,10 @@ namespace Steam.Net
         internal async Task UpdateList(CMsgClientFriendsList list)
         {
             await _slim.WaitAsync();
+            
+            var users = new List<(IUser Before, IUser After)>();
+            var clans = new List<(IClan Before, IClan After)>();
+
             try
             {
                 _maxFriendsCount = list.max_friend_count;
@@ -81,13 +86,13 @@ namespace Steam.Net
                             if (relationship == FriendRelationship.None) // and the new relationship is "None"
                             {
                                 _users.Remove(friendId); // remove them and tell everyone they don't exist anymore
-                                await InvokeUserUpdated(user, null).ConfigureAwait(false);
+                                users.Add((user, null));
                             }
                             else // otherwise...
                             {
                                 IUser before = user;
                                 IUser after;
-                                if (user is UnknownUser) // if we were previously unknown
+                                if (user is UnknownUser) // if they were previously unknown
                                 {
                                     after = new UnknownUser(user.Id, relationship); // make the after user just another unknown user
                                 }
@@ -97,13 +102,13 @@ namespace Steam.Net
                                     after = realUser.WithRelationship(relationship); // clone the existing one and add a relationship
                                 }
 
-                                await InvokeUserUpdated(before, after).ConfigureAwait(false); // tell everyone we're bffs or whatever
+                                users.Add((before, after)); // tell everyone we're bffs or whatever
                             }
                         }
                         else // or unless we don't have that user
                         {
                             _users[friendId] = new UnknownUser(friendId, relationship); // make a new unknown one and tell everyone that person now exists
-                            await InvokeUserUpdated(null, _users[friendId]).ConfigureAwait(false);
+                            users.Add((null, _users[friendId]));
                         }
                     }
                     else if (friendId.IsClan)
@@ -114,7 +119,7 @@ namespace Steam.Net
                             if (relationship == ClanRelationship.None)
                             {
                                 _users.Remove(friendId);
-                                await InvokeClanUpdated(clan, null).ConfigureAwait(false);
+                                clans.Add((clan, null));
                             }
                             else
                             {
@@ -130,13 +135,13 @@ namespace Steam.Net
                                     after = realClan.WithRelationship(relationship);
                                 }
 
-                                await InvokeClanUpdated(before, after).ConfigureAwait(false);
+                                clans.Add((before, after));
                             }
                         }
                         else
                         {
                             _clans[friendId] = new UnknownClan(friendId, relationship);
-                            await InvokeUserUpdated(null, _users[friendId]).ConfigureAwait(false);
+                            clans.Add((null, _clans[friendId]));
                         }
                     }
                 }
@@ -145,32 +150,89 @@ namespace Steam.Net
             {
                 _slim.Release();
             }
+
+            // send update notifications outside the lock so other threads can update if possible
+            await Task.WhenAll(users.Select(t => InvokeUserUpdated(t.Before, t.After)).Concat(clans.Select(t => InvokeClanUpdated(t.Before, t.After)))).ConfigureAwait(false);
         }
 
         internal async Task UpdateClan(CMsgClientClanState clan)
         {
+            IClan before;
+            IClan after;
+
             await _slim.WaitAsync();
             try
             {
-                
+                before = _clans[clan.steamid_clan];
+
+                if (before is UnknownClan)
+                {
+                    after = Clan.Create(Client, before as UnknownClan, clan);
+                }
+                else
+                {
+                    after = (before as Clan).WithState(clan);
+                }
+
+                _clans[after.Id] = after;
             }
             finally
             {
                 _slim.Release();
             }
+
+            await InvokeClanUpdated(before, after).ConfigureAwait(false);
         }
 
         internal async Task UpdateFriend(CMsgClientPersonaState persona)
         {
+            var users = new List<(IUser Before, IUser After)>();
+
+            ISelfUser currentBefore = null;
+            ISelfUser currentAfter = null;
+
             await _slim.WaitAsync();
             try
             {
+                var flag = (ClientPersonaStateFlag)persona.status_flags;
                 
+                foreach (var friend in persona.friends)
+                {
+                    if (friend.friendid == Client.SteamId) // that's us!
+                    {
+                        // todo: update current user
+                    }
+                    else
+                    {
+                        IUser before;
+                        IUser after;
+
+                        before = _users[friend.friendid];
+
+                        if (before is UnknownUser)
+                        {
+                            after = User.Create(Client, before as UnknownUser, friend, flag);
+                        }
+                        else
+                        {
+                            after = (before as User).WithState(friend, flag);
+                        }
+
+                        _users[after.Id] = after;
+
+                        users.Add((before, after));
+                    }
+                }
             }
             finally
             {
                 _slim.Release();
             }
+
+            if (currentBefore != null || currentAfter != null)
+                await InvokeCurrentUserUpdated(currentBefore, currentAfter).ConfigureAwait(false);
+
+            await Task.WhenAll(users.Select(t => InvokeUserUpdated(t.Before, t.After))).ConfigureAwait(false);
         }
 
         private async Task InvokeUserUpdated(IUser before, IUser after)

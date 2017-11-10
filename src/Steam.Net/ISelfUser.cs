@@ -6,8 +6,9 @@ namespace Steam.Net
     {
         SteamId Id { get; }
         string PersonaName { get; }
+        PersonaState PersonaState { get; }
 
-        Task<Result> SetPersonaName(string name);
-        Task<Result> SetPersonaState(PersonaState state);
+        Task<Result> SetPersonaNameAsync(string name);
+        Task<Result> SetPersonaStateAsync(PersonaState state);
     }
 }

@@ -7,7 +7,7 @@ namespace Steam.Net
     /// Represents a user on Steam
     /// </summary>
     [DebuggerDisplay("{PlayerName} : {SteamId}")]
-    public class User : IUser
+    public class User : NetEntity<SteamNetworkClientBase>, IUser
     {
         private SteamId _steamId;
         private string _playerName;
@@ -22,27 +22,27 @@ namespace Steam.Net
 
         public FriendRelationship Relationship => _relationship;
         
-        internal User(SteamId id, FriendRelationship relationship)
+        internal User(SteamNetworkClient client, SteamId id, FriendRelationship relationship) : base(client)
         {
             _steamId = id;
             _relationship = relationship;
         }
 
-        internal User WithState(CMsgClientPersonaState.Friend state)
+        internal User WithState(CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {
-
+            
         }
         
         internal User WithRelationship(FriendRelationship relationship)
         {
-            var before = Clone<User>();
+            var before = (User)MemberwiseClone();
             before._relationship = relationship;
             return before;
         }
 
-        private protected T Clone<T>() where T : User
+        internal static User Create(SteamNetworkClient client, UnknownUser before, CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {
-            return (T)MemberwiseClone();
+            return new User(client, before.Id, before.Relationship).WithState(state, flag);
         }
     }
 }

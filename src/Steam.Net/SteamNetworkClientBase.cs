@@ -545,7 +545,5 @@ namespace Steam.Net
                 _sessionId = clientHeader.SessionId;
             }
         }
-
-        
     }
 }
