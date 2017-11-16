@@ -125,6 +125,12 @@ namespace Steam.Net
                 await Connected.TimedInvokeAsync(this, EventArgs.Empty, TaskTimeout, NetLog).ConfigureAwait(false);
             };
 
+            HighPrioritySubscribe(MessageType.Multi, ProcessMulti);
+            HighPrioritySubscribe(MessageType.ChannelEncryptRequest, ProcessEncryptRequest);
+            HighPrioritySubscribe(MessageType.ChannelEncryptResult, ProcessEncryptResult);
+            HighPrioritySubscribe(MessageType.JobHeartbeat, ProcessJobHeartbeat);
+            HighPrioritySubscribe(MessageType.DestJobFailed, ProcessFailedJob);
+
             Resolver = config.ReceiveMethodResolver == null ? new DefaultReceiveMethodResolver() : config.ReceiveMethodResolver() ?? new DefaultReceiveMethodResolver();
             
             foreach (MethodInfo method in this.GetAllTypes().Select(t => t.GetTypeInfo()).SelectMany(t => t.DeclaredMethods))
@@ -160,6 +166,20 @@ namespace Steam.Net
         {
             if (!_eventDispatchers.ContainsKey(type))
                 _eventDispatchers[type] -= receiver;
+        }
+
+        protected void HighPrioritySubscribe(MessageType type, MessageReceiver receiver)
+        {
+            if (!_highPriorityDispatchers.ContainsKey(type))
+                _highPriorityDispatchers[type] = receiver;
+            else
+                _highPriorityDispatchers[type] += receiver;
+        }
+
+        protected void HighPriorityUnsubscribe(MessageType type, MessageReceiver receiver)
+        {
+            if (!_highPriorityDispatchers.ContainsKey(type))
+                _highPriorityDispatchers[type] -= receiver;
         }
 
         /// <summary>
@@ -415,7 +435,6 @@ namespace Steam.Net
             return selector(responses.ToReadOnlyCollection());
         }
 
-
         private async Task ReceiveAsync(object sender, DataReceivedEventArgs args)
         {
             await DispatchData(Encryption.Decrypt(args.Data)).ConfigureAwait(false);
@@ -424,9 +443,18 @@ namespace Steam.Net
         private async Task DispatchData(byte[] data)
         {
             NetworkMessage message = NetworkMessage.CreateFromByteArray(data);
+            bool received = false;
 
             UpdateSessionInfo(message);
-            await HandleBaseMessage(message).ConfigureAwait(false);
+
+            if (_eventDispatchers.TryGetValue(message.MessageType, out var highPriorityDispatch))
+            {
+                foreach (MessageReceiver dispatcher in highPriorityDispatch.GetInvocationList())
+                {
+                    received = true;
+                    await dispatcher(message).ConfigureAwait(false);
+                }
+            }
             
             if (_jobs.IsRunningJob(message.Header.JobId))
                 await _jobs.SetJobResult(message, message.Header.JobId).ConfigureAwait(false);
@@ -435,107 +463,105 @@ namespace Steam.Net
             {
                 foreach (MessageReceiver dispatcher in dispatch.GetInvocationList())
                 {
+                    received = true;
                     await dispatcher(message).TimeoutWrap(TaskTimeout, NetLog).ConfigureAwait(false);
                 }
             }
-            else
-            {
+
+            if (!received)
                 await NetLog.DebugAsync($"No receiver found for message type {message.MessageType} ({(int)message.MessageType})").ConfigureAwait(false);
+        }
+
+        private async Task ProcessMulti(NetworkMessage message)
+        {
+            CMsgMulti multi = message.Deserialize<CMsgMulti>();
+            byte[] payload = multi.message_body;
+            if (multi.size_unzipped > 0)
+            {
+                using (MemoryStream compressedStream = new MemoryStream(payload))
+                using (GZipStream decompressionStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+                using (MemoryStream decompressedStream = new MemoryStream())
+                {
+                    await decompressionStream.CopyToAsync(decompressedStream).ConfigureAwait(false);
+                    payload = decompressedStream.ToArray();
+                }
+            }
+
+            using (MemoryStream stream = new MemoryStream(payload))
+            using (BinaryReader reader = new BinaryReader(stream))
+            {
+                while (stream.Length - stream.Position != 0)
+                {
+                    int subSize = reader.ReadInt32();
+                    byte[] subData = reader.ReadBytes(subSize);
+
+                    await DispatchData(subData).ConfigureAwait(false);
+                }
             }
         }
 
-        /// <summary>
-        /// Handles base messages that control jobs, encryption, or game coordinators
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        private async Task HandleBaseMessage(NetworkMessage message)
+        private async Task ProcessEncryptRequest(NetworkMessage message)
         {
-            switch(message.MessageType)
+            ChannelEncryptRequest encryptRequest = message.Deserialize<ChannelEncryptRequest>();
+            await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
+
+            byte[] challange = encryptRequest.Challenge.All(b => b == 0) ? encryptRequest.Challenge : null; // check if all the values were made 0 by the marshal
+            byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
+            if (publicKey == null)
             {
-                case MessageType.Multi:
-                    CMsgMulti multi = message.Deserialize<CMsgMulti>();
-                    byte[] payload = multi.message_body;
-                    if (multi.size_unzipped > 0)
-                    {
-                        using (MemoryStream compressedStream = new MemoryStream(payload))
-                        using (GZipStream decompressionStream = new GZipStream(compressedStream, CompressionMode.Decompress))
-                        using (MemoryStream decompressedStream = new MemoryStream())
-                        {
-                            await decompressionStream.CopyToAsync(decompressedStream).ConfigureAwait(false);
-                            payload = decompressedStream.ToArray();
-                        }
-                    }
-
-                    using (MemoryStream stream = new MemoryStream(payload))
-                    using (BinaryReader reader = new BinaryReader(stream))
-                    {
-                        while (stream.Length - stream.Position != 0)
-                        {
-                            int subSize = reader.ReadInt32();
-                            byte[] subData = reader.ReadBytes(subSize);
-
-                            await DispatchData(subData).ConfigureAwait(false);
-                        }
-                    }
-                    break;
-                case MessageType.ChannelEncryptRequest:
-                    ChannelEncryptRequest encryptRequest = message.Deserialize<ChannelEncryptRequest>();
-                    await NetLog.VerboseAsync($"Encrypting channel on protocol version {encryptRequest.ProtocolVersion} in universe {encryptRequest.Universe}").ConfigureAwait(false);
-
-                    byte[] challange = encryptRequest.Challenge.All(b => b == 0) ? encryptRequest.Challenge : null; // check if all the values were made 0 by the marshal
-                    byte[] publicKey = UniverseUtils.GetPublicKey(encryptRequest.Universe);
-                    if (publicKey == null)
-                    {
-                        await NetLog.ErrorAsync($"Cannot find public key for universe {encryptRequest.Universe}").ConfigureAwait(false);
-                        throw new InvalidOperationException($"Public key does not exist for universe {encryptRequest.Universe}");
-                    }
-
-                    byte[] tempSessionKey = CryptoUtils.GenerateBytes(32);
-                    byte[] encryptedHandshake = null;
-
-                    using (RsaCrypto rsa = new RsaCrypto(publicKey))
-                    {
-                        if (challange != null)
-                        {
-                            byte[] handshakeToEncrypt = new byte[tempSessionKey.Length + challange.Length];
-                            Array.Copy(tempSessionKey, handshakeToEncrypt, tempSessionKey.Length);
-                            Array.Copy(challange, 0, handshakeToEncrypt, tempSessionKey.Length, challange.Length);
-
-                            encryptedHandshake = rsa.Encrypt(handshakeToEncrypt);
-                        }
-                        else
-                        {
-                            encryptedHandshake = rsa.Encrypt(tempSessionKey);
-                        }
-                    }
-                    
-                    Encryption = challange != null ? (IEncryptor)new HmacEncryptor(tempSessionKey) : new SimpleEncryptor(tempSessionKey);
-
-                    var encryptResponse = NetworkMessage.CreateMessage(MessageType.ChannelEncryptResponse, new ChannelEncryptResponse 
-                    { 
-                        KeySize = 128,
-                        KeyHash =  CryptoUtils.CrcHash(encryptedHandshake),
-                        EncryptedHandshake = encryptedHandshake,
-                        ProtocolVersion = 1,
-                    });
-                    await SendAsync(encryptResponse).ConfigureAwait(false);
-                    break;
-                case MessageType.ChannelEncryptResult:
-                    ChannelEncryptResult encryptResult = message.Deserialize<ChannelEncryptResult>();
-                    if (encryptResult.Result == Result.OK)
-                    {
-                        await NetLog.DebugAsync("Channel encrypted").ConfigureAwait(false);
-                        await _connection.CompleteAsync().ConfigureAwait(false);
-                    }
-                    break;
-                case MessageType.JobHeartbeat:
-                    await _jobs.HeartbeatJob(message.Header.JobId).ConfigureAwait(false);
-                    break;
-                case MessageType.DestJobFailed:
-                    await _jobs.SetJobFail(message.Header.JobId, new DestinationJobFailedException(message.Header.JobId)).ConfigureAwait(false);
-                    break;
+                await NetLog.ErrorAsync($"Cannot find public key for universe {encryptRequest.Universe}").ConfigureAwait(false);
+                throw new InvalidOperationException($"Public key does not exist for universe {encryptRequest.Universe}");
             }
+
+            byte[] tempSessionKey = CryptoUtils.GenerateBytes(32);
+            byte[] encryptedHandshake = null;
+
+            using (RsaCrypto rsa = new RsaCrypto(publicKey))
+            {
+                if (challange != null)
+                {
+                    byte[] handshakeToEncrypt = new byte[tempSessionKey.Length + challange.Length];
+                    Array.Copy(tempSessionKey, handshakeToEncrypt, tempSessionKey.Length);
+                    Array.Copy(challange, 0, handshakeToEncrypt, tempSessionKey.Length, challange.Length);
+
+                    encryptedHandshake = rsa.Encrypt(handshakeToEncrypt);
+                }
+                else
+                {
+                    encryptedHandshake = rsa.Encrypt(tempSessionKey);
+                }
+            }
+            
+            Encryption = challange != null ? (IEncryptor)new HmacEncryptor(tempSessionKey) : new SimpleEncryptor(tempSessionKey);
+
+            var encryptResponse = NetworkMessage.CreateMessage(MessageType.ChannelEncryptResponse, new ChannelEncryptResponse 
+            { 
+                KeySize = 128,
+                KeyHash =  CryptoUtils.CrcHash(encryptedHandshake),
+                EncryptedHandshake = encryptedHandshake,
+                ProtocolVersion = 1,
+            });
+            await SendAsync(encryptResponse).ConfigureAwait(false);
+        }
+
+        private async Task ProcessEncryptResult(NetworkMessage message)
+        {
+            ChannelEncryptResult encryptResult = message.Deserialize<ChannelEncryptResult>();
+            if (encryptResult.Result == Result.OK)
+            {
+                await NetLog.DebugAsync("Channel encrypted").ConfigureAwait(false);
+                await _connection.CompleteAsync().ConfigureAwait(false);
+            }
+        }
+
+        private async Task ProcessJobHeartbeat(NetworkMessage message)
+        {
+            await _jobs.HeartbeatJob(message.Header.JobId).ConfigureAwait(false);
+        }
+
+        private async Task ProcessFailedJob(NetworkMessage message)
+        {
+            await _jobs.SetJobFail(message.Header.JobId, new DestinationJobFailedException(message.Header.JobId)).ConfigureAwait(false);
         }
 
         private void UpdateSessionInfo(NetworkMessage message)
