@@ -11,7 +11,6 @@ namespace Steam.Net
         private string _playerName;
         private PersonaState _state;
         private PersonaStateFlag _stateFlags;
-        private FriendRelationship _relationship;
         private GameInfo _game;
         private DateTimeOffset _lastLogoff;
         private DateTimeOffset _lastLogon;
@@ -42,7 +41,7 @@ namespace Steam.Net
         /// <summary>
         /// Gets the relationship this user has with the current user
         /// </summary>
-        public FriendRelationship Relationship => _relationship;
+        public FriendRelationship Relationship => FriendRelationship.None;
 
         /// <summary>
         /// Gets information about the current game this user is in

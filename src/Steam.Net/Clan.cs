@@ -17,7 +17,7 @@ namespace Steam.Net
         private uint _chatting;
         private uint _ingame;
 
-        protected Clan(SteamNetworkClient client, SteamId id) : base(client)
+        private Clan(SteamNetworkClient client, SteamId id) : base(client)
         {
             _id = id;
         }

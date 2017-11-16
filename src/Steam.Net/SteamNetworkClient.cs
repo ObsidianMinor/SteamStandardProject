@@ -42,6 +42,8 @@ namespace Steam.Net
         /// </summary>
         public long InstanceId { get; private set; }
 
+        public FriendsList FriendsList => _friends;
+
         public ServerType AuthenticationServer { get; private set; }
         
         /// <summary>

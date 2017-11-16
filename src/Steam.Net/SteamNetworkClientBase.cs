@@ -447,7 +447,7 @@ namespace Steam.Net
 
             UpdateSessionInfo(message);
 
-            if (_eventDispatchers.TryGetValue(message.MessageType, out var highPriorityDispatch))
+            if (_highPriorityDispatchers.TryGetValue(message.MessageType, out var highPriorityDispatch))
             {
                 foreach (MessageReceiver dispatcher in highPriorityDispatch.GetInvocationList())
                 {

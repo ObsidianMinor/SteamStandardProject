@@ -8,7 +8,7 @@ namespace Steam.Net
     /// <summary>
     /// Represents a user on Steam
     /// </summary>
-    [DebuggerDisplay("{PlayerName} : {SteamId}")]
+    [DebuggerDisplay("{PersonaName} : {Id}")]
     public class User : NetEntity<SteamNetworkClientBase>, IUser
     {
         private SteamId _steamId;
@@ -22,8 +22,6 @@ namespace Steam.Net
         private uint _onlineSessionInstances;
         private uint _publishedInstanceId;
         private ImmutableArray<byte> _avatarHash;
-        private string _facebook;
-        private ulong _facebookId;
         
         /// <summary>
         /// Gets this user's Steam ID
