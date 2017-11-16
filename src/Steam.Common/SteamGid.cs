@@ -5,7 +5,7 @@ namespace Steam
     /// <summary>
     /// Represents a Steam global unique identifier
     /// </summary>
-    public struct SteamGid : IEquatable<SteamGid>
+    public readonly struct SteamGid : IEquatable<SteamGid>
     {
         private readonly uint _sequentialCount;
         private readonly byte _processId;

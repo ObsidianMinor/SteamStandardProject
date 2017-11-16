@@ -2,7 +2,10 @@
 
 namespace Steam.Net.Utilities
 {
-    internal static class UniverseUtils
+    /// <summary>
+    /// Provides utilities for Steam universes
+    /// </summary>
+    public static class UniverseUtils
     {
         static Dictionary<Universe, byte[]> keys = new Dictionary<Universe, byte[]>
         {
@@ -61,7 +64,12 @@ namespace Steam.Net.Utilities
                 },
         };
 
-        internal static byte[] GetPublicKey(Universe universe)
+        /// <summary>
+        /// Gets the public key of the specified universe
+        /// </summary>
+        /// <param name="universe"></param>
+        /// <returns></returns>
+        public static byte[] GetPublicKey(this Universe universe)
         {
             return keys.TryGetValue(universe, out var publicKey) ? publicKey : null;
         }

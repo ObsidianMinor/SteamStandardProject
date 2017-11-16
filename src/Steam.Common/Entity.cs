@@ -1,4 +1,6 @@
-﻿namespace Steam
+﻿using System.Diagnostics;
+
+namespace Steam
 {
     /// <summary>
     /// Provides an object with access to its owner <see cref="SteamClient"/>
@@ -9,6 +11,7 @@
         /// <summary>
         /// The client that owns this object
         /// </summary>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         protected T Client { get; }
 
         /// <summary>

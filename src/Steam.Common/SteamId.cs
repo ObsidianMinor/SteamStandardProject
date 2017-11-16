@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
@@ -9,7 +8,7 @@ namespace Steam
     /// A unique identifier to identify a Steam account
     /// </summary>
     [DebuggerDisplay("{ToSteam3Id()}")]
-    public struct SteamId : IEquatable<SteamId>
+    public readonly struct SteamId : IEquatable<SteamId>
     {
         // ono regex
         private static readonly Regex steamIdReg = new Regex("STEAM_([0-4]{1}):([01]{1}):([0-9]+)");

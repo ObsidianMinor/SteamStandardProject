@@ -69,7 +69,7 @@ namespace Steam.Net
                 var type = (ServerType)server.server_type;
                 Server serverValue = new Server(server.server_ip.ToIPAddress(), (int)server.server_port);
                 if (_servers.ContainsKey(type))
-                    _servers[type].Add(serverValue);
+                    _servers[type] = _servers[type].Add(serverValue);
                 else
                     _servers[type] = ImmutableHashSet.Create(serverValue);
             }
@@ -85,11 +85,17 @@ namespace Steam.Net
                 servers.Add(new Server(list.cm_addresses[i].ToIPAddress(), (int)list.cm_ports[i]));
 
             if (_servers.ContainsKey(ServerType.ConnectionManager))
-                _servers[ServerType.ConnectionManager].Union(servers);
+                _servers[ServerType.ConnectionManager] = _servers[ServerType.ConnectionManager].Union(servers);
             else
                 _servers[ServerType.ConnectionManager] = servers.ToImmutableHashSet();
 
             return Task.CompletedTask;
+        }
+
+        [MessageReceiver(MessageType.ClientAccountInfo)]
+        private async Task ReceivePersonaName(CMsgClientAccountInfo info)
+        {
+            await _friends.InitCurrentUser(info.persona_name).ConfigureAwait(false);
         }
         
         [MessageReceiver(MessageType.ClientLogOnResponse)]
@@ -97,13 +103,13 @@ namespace Steam.Net
         {
             if (response.eresult == 1 && GetConfig<SteamNetworkConfig>().AutoLoginFriends && SteamId.FromCommunityId(response.client_supplied_steamid).IsIndividualAccount)
             {
-                // a race condition might occur here
-                // it requires that the session ID and Steam ID be set for the job
-                var jobResponse = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)PersonaState.Online }));
+                await NetLog.InfoAsync("Logging into friends").ConfigureAwait(false);
 
-                if (jobResponse.result != 1)
+                var result = await SetPersonaStateAsync(PersonaState.Online).ConfigureAwait(false);
+
+                if (result != Result.OK)
                 {
-                    await NetLog.WarningAsync($"Auto friends login did not complete successfully: {(Result)jobResponse.result}");
+                    await NetLog.WarningAsync($"Auto friends login did not complete successfully: {result}");
                 }
             }
         }
@@ -124,6 +130,20 @@ namespace Steam.Net
         private async Task ReceiveClanUpdate(CMsgClientClanState state)
         {
             await _friends.UpdateClan(state);
+        }
+
+        [MessageReceiver(MessageType.ClientServersAvailable)]
+        private Task ReceiveAvailableServers(CMsgClientServersAvailable available)
+        {
+            AuthenticationServer = (ServerType)available.server_type_for_auth_services;
+
+            foreach(var server in available.server_types_available)
+            {
+                var type = (ServerType)server.server;
+                var result = server.changed ? _availableServers.Remove(type) : _availableServers.Add(type);
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Steam.Net
         private bool _gracefulLogoff;
         private ConcurrentDictionary<ServerType, ImmutableHashSet<Server>> _servers = new ConcurrentDictionary<ServerType, ImmutableHashSet<Server>>();
         private FriendsList _friends;
+        private HashSet<ServerType> _availableServers = new HashSet<ServerType>();
         
         /// <summary>
         /// Gets the current user's wallet
@@ -40,6 +41,8 @@ namespace Steam.Net
         /// Gets the client's current instance ID
         /// </summary>
         public long InstanceId { get; private set; }
+
+        public ServerType AuthenticationServer { get; private set; }
         
         /// <summary>
         /// Creates a new <see cref="SteamNetworkClient"/> with the default config
@@ -53,6 +56,8 @@ namespace Steam.Net
         public SteamNetworkClient(SteamNetworkConfig config) : base(config)
         {
             CellId = config.CellId > uint.MaxValue || config.CellId < uint.MinValue ? 0 : config.CellId;
+
+            _friends = new FriendsList(this);
         }
 
         protected override async Task OnDisconnectingAsync(Exception ex)
@@ -82,6 +87,13 @@ namespace Steam.Net
                 await Ready.InvokeAsync(this, EventArgs.Empty).ConfigureAwait(false);
             }
         }
+
+        /// <summary>
+        /// Gets whether the specified type is available
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public bool GetServerAvailable(ServerType type) => _availableServers.Contains(type);
 
         /// <summary>
         /// Logs into the steam network using the provided username and password
@@ -494,6 +506,18 @@ namespace Steam.Net
 
             var response = await SendJobAsync<CMsgClientPICSChangesSinceResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientPICSChangesSinceRequest, request)).ConfigureAwait(false);
             return PicsChanges.Create(response);
+        }
+
+        internal async Task<Result> SetPersonaNameAsync(string name)
+        {
+            var result = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { player_name = name })).ConfigureAwait(false);
+            return (Result)result.result;
+        }
+
+        internal async Task<Result> SetPersonaStateAsync(PersonaState state)
+        {
+            var result = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)state })).ConfigureAwait(false);
+            return (Result)result.result;
         }
 
         private async Task RunHeartbeatAsync(int interval, CancellationToken token)

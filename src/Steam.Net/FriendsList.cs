@@ -39,6 +39,11 @@ namespace Steam.Net
         public event AsyncEventHandler<CurrentUserUpdatedEventArgs> CurrentUserUpdated;
 
         /// <summary>
+        /// Invokes when a clan the current user is has a new announcement or new event
+        /// </summary>
+        public event AsyncEventHandler<ClanEventStartedEventArgs> ClanEventStarted;
+
+        /// <summary>
         /// Gets the number of clans this user is in
         /// </summary>
         public int ClanCount => _clans.Count;
@@ -66,7 +71,8 @@ namespace Steam.Net
 
             try
             {
-                _maxFriendsCount = list.max_friend_count;
+                if (list.max_friend_countSpecified)
+                    _maxFriendsCount = list.max_friend_count;
 
                 if (!list.bincremental)
                 {
@@ -80,18 +86,22 @@ namespace Steam.Net
 
                     if (friendId.IsIndividualAccount)
                     {
+                        IUser before;
+                        IUser after;
+
                         var relationship = (FriendRelationship)friend.efriendrelationship;
                         if (_users.TryGetValue(friendId, out var user)) // if we have a user already
                         {
+                            before = user;
+
                             if (relationship == FriendRelationship.None) // and the new relationship is "None"
                             {
                                 _users.Remove(friendId); // remove them and tell everyone they don't exist anymore
-                                users.Add((user, null));
+                                
+                                after = null;
                             }
                             else // otherwise...
                             {
-                                IUser before = user;
-                                IUser after;
                                 if (user is UnknownUser) // if they were previously unknown
                                 {
                                     after = new UnknownUser(user.Id, relationship); // make the after user just another unknown user
@@ -101,30 +111,36 @@ namespace Steam.Net
                                     User realUser = (User)user; // otherwise
                                     after = realUser.WithRelationship(relationship); // clone the existing one and add a relationship
                                 }
-
-                                users.Add((before, after)); // tell everyone we're bffs or whatever
                             }
                         }
                         else // or unless we don't have that user
                         {
-                            _users[friendId] = new UnknownUser(friendId, relationship); // make a new unknown one and tell everyone that person now exists
-                            users.Add((null, _users[friendId]));
+                            before = null;
+                            after = new UnknownUser(friendId, relationship); // make a new unknown one and tell everyone that person now exists
+
+                            _users[friendId] = after;
                         }
+
+                        users.Add((before, after)); // tell everyone we're bffs or whatever
                     }
                     else if (friendId.IsClan)
                     {
+                        IClan before;
+                        IClan after;
+
                         var relationship = (ClanRelationship)friend.efriendrelationship;
                         if (_clans.TryGetValue(friendId, out var clan))
                         {
+                            before = clan;
+
                             if (relationship == ClanRelationship.None)
                             {
                                 _users.Remove(friendId);
-                                clans.Add((clan, null));
+
+                                after = null;
                             }
                             else
                             {
-                                IClan before = clan;
-                                IClan after;
                                 if (clan is UnknownClan)
                                 {
                                     after = new UnknownClan(clan.Id, relationship);
@@ -134,15 +150,17 @@ namespace Steam.Net
                                     Clan realClan = (Clan)clan;
                                     after = realClan.WithRelationship(relationship);
                                 }
-
-                                clans.Add((before, after));
                             }
                         }
                         else
                         {
-                            _clans[friendId] = new UnknownClan(friendId, relationship);
-                            clans.Add((null, _clans[friendId]));
+                            before = null;
+                            after = new UnknownClan(friendId, relationship);
+
+                            _clans[friendId] = after;
                         }
+
+                        clans.Add((before, after));
                     }
                 }
             }
@@ -167,7 +185,7 @@ namespace Steam.Net
 
                 if (before is UnknownClan)
                 {
-                    after = Clan.Create(Client, before as UnknownClan, clan);
+                    after = Clan.Create(Client, before.Relationship, clan);
                 }
                 else
                 {
@@ -182,11 +200,14 @@ namespace Steam.Net
             }
 
             await InvokeClanUpdated(before, after).ConfigureAwait(false);
+
+            await Task.WhenAll(clan.announcements.Concat(clan.events).Select(e => new Event(e.gid, e.event_time, e.headline, e.game_id, e.just_posted)).Select(e => InvokeClanEventStarted(after, e))).ConfigureAwait(false);
         }
 
         internal async Task UpdateFriend(CMsgClientPersonaState persona)
         {
             var users = new List<(IUser Before, IUser After)>();
+            var clans = new List<(IClan Before, IClan After)>();
 
             ISelfUser currentBefore = null;
             ISelfUser currentAfter = null;
@@ -198,9 +219,31 @@ namespace Steam.Net
                 
                 foreach (var friend in persona.friends)
                 {
-                    if (friend.friendid == Client.SteamId) // that's us!
+                    SteamId friendId = friend.friendid;
+
+                    if (friendId == Client.SteamId) // that's us!
                     {
-                        // todo: update current user
+                        // todo: set current user stuff
+                    }
+                    else if (friendId.IsClan)
+                    {
+                        IClan before;
+                        IClan after;
+
+                        before = _clans[friend.friendid];
+
+                        if (before is UnknownUser)
+                        {
+                            after = Clan.Create(Client, before.Relationship, friend, flag);
+                        }
+                        else
+                        {
+                            after = (before as Clan).WithPersonaState(friend, flag);
+                        }
+
+                        _clans[after.Id] = after;
+
+                        clans.Add((before, after));
                     }
                     else
                     {
@@ -211,7 +254,7 @@ namespace Steam.Net
 
                         if (before is UnknownUser)
                         {
-                            after = User.Create(Client, before as UnknownUser, friend, flag);
+                            after = User.Create(Client, before.Relationship, friend, flag);
                         }
                         else
                         {
@@ -232,7 +275,13 @@ namespace Steam.Net
             if (currentBefore != null || currentAfter != null)
                 await InvokeCurrentUserUpdated(currentBefore, currentAfter).ConfigureAwait(false);
 
-            await Task.WhenAll(users.Select(t => InvokeUserUpdated(t.Before, t.After))).ConfigureAwait(false);
+            await Task.WhenAll(users.Select(t => InvokeUserUpdated(t.Before, t.After)).Concat(clans.Select(t => InvokeClanUpdated(t.Before, t.After)))).ConfigureAwait(false);
+        }
+
+        internal async Task InitCurrentUser(string personaName)
+        {
+            _currentUser = new OfflineSelfUser(Client, Client.SteamId, personaName);
+            await InvokeCurrentUserUpdated(null, _currentUser).ConfigureAwait(false);
         }
 
         private async Task InvokeUserUpdated(IUser before, IUser after)
@@ -248,6 +297,11 @@ namespace Steam.Net
         private async Task InvokeCurrentUserUpdated(ISelfUser before, ISelfUser after)
         {
             await CurrentUserUpdated.InvokeAsync(this, new CurrentUserUpdatedEventArgs(before, after)).ConfigureAwait(false);
+        }
+
+        private async Task InvokeClanEventStarted(IClan clan, Event @event)
+        {
+            await ClanEventStarted.InvokeAsync(this, new ClanEventStartedEventArgs(clan, @event)).ConfigureAwait(false);
         }
 
         #region IReadOnlyDictionary<SteamId, IUser>

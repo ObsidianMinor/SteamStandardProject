@@ -23,7 +23,7 @@
         WG = 18,
         SM = 19,
         SLC = 20,
-        UFS = 21,
+        UserFileSystem = 21,
         Util = 23,
         Community = 24,
         AppInformation = 26,

@@ -30,6 +30,7 @@ namespace Steam.Net
         private readonly ConnectionManager _connection;
         private readonly ISocketClient Socket;
         private readonly Dictionary<MessageType, MessageReceiver> _eventDispatchers = new Dictionary<MessageType, MessageReceiver>();
+        private readonly Dictionary<MessageType, MessageReceiver> _highPriorityDispatchers = new Dictionary<MessageType, MessageReceiver>();
         private IEncryptor _encryptor;
         private Dictionary<int, GameCoordinator> _gameCoordinators = new Dictionary<int, GameCoordinator>();
         private Func<Exception, Task> _socketDisconnected;
@@ -425,7 +426,7 @@ namespace Steam.Net
             NetworkMessage message = NetworkMessage.CreateFromByteArray(data);
 
             UpdateSessionInfo(message);
-            await HandlePrimitiveMessage(message).ConfigureAwait(false);
+            await HandleBaseMessage(message).ConfigureAwait(false);
             
             if (_jobs.IsRunningJob(message.Header.JobId))
                 await _jobs.SetJobResult(message, message.Header.JobId).ConfigureAwait(false);
@@ -448,7 +449,7 @@ namespace Steam.Net
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        private async Task HandlePrimitiveMessage(NetworkMessage message)
+        private async Task HandleBaseMessage(NetworkMessage message)
         {
             switch(message.MessageType)
             {

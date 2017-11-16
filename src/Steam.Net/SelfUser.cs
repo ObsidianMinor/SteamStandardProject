@@ -1,15 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Immutable;
-using System.Diagnostics;
+using System.Threading.Tasks;
 using Steam.Net.Messages.Protobufs;
 
 namespace Steam.Net
 {
-    /// <summary>
-    /// Represents a user on Steam
-    /// </summary>
-    [DebuggerDisplay("{PlayerName} : {SteamId}")]
-    public class User : NetEntity<SteamNetworkClientBase>, IUser
+    public class SelfUser : NetEntity<SteamNetworkClient>, ISelfUser
     {
         private SteamId _steamId;
         private string _playerName;
@@ -22,9 +18,7 @@ namespace Steam.Net
         private uint _onlineSessionInstances;
         private uint _publishedInstanceId;
         private ImmutableArray<byte> _avatarHash;
-        private string _facebook;
-        private ulong _facebookId;
-        
+
         /// <summary>
         /// Gets this user's Steam ID
         /// </summary>
@@ -68,24 +62,17 @@ namespace Steam.Net
         public long OnlineSessionInstances => _onlineSessionInstances;
 
         public long PublishedInstanceId => _publishedInstanceId;
-
-        public string Facebook => _facebook;
-
-        public decimal FacebookId => _facebookId;
         
-        internal User(SteamNetworkClient client, SteamId id, FriendRelationship relationship) : base(client)
+        protected SelfUser(SteamNetworkClient client) : base(client)
         {
-            _steamId = id;
-            _relationship = relationship;
         }
-
-        internal User WithState(CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
+        
+        internal SelfUser WithState(CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {
-            var before = (User)MemberwiseClone();
+            var before = (SelfUser)MemberwiseClone();
 
-            if (flag.HasFlag(ClientPersonaStateFlag.Presence))
+            if (flag.HasFlag(ClientPersonaStateFlag.Status))
             {
-                before._avatarHash = ImmutableArray.Create(state.avatar_hash);
                 before._state = (PersonaState)state.persona_state;
                 before._stateFlags = (PersonaStateFlag)state.persona_state_flags;
             }
@@ -101,7 +88,7 @@ namespace Steam.Net
                 before._lastLogon = DateTimeOffset.FromUnixTimeSeconds(state.last_logon);
             }
 
-            if (flag.HasFlag(ClientPersonaStateFlag.Status))
+            if (flag.HasFlag(ClientPersonaStateFlag.Presence))
             {
                 before._onlineSessionInstances = state.online_session_instances;
                 before._publishedInstanceId = state.published_instance_id;
@@ -109,28 +96,14 @@ namespace Steam.Net
 
             if (flag.HasFlag(ClientPersonaStateFlag.QueryPort | ClientPersonaStateFlag.SourceID | ClientPersonaStateFlag.GameDataBlob | ClientPersonaStateFlag.GameExtraInfo))
             {
-                before._game = GameInfo.Create(state);
-            }
 
-            if (flag.HasFlag(ClientPersonaStateFlag.Facebook))
-            {
-                before._facebook = state.facebook_name;
-                before._facebookId = state.facebook_id;
             }
 
             return before;
         }
-        
-        internal User WithRelationship(FriendRelationship relationship)
-        {
-            var before = (User)MemberwiseClone();
-            before._relationship = relationship;
-            return before;
-        }
 
-        internal static User Create(SteamNetworkClient client, FriendRelationship relationship, CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
-        {
-            return new User(client, state.friendid, relationship).WithState(state, flag);
-        }
+        public Task<Result> SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
+
+        public Task<Result> SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
     }
 }

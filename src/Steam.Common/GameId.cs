@@ -5,7 +5,7 @@ namespace Steam
     /// <summary>
     /// A structure that represents an app, mod, shortcut, or P2P file on Steam
     /// </summary>
-    public struct GameId : IEquatable<GameId>
+    public readonly struct GameId : IEquatable<GameId>
     {
         private readonly uint _modId;
 
