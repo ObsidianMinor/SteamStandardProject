@@ -5,7 +5,7 @@ using Steam.Net.Messages.Protobufs;
 
 namespace Steam.Net
 {
-    public class SelfUser : NetEntity<SteamNetworkClient>, ISelfUser
+    public sealed class SelfUser : NetEntity<SteamNetworkClient>, ISelfUser
     {
         private SteamId _steamId;
         private string _playerName;
@@ -63,16 +63,18 @@ namespace Steam.Net
 
         public long PublishedInstanceId => _publishedInstanceId;
         
-        protected SelfUser(SteamNetworkClient client) : base(client)
+        private SelfUser(SteamNetworkClient client, SteamId id) : base(client)
         {
+            _steamId = id;
         }
         
         internal SelfUser WithState(CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {
             var before = (SelfUser)MemberwiseClone();
 
-            if (flag.HasFlag(ClientPersonaStateFlag.Status))
+            if (flag.HasFlag(ClientPersonaStateFlag.Presence))
             {
+                before._avatarHash = ImmutableArray.Create(state.avatar_hash);
                 before._state = (PersonaState)state.persona_state;
                 before._stateFlags = (PersonaStateFlag)state.persona_state_flags;
             }
@@ -88,7 +90,7 @@ namespace Steam.Net
                 before._lastLogon = DateTimeOffset.FromUnixTimeSeconds(state.last_logon);
             }
 
-            if (flag.HasFlag(ClientPersonaStateFlag.Presence))
+            if (flag.HasFlag(ClientPersonaStateFlag.Status))
             {
                 before._onlineSessionInstances = state.online_session_instances;
                 before._publishedInstanceId = state.published_instance_id;
@@ -96,14 +98,19 @@ namespace Steam.Net
 
             if (flag.HasFlag(ClientPersonaStateFlag.QueryPort | ClientPersonaStateFlag.SourceID | ClientPersonaStateFlag.GameDataBlob | ClientPersonaStateFlag.GameExtraInfo))
             {
-
+                before._game = GameInfo.Create(state);
             }
-
+            
             return before;
         }
 
         public Task<Result> SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
 
         public Task<Result> SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
+
+        internal static SelfUser Create(SteamNetworkClient client, CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
+        {
+            return new SelfUser(client, state.friendid).WithState(state, flag);
+        }
     }
 }

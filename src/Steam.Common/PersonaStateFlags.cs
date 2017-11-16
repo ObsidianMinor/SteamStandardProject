@@ -8,6 +8,7 @@ namespace Steam
     [Flags]
     public enum PersonaStateFlag
     {
+        None,
         /// <summary>
         /// 
         /// </summary>

@@ -68,10 +68,6 @@ namespace Steam.Net
         public long OnlineSessionInstances => _onlineSessionInstances;
 
         public long PublishedInstanceId => _publishedInstanceId;
-
-        public string Facebook => _facebook;
-
-        public decimal FacebookId => _facebookId;
         
         internal User(SteamNetworkClient client, SteamId id, FriendRelationship relationship) : base(client)
         {
@@ -111,13 +107,7 @@ namespace Steam.Net
             {
                 before._game = GameInfo.Create(state);
             }
-
-            if (flag.HasFlag(ClientPersonaStateFlag.Facebook))
-            {
-                before._facebook = state.facebook_name;
-                before._facebookId = state.facebook_id;
-            }
-
+            
             return before;
         }
         

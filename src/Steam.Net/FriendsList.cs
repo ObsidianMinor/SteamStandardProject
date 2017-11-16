@@ -223,7 +223,16 @@ namespace Steam.Net
 
                     if (friendId == Client.SteamId) // that's us!
                     {
-                        // todo: set current user stuff
+                        currentBefore = _currentUser;
+
+                        if (currentBefore is OfflineSelfUser)
+                        {
+                            currentAfter = SelfUser.Create(Client, friend, flag);
+                        }
+                        else
+                        {
+                            currentAfter = (currentBefore as SelfUser).WithState(friend, flag);
+                        }
                     }
                     else if (friendId.IsClan)
                     {
@@ -273,7 +282,10 @@ namespace Steam.Net
             }
 
             if (currentBefore != null || currentAfter != null)
+            {
+                _currentUser = currentAfter;
                 await InvokeCurrentUserUpdated(currentBefore, currentAfter).ConfigureAwait(false);
+            }
 
             await Task.WhenAll(users.Select(t => InvokeUserUpdated(t.Before, t.After)).Concat(clans.Select(t => InvokeClanUpdated(t.Before, t.After)))).ConfigureAwait(false);
         }

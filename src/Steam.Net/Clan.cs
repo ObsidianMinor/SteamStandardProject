@@ -17,8 +17,9 @@ namespace Steam.Net
         private uint _chatting;
         private uint _ingame;
 
-        protected Clan(SteamNetworkClient client) : base(client)
+        protected Clan(SteamNetworkClient client, SteamId id) : base(client)
         {
+            _id = id;
         }
 
         public SteamId Id => _id;
@@ -46,12 +47,18 @@ namespace Steam.Net
             var before = (Clan)MemberwiseClone();
 
             before._flags = (AccountFlags)state.clan_account_flags;
-            before._name = state.name_info.clan_name;
-            before._avatar = ImmutableArray.Create(state.name_info.sha_avatar);
-            before._members = state.user_counts.members;
-            before._online = state.user_counts.online;
-            before._chatting = state.user_counts.chatting;
-            before._ingame = state.user_counts.in_game;
+            if (state.name_info != null)
+            {
+                before._name = state.name_info.clan_name;
+                before._avatar = ImmutableArray.Create(state.name_info.sha_avatar);
+            }
+            if (state.user_counts != null)
+            {
+                before._members = state.user_counts.members;
+                before._online = state.user_counts.online;
+                before._chatting = state.user_counts.chatting;
+                before._ingame = state.user_counts.in_game;
+            }
 
             return before;
         }
@@ -87,12 +94,12 @@ namespace Steam.Net
 
         internal static Clan Create(SteamNetworkClient client, ClanRelationship relationship, CMsgClientClanState state)
         {
-            return new Clan(client).WithRelationship(relationship).WithState(state);
+            return new Clan(client, state.steamid_clan).WithRelationship(relationship).WithState(state);
         }
 
         internal static Clan Create(SteamNetworkClient client, ClanRelationship relationship, CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {
-            return new Clan(client).WithRelationship(relationship).WithPersonaState(state, flag);
+            return new Clan(client, state.friendid).WithRelationship(relationship).WithPersonaState(state, flag);
         }
     }
 }
