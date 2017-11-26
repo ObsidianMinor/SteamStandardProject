@@ -38,7 +38,7 @@ namespace Steam.Web
             long? severity = null);
 
         /// <summary>
-        /// Requests a game ban on a specific player. This is designed to be used after the incidents from <see cref="ReportPlayerCheating"/> have been reviewed and cheating has been confirmed.
+        /// Requests a game ban on a specific player. This is designed to be used after the incidents from <see cref="ReportPlayerCheatingAsync"/> have been reviewed and cheating has been confirmed.
         /// </summary>
         /// <param name="steamid">Steam ID of the user who is reported as cheating.</param>
         /// <param name="appid">The appid of the game.</param>

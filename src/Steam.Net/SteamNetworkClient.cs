@@ -62,7 +62,7 @@ namespace Steam.Net
             _friends = new FriendsList(this);
         }
 
-        protected override async Task OnDisconnectingAsync(Exception ex)
+        protected sealed override async Task OnDisconnectingAsync(Exception ex)
         {
             if (!_gracefulLogoff)
             {
@@ -76,7 +76,7 @@ namespace Steam.Net
             _heartBeatTask = null;
         }
 
-        protected override async Task OnConnectedAsync()
+        protected sealed override async Task OnConnectedAsync()
         {
             await NetLog.DebugAsync("Performing possible login actions").ConfigureAwait(false);
             // todo: resume connections and things
@@ -91,7 +91,7 @@ namespace Steam.Net
         }
 
         /// <summary>
-        /// Gets whether the specified type is available
+        /// Gets whether the specified server type is available
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>

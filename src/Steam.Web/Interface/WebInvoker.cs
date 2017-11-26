@@ -55,12 +55,7 @@ namespace Steam.Web.Interface
 
             if (returnType == typeof(void))
             {
-                send.RunSynchronously();
-                if (send.IsFaulted)
-                    throw send.Exception;
-                else if (send.IsCanceled)
-                    throw new OperationCanceledException();
-
+                send.Wait();
                 return null;
             }
             else if (returnType == typeof(Task) || (returnType == typeof(Task<RestResponse>)))
@@ -75,6 +70,11 @@ namespace Steam.Web.Interface
                 throw new InvalidOperationException("Cannot invoke method without a return type of void, Task, or Task<T>");
         }
 
+        /// <summary>
+        /// Returns a function to transform the specified send task and response converter into the proper return type for a method
+        /// </summary>
+        /// <param name="returnType"></param>
+        /// <returns></returns>
         protected Func<Task<RestResponse>, ResponseConverter, object> GetCachedContinuationFunction(Type returnType)
         {
             return _continuationFunctions.GetOrAdd(returnType, (t) =>

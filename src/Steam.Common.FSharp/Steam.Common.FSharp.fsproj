@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AsyncEvent.fs" />
+    <Compile Include="Operators.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="AsyncEvent.fsi" />
+    <None Include="Operators.fsi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Steam.Common\Steam.Common.csproj" />
+  </ItemGroup>
+
+</Project>
