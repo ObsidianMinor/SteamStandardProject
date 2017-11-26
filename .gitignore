@@ -262,3 +262,6 @@ __pycache__/
 
 # Visual Studio Code
 *.vscode
+
+# Sandboxes
+sandbox/
