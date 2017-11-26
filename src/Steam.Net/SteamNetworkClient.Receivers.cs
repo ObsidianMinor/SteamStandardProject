@@ -104,13 +104,7 @@ namespace Steam.Net
             if (response.eresult == 1 && GetConfig<SteamNetworkConfig>().AutoLoginFriends && SteamId.FromCommunityId(response.client_supplied_steamid).IsIndividualAccount)
             {
                 await NetLog.InfoAsync("Logging into friends").ConfigureAwait(false);
-
-                var result = await SetPersonaStateAsync(PersonaState.Online).ConfigureAwait(false);
-
-                if (result != Result.OK)
-                {
-                    await NetLog.WarningAsync($"Auto friends login did not complete successfully: {result}");
-                }
+                await SetPersonaStateAsync(PersonaState.Online).ConfigureAwait(false);
             }
         }
         

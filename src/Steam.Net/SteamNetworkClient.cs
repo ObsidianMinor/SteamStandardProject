@@ -510,16 +510,14 @@ namespace Steam.Net
             return PicsChanges.Create(response);
         }
 
-        internal async Task<Result> SetPersonaNameAsync(string name)
+        internal async Task SetPersonaNameAsync(string name)
         {
-            var result = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { player_name = name })).ConfigureAwait(false);
-            return (Result)result.result;
+            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { player_name = name })).ConfigureAwait(false);
         }
 
-        internal async Task<Result> SetPersonaStateAsync(PersonaState state)
+        internal async Task SetPersonaStateAsync(PersonaState state)
         {
-            var result = await SendJobAsync<CMsgPersonaChangeResponse>(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)state })).ConfigureAwait(false);
-            return (Result)result.result;
+            await SendAsync(NetworkMessage.CreateProtobufMessage(MessageType.ClientChangeStatus, new CMsgClientChangeStatus { persona_state = (uint)state })).ConfigureAwait(false);
         }
 
         private async Task RunHeartbeatAsync(int interval, CancellationToken token)

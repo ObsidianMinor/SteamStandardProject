@@ -103,9 +103,9 @@ namespace Steam.Net
             return before;
         }
 
-        public Task<Result> SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
+        public Task SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
 
-        public Task<Result> SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
+        public Task SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
 
         internal static SelfUser Create(SteamNetworkClient client, CMsgClientPersonaState.Friend state, ClientPersonaStateFlag flag)
         {

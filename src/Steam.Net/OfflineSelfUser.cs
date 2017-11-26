@@ -16,8 +16,8 @@ namespace Steam.Net
             PersonaName = personaName;
         }
 
-        public Task<Result> SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
+        public Task SetPersonaNameAsync(string personaName) => Client.SetPersonaNameAsync(personaName);
 
-        public Task<Result> SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
+        public Task SetPersonaStateAsync(PersonaState state) => Client.SetPersonaStateAsync(state);
     }
 }
