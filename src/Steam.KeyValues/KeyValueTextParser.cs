@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Buffers;
+using System.Buffers.Text;
 using System.Runtime.CompilerServices;
-using System.Text;
+using System.Text.Utf8;
 
 using static System.Buffers.Binary.BinaryPrimitives;
-using System.Text.Utf8;
-using System.Buffers.Text;
 
 namespace Steam.KeyValues
 {

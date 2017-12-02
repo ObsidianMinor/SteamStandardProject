@@ -14,8 +14,8 @@ namespace Steam.KeyValues
     /// <summary>
     /// Represents a KeyValue structure that is immutable, stack-only, and uses zero allocations
     /// </summary>
-    [DebuggerDisplay("Key = {Key}, {(Type == 0 ? $\"Length = {Length}\" : $\"Value = {GetString()} ({Type})\")}")]
-    [DebuggerTypeProxy(typeof(ImmutableKeyValueDebugView))]
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
+    [DebuggerTypeProxy(typeof(TypeProxy))]
     public readonly ref struct ImmutableKeyValue
     {
         private readonly MemoryPool<byte> _pool;
@@ -31,7 +31,6 @@ namespace Steam.KeyValues
             _pool = pool;
             _dbMemory = dbMemory;
             _binarySpan = binary;
-            
         }
         
         internal DbRow Record => ReadMachineEndian<DbRow>(_db);
@@ -458,7 +457,9 @@ namespace Steam.KeyValues
 
             return false;
         }
-        
+
+        private string DebuggerDisplay => $"Key = \"{Key}\", {(Type == 0 ? $"Length = {Length}" : $"Value = \"{GetString()}\" ({Type})")}";
+
         public static explicit operator Color(ImmutableKeyValue kv) => kv.GetColor();
         public static explicit operator bool(ImmutableKeyValue kv) => kv.GetBool();
         [CLSCompliant(false)]
@@ -472,7 +473,7 @@ namespace Steam.KeyValues
         public static explicit operator IntPtr(ImmutableKeyValue kv) => kv.GetPtr();
         public static explicit operator decimal(ImmutableKeyValue kv) => kv.GetDecimal();
 
-        public ImmutableKeyValueEnumerator GetEnumerator() => new ImmutableKeyValueEnumerator(this);
+        public Enumerator GetEnumerator() => new Enumerator(this);
 
         public void Dispose()
         {
@@ -482,43 +483,16 @@ namespace Steam.KeyValues
             _dbMemory.Dispose();
         }
         
-        [DebuggerDisplay("Key = {Key}, {(Type == 0 ? $\"Length = {Values.Count}\" : $\"Value = {Value} ({Type})\"}")]
-        internal class ImmutableKeyValueDebugView
-        {
-            public ImmutableKeyValueDebugView(ImmutableKeyValue keyValue)
-            {
-                Key = keyValue.Key;
-                Type = keyValue.Type;
-                if (Type == 0)
-                {
-                    var list = new List<ImmutableKeyValueDebugView>();
-                    for (int i = 0; i < keyValue.Length; i++)
-                        list.Add(new ImmutableKeyValueDebugView(keyValue[i]));
-                    Value = list;
-                }
-                else
-                {
-                    Value = keyValue.GetString();
-                }
-            }
-
-            public string Key { get; }
-            public object Value { get; }
-            [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-            public List<ImmutableKeyValueDebugView> Values { get; }
-            public KeyValueType Type { get; }
-        }
-
         /// <summary>
         /// Provides an enumerator for enumerating through a KeyValue's subkeys
         /// </summary>
-        public ref struct ImmutableKeyValueEnumerator
+        public ref struct Enumerator // todo: optimize this
         {
             private readonly ImmutableKeyValue _keyValue;
             private int _currentIndex;
             private int _length;
 
-            internal ImmutableKeyValueEnumerator(ImmutableKeyValue keyValue)
+            internal Enumerator(ImmutableKeyValue keyValue)
             {
                 _keyValue = keyValue;
                 _currentIndex = -1;
@@ -531,6 +505,58 @@ namespace Steam.KeyValues
             {
                 _currentIndex++;
                 return _currentIndex < _length;
+            }
+        }
+        
+        public class TypeProxy
+        {
+            public const string TestStringProxy = "Test";
+
+            public TypeProxy(ImmutableKeyValue value)
+            {
+                List<object> list = new List<object>();
+                foreach (ImmutableKeyValue child in value)
+                    list.Add(child.Type == 0 ? (object)new ValuesTypeProxy(child) : new ValueTypeProxy(child));
+
+                Items = list.ToArray();
+            }
+            
+            [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
+            public object[] Items { get; }
+
+            [DebuggerDisplay("{_value} ({_type})", Name = "{_key}")]
+            private class ValueTypeProxy
+            {
+                private string _key;
+                private string _value;
+                private KeyValueType _type;
+
+                public ValueTypeProxy(ImmutableKeyValue kv)
+                {
+                    _key = kv.Key;
+                    _value = kv.GetString();
+                    _type = kv.Type;
+                }
+            }
+
+            [DebuggerDisplay("Length = {Items.Length}", Name = "{_key}")]
+            private class ValuesTypeProxy
+            {
+                private string _key;
+
+                public ValuesTypeProxy(ImmutableKeyValue kv)
+                {
+                    _key = kv.Key;
+
+                    List<object> list = new List<object>();
+                    foreach (ImmutableKeyValue child in kv)
+                        list.Add(child.Type == 0 ? (object)new ValuesTypeProxy(child) : new ValueTypeProxy(child));
+
+                    Items = list.ToArray();
+                }
+
+                [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
+                public object[] Items { get; }
             }
         }
     }
