@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.Utf8;
 
 using static System.Buffers.Binary.BinaryPrimitives;
@@ -15,7 +16,7 @@ namespace Steam.KeyValues
     /// Represents a KeyValue structure that is immutable, stack-only, and uses zero allocations
     /// </summary>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
-    [DebuggerTypeProxy(typeof(TypeProxy))]
+    // [DebuggerTypeProxy(typeof(DebugView))] one day
     public readonly ref struct ImmutableKeyValue
     {
         private readonly MemoryPool<byte> _pool;
@@ -64,6 +65,15 @@ namespace Steam.KeyValues
         /// <param name="data"></param>
         /// <returns></returns>
         public static ImmutableKeyValue Parse(byte[] data) => Parse(new ReadOnlySpan<byte>(data));
+
+        /// <summary>
+        /// Parses the specified byte array as a text stream
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="pool"></param>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        public static ImmutableKeyValue Parse(byte[] data, MemoryPool<byte> pool = null) => Parse(new ReadOnlySpan<byte>(data), pool);
         
         /// <summary>
         /// Parses the specified <see cref="ReadOnlySpan{T}"/> as a text stream
@@ -76,13 +86,48 @@ namespace Steam.KeyValues
         {
             return new KeyValueTextParser().Parse(utf8KeyValue, pool);
         }
-        
+
+        /// <summary>
+        /// Loads a UTF8 file at the specified path and parses it as a text stream
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public static ImmutableKeyValue FromFile(string file) => FromFile(file, null);
+
+        /// <summary>
+        /// Loads a UTF8 file at the specified path and parses it as a text stream
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="pool"></param>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        public static ImmutableKeyValue FromFile(string file, MemoryPool<byte> pool = null)
+        {
+            var bytes = File.ReadAllBytes(file);
+            if (bytes.Length < 3)
+                throw new InvalidDataException("The provided file is too small to contain a UTF8 byte order mark");
+
+            if (bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF)
+                return Parse(new Span<byte>(bytes).Slice(3), pool);
+            else
+                throw new InvalidDataException("The provided file does not contain a UTF8 byte order mark");
+        }
+
         /// <summary>
         /// Parses the specified byte array as a binary stream
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
         public static ImmutableKeyValue ParseBinary(byte[] data) => Parse(new ReadOnlySpan<byte>(data));
+
+        /// <summary>
+        /// Parses the specified byte array as a binary stream
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="pool"></param>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        public static ImmutableKeyValue ParseBinary(byte[] data, MemoryPool<byte> pool = null) => Parse(new ReadOnlySpan<byte>(data), pool);
 
         /// <summary>
         /// Parses the specified <see cref="ReadOnlySpan{T}"/> as a binary stream
@@ -94,6 +139,14 @@ namespace Steam.KeyValues
         public static ImmutableKeyValue ParseBinary(ReadOnlySpan<byte> binaryKeyValue, MemoryPool<byte> pool = null)
         {
             return new KeyValueBinaryParser().Parse(binaryKeyValue, pool);
+        }
+
+        public static ImmutableKeyValue FromBinaryFile(string file) => FromBinaryFile(file, null);
+
+        [CLSCompliant(false)]
+        public static ImmutableKeyValue FromBinaryFile(string file, MemoryPool<byte> pool = null)
+        {
+            throw new NotImplementedException();
         }
         
         /// <summary>
@@ -116,6 +169,7 @@ namespace Steam.KeyValues
         /// </summary>
         /// <param name="index">The index to get the child</param>
         /// <returns>The <see cref="ImmutableKeyValue"/> at the specified index</returns>
+        /// <remarks>This method performs a linear search; therefore, this method is an O(n) operation, where n is Length</remarks>
         public ImmutableKeyValue this[int index]
         {
             get
@@ -123,31 +177,13 @@ namespace Steam.KeyValues
                 if (index < 0 || index >= Length)
                     throw new ArgumentOutOfRangeException(nameof(index));
 
-                var record = Record;
-                
-                for (int i = DbRow.Size, pos = 0; i < _db.Length; i += DbRow.Size, pos++)
+                int pos = 0;
+                Enumerator enumerator = GetEnumerator();
+                while (enumerator.MoveNext() && pos < index)
                 {
-                    record = ReadMachineEndian<DbRow>(_db.Slice(i));
-
-                    if (pos == index)
-                    {
-                        int newStart = i;
-                        int newEnd = i + DbRow.Size;
-
-                        if (!record.IsSimpleValue)
-                        {
-                            newEnd += DbRow.Size * record.Length;
-                        }
-                        return new ImmutableKeyValue(_values, _db.Slice(newStart, newEnd - newStart), _binarySpan);
-                    }
-
-                    if (!record.IsSimpleValue)
-                    {
-                        i += record.Length * DbRow.Size;
-                    }
+                    pos++;
                 }
-
-                throw new InvalidOperationException("This code is thought to be unreachable");
+                return enumerator.Current;
             }
         }
 
@@ -158,27 +194,13 @@ namespace Steam.KeyValues
         {
             get
             {
-                var record = Record;
-                if (!record.IsSimpleValue)
+                int length = 0;
+                Enumerator enumerator = GetEnumerator();
+                while (enumerator.MoveNext())
                 {
-                    int length = record.Length;
-
-                    for (int i = DbRow.Size; i < _db.Length; i += DbRow.Size) // go through each row and subtract the members member count
-                    {
-                        record = ReadMachineEndian<DbRow>(_db.Slice(i));
-
-                        if (!record.IsSimpleValue)
-                        {
-                            length -= record.Length;
-                            i += record.Length * DbRow.Size;
-                            continue;
-                        }
-                    }
-
-                    return length;
+                    length++;
                 }
-                else
-                    return 0;
+                return length;
             }
         }
 
@@ -457,7 +479,8 @@ namespace Steam.KeyValues
 
             return false;
         }
-
+        
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string DebuggerDisplay => $"Key = \"{Key}\", {(Type == 0 ? $"Length = {Length}" : $"Value = \"{GetString()}\" ({Type})")}";
 
         public static explicit operator Color(ImmutableKeyValue kv) => kv.GetColor();
@@ -482,53 +505,95 @@ namespace Steam.KeyValues
 
             _dbMemory.Dispose();
         }
+
+        private DebugView DebuggerView => new DebugView(this);
         
         /// <summary>
-        /// Provides an enumerator for enumerating through a KeyValue's subkeys
+        /// Provides an enumerator for enumerating through an <see cref="ImmutableKeyValue"/>'s subkeys
         /// </summary>
-        public ref struct Enumerator // todo: optimize this
+        public ref struct Enumerator
         {
             private readonly ImmutableKeyValue _keyValue;
-            private int _currentIndex;
-            private int _length;
+            private DbRow _currentRecord;
+            private int _dbIndex;
+            private int _nextDbIndex;
 
             internal Enumerator(ImmutableKeyValue keyValue)
             {
                 _keyValue = keyValue;
-                _currentIndex = -1;
-                _length = _keyValue.Length;
+                _currentRecord = keyValue.Record;
+                _dbIndex = 0;
+                _nextDbIndex = DbRow.Size;
             }
-            
-            public ImmutableKeyValue Current => _keyValue[_currentIndex];
 
+            /// <summary>
+            /// Returns the <see cref="ImmutableKeyValue"/> at the current position
+            /// </summary>
+            public ImmutableKeyValue Current
+            {
+                get
+                {
+                    int newStart = _dbIndex;
+                    int newEnd = _dbIndex + DbRow.Size;
+
+                    if (!_currentRecord.IsSimpleValue)
+                    {
+                        newEnd += DbRow.Size * _currentRecord.Length;
+                    }
+                    return new ImmutableKeyValue(_keyValue._values, _keyValue._db.Slice(newStart, newEnd - newStart), _keyValue._binarySpan);
+                }
+            }
+
+            /// <summary>
+            /// Moves the enumerator to the position of the next <see cref="ImmutableKeyValue"/>
+            /// </summary>
+            /// <returns></returns>
             public bool MoveNext()
             {
-                _currentIndex++;
-                return _currentIndex < _length;
+                _dbIndex = _nextDbIndex;
+                if (_dbIndex >= _keyValue._db.Length)
+                    return false;
+
+                _currentRecord = ReadMachineEndian<DbRow>(_keyValue._db.Slice(_dbIndex));
+
+                if (!_currentRecord.IsSimpleValue)
+                    _nextDbIndex += _currentRecord.Length * DbRow.Size;
+
+                _nextDbIndex += DbRow.Size;
+                return _dbIndex < _keyValue._db.Length;
             }
         }
-        
-        public class TypeProxy
+
+        [DebuggerDisplay("{DebuggerDisplay,nq}")]
+        internal sealed class DebugView
         {
-            public const string TestStringProxy = "Test";
-
-            public TypeProxy(ImmutableKeyValue value)
+            public DebugView(ImmutableKeyValue value)
             {
-                List<object> list = new List<object>();
-                foreach (ImmutableKeyValue child in value)
-                    list.Add(child.Type == 0 ? (object)new ValuesTypeProxy(child) : new ValueTypeProxy(child));
+                object[] items = new object[value.Length];
+                int i = 0;
+                foreach(var subKey in value)
+                {
+                    items[i] = subKey.Type == 0 ? (object)new ValuesTypeProxy(subKey) : new ValueTypeProxy(subKey);
+                    i++;
+                }
 
-                Items = list.ToArray();
+                Items = items;
             }
             
             [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
             public object[] Items { get; }
-
-            [DebuggerDisplay("{_value} ({_type})", Name = "{_key}")]
+            
+            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+            private string DebuggerDisplay => "";
+            
+            [DebuggerDisplay("{_value}", Name = "{_key,nq}")]
             private class ValueTypeProxy
             {
+                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
                 private string _key;
+                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
                 private string _value;
+                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
                 private KeyValueType _type;
 
                 public ValueTypeProxy(ImmutableKeyValue kv)
@@ -539,20 +604,25 @@ namespace Steam.KeyValues
                 }
             }
 
-            [DebuggerDisplay("Length = {Items.Length}", Name = "{_key}")]
+            [DebuggerDisplay("Length = {Items.Length}", Name = "{_key,nq}")]
             private class ValuesTypeProxy
             {
+                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
                 private string _key;
 
                 public ValuesTypeProxy(ImmutableKeyValue kv)
                 {
                     _key = kv.Key;
 
-                    List<object> list = new List<object>();
-                    foreach (ImmutableKeyValue child in kv)
-                        list.Add(child.Type == 0 ? (object)new ValuesTypeProxy(child) : new ValueTypeProxy(child));
+                    object[] items = new object[kv.Length];
+                    int i = 0;
+                    foreach (var subKey in kv)
+                    {
+                        items[i] = subKey.Type == 0 ? (object)new ValuesTypeProxy(subKey) : new ValueTypeProxy(subKey);
+                        i++;
+                    }
 
-                    Items = list.ToArray();
+                    Items = items;
                 }
 
                 [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
