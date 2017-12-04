@@ -1,4 +1,6 @@
-﻿namespace Steam.KeyValues
+﻿using System.Runtime.InteropServices;
+
+namespace Steam.KeyValues
 {
     static class KeyValueConstants
     {
@@ -12,6 +14,7 @@
         public const byte LineFeed = (byte)'\n';
         public const byte Bang = (byte)'!'; // it's easier to write Bang than ExclamationMark
         public const byte Quote = (byte)'"';
+        public const byte BackSlash = (byte)'\\'; // I'M REALLY FEELING IT
         
         public static readonly byte[] Include = { (byte)'#', (byte)'i', (byte)'n', (byte)'c', (byte)'l', (byte)'u', (byte)'d', (byte)'e' };
         public static readonly byte[] Base = { (byte)'#', (byte)'b', (byte)'a', (byte)'s', (byte)'e' };
@@ -21,5 +24,20 @@
         public static readonly byte[] OSX = { (byte)'$', (byte)'O', (byte)'S', (byte)'X' };
         public static readonly byte[] LINUX = { (byte)'$', (byte)'L', (byte)'I', (byte)'N', (byte)'U', (byte)'X' };
         public static readonly byte[] POSIX = { (byte)'$', (byte)'P', (byte)'O', (byte)'S', (byte)'I', (byte)'X', };
+
+        public static readonly bool IsWindows;
+        public static readonly bool IsMac;
+        public static readonly bool IsLinux;
+        public static readonly bool IsPosix;
+        public const bool IsXbox = false;
+        public const bool IsPC = true; // until the .NET Standard is on Xbox 360 these are constants. wake me up when that happens
+
+        static KeyValueConstants()
+        {
+            IsWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+            IsMac = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+            IsLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+            IsPosix = IsMac || IsLinux;
+        }
     }
 }

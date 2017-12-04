@@ -1,8 +1,10 @@
-namespace Steam
+namespace Steam 
+
+open Steam.Cryptography
 
 /// <summary> Basic operators for converting uint64 to Steam value types </summary>
 [<AutoOpen>]
-module Operators =
+module Operators = 
 
     [<CompiledName("FromSteamId")>]
     let inline steamid (value : uint64) = SteamId.FromCommunityId value
@@ -16,3 +18,6 @@ module Operators =
 
     [<CompiledName("FromSteamGid")>]
     let inline steamgid value = SteamGid.FromUInt64 value
+
+    [<CompiledName("DefaultCrc32")>]
+    let inline crc32 value = Crc32.Compute value

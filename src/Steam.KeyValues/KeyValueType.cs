@@ -40,6 +40,6 @@
         /// <summary>
         /// A signed 64 bit integer value
         /// </summary>
-        Int64
+        Int64 = 9,
     }
 }

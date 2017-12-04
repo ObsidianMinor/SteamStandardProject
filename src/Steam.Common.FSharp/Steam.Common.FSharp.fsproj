@@ -6,12 +6,8 @@
 
   <ItemGroup>
     <Compile Include="AsyncEvent.fs" />
+    <Compile Include="Logs.fs" />
     <Compile Include="Operators.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="AsyncEvent.fsi" />
-    <None Include="Operators.fsi" />
   </ItemGroup>
 
   <ItemGroup>

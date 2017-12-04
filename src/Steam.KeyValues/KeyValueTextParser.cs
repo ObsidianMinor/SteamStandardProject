@@ -88,7 +88,8 @@ namespace Steam.KeyValues
 
             while (true)
             {
-                if (SkipAndPeekType(false) == KeyValueTokenType.EndSubkeys)
+                KeyValueTokenType token = SkipAndPeekType(false);
+                if (token == KeyValueTokenType.EndSubkeys)
                 {
                     _valuesIndex++;
                     break;
@@ -99,7 +100,7 @@ namespace Steam.KeyValues
                 {
                     case KeyValueTokenType.Value:
                         var value = ReadString();
-                        
+
                         if (SkipAndPeekType(false) == KeyValueTokenType.Conditional && !EvaluateConditional())
                         {
                             continue;
@@ -130,20 +131,31 @@ namespace Steam.KeyValues
         {
             _valuesIndex++; // eat open brace
 
-            var indexOfClosingBrace = _valuesIndex;
-            do
-            {
-                indexOfClosingBrace = _values.Slice(indexOfClosingBrace).IndexOf(KeyValueConstants.OpenBrace);
-            }
-            while (AreNumOfCharAtEndOfStringOdd(_valuesIndex + indexOfClosingBrace - 2, KeyValueConstants.OpenBrace));
+            var newPosition = GetFinalCharPosition(_valuesIndex, KeyValueConstants.CloseBrace, KeyValueConstants.OpenBrace, false);
 
-            _valuesIndex += indexOfClosingBrace + 1;
+            _valuesIndex += newPosition;
             SkipWhitespace();
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void SkipLine()
+        {
+            do _valuesIndex++;
+            while (_values[_valuesIndex] != '\n');
         }
 
         private void ResizeDb()
         {
-            throw new NotImplementedException();
+            var oldData = _scratchManager.Span;
+            var newScratch = _pool.Rent(_scratchManager.Length * 2);
+            int dbLength = newScratch.Length / 2;
+
+            var newDb = newScratch.Memory.Slice(0, dbLength);
+            _db.Slice(0, _valuesIndex).Span.CopyTo(newDb.Span);
+            _db = newDb;
+
+            _scratchManager.Dispose();
+            _scratchManager = newScratch;
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -167,26 +179,58 @@ namespace Steam.KeyValues
             if (_values[_valuesIndex] == KeyValueConstants.Quote)
             {
                 _valuesIndex++;
-                var indexOfClosingQuote = _valuesIndex;
-                do
-                {
-                    indexOfClosingQuote = _values.Slice(indexOfClosingQuote).IndexOf((byte)'"');
-                } while (AreNumOfCharAtEndOfStringOdd(_valuesIndex + indexOfClosingQuote - 2, (byte)'/'));
-
                 int pos = _valuesIndex;
+                int length = GetFinalCharPosition(pos, KeyValueConstants.Quote, KeyValueConstants.BackSlash, true);
 
-                _valuesIndex += indexOfClosingQuote + 1;
+                _valuesIndex += length + 1;
                 SkipWhitespace();
-                return (pos, indexOfClosingQuote);
+                return (pos, length);
             }
             else // straight shot, move forward until whitespace
             {
                 int pos = _valuesIndex;
                 int length;
-                for (length = 0; length < _values.Length &&  Unicode.IsWhitespace(_values[_valuesIndex]); length++, _valuesIndex++) ;
+                for (length = 0; length < _values.Length && !Unicode.IsWhitespace(_values[_valuesIndex]); length++, _valuesIndex++) ;
                 _valuesIndex++;
                 SkipWhitespace();
                 return (pos, length);
+            }
+        }
+
+        private int GetFinalCharPosition(int start, byte charToFind, byte ignoreController, bool proceededBy)
+        {
+            int realStart = start;
+
+            if (proceededBy)
+            {
+                while(true)
+                {
+                    int nextPosition = _values.Slice(start).IndexOf(charToFind);
+                    start += nextPosition;
+                    if (_values[start - 1] == ignoreController)
+                        start++;
+                    else
+                        return start - realStart;
+                }
+            }
+            else
+            {
+                int level = 0;
+                while (true)
+                {
+                    int indexOfIgnore = _values.Slice(start).IndexOf(ignoreController);
+                    int indexOfFind = _values.Slice(start).IndexOf(charToFind);
+
+                    if (indexOfIgnore < indexOfFind)
+                        level++;
+                    else
+                        level--;
+
+                    if (level == 0)
+                        return (start + indexOfFind + 1) - realStart;
+
+                    start += indexOfIgnore < indexOfFind ? indexOfIgnore + 1 : indexOfFind + 1;
+                }
             }
         }
 
@@ -235,7 +279,13 @@ namespace Steam.KeyValues
         private KeyValueTokenType SkipAndPeekType(bool findingValue)
         {
             SkipWhitespace();
-            return PeekTokenType(findingValue);
+            KeyValueTokenType type;
+            for (type = PeekTokenType(findingValue); type == KeyValueTokenType.Comment; type = PeekTokenType(findingValue))
+            {
+                SkipLine();
+                SkipWhitespace();
+            }
+            return type;
         }
 
         /// <summary>
@@ -256,7 +306,7 @@ namespace Steam.KeyValues
                     return KeyValueTokenType.Conditional;
                 case KeyValueConstants.CloseBrace:
                     return KeyValueTokenType.EndSubkeys;
-                case (byte)'/':
+                case (byte)'/' when _values[_valuesIndex + 1] == '/':
                     return KeyValueTokenType.Comment;
             }
         }
@@ -270,23 +320,49 @@ namespace Steam.KeyValues
             if (!_evalConditionals)
                 return true;
 
-            throw new NotImplementedException();
+            _valuesIndex++;
+
+            bool result;
+            for(result = false; _values[_valuesIndex] != KeyValueConstants.CloseBracket; _valuesIndex++)
+            {
+                if (result || _values[_valuesIndex] == '|')
+                    continue;
+                
+                bool isNegated = _values[_valuesIndex] == KeyValueConstants.Bang;
+                if (isNegated)
+                    _valuesIndex++;
+
+                if (EqualsCondition(KeyValueConstants.X360))
+                    result = KeyValueConstants.IsXbox ^ isNegated;
+                else if (EqualsCondition(KeyValueConstants.WIN32))
+                    result = KeyValueConstants.IsPC ^ isNegated;
+                else if (EqualsCondition(KeyValueConstants.WINDOWS))
+                    result = KeyValueConstants.IsWindows ^ isNegated;
+                else if (EqualsCondition(KeyValueConstants.OSX))
+                    result = KeyValueConstants.IsMac ^ isNegated;
+                else if (EqualsCondition(KeyValueConstants.LINUX))
+                    result = KeyValueConstants.IsLinux ^ isNegated;
+                else if (EqualsCondition(KeyValueConstants.POSIX))
+                    result = KeyValueConstants.IsPosix ^ isNegated;
+                else
+                {
+                    do _valuesIndex++;
+                    while (_values[_valuesIndex] != '|' && _values[_valuesIndex] != KeyValueConstants.CloseBracket);
+                    _valuesIndex--; // move one back for the _valuesindex++ in for loop
+                }
+            }
+
+            _valuesIndex++;
+
+            return result;
         }
 
-        private bool AreNumOfCharAtEndOfStringOdd(int count, byte character)
+        private bool EqualsCondition(byte[] condition)
         {
-            var length = count - _valuesIndex;
-            if (length < 0) return false;
-            var nextByte = _values[count];
-            if (nextByte != character) return false;
-            var numOfChar = 0;
-            while (nextByte == character)
-            {
-                numOfChar++;
-                if ((length - numOfChar) < 0) return numOfChar % 2 != 0;
-                nextByte = _values[count - numOfChar];
-            }
-            return numOfChar % 2 != 0;
+            bool isCondition = _values.Slice(_valuesIndex, condition.Length).SequenceEqual(condition);
+            if (isCondition)
+                _valuesIndex += condition.Length - 1;
+            return isCondition;
         }
     }
 }
