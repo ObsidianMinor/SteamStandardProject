@@ -6,10 +6,10 @@
  * will not be commited or pushed to the upstream repository
  *)
 
-open Steam
+open FSharp.Steam
 
 [<EntryPoint>]
 let main argv =
-    let id = steamid 76561198092222042UL
+    let id = steamid64 76561198092222042UL
     printfn "%s" (id.ToString())
     0 // return an integer exit code

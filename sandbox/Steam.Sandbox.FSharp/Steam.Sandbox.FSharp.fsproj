@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Configurations>Debug;Release;DebugJobs</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Steam.Common.FSharp\Steam.Common.FSharp.fsproj" />
-    <ProjectReference Include="..\..\src\Steam.Common\Steam.Common.csproj" />
+    <ProjectReference Include="..\..\fsharp\FSharp.Steam.Common\FSharp.Steam.Common.fsproj" />
+    <ProjectReference Include="..\..\fsharp\FSharp.Steam.Rest\FSharp.Steam.Rest.fsproj" />
+    <ProjectReference Include="..\..\fsharp\FSharp.Steam.Web\FSharp.Steam.Web.fsproj" />
   </ItemGroup>
 
 </Project>

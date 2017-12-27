@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="ISteamDirectory.fs" />
+    <Compile Include="ISteamWebAPIUtil.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FSharp.Steam.Rest\FSharp.Steam.Rest.fsproj" />
+    <ProjectReference Include="..\FSharp.Steam.Common\FSharp.Steam.Common.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.2.3" />
+  </ItemGroup>
+
+</Project>
