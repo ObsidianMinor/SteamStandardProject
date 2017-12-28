@@ -191,9 +191,3 @@ module Primitives =
         match result with
             | Result.OK -> ()
             | _ -> raiseResult result
-
-    /// Raises a SteamException if the specified int value is not 1
-    let raiseIntResult result =
-        match result with
-            | 1 -> ()
-            | _ -> raiseResult (enum result)

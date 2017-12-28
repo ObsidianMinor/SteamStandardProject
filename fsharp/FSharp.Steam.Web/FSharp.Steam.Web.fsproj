@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FSharp.Steam.Core\FSharp.Steam.Core.fsproj" />
     <ProjectReference Include="..\FSharp.Steam.Rest\FSharp.Steam.Rest.fsproj" />
-    <ProjectReference Include="..\FSharp.Steam.Common\FSharp.Steam.Common.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
