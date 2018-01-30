@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Steam.KeyValues
 {
-    class KeyValueBinaryReader
+    public class KeyValueBinaryReader : KeyValueReader
     {
+        public override bool Read()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

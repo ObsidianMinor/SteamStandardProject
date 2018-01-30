@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Steam.KeyValues
 {
-    class KeyValueBinaryWriter
+    public class KeyValueBinaryWriter : KeyValueWriter
     {
+        public override void Flush()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

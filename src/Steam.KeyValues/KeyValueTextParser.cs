@@ -1,83 +1,84 @@
 ﻿using System;
 using System.Buffers;
-using System.Buffers.Text;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text.Utf8;
 
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace Steam.KeyValues
 {
-    internal ref struct KeyValueTextParser
+    internal ref struct KeyValueTextParser // the time to beat is 21ms.
     {
-        private Memory<byte> _db;
-        private ReadOnlySpan<byte> _values; // TODO: this should be ReadOnlyMemory<byte>
+        private Span<byte> _db;
+        private ReadOnlySpan<byte> _values;
         private OwnedMemory<byte> _scratchManager;
         MemoryPool<byte> _pool;
+        private string[] _conditions;
 
         private int _valuesIndex;
         private int _dbIndex;
 
-        private bool _evalConditionals;
-
-        public ImmutableKeyValue Parse(ReadOnlySpan<byte> data, MemoryPool<byte> pool = null, bool useConditionals = true)
+        public ImmutableKeyValue Parse(ReadOnlySpan<byte> data, KeyValueParserConfig config)
         {
-            _evalConditionals = useConditionals;
-            _pool = pool ?? MemoryPool<byte>.Default;
-            _scratchManager = _pool.Rent(data.Length * 4);
-            _db = _scratchManager.Memory;
+            _pool = config?.Pool ?? MemoryPool<byte>.Default;
+            _conditions = config?.Conditions ?? KeyValueParserConfig.GetDefaultConditions();
+            _scratchManager = _pool.Rent(data.Length * 2);
+            _db = _scratchManager.Span;
             
             _values = data;
             _valuesIndex = 0;
             _dbIndex = 0;
-            
-            (bool valid, int keyPos, int keyLength, int bodyPos) = ValidateHeader();
-            if (!valid)
+
+            ref DbRow topRow = ref CreateDbRow();
+
+            if (!ValidateHeader(ref topRow))
                 throw new KeyValuesException("Header is not valid");
 
-            int dbPos = MoveDbPosition();
-            int bodyLength = ReadBody();
-            AppendDbRow(0, keyPos, keyLength, bodyPos, bodyLength, dbPos);
+            topRow.Length = ReadBody();
 
-            var result = new ImmutableKeyValue(_values, _db.Slice(0, _dbIndex).Span, false, _pool, _scratchManager);
+            var result = new ImmutableKeyValue(_values, _db.Slice(0, _dbIndex), false, _pool, _scratchManager);
             _scratchManager = null;
             return result;
         }
 
-        private (bool valid, int keyPos, int keyLength, int valuePos) ValidateHeader()
+        private bool ValidateHeader(ref DbRow row)
         {
-            if (SkipAndPeekType(false) == KeyValueTokenType.PropertyName)
+            if (SkipAndPeekType(false) == KeyValueToken.Key)
             {
-                var (keyPos, keyLength) = ReadString();
+                ReadString(out var keyPos, out var keyLength);
                 Utf8Span key = new Utf8Span(_values.Slice(keyPos, keyLength));
                 if (key == new Utf8Span(KeyValueConstants.Base) || key == new Utf8Span(KeyValueConstants.Include))
                 {
                     // skip the include statement, we can't use it
                     SkipWhitespace();
-                    ReadString();
+                    ReadString(out var _, out var _);
 
-                    if (SkipAndPeekType(false) != KeyValueTokenType.PropertyName)
-                        return (false, 0, 0, 0);
+                    if (SkipAndPeekType(false) != KeyValueToken.Key)
+                        return false;
 
-                    (keyPos, keyLength) = ReadString();
+                    ReadString(out keyPos, out keyLength);
                 }
 
                 var type = PeekTokenType(false);
-                if (type == KeyValueTokenType.Conditional)
+                if (type == KeyValueToken.Conditional)
                 {
                     EvaluateConditional(); // source sdk doesn't care and neither should we
                     SkipWhitespace();
                     type = PeekTokenType(false);
                 }
                 
-                if (type != KeyValueTokenType.StartSubkeys)
-                    return (false, 0, 0, 0);
-                
-                return (true, keyPos, keyLength, _valuesIndex);
+                if (type != KeyValueToken.StartSubkeys)
+                    return false;
+
+                row.KeyLocation = keyPos;
+                row.KeyLength = keyLength;
+                row.Location = _valuesIndex;
+                return true;
             }
             else
             {
-                return (false, 0, 0, 0);
+                return false;
             }
         }
 
@@ -88,34 +89,37 @@ namespace Steam.KeyValues
 
             while (true)
             {
-                KeyValueTokenType token = SkipAndPeekType(false);
-                if (token == KeyValueTokenType.EndSubkeys)
+                KeyValueToken token = SkipAndPeekType(false);
+                if (token == KeyValueToken.EndSubkeys)
                 {
                     _valuesIndex++;
                     break;
                 }
-                
-                (int pos, int length) = ReadString();
+
+                ReadString(out int pos, out int length);
                 switch (SkipAndPeekType(true))
                 {
-                    case KeyValueTokenType.Value:
-                        var value = ReadString();
+                    case KeyValueToken.Value:
+                        ReadString(out int valuePos, out int valueLength);
 
-                        if (SkipAndPeekType(false) == KeyValueTokenType.Conditional && !EvaluateConditional())
+                        if (SkipAndPeekType(false) == KeyValueToken.Conditional && !EvaluateConditional())
                         {
                             continue;
                         }
 
-                        AppendDbRow(KeyValueType.String, pos, length, value.pos, value.length);
+                        AppendDbRow(KeyValueType.String, pos, length, valuePos, valueLength);
                         numberOfRowsForMembers++;
                         break;
-                    case KeyValueTokenType.StartSubkeys:
-                        int dbPos = MoveDbPosition();
-                        int bodyLength = ReadBody();
-                        AppendDbRow(0, pos, length, _valuesIndex, bodyLength, dbPos);
-                        numberOfRowsForMembers += bodyLength + 1;
+                    case KeyValueToken.StartSubkeys:
+                        ref DbRow row = ref CreateDbRow();
+                        row.KeyLength = length;
+                        row.KeyLocation = pos;
+                        row.Type = 0;
+                        row.Location = _valuesIndex;
+                        row.Length = ReadBody();
+                        numberOfRowsForMembers += row.Length + 1;
                         break;
-                    case KeyValueTokenType.Conditional when !EvaluateConditional():
+                    case KeyValueToken.Conditional when !EvaluateConditional():
                         SkipChildren();
                         continue;
                 }
@@ -127,11 +131,12 @@ namespace Steam.KeyValues
         /// <summary>
         /// Reads from an open bracket to a closing bracket
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void SkipChildren()
         {
             _valuesIndex++; // eat open brace
 
-            var newPosition = GetFinalCharPosition(_valuesIndex, KeyValueConstants.CloseBrace, KeyValueConstants.OpenBrace, false);
+            var newPosition = GetFinalCharPosition(KeyValueConstants.CloseBrace, KeyValueConstants.OpenBrace);
 
             _valuesIndex += newPosition;
             SkipWhitespace();
@@ -141,17 +146,18 @@ namespace Steam.KeyValues
         private void SkipLine()
         {
             do _valuesIndex++;
-            while (_values[_valuesIndex] != '\n');
+            while (_values[_valuesIndex] != KeyValueConstants.LineFeed);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void ResizeDb()
         {
             var oldData = _scratchManager.Span;
             var newScratch = _pool.Rent(_scratchManager.Length * 2);
             int dbLength = newScratch.Length / 2;
 
-            var newDb = newScratch.Memory.Slice(0, dbLength);
-            _db.Slice(0, _valuesIndex).Span.CopyTo(newDb.Span);
+            var newDb = newScratch.Span.Slice(0, dbLength);
+            _db.Slice(0, _valuesIndex).CopyTo(newDb);
             _db = newDb;
 
             _scratchManager.Dispose();
@@ -174,113 +180,117 @@ namespace Steam.KeyValues
         /// </summary>
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private (int pos, int length) ReadString()
+        private void ReadString(out int pos, out int length)
         {
             if (_values[_valuesIndex] == KeyValueConstants.Quote)
             {
                 _valuesIndex++;
-                int pos = _valuesIndex;
-                int length = GetFinalCharPosition(pos, KeyValueConstants.Quote, KeyValueConstants.BackSlash, true);
-
+                pos = _valuesIndex;
+                length = GetFinalCharIfNotEscaped(KeyValueConstants.Quote, KeyValueConstants.BackSlash);
                 _valuesIndex += length + 1;
                 SkipWhitespace();
-                return (pos, length);
             }
             else // straight shot, move forward until whitespace
             {
-                int pos = _valuesIndex;
-                int length;
-                for (length = 0; length < _values.Length && !Unicode.IsWhitespace(_values[_valuesIndex]); length++, _valuesIndex++) ;
+                pos = _valuesIndex;
+                length = 0;
+                while (length < _values.Length && !KeyValueConstants.IsSpace(_values[_valuesIndex]))
+                {
+                    length++;
+                    _valuesIndex++;
+                }
                 _valuesIndex++;
                 SkipWhitespace();
-                return (pos, length);
             }
         }
 
-        private int GetFinalCharPosition(int start, byte charToFind, byte ignoreController, bool proceededBy)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private int GetFinalCharPosition(byte charToFind, byte ignoreController)
         {
-            int realStart = start;
-
-            if (proceededBy)
+            int start = _valuesIndex;
+            int realStart = _valuesIndex;
+            
+            int level = 0;
+            while (true)
             {
-                while(true)
-                {
-                    int nextPosition = _values.Slice(start).IndexOf(charToFind);
-                    start += nextPosition;
-                    if (_values[start - 1] == ignoreController)
-                        start++;
-                    else
-                        return start - realStart;
-                }
+                int indexOfIgnore = _values.Slice(start).IndexOf(ignoreController);
+                int indexOfFind = _values.Slice(start).IndexOf(charToFind);
+
+                if (indexOfIgnore < indexOfFind)
+                    level++;
+                else
+                    level--;
+
+                if (level == 0)
+                    return (start + indexOfFind + 1) - realStart;
+
+                start += indexOfIgnore < indexOfFind ? indexOfIgnore + 1 : indexOfFind + 1;
             }
-            else
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private int GetFinalCharIfNotEscaped(byte charToFind, byte ignoreController)
+        {
+            int start = _valuesIndex;
+            int realStart = _valuesIndex;
+
+            while (true)
             {
-                int level = 0;
-                while (true)
-                {
-                    int indexOfIgnore = _values.Slice(start).IndexOf(ignoreController);
-                    int indexOfFind = _values.Slice(start).IndexOf(charToFind);
-
-                    if (indexOfIgnore < indexOfFind)
-                        level++;
-                    else
-                        level--;
-
-                    if (level == 0)
-                        return (start + indexOfFind + 1) - realStart;
-
-                    start += indexOfIgnore < indexOfFind ? indexOfIgnore + 1 : indexOfFind + 1;
-                }
+                int nextPosition = _values.Slice(start).IndexOf(charToFind);
+                start += nextPosition;
+                if (_values[start - 1] == ignoreController)
+                    start++;
+                else
+                    return start - realStart;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void SkipWhitespace()
         {
-            while (Unicode.IsWhitespace(_values[_valuesIndex]))
+            while (KeyValueConstants.IsSpace(_values[_valuesIndex]))
                 _valuesIndex++;
         }
-        
-        private bool AppendDbRow(KeyValueType type, int keyIndex, int keyLength, int valuesIndex, int length, int dbPosition = -1)
-        {
-            if (dbPosition != -1)
-            {
-                var dbRow = new DbRow(keyIndex, keyLength, type, valuesIndex, length);
-                WriteMachineEndian(_db.Span.Slice(dbPosition), ref dbRow);
-                return true;
-            }
-            else
-            {
-                dbPosition = _dbIndex;
-                var newIndex = _dbIndex + DbRow.Size;
-                if (newIndex >= _db.Length)
-                    ResizeDb();
 
-                var dbRow = new DbRow(keyIndex, keyLength, type, valuesIndex, length);
-                WriteMachineEndian(_db.Span.Slice(dbPosition), ref dbRow);
-                _dbIndex = newIndex;
-                return true;
-            }
-        }
-
-        /// <summary>
-        /// Moves the database index up
-        /// </summary>
-        /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private int MoveDbPosition()
+        private void AppendDbRow(KeyValueType type, int keyIndex, int keyLength, int valuesIndex, int length)
         {
-            int old = _dbIndex;
-            _dbIndex += DbRow.Size;
-            return old;
+            int dbPosition = CheckDbSize();
+
+            var dbRow = new DbRow(keyIndex, keyLength, type, valuesIndex, length);
+            WriteMachineEndian(_db.Slice(dbPosition), ref dbRow);
+            _dbIndex = dbPosition + DbRow.Size;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private KeyValueTokenType SkipAndPeekType(bool findingValue)
+        private ref DbRow CreateDbRow()
+        {
+            int dbPosition = CheckDbSize();
+
+            var dbRow = new DbRow();
+            WriteMachineEndian(_db.Slice(dbPosition), ref dbRow);
+            _dbIndex = dbPosition + DbRow.Size;
+
+            return ref Unsafe.As<byte, DbRow>(ref MemoryMarshal.GetReference(_db.Slice(dbPosition)));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private int CheckDbSize()
+        {
+            int dbPosition = _dbIndex;
+            var newIndex = _dbIndex + DbRow.Size;
+            if (newIndex >= _db.Length)
+                ResizeDb();
+
+            return dbPosition;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private KeyValueToken SkipAndPeekType(bool findingValue)
         {
             SkipWhitespace();
-            KeyValueTokenType type;
-            for (type = PeekTokenType(findingValue); type == KeyValueTokenType.Comment; type = PeekTokenType(findingValue))
+            KeyValueToken type;
+            for (type = PeekTokenType(findingValue); type == KeyValueToken.Comment; type = PeekTokenType(findingValue))
             {
                 SkipLine();
                 SkipWhitespace();
@@ -293,63 +303,58 @@ namespace Steam.KeyValues
         /// </summary>
         /// <param name="findingValue"></param>
         /// <returns></returns>
-        private KeyValueTokenType PeekTokenType(bool findingValue)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private KeyValueToken PeekTokenType(bool findingValue)
         {
             switch(_values[_valuesIndex])
             {
                 case KeyValueConstants.OpenBrace:
-                    return KeyValueTokenType.StartSubkeys;
+                    return KeyValueToken.StartSubkeys;
                 case KeyValueConstants.Quote:
                 default:
-                    return findingValue ? KeyValueTokenType.Value : KeyValueTokenType.PropertyName;
+                    return findingValue ? KeyValueToken.Value : KeyValueToken.Key;
                 case KeyValueConstants.OpenBracket:
-                    return KeyValueTokenType.Conditional;
+                    return KeyValueToken.Conditional;
                 case KeyValueConstants.CloseBrace:
-                    return KeyValueTokenType.EndSubkeys;
+                    return KeyValueToken.EndSubkeys;
                 case (byte)'/' when _values[_valuesIndex + 1] == '/':
-                    return KeyValueTokenType.Comment;
+                    return KeyValueToken.Comment;
             }
         }
-        
+
         /// <summary>
         /// Evaluates a conditional block, advances the value index past the conditional, and returns whether we should read the next token(s)
         /// </summary>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private bool EvaluateConditional()
         {
-            if (!_evalConditionals)
-                return true;
-
             _valuesIndex++;
 
-            bool result;
-            for(result = false; _values[_valuesIndex] != KeyValueConstants.CloseBracket; _valuesIndex++)
+            bool result = false;
+            while(_values[_valuesIndex] != KeyValueConstants.CloseBracket)
             {
                 if (result || _values[_valuesIndex] == '|')
+                {
+                    _valuesIndex++;
                     continue;
+                }
                 
                 bool isNegated = _values[_valuesIndex] == KeyValueConstants.Bang;
                 if (isNegated)
                     _valuesIndex++;
-
-                if (EqualsCondition(KeyValueConstants.X360))
-                    result = KeyValueConstants.IsXbox ^ isNegated;
-                else if (EqualsCondition(KeyValueConstants.WIN32))
-                    result = KeyValueConstants.IsPC ^ isNegated;
-                else if (EqualsCondition(KeyValueConstants.WINDOWS))
-                    result = KeyValueConstants.IsWindows ^ isNegated;
-                else if (EqualsCondition(KeyValueConstants.OSX))
-                    result = KeyValueConstants.IsMac ^ isNegated;
-                else if (EqualsCondition(KeyValueConstants.LINUX))
-                    result = KeyValueConstants.IsLinux ^ isNegated;
-                else if (EqualsCondition(KeyValueConstants.POSIX))
-                    result = KeyValueConstants.IsPosix ^ isNegated;
-                else
+                
+                for (int i = 0; i < _conditions.Length; i++)
                 {
-                    do _valuesIndex++;
-                    while (_values[_valuesIndex] != '|' && _values[_valuesIndex] != KeyValueConstants.CloseBracket);
-                    _valuesIndex--; // move one back for the _valuesindex++ in for loop
+                    if (EqualsCondition(new Utf8Span(_conditions[i]).Bytes))
+                    {
+                        result = !isNegated;
+                        break;
+                    }
                 }
+
+                do _valuesIndex++;
+                while (_values[_valuesIndex] != '|' && _values[_valuesIndex] != KeyValueConstants.CloseBracket);
             }
 
             _valuesIndex++;
@@ -357,12 +362,10 @@ namespace Steam.KeyValues
             return result;
         }
 
-        private bool EqualsCondition(byte[] condition)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private bool EqualsCondition(ReadOnlySpan<byte> condition)
         {
-            bool isCondition = _values.Slice(_valuesIndex, condition.Length).SequenceEqual(condition);
-            if (isCondition)
-                _valuesIndex += condition.Length - 1;
-            return isCondition;
+            return _values.Slice(_valuesIndex, condition.Length).SequenceEqual(condition);
         }
     }
 }

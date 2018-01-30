@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text.Utf8;
 
 using static System.Buffers.Binary.BinaryPrimitives;
@@ -16,7 +15,6 @@ namespace Steam.KeyValues
     /// Represents a KeyValue structure that is immutable, stack-only, and uses zero allocations
     /// </summary>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
-    // [DebuggerTypeProxy(typeof(DebugView))] one day
     public readonly ref struct ImmutableKeyValue
     {
         private readonly MemoryPool<byte> _pool;
@@ -44,7 +42,6 @@ namespace Steam.KeyValues
         /// <summary>
         /// Gets the key of this <see cref="ImmutableKeyValue"/> as a <see cref="Utf8Span"/>
         /// </summary>
-        [CLSCompliant(false)]
         public Utf8Span Utf8Key
         {
             get
@@ -70,21 +67,19 @@ namespace Steam.KeyValues
         /// Parses the specified byte array as a text stream
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="pool"></param>
+        /// <param name="config"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
-        public static ImmutableKeyValue Parse(byte[] data, MemoryPool<byte> pool = null) => Parse(new ReadOnlySpan<byte>(data), pool);
+        public static ImmutableKeyValue Parse(byte[] data, KeyValueParserConfig config = null) => Parse(new ReadOnlySpan<byte>(data), config);
         
         /// <summary>
         /// Parses the specified <see cref="ReadOnlySpan{T}"/> as a text stream
         /// </summary>
         /// <param name="utf8KeyValue"></param>
-        /// <param name="pool"></param>
+        /// <param name="config"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
-        public static ImmutableKeyValue Parse(ReadOnlySpan<byte> utf8KeyValue, MemoryPool<byte> pool = null)
+        public static ImmutableKeyValue Parse(ReadOnlySpan<byte> utf8KeyValue, KeyValueParserConfig config = null)
         {
-            return new KeyValueTextParser().Parse(utf8KeyValue, pool);
+            return new KeyValueTextParser().Parse(utf8KeyValue, config);
         }
 
         /// <summary>
@@ -98,16 +93,15 @@ namespace Steam.KeyValues
         /// Loads a UTF8 file at the specified path and parses it as a text stream
         /// </summary>
         /// <param name="file"></param>
-        /// <param name="pool"></param>
+        /// <param name="config"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
-        public static ImmutableKeyValue FromFile(string file, MemoryPool<byte> pool = null)
+        public static ImmutableKeyValue FromFile(string file, KeyValueParserConfig config = null)
         {
             var bytes = File.ReadAllBytes(file);
             if (bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF)
-                return Parse(new Span<byte>(bytes).Slice(3), pool);
+                return Parse(new Span<byte>(bytes).Slice(3), config);
             else
-                return Parse(bytes, pool);
+                return Parse(bytes, config);
         }
 
         /// <summary>
@@ -123,7 +117,6 @@ namespace Steam.KeyValues
         /// <param name="data"></param>
         /// <param name="pool"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
         public static ImmutableKeyValue ParseBinary(byte[] data, MemoryPool<byte> pool = null) => ParseBinary(new ReadOnlySpan<byte>(data), pool);
 
         /// <summary>
@@ -132,7 +125,6 @@ namespace Steam.KeyValues
         /// <param name="binaryKeyValue"></param>
         /// <param name="pool"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
         public static ImmutableKeyValue ParseBinary(ReadOnlySpan<byte> binaryKeyValue, MemoryPool<byte> pool = null)
         {
             return new KeyValueBinaryParser().Parse(binaryKeyValue, pool);
@@ -151,7 +143,6 @@ namespace Steam.KeyValues
         /// <param name="file"></param>
         /// <param name="pool"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
         public static ImmutableKeyValue FromBinaryFile(string file, MemoryPool<byte> pool = null) => ParseBinary(File.ReadAllBytes(file), pool);
         
         /// <summary>
@@ -159,22 +150,20 @@ namespace Steam.KeyValues
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
-        public ImmutableKeyValue this[Utf8Span name] => TryGetValue(name, out var value) ? value : throw new KeyNotFoundException();
+        public ImmutableKeyValue this[Utf8Span name] => TryGet(name, out var value) ? value : throw new KeyNotFoundException();
         
         /// <summary>
         /// Gets the child <see cref="ImmutableKeyValue"/> with the specified key
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public ImmutableKeyValue this[string name] => TryGetValue(name, out var value) ? value : throw new KeyNotFoundException();
+        public ImmutableKeyValue this[string name] => TryGet(name, out var value) ? value : throw new KeyNotFoundException();
 
         /// <summary>
         /// Gets the child <see cref="ImmutableKeyValue"/> at the specified index
         /// </summary>
         /// <param name="index">The index to get the child</param>
         /// <returns>The <see cref="ImmutableKeyValue"/> at the specified index</returns>
-        /// <remarks>This method performs a linear search; therefore, this method is an O(n) operation, where n is Length</remarks>
         public ImmutableKeyValue this[int index]
         {
             get
@@ -191,7 +180,7 @@ namespace Steam.KeyValues
                 return enumerator.Current;
             }
         }
-
+        
         /// <summary>
         /// Gets the number of children in this <see cref="ImmutableKeyValue"/>
         /// </summary>
@@ -200,32 +189,58 @@ namespace Steam.KeyValues
             get
             {
                 int length = 0;
-                Enumerator enumerator = GetEnumerator();
-                while (enumerator.MoveNext())
-                {
-                    length++;
-                }
+                for (Enumerator enumerator = GetEnumerator(); enumerator.MoveNext(); length++) ;
                 return length;
             }
         }
 
         /// <summary>
-        /// Converts this <see cref="ImmutableKeyValue"/> to a mutable KeyValue object
+        /// Copies this <see cref="ImmutableKeyValue"/> to a mutable KeyValue object
         /// </summary>
         /// <returns></returns>
         public KeyValue ToKeyValue()
         {
-            if (Type == 0)
-            {
-                List<KeyValue> subKeys = new List<KeyValue>();
-                foreach (ImmutableKeyValue kv in this)
-                    subKeys.Add(kv.ToKeyValue());
+            KeyValue root = KeyValue.Create(Key);
 
-                return new KeyValue(Key, subKeys);
-            }
-            else
+            foreach(ImmutableKeyValue kv in this)
+                AddValue(kv, root);
+
+            return root;
+        }
+
+        private void AddValue(ImmutableKeyValue kv, KeyValue instance)
+        {
+            switch (kv.Type)
             {
-                return new KeyValue(Key, GetValue(), Type);
+                case KeyValueType.None:
+                    KeyValue subKey = instance.GetOrAdd(kv.Key);
+                    foreach (ImmutableKeyValue immutableSubKey in kv)
+                        AddValue(immutableSubKey, subKey);
+                    break;
+                case KeyValueType.Float:
+                    instance.Add(kv.Key, kv.GetFloat());
+                    break;
+                case KeyValueType.Int32:
+                    instance.Add(kv.Key, kv.GetInt32());
+                    break;
+                case KeyValueType.Int64:
+                    instance.Add(kv.Key, kv.GetInt64());
+                    break;
+                case KeyValueType.Pointer:
+                    instance.Add(kv.Key, kv.GetIntPtr());
+                    break;
+                case KeyValueType.String:
+                    instance.Add(kv.Key, kv.GetString());
+                    break;
+                case KeyValueType.UInt64:
+                    instance.Add(kv.Key, kv.GetUInt64());
+                    break;
+                case KeyValueType.WideString:
+                    instance.Add(kv.Key, kv.GetString());
+                    break;
+                case KeyValueType.Color:
+                    instance.Add(kv.Key, kv.GetColor());
+                    break;
             }
         }
 
@@ -233,13 +248,13 @@ namespace Steam.KeyValues
         /// Gets the value of this <see cref="ImmutableKeyValue"/> in the type specified by <see cref="Type"/>
         /// </summary>
         /// <returns></returns>
-        public object GetValue()
+        public object GetValue(bool escapeString)
         {
             switch (Type)
             {
                 case KeyValueType.WideString:
                 case KeyValueType.String:
-                    return GetString();
+                    return escapeString ? GetEscapedString() : GetString();
                 case KeyValueType.Int32:
                     return GetInt32();
                 case KeyValueType.Float:
@@ -252,7 +267,6 @@ namespace Steam.KeyValues
                     return GetUInt64();
                 case KeyValueType.Int64:
                     return GetInt64();
-                case KeyValueType.None:
                 default:
                     throw new InvalidOperationException("Invalid data type");
             }
@@ -264,8 +278,7 @@ namespace Steam.KeyValues
         /// <param name="propertyName"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        [CLSCompliant(false)]
-        public bool TryGetValue(Utf8Span propertyName, out ImmutableKeyValue value)
+        public bool TryGet(Utf8Span propertyName, out ImmutableKeyValue value)
         {
             var record = Record;
             
@@ -291,7 +304,7 @@ namespace Steam.KeyValues
         /// <param name="propertyName"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool TryGetValue(string propertyName, out ImmutableKeyValue value)
+        public bool TryGet(string propertyName, out ImmutableKeyValue value)
         {
             var record = Record;
 
@@ -356,7 +369,10 @@ namespace Steam.KeyValues
             }
         }
 
-        [CLSCompliant(false)]
+        /// <summary>
+        /// Gets the value of this <see cref="ImmutableKeyValue"/> as an unsigned 64 bit integer
+        /// </summary>
+        /// <returns>The value of this <see cref="ImmutableKeyValue"/></returns>
         public ulong GetUInt64()
         {
             if (TryGetUInt64(out var value))
@@ -365,7 +381,11 @@ namespace Steam.KeyValues
                 throw new InvalidCastException();
         }
 
-        [CLSCompliant(false)]
+        /// <summary>
+        /// Tries to get the value of this <see cref="ImmutableKeyValue"/> as an unsigned 64 bit integer
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool TryGetUInt64(out ulong value)
         {
             value = default;
@@ -392,6 +412,10 @@ namespace Steam.KeyValues
             }
         }
         
+        /// <summary>
+        /// Gets the value of this <see cref="ImmutableKeyValue"/> as a 64 bit integer
+        /// </summary>
+        /// <returns></returns>
         public long GetInt64()
         {
             if (TryGetInt64(out var value))
@@ -400,19 +424,35 @@ namespace Steam.KeyValues
                 throw new InvalidCastException();
         }
 
-        public bool TryGetInt64(out long value) => throw new NotImplementedException();
-
         /// <summary>
-        /// Gets the value of this <see cref="ImmutableKeyValue"/> as a UInt64
+        /// Tries to get the value of this <see cref="ImmutableKeyValue"/> as a 64 bit integer
         /// </summary>
-        /// <returns>A decimal container for an UInt64</returns>
-        public decimal GetDecimal() => GetUInt64();
-
-        public bool TryGetDecimal(out decimal value)
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool TryGetInt64(out long value)
         {
-            bool success = TryGetUInt64(out var ulongValue);
-            value = ulongValue;
-            return success;
+            value = default;
+
+            var record = Record;
+            if (!record.IsSimpleValue)
+                return false;
+
+            switch (record.Type)
+            {
+                case KeyValueType.String:
+                case KeyValueType.WideString:
+                    return Utf8Parser.TryParse(_values.Slice(record.Location, record.Length), out value, out var _);
+                case KeyValueType.Float:
+                case KeyValueType.Int32:
+                case KeyValueType.Pointer:
+                default:
+                    value = ReadMachineEndian<uint>(_values.Slice(record.Location, record.Length));
+                    return true;
+                case KeyValueType.Int64:
+                case KeyValueType.UInt64:
+                    value = ReadMachineEndian<long>(_values.Slice(record.Location, record.Length));
+                    return true;
+            }
         }
 
         public IntPtr GetIntPtr()
@@ -434,8 +474,7 @@ namespace Steam.KeyValues
         }
 
         public bool TryGetFloat(out float value) => throw new NotImplementedException();
-
-        [CLSCompliant(false)]
+        
         public Utf8String GetUtf8String()
         {
             if (TryGetUtf8String(out var value))
@@ -443,8 +482,7 @@ namespace Steam.KeyValues
             else
                 throw new InvalidCastException();
         }
-
-        [CLSCompliant(false)]
+        
         public bool TryGetUtf8String(out Utf8String value)
         {
             value = default;
@@ -476,6 +514,28 @@ namespace Steam.KeyValues
                 value = utf8.ToString();
                 return true;
             }
+        }
+
+        public bool TryGetEscapedString(out string value)
+        {
+            value = default;
+
+            if (!TryGetUtf8String(out var unescaped))
+                return false;
+            else
+            {
+                var unescapedString = unescaped.ToString();
+                value = unescapedString.Replace("\\\\", "\\").Replace("\\n", "\n").Replace("\\r", "\r").Replace("\\t", "\t");
+                return true;
+            }
+        }
+
+        public string GetEscapedString()
+        {
+            if (TryGetEscapedString(out var value))
+                return value;
+            else
+                throw new InvalidCastException();
         }
 
         public bool GetBool()
@@ -545,16 +605,13 @@ namespace Steam.KeyValues
 
         public static explicit operator Color(ImmutableKeyValue kv) => kv.GetColor();
         public static explicit operator bool(ImmutableKeyValue kv) => kv.GetBool();
-        [CLSCompliant(false)]
         public static explicit operator Utf8String(ImmutableKeyValue kv) => kv.GetUtf8String();
         public static explicit operator string(ImmutableKeyValue kv) => kv.GetString();
         public static explicit operator float(ImmutableKeyValue kv) => kv.GetFloat();
         public static explicit operator long(ImmutableKeyValue kv) => kv.GetInt64();
-        [CLSCompliant(false)]
         public static explicit operator ulong(ImmutableKeyValue kv) => kv.GetUInt64();
         public static explicit operator int(ImmutableKeyValue kv) => kv.GetInt32();
         public static explicit operator IntPtr(ImmutableKeyValue kv) => kv.GetIntPtr();
-        public static explicit operator decimal(ImmutableKeyValue kv) => kv.GetDecimal();
 
         public Enumerator GetEnumerator() => new Enumerator(this);
 
@@ -569,7 +626,8 @@ namespace Steam.KeyValues
             _dbMemory.Dispose();
         }
 
-        private DebugView DebuggerView => new DebugView(this);
+        [DebuggerDisplay("Expanding the results view will enumerate the KeyValue", Name = "Results View", Type = "")]
+        private KeyValueResultsView ResultsView => new KeyValueResultsView(this);
         
         /// <summary>
         /// Provides an enumerator for enumerating through an <see cref="ImmutableKeyValue"/>'s subkeys
@@ -624,72 +682,6 @@ namespace Steam.KeyValues
 
                 _nextDbIndex += DbRow.Size;
                 return _dbIndex < _keyValue._db.Length;
-            }
-        }
-
-        [DebuggerDisplay("{DebuggerDisplay,nq}")]
-        internal sealed class DebugView
-        {
-            public DebugView(ImmutableKeyValue value)
-            {
-                object[] items = new object[value.Length];
-                int i = 0;
-                foreach(var subKey in value)
-                {
-                    items[i] = subKey.Type == 0 ? (object)new ValuesTypeProxy(subKey) : new ValueTypeProxy(subKey);
-                    i++;
-                }
-
-                Items = items;
-            }
-            
-            [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-            public object[] Items { get; }
-            
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private string DebuggerDisplay => "";
-            
-            [DebuggerDisplay("{_value}", Name = "{_key,nq}")]
-            private class ValueTypeProxy
-            {
-                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-                private readonly string _key;
-                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-                private readonly object _value;
-                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-                private readonly KeyValueType _type;
-
-                public ValueTypeProxy(ImmutableKeyValue kv)
-                {
-                    _key = kv.Key;
-                    _type = kv.Type;
-                    _value = kv.GetValue();
-                }
-            }
-
-            [DebuggerDisplay("Length = {Items.Length}", Name = "{_key,nq}")]
-            private class ValuesTypeProxy
-            {
-                [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-                private readonly string _key;
-
-                public ValuesTypeProxy(ImmutableKeyValue kv)
-                {
-                    _key = kv.Key;
-
-                    object[] items = new object[kv.Length];
-                    int i = 0;
-                    foreach (var subKey in kv)
-                    {
-                        items[i] = subKey.Type == 0 ? (object)new ValuesTypeProxy(subKey) : new ValueTypeProxy(subKey);
-                        i++;
-                    }
-
-                    Items = items;
-                }
-
-                [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-                public object[] Items { get; }
             }
         }
     }

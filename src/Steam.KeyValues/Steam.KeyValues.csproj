@@ -2,14 +2,19 @@
   <Import Project="../../tools/common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard20</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Formatting">
-      <Version>0.1.0-e171201-1</Version>
+      <Version>0.1.0-preview2-180129-1</Version>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

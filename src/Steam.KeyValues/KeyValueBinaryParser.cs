@@ -39,7 +39,7 @@ namespace Steam.KeyValues
             int bodyLength = RecursiveParse();
             AppendDbRow(0, keyPos, keyLength, bodyPos, bodyLength, dbPos);
 
-            var result = new ImmutableKeyValue(_values, _db.Slice(0, _dbIndex).Span, false, _pool, _scratchManager);
+            var result = new ImmutableKeyValue(_values, _db.Slice(0, _dbIndex).Span, true, _pool, _scratchManager);
             _scratchManager = null;
             return result;
         }
@@ -149,6 +149,5 @@ namespace Steam.KeyValues
             _dbIndex += DbRow.Size;
             return old;
         }
-
     }
 }

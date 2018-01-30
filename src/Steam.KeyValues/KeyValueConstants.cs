@@ -12,6 +12,8 @@ namespace Steam.KeyValues
         public const byte Tab = (byte)'\t';
         public const byte CarriageReturn = (byte)'\r';
         public const byte LineFeed = (byte)'\n';
+        public const byte Feed = (byte)'\f';
+        public const byte VerticalTab = (byte)'\v';
         public const byte Bang = (byte)'!'; // it's easier to write Bang than ExclamationMark
         public const byte Quote = (byte)'"';
         public const byte BackSlash = (byte)'\\'; // I'M REALLY FEELING IT
@@ -29,8 +31,6 @@ namespace Steam.KeyValues
         public static readonly bool IsMac;
         public static readonly bool IsLinux;
         public static readonly bool IsPosix;
-        public const bool IsXbox = false;
-        public const bool IsPC = true; // until the .NET Standard is on Xbox 360 these are constants. wake me up when that happens
 
         static KeyValueConstants()
         {
@@ -38,6 +38,17 @@ namespace Steam.KeyValues
             IsMac = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
             IsLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
             IsPosix = IsMac || IsLinux;
+        }
+
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
+        internal static bool IsSpace(byte val)
+        {
+            return val == Space
+                || val == Tab
+                || val == LineFeed
+                || val == VerticalTab
+                || val == Feed
+                || val == CarriageReturn;
         }
     }
 }
