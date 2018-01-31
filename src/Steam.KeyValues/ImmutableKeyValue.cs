@@ -17,22 +17,16 @@ namespace Steam.KeyValues
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public readonly ref struct ImmutableKeyValue
     {
-        private readonly MemoryPool<byte> _pool;
-        private readonly OwnedMemory<byte> _dbMemory;
-        private readonly ReadOnlySpan<byte> _db;
+        private readonly KVDatabase _db;
         private readonly ReadOnlySpan<byte> _values;
-        private readonly bool _binarySpan;
-        
-        internal ImmutableKeyValue(ReadOnlySpan<byte> values, ReadOnlySpan<byte> db, bool binary, MemoryPool<byte> pool = null, OwnedMemory<byte> dbMemory = null)
+
+        internal ImmutableKeyValue(ReadOnlySpan<byte> values, KVDatabase db)
         {
             _values = values;
             _db = db;
-            _pool = pool;
-            _dbMemory = dbMemory;
-            _binarySpan = binary;
         }
-        
-        internal DbRow Record => ReadMachineEndian<DbRow>(_db);
+
+        private ref DbRow Record => ref _db.Current;
 
         /// <summary>
         /// Get key of this <see cref="ImmutableKeyValue"/> as a <see cref="string"/>
@@ -46,15 +40,14 @@ namespace Steam.KeyValues
         {
             get
             {
-                var record = Record;
-                return new Utf8Span(_values.Slice(record.KeyLocation, record.KeyLength));
+                return new Utf8Span(_values.Slice(Record.KeyLocation, Record.KeyLength));
             }
         }
 
         /// <summary>
         /// Gets the type of value this <see cref="ImmutableKeyValue"/> contains
         /// </summary>
-        public KeyValueType Type => ReadMachineEndian<KeyValueType>(_db.Slice(16)); // 16 is the offset of the type
+        public KeyValueType Type => Record.Type;
 
         /// <summary>
         /// Parses the specified byte array as a text stream
@@ -620,10 +613,7 @@ namespace Steam.KeyValues
         /// </summary>
         public void Dispose()
         {
-            if (_pool == null)
-                throw new InvalidOperationException("Only the root object can be disposed");
-
-            _dbMemory.Dispose();
+            _db.Dispose();
         }
 
         [DebuggerDisplay("Expanding the results view will enumerate the KeyValue", Name = "Results View", Type = "")]
@@ -634,55 +624,25 @@ namespace Steam.KeyValues
         /// </summary>
         public ref struct Enumerator
         {
-            private readonly ImmutableKeyValue _keyValue;
-            private DbRow _currentRecord;
-            private int _dbIndex;
-            private int _nextDbIndex;
+            private ImmutableKeyValue _keyValues;
+            private KVDatabase.Enumerator _db;
 
             internal Enumerator(ImmutableKeyValue keyValue)
             {
-                _keyValue = keyValue;
-                _currentRecord = keyValue.Record;
-                _dbIndex = 0;
-                _nextDbIndex = DbRow.Size;
+                _keyValues = keyValue;
+                _db = keyValue._db.GetEnumerator();
             }
 
             /// <summary>
             /// Returns the <see cref="ImmutableKeyValue"/> at the current position
             /// </summary>
-            public ImmutableKeyValue Current
-            {
-                get
-                {
-                    int newStart = _dbIndex;
-                    int newEnd = _dbIndex + DbRow.Size;
-
-                    if (!_currentRecord.IsSimpleValue)
-                    {
-                        newEnd += DbRow.Size * _currentRecord.Length;
-                    }
-                    return new ImmutableKeyValue(_keyValue._values, _keyValue._db.Slice(newStart, newEnd - newStart), _keyValue._binarySpan);
-                }
-            }
+            public ImmutableKeyValue Current => new ImmutableKeyValue(_keyValues._values, _db.Current);
 
             /// <summary>
             /// Moves the enumerator to the position of the next <see cref="ImmutableKeyValue"/>
             /// </summary>
             /// <returns></returns>
-            public bool MoveNext()
-            {
-                _dbIndex = _nextDbIndex;
-                if (_dbIndex >= _keyValue._db.Length)
-                    return false;
-
-                _currentRecord = ReadMachineEndian<DbRow>(_keyValue._db.Slice(_dbIndex));
-
-                if (!_currentRecord.IsSimpleValue)
-                    _nextDbIndex += _currentRecord.Length * DbRow.Size;
-
-                _nextDbIndex += DbRow.Size;
-                return _dbIndex < _keyValue._db.Length;
-            }
+            public bool MoveNext() => _db.MoveNext();
         }
     }
 }

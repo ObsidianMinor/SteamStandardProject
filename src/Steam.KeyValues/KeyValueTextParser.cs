@@ -1,45 +1,36 @@
 ﻿using System;
 using System.Buffers;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text.Utf8;
-
-using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace Steam.KeyValues
 {
     internal ref struct KeyValueTextParser // the time to beat is 21ms.
     {
-        private Span<byte> _db;
         private ReadOnlySpan<byte> _values;
-        private OwnedMemory<byte> _scratchManager;
-        MemoryPool<byte> _pool;
+        private KVDatabase.Builder _db;
         private string[] _conditions;
 
         private int _valuesIndex;
-        private int _dbIndex;
 
         public ImmutableKeyValue Parse(ReadOnlySpan<byte> data, KeyValueParserConfig config)
         {
-            _pool = config?.Pool ?? MemoryPool<byte>.Default;
             _conditions = config?.Conditions ?? KeyValueParserConfig.GetDefaultConditions();
-            _scratchManager = _pool.Rent(data.Length * 2);
-            _db = _scratchManager.Span;
-            
+
             _values = data;
             _valuesIndex = 0;
-            _dbIndex = 0;
-
-            ref DbRow topRow = ref CreateDbRow();
+            _db = new KVDatabase.Builder(config?.Pool ?? MemoryPool<byte>.Default, data.Length / 8);
+            ref DbRow topRow = ref _db.AppendRow();
 
             if (!ValidateHeader(ref topRow))
+            {
+                _db.Dispose();
                 throw new KeyValuesException("Header is not valid");
+            }
 
             topRow.Length = ReadBody();
-
-            var result = new ImmutableKeyValue(_values, _db.Slice(0, _dbIndex), false, _pool, _scratchManager);
-            _scratchManager = null;
-            return result;
+            
+            return new ImmutableKeyValue(_values, _db.Build());
         }
 
         private bool ValidateHeader(ref DbRow row)
@@ -107,11 +98,11 @@ namespace Steam.KeyValues
                             continue;
                         }
 
-                        AppendDbRow(KeyValueType.String, pos, length, valuePos, valueLength);
+                        _db.AppendRow(pos, length, KeyValueType.String, valuePos, valueLength);
                         numberOfRowsForMembers++;
                         break;
                     case KeyValueToken.StartSubkeys:
-                        ref DbRow row = ref CreateDbRow();
+                        ref DbRow row = ref _db.AppendRow();
                         row.KeyLength = length;
                         row.KeyLocation = pos;
                         row.Type = 0;
@@ -147,21 +138,6 @@ namespace Steam.KeyValues
         {
             do _valuesIndex++;
             while (_values[_valuesIndex] != KeyValueConstants.LineFeed);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void ResizeDb()
-        {
-            var oldData = _scratchManager.Span;
-            var newScratch = _pool.Rent(_scratchManager.Length * 2);
-            int dbLength = newScratch.Length / 2;
-
-            var newDb = newScratch.Span.Slice(0, dbLength);
-            _db.Slice(0, _valuesIndex).CopyTo(newDb);
-            _db = newDb;
-
-            _scratchManager.Dispose();
-            _scratchManager = newScratch;
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -250,39 +226,6 @@ namespace Steam.KeyValues
         {
             while (KeyValueConstants.IsSpace(_values[_valuesIndex]))
                 _valuesIndex++;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void AppendDbRow(KeyValueType type, int keyIndex, int keyLength, int valuesIndex, int length)
-        {
-            int dbPosition = CheckDbSize();
-
-            var dbRow = new DbRow(keyIndex, keyLength, type, valuesIndex, length);
-            WriteMachineEndian(_db.Slice(dbPosition), ref dbRow);
-            _dbIndex = dbPosition + DbRow.Size;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private ref DbRow CreateDbRow()
-        {
-            int dbPosition = CheckDbSize();
-
-            var dbRow = new DbRow();
-            WriteMachineEndian(_db.Slice(dbPosition), ref dbRow);
-            _dbIndex = dbPosition + DbRow.Size;
-
-            return ref Unsafe.As<byte, DbRow>(ref MemoryMarshal.GetReference(_db.Slice(dbPosition)));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private int CheckDbSize()
-        {
-            int dbPosition = _dbIndex;
-            var newIndex = _dbIndex + DbRow.Size;
-            if (newIndex >= _db.Length)
-                ResizeDb();
-
-            return dbPosition;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
