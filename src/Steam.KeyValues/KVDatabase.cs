@@ -126,6 +126,7 @@ namespace Steam.KeyValues
                 var newDb = newMemory.Span.NonPortableCast<byte, DbRow>();
                 _db.CopyTo(newDb);
                 _db = newDb;
+                _length = _db.Length;
 
                 _memory.Dispose();
                 _memory = newMemory;
