@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Core.fs" />
+    <Compile Include="Rest.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FSharp.Steam.Core\FSharp.Steam.Core.fsproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
-﻿[<AutoOpen>]
-/// Provides the core types for Steam rest requests
-module FSharp.Steam.Rest.Core
+﻿/// Provides the core types for Steam rest requests
+module FSharp.Steam.Rest
     open System
     open System.IO
     open System.Linq
@@ -32,17 +31,16 @@ module FSharp.Steam.Rest.Core
         RequestUri : Uri
         Content : HttpContent option
         Headers : Map<string, RestHeaderValue>
+        Timeout : int option
+        RetryMode : RetryMode option
     }
+
+    let options timeout retryMode request = { request with Timeout = timeout; RetryMode = retryMode; }
 
     type RestResponse = {
         StatusCode : HttpStatusCode
         Headers : Map<string, RestHeaderValue>
         Content : Stream
-    }
-
-    type RequestOptions = {
-        Timeout : int option
-        RetryMode : RetryMode option
     }
 
     exception HttpException of RestRequest * RestResponse
@@ -113,70 +111,43 @@ module FSharp.Steam.Rest.Core
                 client.Dispose ()
                 ()
 
-    let defaultRestClientProvider () = new DefaultRestClient () :> IRestClient
-
     type SteamRestConfig = {
-        DefaultRequestTimeout : int
+        DefaultTimeout : int
         DefaultRetryMode : RetryMode
-        RestClient : unit -> IRestClient
     }
 
-    /// Specifies the default values for a SteamRestConfig
-    let defaultSteamRestConfig = {
-        DefaultRequestTimeout = 15000;
-        DefaultRetryMode = RetryMode.AlwaysFail;
-        RestClient = defaultRestClientProvider
-    }
-
-    type SteamRestClient ( config : SteamRestConfig option ) =
-
-        let someOrDefault maybe someFunc defaultVal =
-            match maybe with
-                | Some some -> someFunc some
-                | None -> defaultVal
-
-        let client = someOrDefault config (fun x -> x.RestClient) (defaultSteamRestConfig.RestClient) ()
-
-        let defaultTimeout = someOrDefault config (fun x -> x.DefaultRequestTimeout) defaultSteamRestConfig.DefaultRequestTimeout
-
-        let defaultRetry = someOrDefault config (fun x -> x.DefaultRetryMode) defaultSteamRestConfig.DefaultRetryMode
-
-        let createOptionsWithDefaults options = 
-            match options with
-                | Some options ->
-                    let { Timeout = optionTimeout; RetryMode = optionRetry } = options
-                    let timeout = someOrDefault optionTimeout (fun x -> x) defaultTimeout
-                    let retry = someOrDefault optionRetry (fun x -> x) defaultRetry
-
-                    (timeout, retry)
-                | None -> (defaultTimeout, defaultRetry)
-
-        let rec sendRequest request timeout (retry : RetryMode) = async {
-            let send = request |> client.AsyncSend
-            let! sendWithTimeout = Async.StartChild (send, timeout)
-
-            let tryBindWithCatch = async {
-                try
-                    let! response = sendWithTimeout
-                    match response.StatusCode with
-                    | status when status >= HttpStatusCode.OK || status < HttpStatusCode.Ambiguous -> return Some response
-                    | HttpStatusCode.BadGateway when retry.HasFlag RetryMode.BadGateway -> return None
-                    | _ -> return raise (HttpException(request, response))
-                with
-                    | :? TimeoutException when retry.HasFlag RetryMode.Timeouts -> return None
-            }
-
-            let! result = tryBindWithCatch
-            match result with
-                | Some response -> return response
-                | None -> return! sendRequest request timeout retry
+    module SteamRestConfig = 
+        let Default = {
+            DefaultTimeout = 15000; 
+            DefaultRetryMode = RetryMode.AlwaysFail
         }
+
+    type SteamRestClient (client : IRestClient, config) = 
+        let rec sendRequest request = 
+            async {
+                let send = request |> client.AsyncSend
+                let! sendWithTimeout = Async.StartChild (send, defaultArg request.Timeout config.DefaultTimeout)
+
+                let tryBindWithCatch = async {
+                    let retry = defaultArg request.RetryMode config.DefaultRetryMode
+                    try
+                        let! response = sendWithTimeout
+                        match response.StatusCode with
+                        | status when status >= HttpStatusCode.OK || status < HttpStatusCode.Ambiguous -> return Some response
+                        | HttpStatusCode.BadGateway when retry.HasFlag RetryMode.BadGateway -> return None
+                        | _ -> return raise (HttpException(request, response))
+                    with
+                        | :? TimeoutException when retry.HasFlag RetryMode.Timeouts -> return None
+                }
+
+                let! result = tryBindWithCatch
+                match result with
+                    | Some response -> return response
+                    | None -> return! sendRequest request
+            }
 
         member __.SetHeader key value = client.SetHeader key value
 
         member __.SetCookie uri value = client.SetCookie uri value
 
-        member __.AsyncSend request options = 
-            let (timeout, retry) = createOptionsWithDefaults options
-
-            sendRequest request timeout retry
+        member __.AsyncSend request = sendRequest request

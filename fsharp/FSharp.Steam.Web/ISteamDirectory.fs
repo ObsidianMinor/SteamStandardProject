@@ -9,7 +9,7 @@
         Version = 1;
         RequireKey = false;
         HttpMethod = Get;
-        Parameters = [ "cellid", box cell; "maxcount", box count; ]
+        Parameters = [ "cellid", param cell; "maxcount", optional count; ]
     }
 
     let getCSList (cell : uint32, count : uint32 option) = {
@@ -18,6 +18,5 @@
         Version = 1;
         RequireKey = false;
         HttpMethod = Get;
-        Parameters = [ "cellid", box cell; "maxcount", box count; ]
+        Parameters = [ "cellid", param cell; "maxcount", optional count; ]
     }
-

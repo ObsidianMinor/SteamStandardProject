@@ -5,9 +5,13 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Compile Include="SteamId.fs" />
-    <Compile Include="Primitives.fs" />
-    <Compile Include="Language.fs" />
+    <Compile Include="Core.fs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
   </ItemGroup>
 
 </Project>

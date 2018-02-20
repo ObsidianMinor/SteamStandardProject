@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Core.fs" />
+    <Compile Include="Web.fs" />
     <Compile Include="ISteamDirectory.fs" />
     <Compile Include="ISteamWebAPIUtil.fs" />
   </ItemGroup>
